@@ -14,13 +14,13 @@ import org.eclipse.jdt.annotation.Nullable;
 import java.io.File;
 import java.io.IOException;
 
-public class ExprSchematicArea extends SimpleExpression<Integer> {
+public class ExprSchematicAreaCoord extends SimpleExpression<Integer> {
 
     private Expression<String> schem;
     private int marker;
 
     static {
-        Skript.registerExpression(ExprSchematicArea.class, Integer.class, ExpressionType.COMBINED, "[skematic] [the] (1¦width|2¦height|3¦length|4¦(dimensions|[schem[atic]] area)) of [the] [schem[atic]] %string%");
+        Skript.registerExpression(ExprSchematicAreaCoord.class, Integer.class, ExpressionType.COMBINED, "[skematic] [the] (1¦x|2¦y|3¦z)(-| )coord[inate] of [the] [schem[atic]] %string%");
     }
 
     @Override

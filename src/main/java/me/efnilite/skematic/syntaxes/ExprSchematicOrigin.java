@@ -14,18 +14,17 @@ import org.eclipse.jdt.annotation.Nullable;
 import java.io.File;
 import java.io.IOException;
 
-public class ExprSchematicArea extends SimpleExpression<Integer> {
+public class ExprSchematicOrigin extends SimpleExpression<Vector> {
 
     private Expression<String> schem;
-    private int marker;
 
     static {
-        Skript.registerExpression(ExprSchematicArea.class, Integer.class, ExpressionType.COMBINED, "[skematic] [the] (1¦width|2¦height|3¦length|4¦(dimensions|[schem[atic]] area)) of [the] [schem[atic]] %string%");
+        Skript.registerExpression(ExprSchematicOrigin.class, Vector.class, ExpressionType.COMBINED, "[skematic] [the] origin [area] of [schem[atic]] %string%");
     }
 
     @Override
-    public Class<? extends Integer> getReturnType() {
-        return Integer.class;
+    public Class<? extends Vector> getReturnType() {
+        return Vector.class;
     }
 
     @Override
@@ -36,40 +35,27 @@ public class ExprSchematicArea extends SimpleExpression<Integer> {
     @SuppressWarnings("unchecked")
     @Override
     public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parser) {
-        marker = parser.mark;
         schem = (Expression<String>) exprs[0];
         return true;
     }
 
     @Override
     public String toString(@Nullable Event event, boolean debug) {
-        return "Skematic sizes " + schem.toString(event, debug);
+        return "Skematic origin " + schem.toString(event, debug);
     }
 
     @Override
     @Nullable
-    protected Integer[] get(Event event) {
+    protected Vector[] get(Event event) {
 
-        Vector size;
+        Vector origin;
         File file = new File(schem.getSingle(event));
         try {
-            size = FaweAPI.load(file).getClipboard().getDimensions();
+            origin = FaweAPI.load(file).getClipboard().getOrigin();
         } catch (IOException exception) {
             exception.printStackTrace();
             return null;
         }
-        Number result = null;
-        if (marker == 1) {
-            result = size.getY();
-        } else if (marker == 2) {
-            result = size.getX();
-        } else if (marker == 3) {
-            result = size.getZ();
-        } else if (marker == 4) {
-            result = (size.getZ() * size.getX());
-        }
-        return new Integer[] { result.intValue() };
-
+        return new Vector[] { origin };
     }
 }
-

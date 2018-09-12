@@ -1,6 +1,10 @@
 package me.efnilite.skematic.syntaxes;
 
+import me.efnilite.skematic.util.Utilities;
+
+import ch.njol.skript.Skript;
 import ch.njol.skript.lang.Expression;
+import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
@@ -16,6 +20,10 @@ public class ExprSchematicArea extends SimpleExpression<Integer> {
 
     private Expression<String> schem;
     private int marker;
+
+    static {
+        Skript.registerExpression(ExprSchematicArea.class, Integer.class, ExpressionType.SIMPLE, "[skematic] [the] ((1¦x|2¦y|3¦z)(-| )coord[inate]|1¦width|2¦height|3¦length|4¦dimensions|4¦[schem[atic]] area) of [the] [schem[atic]] %string%");
+    }
 
     @Override
     public Class<? extends Integer> getReturnType() {
@@ -37,7 +45,7 @@ public class ExprSchematicArea extends SimpleExpression<Integer> {
 
     @Override
     public String toString(@Nullable Event event, boolean debug) {
-        return "Example expression with expression player: " + schem.toString(event, debug);
+        return "Skematic areas. " + schem.toString(event, debug);
     }
 
     @Override
@@ -49,6 +57,7 @@ public class ExprSchematicArea extends SimpleExpression<Integer> {
         try {
             FaweAPI.load(file).getClipboard().getDimensions();
         } catch (IOException exception) {
+            Utilities.throwException(exception);
             return null;
         }
         Number result = null;

@@ -2,8 +2,7 @@ package me.efnilite.skematic;
 
 import ch.njol.skript.Skript;
 import ch.njol.skript.SkriptAddon;
-import ch.njol.skript.lang.ExpressionType;
-import me.efnilite.skematic.syntaxes.ExprSchematicArea;
+import me.efnilite.skematic.util.Utilities;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.IOException;
@@ -22,19 +21,18 @@ public class Skematic extends JavaPlugin {
 
         try {
             addon.loadClasses("me.efnilite.skematic", "syntaxes");
-            Skript.registerExpression(ExprSchematicArea.class, Integer.class, ExpressionType.SIMPLE, "[the] (1¦y(-| )coord[inate]|height|2¦x(-| )coord[inate]|width|3¦z(-| )coord[inate]|length|4¦dimension[s]|[schem[atic]] area) of [schem[atic]] %string%");
         } catch (IOException exception) {
             exception.printStackTrace();
 
         }
-        sendConsoleMessage("Enabled Skematic " + version);
+        Utilities.sendConsoleMessage("Enabled Skematic " + version);
 
     }
 
     @Override
     public void onDisable() {
 
-        sendConsoleMessage("Disabled Skematic " + version);
+        Utilities.sendConsoleMessage("Disabled Skematic " + version);
 
     }
 
@@ -44,10 +42,6 @@ public class Skematic extends JavaPlugin {
 
     public SkriptAddon getAddonInstance() {
         return addon;
-    }
-
-    public void sendConsoleMessage(String msg) {
-        System.out.println("[Skematic] " + msg);
     }
 
 }

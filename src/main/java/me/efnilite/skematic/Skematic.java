@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class Skematic extends JavaPlugin {
 
-    private String version = "1.0.0";
+    private String version = "1.0-SNAPSHOT";
     private Skematic instance;
     private SkriptAddon addon;
 
@@ -20,7 +20,7 @@ public class Skematic extends JavaPlugin {
         addon = Skript.registerAddon(this);
 
         try {
-            addon.loadClasses("me.efnilite.skematic", "syntaxes");
+            addon.loadClasses("me.efnilite.skematic", "elements");
         } catch (IOException exception) {
             exception.printStackTrace();
 

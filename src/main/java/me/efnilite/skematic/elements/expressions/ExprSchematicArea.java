@@ -1,4 +1,4 @@
-package me.efnilite.skematic.syntaxes;
+package me.efnilite.skematic.elements.expressions;
 
 import ch.njol.skript.Skript;
 import ch.njol.skript.lang.Expression;
@@ -14,17 +14,18 @@ import org.eclipse.jdt.annotation.Nullable;
 import java.io.File;
 import java.io.IOException;
 
-public class ExprSchematicDimensions extends SimpleExpression<Vector> {
+public class ExprSchematicArea extends SimpleExpression<Integer> {
 
     private Expression<String> schem;
+    private int marker;
 
     static {
-        Skript.registerExpression(ExprSchematicDimensions.class, Vector.class, ExpressionType.COMBINED, "[skematic] [the] dimension[s] of [the] [schem[atic]] %string%");
+        Skript.registerExpression(ExprSchematicArea.class, Integer.class, ExpressionType.COMBINED, "[testing]");
     }
 
     @Override
-    public Class<? extends Vector> getReturnType() {
-        return Vector.class;
+    public Class<? extends Integer> getReturnType() {
+        return Integer.class;
     }
 
     @Override
@@ -35,28 +36,41 @@ public class ExprSchematicDimensions extends SimpleExpression<Vector> {
     @SuppressWarnings("unchecked")
     @Override
     public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parser) {
+        marker = parser.mark;
+        marker = 1;
         schem = (Expression<String>) exprs[0];
         return true;
     }
 
     @Override
     public String toString(@Nullable Event event, boolean debug) {
-        return "Skematic dimensions " + schem.toString(event, debug);
+        return "Skematic sizes " + schem.toString(event, debug);
     }
 
     @Override
     @Nullable
-    protected Vector[] get(Event event) {
+    protected Integer[] get(Event event) {
 
-        Vector dimension;
+        Vector size;
         File file = new File(schem.getSingle(event));
         try {
-            dimension = FaweAPI.load(file).getClipboard().getDimensions();
+            size = FaweAPI.load(file).getClipboard().getDimensions();
         } catch (IOException exception) {
             exception.printStackTrace();
             return null;
         }
-        return new Vector[] { dimension };
+        Number result = null;
+        if (marker == 1) {
+            result = size.getY();
+        } else if (marker == 2) {
+            result = size.getX();
+        } else if (marker == 3) {
+            result = size.getZ();
+        } else if (marker == 4) {
+            result = (size.getZ() * size.getX());
+        }
+
+        return new Integer[] { result.intValue() };
 
     }
 }

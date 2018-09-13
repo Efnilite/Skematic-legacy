@@ -1,4 +1,4 @@
-package me.efnilite.skematic.syntaxes;
+package me.efnilite.skematic.elements.expressions;
 
 import ch.njol.skript.Skript;
 import ch.njol.skript.lang.Expression;

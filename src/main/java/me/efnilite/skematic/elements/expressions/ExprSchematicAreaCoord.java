@@ -14,18 +14,18 @@ import org.eclipse.jdt.annotation.Nullable;
 import java.io.File;
 import java.io.IOException;
 
-public class ExprSchematicAreaCoord extends SimpleExpression<Integer> {
+public class ExprSchematicAreaCoord extends SimpleExpression<Number> {
 
     private Expression<String> schem;
     private int marker;
 
     static {
-        Skript.registerExpression(ExprSchematicAreaCoord.class, Integer.class, ExpressionType.COMBINED, "[skematic] [the] (1¦x|2¦y|3¦z)(-| )coord[inate] of [the] [schem[atic]] %string%");
+        Skript.registerExpression(ExprSchematicAreaCoord.class, Number.class, ExpressionType.COMBINED, "[skematic] [the] (1¦x|2¦y|3¦z)(-| )coord[inate] of [the] [schem[atic]] %string%");
     }
 
     @Override
-    public Class<? extends Integer> getReturnType() {
-        return Integer.class;
+    public Class<? extends Number> getReturnType() {
+        return Number.class;
     }
 
     @Override
@@ -48,7 +48,7 @@ public class ExprSchematicAreaCoord extends SimpleExpression<Integer> {
 
     @Override
     @Nullable
-    protected Integer[] get(Event event) {
+    protected Number[] get(Event event) {
 
         Vector size;
         File file = new File(schem.getSingle(event));
@@ -68,7 +68,7 @@ public class ExprSchematicAreaCoord extends SimpleExpression<Integer> {
         } else if (marker == 4) {
             result = (size.getZ() * size.getX());
         }
-        return new Integer[] { result.intValue() };
+        return new Number[] { result };
 
     }
 }

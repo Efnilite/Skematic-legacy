@@ -14,18 +14,18 @@ import org.eclipse.jdt.annotation.Nullable;
 import java.io.File;
 import java.io.IOException;
 
-public class ExprSchematicArea extends SimpleExpression<Integer> {
+public class ExprSchematicArea extends SimpleExpression<Number> {
 
     private Expression<String> schem;
     private int marker;
 
     static {
-        Skript.registerExpression(ExprSchematicArea.class, Integer.class, ExpressionType.COMBINED, "[testing]");
+        Skript.registerExpression(ExprSchematicArea.class, Number.class, ExpressionType.COMBINED, "[skematic] (1¦width|2¦height) of [the] [schem[atic]]");
     }
 
     @Override
-    public Class<? extends Integer> getReturnType() {
-        return Integer.class;
+    public Class<? extends Number> getReturnType() {
+        return Number.class;
     }
 
     @Override
@@ -37,7 +37,6 @@ public class ExprSchematicArea extends SimpleExpression<Integer> {
     @Override
     public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parser) {
         marker = parser.mark;
-        marker = 1;
         schem = (Expression<String>) exprs[0];
         return true;
     }
@@ -49,7 +48,7 @@ public class ExprSchematicArea extends SimpleExpression<Integer> {
 
     @Override
     @Nullable
-    protected Integer[] get(Event event) {
+    protected Number[] get(Event event) {
 
         Vector size;
         File file = new File(schem.getSingle(event));
@@ -70,7 +69,7 @@ public class ExprSchematicArea extends SimpleExpression<Integer> {
             result = (size.getZ() * size.getX());
         }
 
-        return new Integer[] { result.intValue() };
+        return new Number[] { result };
 
     }
 }

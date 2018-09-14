@@ -11,7 +11,7 @@ public class Skematic extends JavaPlugin {
 
     private String version = "1.0-SNAPSHOT";
     private Skematic instance;
-    private SkriptAddon addon;
+    public SkriptAddon addon;
 
     @Override
     public void onEnable() {

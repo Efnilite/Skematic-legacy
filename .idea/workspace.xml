@@ -3,6 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="803ebd51-27ed-4ebc-9901-4e65245daf37" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/me/efnilite/skematic/elements/ExprSchematicArea.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/me/efnilite/skematic/elements/ExprSchematicAreaCoord.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/me/efnilite/skematic/elements/ExprSchematicDimensions.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/me/efnilite/skematic/elements/ExprSchematicOrigin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/Skematic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/Skematic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSchematicArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSchematicArea.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSchematicAreaCoord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSchematicAreaCoord.java" afterDir="false" />
     </list>
@@ -24,26 +29,29 @@
     <session id="624399842">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="9" />
+          <entry key="project.closed" value="11" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.6" value="2" />
           <entry key="project.open.time.7" value="6" />
           <entry key="project.open.time.8" value="3" />
-          <entry key="project.opened" value="13" />
+          <entry key="project.open.time.9" value="3" />
+          <entry key="project.opened" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="gradle" value="1" />
-          <entry key="java" value="36" />
+          <entry key="class" value="1" />
+          <entry key="gradle" value="2" />
+          <entry key="java" value="39" />
           <entry key="yml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Groovy" value="1" />
-          <entry key="JAVA" value="36" />
+          <entry key="CLASS" value="1" />
+          <entry key="Groovy" value="2" />
+          <entry key="JAVA" value="39" />
           <entry key="YAML" value="2" />
         </counts>
       </usages-collector>
@@ -51,14 +59,14 @@
         <counts>
           <entry key="dummy" value="43" />
           <entry key="gradle" value="113" />
-          <entry key="java" value="4027" />
+          <entry key="java" value="5820" />
           <entry key="yml" value="191" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="113" />
-          <entry key="JAVA" value="4027" />
+          <entry key="JAVA" value="5820" />
           <entry key="PLAIN_TEXT" value="43" />
           <entry key="YAML" value="191" />
         </counts>
@@ -73,20 +81,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/Skematic.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSchematicArea.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="22" column="150" selection-start-line="22" selection-start-column="150" selection-end-line="22" selection-end-column="150" />
+            <state relative-caret-position="136">
+              <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -95,10 +91,34 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSchematicArea.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="50" selection-start-line="50" selection-end-line="77" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.boydti/fawe-api/latest/34ea938dafe7cb278327e3222ba672ce6e3e39f4/fawe-api-latest.jar!/com/boydti/fawe/FaweAPI.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1904">
+              <caret line="183" column="28" selection-start-line="183" selection-start-column="28" selection-end-line="183" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSchematicAreaCoord.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
-              <caret line="13" column="20" lean-forward="true" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+            <state relative-caret-position="296">
+              <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -151,6 +171,8 @@
       <find>&lt;Int&gt;</find>
       <find>&lt;Int</find>
       <find>Integer</find>
+      <find>getScheduler</find>
+      <find>runTask</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -536,8 +558,8 @@
         <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffPasteSchematic.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/util/Utilities.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/Skematic.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSchematicAreaCoord.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSchematicArea.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSchematicAreaCoord.java" />
       </list>
     </option>
   </component>
@@ -553,6 +575,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -614,24 +637,16 @@
               <item name="skematic" type="462c0819:PsiDirectoryNode" />
               <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Skematic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Skematic" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536780415863" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536951015762" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Electron" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -673,7 +688,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49838188" visible="true" weight="0.15565032" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49838188" visible="true" weight="0.16044776" />
       <window_info id="Structure" order="1" sideWeight="0.50161815" side_tool="true" weight="0.19296375" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -726,13 +741,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="536">
-          <caret line="42" column="47" selection-start-line="42" selection-start-column="47" selection-end-line="42" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffPasteSchematic.java" />
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/ch.njol/skript/2.2-SNAPSHOT/8dc2cebb1b1be7e6a7ee7905cd1c65d93554150/skript-2.2-SNAPSHOT-sources.jar!/ch/njol/skript/Skript.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -741,13 +749,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.spigotmc/spigot-api/1.11-R0.1-SNAPSHOT/fbea12897619f659bc429c2f0405595533dedee0/spigot-api-1.11-R0.1-SNAPSHOT-sources.jar!/org/bukkit/Bukkit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="116" column="47" selection-start-line="116" selection-start-column="47" selection-end-line="116" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/lang/Runnable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="55" column="17" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/Skematic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+        <state relative-caret-position="136">
+          <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.boydti/fawe-api/latest/34ea938dafe7cb278327e3222ba672ce6e3e39f4/fawe-api-latest.jar!/com/boydti/fawe/FaweAPI.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1904">
+          <caret line="183" column="28" selection-start-line="183" selection-start-column="28" selection-end-line="183" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -778,17 +814,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSchematicAreaCoord.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/function/Supplier.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="13" column="20" lean-forward="true" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+        <state relative-caret-position="289">
+          <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSchematicArea.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="22" column="150" selection-start-line="22" selection-start-column="150" selection-end-line="22" selection-end-column="150" />
+        <state relative-caret-position="425">
+          <caret line="50" selection-start-line="50" selection-end-line="77" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSchematicAreaCoord.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

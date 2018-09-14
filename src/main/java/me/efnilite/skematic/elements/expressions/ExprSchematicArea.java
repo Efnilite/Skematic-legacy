@@ -8,10 +8,12 @@ import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
 import com.boydti.fawe.FaweAPI;
 import com.sk89q.worldedit.Vector;
+import me.efnilite.skematic.util.Utilities;
 import org.bukkit.event.Event;
 import org.eclipse.jdt.annotation.Nullable;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class ExprSchematicArea extends SimpleExpression<Number> {
@@ -20,7 +22,7 @@ public class ExprSchematicArea extends SimpleExpression<Number> {
     private int marker;
 
     static {
-        Skript.registerExpression(ExprSchematicArea.class, Number.class, ExpressionType.COMBINED, "[skematic] (1¦width|2¦height) of [the] [schem[atic]]");
+        Skript.registerExpression(ExprSchematicArea.class, Number.class, ExpressionType.COMBINED, "[skematic] (1¦width|2¦height|3¦lenght) of [the] [schem[atic]]");
     }
 
     @Override
@@ -49,11 +51,13 @@ public class ExprSchematicArea extends SimpleExpression<Number> {
     @Override
     @Nullable
     protected Number[] get(Event event) {
-
         Vector size;
         File file = new File(schem.getSingle(event));
         try {
             size = FaweAPI.load(file).getClipboard().getDimensions();
+        } catch (FileNotFoundException exception) {
+            Utilities.sendConsoleMessage("Schematic file '" + file + "' not found! Error:" + exception);
+            return null;
         } catch (IOException exception) {
             exception.printStackTrace();
             return null;
@@ -68,9 +72,7 @@ public class ExprSchematicArea extends SimpleExpression<Number> {
         } else if (marker == 4) {
             result = (size.getZ() * size.getX());
         }
-
         return new Number[] { result };
-
     }
 }
 

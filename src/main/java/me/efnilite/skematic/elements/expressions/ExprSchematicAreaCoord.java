@@ -8,10 +8,12 @@ import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
 import com.boydti.fawe.FaweAPI;
 import com.sk89q.worldedit.Vector;
+import me.efnilite.skematic.util.Utilities;
 import org.bukkit.event.Event;
 import org.eclipse.jdt.annotation.Nullable;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class ExprSchematicAreaCoord extends SimpleExpression<Number> {
@@ -49,11 +51,13 @@ public class ExprSchematicAreaCoord extends SimpleExpression<Number> {
     @Override
     @Nullable
     protected Number[] get(Event event) {
-
         Vector size;
         File file = new File(schem.getSingle(event));
         try {
             size = FaweAPI.load(file).getClipboard().getDimensions();
+        } catch (FileNotFoundException exception) {
+            Utilities.sendConsoleMessage("Schematic file '" + file + "' not found! Error:" + exception);
+            return null;
         } catch (IOException exception) {
             exception.printStackTrace();
             return null;
@@ -69,7 +73,6 @@ public class ExprSchematicAreaCoord extends SimpleExpression<Number> {
             result = (size.getZ() * size.getX());
         }
         return new Number[] { result };
-
     }
 }
 

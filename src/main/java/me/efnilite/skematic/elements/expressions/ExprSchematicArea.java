@@ -21,10 +21,6 @@ public class ExprSchematicArea extends SimpleExpression<Number> {
     private Expression<String> schem;
     private int marker;
 
-    static {
-        Skript.registerExpression(ExprSchematicArea.class, Number.class, ExpressionType.COMBINED, "[skematic] (1¦width|2¦height|3¦lenght) of [the] [schem[atic]]");
-    }
-
     @Override
     public Class<? extends Number> getReturnType() {
         return Number.class;

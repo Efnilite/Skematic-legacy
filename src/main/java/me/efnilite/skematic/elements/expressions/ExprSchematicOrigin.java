@@ -1,8 +1,6 @@
 package me.efnilite.skematic.elements.expressions;
 
-import ch.njol.skript.Skript;
 import ch.njol.skript.lang.Expression;
-import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
@@ -17,10 +15,6 @@ import java.io.IOException;
 public class ExprSchematicOrigin extends SimpleExpression<Vector> {
 
     private Expression<String> schem;
-
-    static {
-        Skript.registerExpression(ExprSchematicOrigin.class, Vector.class, ExpressionType.COMBINED, "[skematic] [the] origin [area] of [schem[atic]] %string%");
-    }
 
     @Override
     public Class<? extends Vector> getReturnType() {

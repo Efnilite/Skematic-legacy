@@ -10,7 +10,7 @@ import java.io.IOException;
 public class Skematic extends JavaPlugin {
 
     private String version = "1.0-SNAPSHOT";
-    private Skematic instance;
+    private static Skematic instance;
     public SkriptAddon addon;
 
     @Override
@@ -36,7 +36,7 @@ public class Skematic extends JavaPlugin {
 
     }
 
-    public Skematic getInstance() {
+    public static Skematic getInstance() {
         return instance;
     }
 

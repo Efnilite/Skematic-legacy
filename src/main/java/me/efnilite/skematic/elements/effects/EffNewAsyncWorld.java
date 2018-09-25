@@ -1,0 +1,48 @@
+package me.efnilite.skematic.elements.effects;
+
+import ch.njol.skript.classes.Changer;
+import ch.njol.skript.lang.Effect;
+import ch.njol.skript.lang.Expression;
+import ch.njol.skript.lang.SkriptParser;
+import ch.njol.skript.lang.Variable;
+import ch.njol.util.CollectionUtils;
+import ch.njol.util.Kleenean;
+import com.boydti.fawe.bukkit.wrapper.AsyncWorld;
+import me.efnilite.skematic.util.Utilities;
+import org.bukkit.World;
+import org.bukkit.WorldCreator;
+import org.bukkit.event.Event;
+import org.eclipse.jdt.annotation.Nullable;
+
+public class EffNewAsyncWorld extends Effect {
+
+    private Expression<World> world;
+    private Expression<Variable> save;
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parser) {
+
+        world = (Expression<World>) exprs[0];
+        if (exprs[1] instanceof Variable) {
+            save = (Expression<Variable>) exprs[1];
+        } else {
+            Utilities.error(save + " is not a variable! Use variables to save AsyncWorlds.", null, false);
+        }
+        return true;
+    }
+
+    @Override
+    public String toString(@Nullable Event event, boolean debug) {
+        return "New async world.";
+    }
+
+    @Override
+    protected void execute(Event e) {
+        if (world != null && save != null) {
+            AsyncWorld.create(new WorldCreator(this.world.toString()));
+            save.change(e, CollectionUtils.array(save), Changer.ChangeMode.SET);
+        }
+    }
+
+}

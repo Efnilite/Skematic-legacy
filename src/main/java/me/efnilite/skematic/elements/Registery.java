@@ -43,6 +43,9 @@ public class Registery {
     static {
         Skript.registerEffect(EffSaveAsyncWorld.class, "save [the] [async[hronous]] [world] %object%");
     }
+    static {
+        Skript.registerEffect(EffCreateRegion.class, "create [a] [new] [worldguard] region [(named|called)] %string% with [editsession] of %player%");
+    }
 }
 
 

@@ -1,5 +1,7 @@
-build/*
-out/*
-.gradle/*
-.libs/*
-*.gitignore
+## Gradle
+.gradle
+build/
+libs/
+
+## IntelliJ
+.idea/

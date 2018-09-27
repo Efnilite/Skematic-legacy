@@ -6,6 +6,7 @@ import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.skript.lang.Variable;
 import ch.njol.util.Kleenean;
+import ch.njol.util.coll.CollectionUtils;
 import org.bukkit.World;
 import org.bukkit.event.Event;
 import org.eclipse.jdt.annotation.Nullable;
@@ -14,7 +15,6 @@ public class EffDelAsyncWorld extends Effect {
 
     private Expression<World> world;
     private Expression<Variable> var;
-
 
     @SuppressWarnings("unchecked")
     @Override
@@ -26,13 +26,13 @@ public class EffDelAsyncWorld extends Effect {
 
     @Override
     public String toString(@Nullable Event event, boolean debug) {
-        return "Delete an async world.";
+        return "delete the async world " + world.toString(event, debug) + " stored in the variable " + var.toString(event, debug);
     }
 
     @Override
     protected void execute(Event e) {
-        world.getSingle(e).getWorldFolder().delete();
-        var.change(e, null, Changer.ChangeMode.DELETE);
+        ((World) world).getWorldFolder().delete();
+        var.change(e, CollectionUtils.array(world.getSingle(e)), Changer.ChangeMode.DELETE);
     }
 
 }

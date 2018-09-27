@@ -24,6 +24,10 @@ repositories {
     maven {
         url 'http://maven.sk89q.com/repo/'
     }
+    maven {
+        url = 'https://oss.sonatype.org/content/groups/public/'
+    }
+
 }
 
 processResources {
@@ -40,8 +44,11 @@ dependencies {
 
     implementation 'ch.njol:skript:2.2-SNAPSHOT'
 
+    implementation 'org.apache.logging.log4j:log4j-api:2.11.1'
+    implementation 'org.apache.logging.log4j:log4j-core:2.11.1'
+
     implementation 'com.boydti:fawe-api:latest'
-    compile files("libs/FastAsyncWorldEdit-bukkit-18.08.28-418cfa6-2024.jar")
+    compile files("libs/FastAsyncWorldEdit-bukkit-18.09.25-cfbf7db-2050.jar")
 
     implementation 'com.sk89q.worldedit:worldedit-bukkit:6.1.5'
     implementation 'com.sk89q.worldedit:worldedit-core:6.1.4-SNAPSHOT'

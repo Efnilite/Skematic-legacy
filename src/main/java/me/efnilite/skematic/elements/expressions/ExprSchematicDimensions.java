@@ -6,10 +6,12 @@ import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
 import com.boydti.fawe.FaweAPI;
 import com.sk89q.worldedit.Vector;
+import me.efnilite.skematic.util.Utilities;
 import org.bukkit.event.Event;
 import org.eclipse.jdt.annotation.Nullable;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class ExprSchematicDimensions extends SimpleExpression<Vector> {
@@ -35,7 +37,7 @@ public class ExprSchematicDimensions extends SimpleExpression<Vector> {
 
     @Override
     public String toString(@Nullable Event event, boolean debug) {
-        return "Skematic dimensions " + schem.toString(event, debug);
+        return "schematic dimensions of " + schem.toString(event, debug);
     }
 
     @Override
@@ -46,6 +48,9 @@ public class ExprSchematicDimensions extends SimpleExpression<Vector> {
         File file = new File(schem.getSingle(event));
         try {
             dimension = FaweAPI.load(file).getClipboard().getDimensions();
+        } catch (FileNotFoundException exception) {
+            Utilities.error("File " + file + " was not found!", exception, false);
+            return null;
         } catch (IOException exception) {
             exception.printStackTrace();
             return null;

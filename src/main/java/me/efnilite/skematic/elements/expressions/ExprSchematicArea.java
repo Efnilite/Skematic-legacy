@@ -41,7 +41,7 @@ public class ExprSchematicArea extends SimpleExpression<Number> {
 
     @Override
     public String toString(@Nullable Event event, boolean debug) {
-        return "Skematic sizes " + schem.toString(event, debug);
+        return "schematic sizes of " + schem.toString(event, debug);
     }
 
     @Override

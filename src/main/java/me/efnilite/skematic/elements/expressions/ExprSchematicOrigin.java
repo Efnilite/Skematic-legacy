@@ -35,7 +35,7 @@ public class ExprSchematicOrigin extends SimpleExpression<Vector> {
 
     @Override
     public String toString(@Nullable Event event, boolean debug) {
-        return "Skematic origin " + schem.toString(event, debug);
+        return "schematic origin of " + schem.toString(event, debug);
     }
 
     @Override

@@ -29,7 +29,7 @@ public class EffDownloadFile extends Effect {
 
     @Override
     public String toString(@Nullable Event event, boolean debug) {
-        return null;
+        return "download the file from the url " + url.toString(event, debug) + " to path " + path.toString(event, debug);
     }
 
     @Override

@@ -9,7 +9,7 @@ public class Utilities {
     }
 
     public static void log(String m) {
-        Bukkit.getServer().getConsoleSender().sendMessage("[TowerDefence] " + m);
+        Bukkit.getServer().getConsoleSender().sendMessage("[Skematic] " + m);
     }
 
     public static void error(String m, Exception e, boolean log) {

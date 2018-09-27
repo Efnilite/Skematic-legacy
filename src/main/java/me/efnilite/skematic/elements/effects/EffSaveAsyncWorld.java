@@ -22,7 +22,7 @@ public class EffSaveAsyncWorld extends Effect {
 
     @Override
     public String toString(@Nullable Event event, boolean debug) {
-        return "Save an async world.";
+        return "save the async world " + world.toString(event, debug);
     }
 
     @Override

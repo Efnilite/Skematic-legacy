@@ -36,7 +36,7 @@ public class EffPasteSchematic extends Effect {
 
     @Override
     public String toString(@Nullable Event event, boolean debug) {
-        return null;
+        return "paste the schematic " + schematic.toString(event, debug) + ", at location " + location.toString(event, debug) + " with air " + air.toString(event, debug) + " and with redo " + redo.toString(event, debug);
     }
 
     @Override

@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class Skematic extends JavaPlugin {
 
-    private String version = "1.0-SNAPSHOT";
+    private String version = "1.0";
     private static Skematic instance;
     public SkriptAddon addon;
 
@@ -23,8 +23,8 @@ public class Skematic extends JavaPlugin {
             addon.loadClasses("me.efnilite.skematic", "elements");
         } catch (IOException exception) {
             exception.printStackTrace();
-
         }
+
         Utilities.sendConsoleMessage("Enabled Skematic " + version);
 
     }

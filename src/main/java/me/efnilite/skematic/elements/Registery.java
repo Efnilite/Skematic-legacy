@@ -35,13 +35,14 @@ public class Registery {
         Skript.registerEffect(EffPasteSchematic.class, "paste [a] [new] schem[atic] %string% at [loc[ation]] %location% [(without|excluding) air %-boolean%[(,| and) allow[ing] undo %-boolean%]]");
     }
     static {
-        Skript.registerEffect(EffNewAsyncWorld.class, "load [async[hronous]][world] %object% sav[(e[d]|ing)] (as|to) %object%");
+        Skript.registerEffect(EffNewAsyncWorld.class, "(create|load) [a] [new] [async[hronous]] [world] %object% [sav[(e[d]|ing)]] (as|to) %object%");
     }
     static {
-        Skript.registerEffect(EffDelAsyncWorld.class, "del[ete] [async[hronous]] [world] %object%");
+        Skript.registerEffect(EffDelAsyncWorld.class, "del[ete] [the] [async[hronous]] [world] %object%");
     }
     static {
-        Skript.registerEffect(EffSaveAsyncWorld.class, "save [async[hronous]] [world] %object%");
+        Skript.registerEffect(EffSaveAsyncWorld.class, "save [the] [async[hronous]] [world] %object%");
     }
-
 }
+
+

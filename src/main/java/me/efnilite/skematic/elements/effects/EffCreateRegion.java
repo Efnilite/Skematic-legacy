@@ -25,7 +25,8 @@ public class EffCreateRegion extends Effect {
     @Override
     public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parseResult) {
 
-        this.player = (Expression<Player>) exprs[0];
+        name = (Expression<String>) exprs[0];
+        player = (Expression<Player>) exprs[1];
 
         return false;
     }

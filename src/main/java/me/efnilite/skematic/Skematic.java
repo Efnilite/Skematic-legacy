@@ -5,8 +5,6 @@ import ch.njol.skript.SkriptAddon;
 import me.efnilite.skematic.util.Utilities;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.io.IOException;
-
 public class Skematic extends JavaPlugin {
 
     private String version = "1.0";
@@ -18,12 +16,6 @@ public class Skematic extends JavaPlugin {
 
         instance = this;
         addon = Skript.registerAddon(this);
-
-        try {
-            addon.loadClasses("me.efnilite.skematic", "elements");
-        } catch (IOException exception) {
-            exception.printStackTrace();
-        }
 
         Utilities.sendConsoleMessage("Enabled Skematic " + version);
 

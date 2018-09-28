@@ -5,7 +5,6 @@ import ch.njol.skript.lang.ExpressionType;
 import com.sk89q.worldedit.Vector;
 import me.efnilite.skematic.elements.effects.*;
 import me.efnilite.skematic.elements.expressions.*;
-import org.bukkit.Bukkit;
 
 public class Registery {
 
@@ -34,18 +33,5 @@ public class Registery {
 
         Skript.registerEffect(EffSaveAsyncWorld.class, "save [the] [async[hronous]] [world] %object%");
     }
-
-    // Hooks
-
-    static {
-
-        if (Bukkit.getPluginManager().getPlugin("WorldGuard") != null) {
-
-            Skript.registerEffect(EffCreateRegion.class, "create [a] [new] [worldguard] region [(named|called)] %string% with [editsession] of %player%");
-
-        }
-
-    }
-
 
 }

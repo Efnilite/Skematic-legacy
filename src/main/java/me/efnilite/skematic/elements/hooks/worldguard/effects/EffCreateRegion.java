@@ -1,4 +1,4 @@
-package me.efnilite.skematic.elements.effects;
+package me.efnilite.skematic.elements.hooks.worldguard.effects;
 
 import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
@@ -6,19 +6,13 @@ import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
 import com.boydti.fawe.object.FawePlayer;
 import com.sk89q.worldedit.BlockVector;
-import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
 import com.sk89q.worldguard.domains.DefaultDomain;
 import com.sk89q.worldguard.protection.regions.ProtectedCuboidRegion;
+import me.efnilite.skematic.elements.hooks.worldguard.WorldGuard;
 import me.efnilite.skematic.util.Utilities;
-import me.efnilite.skematic.util.WorldGuardHook;
-import org.bukkit.Bukkit;
-import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
-
 import org.eclipse.jdt.annotation.Nullable;
-
-import java.lang.reflect.*;
 
 public class EffCreateRegion extends Effect {
 
@@ -41,17 +35,15 @@ public class EffCreateRegion extends Effect {
 
     @Override
     protected void execute(Event e) {
-        if (Bukkit.getPluginManager().getPlugin("WorldGuard") != null) {
-            ProtectedCuboidRegion region = new ProtectedCuboidRegion(name.toString(), new BlockVector(FawePlayer.wrap(player).getSelection().getMaximumPoint()), new BlockVector(FawePlayer.wrap(player).getSelection().getMinimumPoint()));
-            DefaultDomain owners = new DefaultDomain();
-            try {
-                owners.addPlayer(WorldGuardHook.getWorldGuard().wrapPlayer(player.getSingle(e)));
-            } catch (NullPointerException exception) {
-                Utilities.error("Could not add player to the owners of region " + region.toString(), exception, false);
-            }
-            region.setOwners(owners);
-            WorldGuardHook.getWorldGuard().getRegionManager(player.getSingle(e).getWorld()).addRegion(region);
+        ProtectedCuboidRegion region = new ProtectedCuboidRegion(name.toString(), new BlockVector(FawePlayer.wrap(player).getSelection().getMaximumPoint()), new BlockVector(FawePlayer.wrap(player).getSelection().getMinimumPoint()));
+        DefaultDomain owners = new DefaultDomain();
+        try {
+            owners.addPlayer(WorldGuard.getWorldGuard().wrapPlayer(player.getSingle(e)));
+        } catch (NullPointerException exception) {
+            Utilities.error("Could not add player to the owners of region " + region.toString(), exception, false);
         }
+        region.setOwners(owners);
+        WorldGuard.getWorldGuard().getRegionManager(player.getSingle(e).getWorld()).addRegion(region);
     }
 
 }

@@ -5,7 +5,7 @@ import org.bukkit.Bukkit;
 public class Utilities {
 
     public static void sendConsoleMessage(String msg) {
-        Bukkit.getLogger().info("[Skematic]" + msg);
+        Bukkit.getLogger().info("[Skematic] " + msg);
     }
 
     public static void log(String m) {

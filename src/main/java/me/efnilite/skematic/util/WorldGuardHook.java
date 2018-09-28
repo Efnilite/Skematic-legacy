@@ -17,7 +17,7 @@ public class WorldGuardHook {
         return (WorldGuardPlugin) plugin;
     }
 
-    private static WorldEditPlugin getWorldEdit() {
+    public static WorldEditPlugin getWorldEdit() {
         Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("WorldEdit");
 
         if (plugin == null || !(plugin instanceof WorldEditPlugin)) {

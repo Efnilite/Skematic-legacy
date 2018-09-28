@@ -5,21 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="803ebd51-27ed-4ebc-9901-4e65245daf37" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileContent/annotation-processors.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileContent/annotation-processors.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileContent/fileContent.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/efnilite/skematic/Skematic.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/efnilite/skematic/Skematic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/plugin.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/Skematic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/Skematic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/Registery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/Registery.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffCreateRegion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffCreateRegion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffNewAsyncWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffNewAsyncWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/util/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/util/Utilities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/util/WorldGuardHook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/util/WorldGuardHook.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -39,33 +30,34 @@
     <session id="624399842">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="29" />
+          <entry key="project.closed" value="31" />
           <entry key="project.open.time.0" value="5" />
           <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.6" value="3" />
           <entry key="project.open.time.7" value="12" />
-          <entry key="project.open.time.8" value="5" />
+          <entry key="project.open.time.8" value="6" />
           <entry key="project.open.time.9" value="5" />
-          <entry key="project.opened" value="35" />
+          <entry key="project.opened" value="37" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="20" />
+          <entry key="class" value="24" />
           <entry key="gitignore" value="4" />
           <entry key="gradle" value="7" />
           <entry key="gradlew" value="1" />
-          <entry key="java" value="108" />
+          <entry key="java" value="109" />
           <entry key="yml" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="20" />
+          <entry key="CLASS" value="24" />
           <entry key="Groovy" value="7" />
-          <entry key="JAVA" value="108" />
+          <entry key="JAVA" value="109" />
           <entry key="PLAIN_TEXT" value="5" />
           <entry key="YAML" value="5" />
         </counts>
@@ -76,7 +68,7 @@
           <entry key="dummy" value="43" />
           <entry key="gitignore" value="65" />
           <entry key="gradle" value="469" />
-          <entry key="java" value="17509" />
+          <entry key="java" value="19122" />
           <entry key="yml" value="505" />
         </counts>
       </usages-collector>
@@ -84,7 +76,7 @@
         <counts>
           <entry key="CLASS" value="5" />
           <entry key="Groovy" value="469" />
-          <entry key="JAVA" value="17509" />
+          <entry key="JAVA" value="19122" />
           <entry key="PLAIN_TEXT" value="108" />
           <entry key="YAML" value="505" />
         </counts>
@@ -99,8 +91,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/Registery.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="738">
-              <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
+            <state relative-caret-position="765">
+              <caret line="45" column="9" lean-forward="true" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffCreateRegion.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="673">
+              <caret line="52" column="110" selection-start-line="52" selection-start-column="110" selection-end-line="52" selection-end-column="110" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -109,12 +113,26 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffCreateRegion.java">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sk89q.worldguard/worldguard-legacy/6.2/4835055c94f69c8bba9857053828671f5f730308/worldguard-legacy-6.2.jar!/com/sk89q/worldguard/protection/managers/RegionManager.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="41" column="17" lean-forward="true" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
+            <state relative-caret-position="629">
+              <caret line="40" column="32" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sk89q.worldguard/worldguard-legacy/6.2/4835055c94f69c8bba9857053828671f5f730308/worldguard-legacy-6.2.jar!/com/sk89q/worldguard/protection/regions/ProtectedCuboidRegion.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="17" column="58" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="58" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#607#608#0" expanded="true" />
+                <element signature="e#648#649#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -141,8 +159,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/util/WorldGuardHook.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+            <state relative-caret-position="170">
+              <caret line="10" column="86" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="86" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -153,17 +171,21 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/util/Utilities.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="11" column="68" selection-start-line="11" selection-start-column="68" selection-end-line="11" selection-end-column="68" />
+            <state relative-caret-position="119">
+              <caret line="7" column="47" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
+              <folding>
+                <element signature="e#143#144#0" expanded="true" />
+                <element signature="e#189#190#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/Skematic.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="24" column="74" lean-forward="true" selection-start-line="24" selection-start-column="74" selection-end-line="24" selection-end-column="74" />
+            <state relative-caret-position="357">
+              <caret line="27" column="15" lean-forward="true" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -203,6 +225,9 @@
       <find>Fawe.</find>
       <find>create</find>
       <find>make</find>
+      <find>region</find>
+      <find>getRegionManager</find>
+      <find>add</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -606,22 +631,22 @@
         <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/EvtLog.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/testing/LogEvt.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/util/Utilities.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/testing/EvtLog.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/testing/LogAppender.java" />
         <option value="$PROJECT_DIR$/src/main/resources/config.yml" />
         <option value="$PROJECT_DIR$/src/main/resources/plugin.yml" />
         <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/util/WorldGuardHook.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffNewAsyncWorld.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/Registery.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/Registery.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/util/WorldGuardHook.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/Skematic.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/util/Utilities.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffCreateRegion.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="889" />
     <option name="width" value="1033" />
     <option name="height" value="1047" />
@@ -730,9 +755,9 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -787,7 +812,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49838188" visible="true" weight="0.18656716" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49838188" visible="true" weight="0.19083156" />
       <window_info id="Structure" order="1" sideWeight="0.50161815" side_tool="true" weight="0.19296375" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -801,7 +826,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.329718" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4989339" weight="0.329718" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4989339" weight="0.324295" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5010661" side_tool="true" weight="0.329718" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Build" order="10" weight="0.3286334" />
@@ -855,27 +880,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/lang/Runnable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="55" column="17" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/function/Supplier.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.boydti/fawe-api/latest/34ea938dafe7cb278327e3222ba672ce6e3e39f4/fawe-api-latest.jar!/com/boydti/fawe/FaweAPI.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5491">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/ch.njol/skript/2.2-SNAPSHOT/8dc2cebb1b1be7e6a7ee7905cd1c65d93554150/skript-2.2-SNAPSHOT-sources.jar!/ch/njol/skript/Skript.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="577">
@@ -1052,13 +1056,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sk89q.worldguard/worldguard-legacy/6.2/4835055c94f69c8bba9857053828671f5f730308/worldguard-legacy-6.2.jar!/com/sk89q/worldguard/bukkit/WorldGuardPlugin.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="597" column="26" lean-forward="true" selection-start-line="597" selection-start-column="26" selection-end-line="597" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffNewAsyncWorld.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="687">
@@ -1073,13 +1070,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="25" selection-start-line="25" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sk89q.worldguard/worldguard-legacy/6.2/4835055c94f69c8bba9857053828671f5f730308/worldguard-legacy-6.2.jar!/com/sk89q/worldguard/protection/regions/ProtectedCuboidRegion.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="24" column="39" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -1104,27 +1094,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/util/WorldGuardHook.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sk89q.worldguard/worldguard-legacy/6.2/4835055c94f69c8bba9857053828671f5f730308/worldguard-legacy-6.2.jar!/com/sk89q/worldguard/protection/regions/ProtectedCuboidRegion.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+        <state relative-caret-position="238">
+          <caret line="17" column="58" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#607#608#0" expanded="true" />
+            <element signature="e#648#649#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/util/Utilities.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="11" column="68" selection-start-line="11" selection-start-column="68" selection-end-line="11" selection-end-column="68" />
+        <state relative-caret-position="119">
+          <caret line="7" column="47" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
+          <folding>
+            <element signature="e#143#144#0" expanded="true" />
+            <element signature="e#189#190#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffCreateRegion.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/Skematic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="41" column="17" lean-forward="true" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
+        <state relative-caret-position="357">
+          <caret line="27" column="15" lean-forward="true" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1133,18 +1129,67 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/Registery.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="738">
-          <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
+        <state relative-caret-position="765">
+          <caret line="45" column="9" lean-forward="true" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/Skematic.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/util/WorldGuardHook.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="24" column="74" lean-forward="true" selection-start-line="24" selection-start-column="74" selection-end-line="24" selection-end-column="74" />
+        <state relative-caret-position="170">
+          <caret line="10" column="86" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="86" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sk89q.worldguard/worldguard-legacy/6.2/4835055c94f69c8bba9857053828671f5f730308/worldguard-legacy-6.2.jar!/com/sk89q/worldguard/protection/GlobalRegionManager.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="44" column="39" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
+          <folding>
+            <element signature="e#1409#1410#0" expanded="true" />
+            <element signature="e#1457#1458#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sk89q.worldguard/worldguard-legacy/6.2/4835055c94f69c8bba9857053828671f5f730308/worldguard-legacy-6.2.jar!/com/sk89q/worldguard/bukkit/WorldGuardPlugin.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="707" column="107" lean-forward="true" selection-start-line="707" selection-start-column="107" selection-end-line="707" selection-end-column="107" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sk89q.worldguard/worldguard-legacy/6.2/4835055c94f69c8bba9857053828671f5f730308/worldguard-legacy-6.2.jar!/com/sk89q/worldguard/protection/managers/RegionManager.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="40" column="32" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.spigotmc/spigot-api/1.11-R0.1-SNAPSHOT/fbea12897619f659bc429c2f0405595533dedee0/spigot-api-1.11-R0.1-SNAPSHOT-sources.jar!/org/bukkit/plugin/java/JavaPlugin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="317" column="5" lean-forward="true" selection-start-line="317" selection-start-column="5" selection-end-line="317" selection-end-column="5" />
+          <folding>
+            <element signature="e#9988#9989#0" expanded="true" />
+            <element signature="e#10036#10037#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffCreateRegion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="673">
+          <caret line="52" column="110" selection-start-line="52" selection-start-column="110" selection-end-line="52" selection-end-column="110" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

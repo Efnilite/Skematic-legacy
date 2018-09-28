@@ -5,7 +5,7 @@ import org.bukkit.Bukkit;
 public class Utilities {
 
     public static void sendConsoleMessage(String msg) {
-        System.out.println("[Skematic] " + msg);
+        Bukkit.getLogger().info("[Skematic]" + msg);
     }
 
     public static void log(String m) {
@@ -13,14 +13,14 @@ public class Utilities {
     }
 
     public static void error(String m, Exception e, boolean log) {
-        Bukkit.getServer().getLogger().severe("[Skematic] " + m);
+        Bukkit.getLogger().severe("[Skematic] " + m);
         if (log) {
             e.printStackTrace();
         }
     }
 
     public static void warn(String m) {
-        Bukkit.getServer().getLogger().warning("[Skematic] " + m);
+        Bukkit.getLogger().warning("[Skematic] " + m);
     }
 
 

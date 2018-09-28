@@ -6,14 +6,19 @@ import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
 import com.boydti.fawe.object.FawePlayer;
 import com.sk89q.worldedit.BlockVector;
+import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
 import com.sk89q.worldguard.domains.DefaultDomain;
 import com.sk89q.worldguard.protection.regions.ProtectedCuboidRegion;
 import me.efnilite.skematic.util.Utilities;
 import me.efnilite.skematic.util.WorldGuardHook;
 import org.bukkit.Bukkit;
+import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
+
 import org.eclipse.jdt.annotation.Nullable;
+
+import java.lang.reflect.*;
 
 public class EffCreateRegion extends Effect {
 
@@ -36,7 +41,7 @@ public class EffCreateRegion extends Effect {
 
     @Override
     protected void execute(Event e) {
-        if (Bukkit.getServer().getPluginManager().getPlugin("WorldGuard") == null) {
+        if (Bukkit.getPluginManager().getPlugin("WorldGuard") != null) {
             ProtectedCuboidRegion region = new ProtectedCuboidRegion(name.toString(), new BlockVector(FawePlayer.wrap(player).getSelection().getMaximumPoint()), new BlockVector(FawePlayer.wrap(player).getSelection().getMinimumPoint()));
             DefaultDomain owners = new DefaultDomain();
             try {

@@ -3,3 +3,4 @@ version: 1.0-SNAPSHOT
 author: Efnilite
 main: me.efnilite.skematic.Skematic
 depend: [Skript, FastAsyncWorldEdit]
+softdepend: [WorldGuard]

@@ -8,6 +8,7 @@ import ch.njol.skript.lang.Variable;
 import ch.njol.util.Kleenean;
 import ch.njol.util.coll.CollectionUtils;
 import com.boydti.fawe.bukkit.wrapper.AsyncWorld;
+import com.boydti.fawe.util.TaskManager;
 import me.efnilite.skematic.util.Utilities;
 import org.bukkit.WorldCreator;
 import org.bukkit.event.Event;
@@ -39,8 +40,13 @@ public class EffNewAsyncWorld extends Effect {
     @Override
     protected void execute(Event e) {
         if (world != null && save != null) {
-            AsyncWorld.create(new WorldCreator(world.toString().replaceAll("\"", "")));
-            save.change(e, CollectionUtils.array(world.getSingle(e)), Changer.ChangeMode.SET);
+            TaskManager.IMP.async(new Runnable() {
+                @Override
+                public void run() {
+                    AsyncWorld.create(new WorldCreator(world.toString().replaceAll("\"", "")));
+                    save.change(e, CollectionUtils.array(world.getSingle(e)), Changer.ChangeMode.SET);
+                }
+            });
         }
     }
 }

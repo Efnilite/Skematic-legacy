@@ -10,14 +10,12 @@ import com.sk89q.worldguard.domains.DefaultDomain;
 import com.sk89q.worldguard.protection.regions.ProtectedCuboidRegion;
 import me.efnilite.skematic.util.Utilities;
 import me.efnilite.skematic.util.WorldGuardHook;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.eclipse.jdt.annotation.Nullable;
 
-
-
 public class EffCreateRegion extends Effect {
-
 
     private Expression<Player> player;
     private Expression<String> name;
@@ -38,17 +36,17 @@ public class EffCreateRegion extends Effect {
 
     @Override
     protected void execute(Event e) {
-        ProtectedCuboidRegion region = new ProtectedCuboidRegion(name.toString(), new BlockVector(FawePlayer.wrap(player).getSelection().getMaximumPoint()), new BlockVector(FawePlayer.wrap(player).getSelection().getMinimumPoint()));
-        DefaultDomain owners = new DefaultDomain();
-        try {
-            owners.addPlayer(WorldGuardHook.getWorldGuard().wrapPlayer(player.getSingle(e)));
-        } catch (NullPointerException exception) {
-            Utilities.error("Could not add player to the owners of region " + region.toString(), exception, false);
+        if (Bukkit.getServer().getPluginManager().getPlugin("WorldGuard") == null) {
+            ProtectedCuboidRegion region = new ProtectedCuboidRegion(name.toString(), new BlockVector(FawePlayer.wrap(player).getSelection().getMaximumPoint()), new BlockVector(FawePlayer.wrap(player).getSelection().getMinimumPoint()));
+            DefaultDomain owners = new DefaultDomain();
+            try {
+                owners.addPlayer(WorldGuardHook.getWorldGuard().wrapPlayer(player.getSingle(e)));
+            } catch (NullPointerException exception) {
+                Utilities.error("Could not add player to the owners of region " + region.toString(), exception, false);
+            }
+            region.setOwners(owners);
+            WorldGuardHook.getWorldGuard().getRegionManager(player.getSingle(e).getWorld()).addRegion(region);
         }
-        region.setOwners(owners);
-        WorldGuardHook.getWorldGuard().getRegionManager(player.getSingle(e).getWorld()).addRegion(region);
-
-
     }
 
 }

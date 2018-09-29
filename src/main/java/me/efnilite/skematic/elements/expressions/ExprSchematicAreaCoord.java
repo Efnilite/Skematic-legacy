@@ -59,14 +59,19 @@ public class ExprSchematicAreaCoord extends SimpleExpression<Number> {
             return null;
         }
         Number result = null;
-        if (marker == 1) {
-            result = size.getY();
-        } else if (marker == 2) {
-            result = size.getX();
-        } else if (marker == 3) {
-            result = size.getZ();
-        } else if (marker == 4) {
-            result = (size.getZ() * size.getX());
+        switch (marker) {
+            case 1:
+                result = size.getY();
+                break;
+            case 2:
+                result = size.getX();
+                break;
+            case 3:
+                result = size.getZ();
+                break;
+            case 4:
+                result = (size.getZ() * size.getX());
+                break;
         }
         return new Number[] { result };
     }

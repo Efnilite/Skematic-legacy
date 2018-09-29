@@ -3,7 +3,3 @@
 # Version of the plugin. Don't change this!
 version: 1.0-SNAPSHOT
 
-# Enable or disable FAWE deprecation logs
-# Disabling this will sometimes create a log (Async worlds)
-logs: false
-

@@ -10,6 +10,7 @@ import com.sk89q.worldguard.domains.DefaultDomain;
 import com.sk89q.worldguard.protection.regions.ProtectedCuboidRegion;
 import me.efnilite.skematic.elements.hooks.worldguard.WorldGuard;
 import me.efnilite.skematic.util.Utilities;
+import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.eclipse.jdt.annotation.Nullable;
@@ -17,6 +18,7 @@ import org.eclipse.jdt.annotation.Nullable;
 public class EffCreateRegion extends Effect {
 
     private Expression<Player> player;
+    private Expression<World> world;
     private Expression<String> name;
 
     @Override
@@ -24,13 +26,14 @@ public class EffCreateRegion extends Effect {
 
         name = (Expression<String>) exprs[0];
         player = (Expression<Player>) exprs[1];
+        if (exprs[2] != null) world = (Expression<World>) exprs[2];
 
         return false;
     }
 
     @Override
     public String toString(@Nullable Event event, boolean debug) {
-        return "create the new region called " + name.toString(event, debug) + " by player " + player.toString(event, debug);
+        return "create the new region called " + name.toString(event, debug) + " by player " + player.toString(event, debug) + " with world " + world.toString(event, debug);
     }
 
     @Override
@@ -40,10 +43,11 @@ public class EffCreateRegion extends Effect {
         try {
             owners.addPlayer(WorldGuard.getWorldGuard().wrapPlayer(player.getSingle(e)));
         } catch (NullPointerException exception) {
-            Utilities.error("Could not add player to the owners of region " + region.toString(), exception, false);
+            Utilities.error("Could not add " + player.toString() + " to the owners of region " + region.toString(), exception, false);
         }
         region.setOwners(owners);
-        WorldGuard.getWorldGuard().getRegionManager(player.getSingle(e).getWorld()).addRegion(region);
+        if (world == null) world = (Expression<World>) player.getSingle(e).getWorld();
+        WorldGuard.getWorldGuard().getRegionManager(world.getSingle(e)).addRegion(region);
     }
 
 }

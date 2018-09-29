@@ -1,4 +1,4 @@
-package me.efnilite.skematic.elements.hooks.worldguard.effects;
+package me.efnilite.skematic.hooks.worldguard.effects;
 
 import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
@@ -8,7 +8,7 @@ import com.boydti.fawe.object.FawePlayer;
 import com.sk89q.worldedit.BlockVector;
 import com.sk89q.worldguard.domains.DefaultDomain;
 import com.sk89q.worldguard.protection.regions.ProtectedCuboidRegion;
-import me.efnilite.skematic.elements.hooks.worldguard.WorldGuard;
+import me.efnilite.skematic.hooks.worldguard.WorldGuard;
 import me.efnilite.skematic.util.Utilities;
 import org.bukkit.World;
 import org.bukkit.entity.Player;

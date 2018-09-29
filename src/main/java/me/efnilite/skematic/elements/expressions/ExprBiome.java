@@ -20,6 +20,8 @@ public class ExprBiome extends SimpleExpression<BaseBiome> {
     public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parseResult) {
 
         world = (Expression<World>) exprs[0];
+        x = (Expression<Integer>) exprs[1];
+        z = (Expression<Integer>) exprs[2];
 
         return false;
     }

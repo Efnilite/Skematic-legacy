@@ -1,10 +1,10 @@
-package me.efnilite.skematic.elements.hooks.worldguard.effects;
+package me.efnilite.skematic.hooks.worldguard.effects;
 
 import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
-import me.efnilite.skematic.elements.hooks.worldguard.WorldGuard;
+import me.efnilite.skematic.hooks.worldguard.WorldGuard;
 import me.efnilite.skematic.util.Utilities;
 import org.bukkit.World;
 import org.bukkit.event.Event;

@@ -2,20 +2,31 @@ package me.efnilite.skematic;
 
 import ch.njol.skript.Skript;
 import ch.njol.skript.SkriptAddon;
+import me.efnilite.skematic.hooks.Hooks;
 import me.efnilite.skematic.util.Utilities;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.io.IOException;
 
 public class Skematic extends JavaPlugin {
 
     private String version = "1.0";
     private static Skematic instance;
-    public SkriptAddon addon;
+    public static SkriptAddon addon;
 
     @Override
     public void onEnable() {
 
         instance = this;
         addon = Skript.registerAddon(this);
+
+        Hooks.load();
+
+        try {
+            addon.loadClasses("me.efnilite.skematic", "elements");
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
 
         Utilities.sendConsoleMessage("Enabled Skematic " + version);
 
@@ -32,7 +43,7 @@ public class Skematic extends JavaPlugin {
         return instance;
     }
 
-    public SkriptAddon getAddonInstance() {
+    public static SkriptAddon getAddonInstance() {
         return addon;
     }
 

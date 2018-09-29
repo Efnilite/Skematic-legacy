@@ -1,12 +1,15 @@
-package me.efnilite.skematic.elements.hooks.worldguard;
+package me.efnilite.skematic.hooks.worldguard;
 
 import ch.njol.skript.Skript;
+import ch.njol.skript.lang.ExpressionType;
 import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
-import me.efnilite.skematic.elements.hooks.worldguard.effects.EffAddOwner;
-import me.efnilite.skematic.elements.hooks.worldguard.effects.EffCreateRegion;
-import me.efnilite.skematic.elements.hooks.worldguard.effects.EffDelRegion;
+import me.efnilite.skematic.hooks.worldguard.effects.EffCreateRegion;
+import me.efnilite.skematic.hooks.worldguard.effects.EffDelRegion;
+import me.efnilite.skematic.hooks.worldguard.expressions.ExprRegionOwners;
+import me.efnilite.skematic.hooks.worldguard.expressions.ExprVolumeRegion;
 import me.efnilite.skematic.util.Utilities;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
 public class WorldGuard {
@@ -31,7 +34,11 @@ public class WorldGuard {
 
         Skript.registerEffect(EffDelRegion.class, "del[ete] [the] [worldguard] region [(named|call)] %string% in [world] %world%");
 
-        Skript.registerEffect(EffAddOwner.class, "add %player% to [the] [worldguard] region %string% in [world] %world%");
+        // Expressions
+
+        Skript.registerExpression(ExprRegionOwners.class, Player.class, ExpressionType.COMBINED, "region %string% in [world] %world%");
+
+        Skript.registerExpression(ExprVolumeRegion.class, Number.class, ExpressionType.COMBINED, "[the] volume of [region] %string% in [world] %world%");
 
     }
 

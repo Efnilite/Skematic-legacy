@@ -21,15 +21,13 @@ public class Registery {
 
         Skript.registerExpression(ExprSchematicOrigin.class, Vector.class, ExpressionType.COMBINED, "[skematic] [the] origin [area] of [schem[atic]] %string%");
 
-        Skript.registerExpression(ExprBiome.class, BaseBiome.class, ExpressionType.COMBINED, "[skematic] [the] biome (of|at) %integer%, %integer% in [world] %world%");
+        Skript.registerExpression(ExprBiome .class,BaseBiome .class,ExpressionType.PROPERTY,"[skematic] [the] biome (of|at) %integer% to %integer% in [world] %string%");
 
     }
 
     // Effects
 
     static {
-
-        Skript.registerEffect(EffDownloadFile.class, "download [the] [file] from %string% to [the] [file] %string%");
 
         Skript.registerEffect(EffPasteSchematic.class, "paste [a] [new] schem[atic] %string% at [loc[ation]] %location% [(without|excluding) air %-boolean%[(,| and) allow[ing] undo %-boolean%]]");
 

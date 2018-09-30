@@ -9,9 +9,11 @@ import me.efnilite.skematic.elements.expressions.*;
 
 public class Registery {
 
-    // Expressions
+    public static void load() {
 
-    static {
+
+        // Expressions
+
 
         Skript.registerExpression(ExprSchematicArea.class, Number.class, ExpressionType.COMBINED, "[skematic] (1¦width|2¦height|3¦lenght) of [the] [schem[atic]] %string%");
 
@@ -21,13 +23,11 @@ public class Registery {
 
         Skript.registerExpression(ExprSchematicOrigin.class, Vector.class, ExpressionType.COMBINED, "[skematic] [the] origin [area] of [schem[atic]] %string%");
 
-        Skript.registerExpression(ExprBiome .class,BaseBiome .class,ExpressionType.PROPERTY,"[skematic] [the] biome (of|at) %integer% to %integer% in [world] %string%");
+        Skript.registerExpression(ExprBiome.class, BaseBiome.class, ExpressionType.PROPERTY, "[skematic] [the] biome (of|at) %integer% to %integer% in [world] %string%");
 
-    }
 
-    // Effects
+        // Effects
 
-    static {
 
         Skript.registerEffect(EffPasteSchematic.class, "paste [a] [new] schem[atic] %string% at [loc[ation]] %location% [(without|excluding) air %-boolean%[(,| and) allow[ing] undo %-boolean%]]");
 

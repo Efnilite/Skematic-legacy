@@ -1,13 +1,19 @@
 package me.efnilite.skematic.hooks;
 
+import me.efnilite.skematic.Skematic;
 import me.efnilite.skematic.hooks.worldguard.WorldGuard;
 import org.bukkit.Bukkit;
 
+import java.io.IOException;
+
 public class Hooks {
 
-    static {
+    public static void load() {
 
-        if (getHook("WorldGuard")) WorldGuard.register();
+        if (getHook("WorldGuard")) {
+            WorldGuard.register();
+            registerHook("worldguard");
+        }
 
     }
 
@@ -15,4 +21,12 @@ public class Hooks {
         return Bukkit.getServer().getPluginManager().getPlugin(p) != null;
     }
 
+    public static void registerHook(String p) {
+        try {
+            Skematic.getAddonInstance().loadClasses("me.efnilite.skematic", "hooks." + p);
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
+
+    }
 }

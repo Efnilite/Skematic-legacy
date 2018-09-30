@@ -42,7 +42,7 @@ public class ExprRegionOwners extends SimpleExpression<Player> {
 
     @Override
     public String toString(Event e, boolean debug) {
-        return null;
+        return "set or remove " + player.toString(e, debug) + " of region " + name.toString(e, debug) + " in world " + world.toString(e, debug);
     }
 
     @Override

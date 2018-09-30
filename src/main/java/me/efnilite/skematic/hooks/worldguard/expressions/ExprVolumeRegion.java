@@ -25,7 +25,7 @@ public class ExprVolumeRegion extends SimpleExpression<Number> {
 
     @Override
     public String toString(Event e, boolean debug) {
-        return null;
+        return "get the volume of the region " + name.toString(e, debug) + " in world " + world.toString(e, debug);
     }
 
     @Override

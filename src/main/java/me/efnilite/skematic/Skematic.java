@@ -2,7 +2,6 @@ package me.efnilite.skematic;
 
 import ch.njol.skript.Skript;
 import ch.njol.skript.SkriptAddon;
-import me.efnilite.skematic.hooks.Hooks;
 import me.efnilite.skematic.util.Utilities;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -19,8 +18,6 @@ public class Skematic extends JavaPlugin {
 
         instance = this;
         addon = Skript.registerAddon(this);
-
-        Hooks.load();
 
         try {
             addon.loadClasses("me.efnilite.skematic", "elements");

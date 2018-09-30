@@ -37,6 +37,8 @@ public class Registery {
 
         Skript.registerEffect(EffSaveAsyncWorld.class, "save [the] [async[hronous]] [world] %object%");
 
+        Skript.registerEffect(EffWeather.class, "set [the] weather [condition] to (1¦rain|2¦thunder[[_]storm]|3¦clear) in [world] %world% [for %integer% sec[onds]]");
+
     }
 
 }

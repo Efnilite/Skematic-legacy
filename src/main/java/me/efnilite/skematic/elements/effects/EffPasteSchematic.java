@@ -31,7 +31,7 @@ public class EffPasteSchematic extends Effect {
         air = (Expression<Boolean>) exprs[2];
         redo = (Expression<Boolean>) exprs[3];
 
-        return false;
+        return true;
     }
 
     @Override

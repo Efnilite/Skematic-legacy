@@ -22,7 +22,7 @@ public class EffWeather extends Effect {
         world = (Expression<World>) exprs[0];
         duration = (Expression<Long>) exprs[1];
 
-        return false;
+        return true;
     }
 
     @Override

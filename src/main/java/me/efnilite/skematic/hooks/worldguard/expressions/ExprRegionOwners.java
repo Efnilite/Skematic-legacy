@@ -27,7 +27,7 @@ public class ExprRegionOwners extends SimpleExpression<Player> {
         name = (Expression<String>) exprs[1];
         world = (Expression<World>) exprs[2];
 
-        return false;
+        return true;
     }
 
     @Override

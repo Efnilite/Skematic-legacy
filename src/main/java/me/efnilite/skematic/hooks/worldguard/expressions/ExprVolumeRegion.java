@@ -20,7 +20,7 @@ public class ExprVolumeRegion extends SimpleExpression<Number> {
         name = (Expression<String>) exprs[0];
         world = (Expression<World>) exprs[1];
 
-        return false;
+        return true;
     }
 
     @Override

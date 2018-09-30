@@ -28,8 +28,9 @@ public class EffCreateRegion extends Effect {
         player = (Expression<Player>) exprs[1];
         if (exprs[2] != null) world = (Expression<World>) exprs[2];
 
-        return false;
+        return true;
     }
+
 
     @Override
     public String toString(@Nullable Event event, boolean debug) {

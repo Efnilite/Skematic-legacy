@@ -18,6 +18,10 @@ import java.io.IOException;
 
 public class ExprSchematicArea extends SimpleExpression<Number> {
 
+    static {
+        Skript.registerExpression(ExprSchematicArea.class, Number.class, ExpressionType.COMBINED, "[skematic] (1¦width|2¦height|3¦lenght) of [the] [schem[atic]] %string%");
+    }
+
     private Expression<String> schem;
     private int marker;
 
@@ -72,8 +76,6 @@ public class ExprSchematicArea extends SimpleExpression<Number> {
             case 4:
                 result = (size.getZ() * size.getX());
                 break;
-        }
-        return new Number[] { result };
+        } return new Number[] { result };
     }
 }
-

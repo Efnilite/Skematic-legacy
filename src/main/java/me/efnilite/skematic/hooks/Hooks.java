@@ -1,7 +1,6 @@
 package me.efnilite.skematic.hooks;
 
 import me.efnilite.skematic.Skematic;
-import me.efnilite.skematic.hooks.worldguard.WorldGuard;
 import org.bukkit.Bukkit;
 
 import java.io.IOException;
@@ -10,10 +9,7 @@ public class Hooks {
 
     public static void load() {
 
-        if (getHook("WorldGuard")) {
-            WorldGuard.register();
-            registerHook("worldguard");
-        }
+        if (getHook("WorldGuard")) registerHook("worldguard");
 
     }
 

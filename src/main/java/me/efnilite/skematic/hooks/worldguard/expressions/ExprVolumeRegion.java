@@ -1,15 +1,22 @@
 package me.efnilite.skematic.hooks.worldguard.expressions;
 
+import ch.njol.skript.Skript;
 import ch.njol.skript.lang.Expression;
+import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
 import me.efnilite.skematic.hooks.worldguard.WorldGuard;
 import me.efnilite.skematic.util.Utilities;
+import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.event.Event;
 
 public class ExprVolumeRegion extends SimpleExpression<Number> {
+
+    static {
+        Skript.registerExpression(ExprVolumeRegion.class, Number.class, ExpressionType.COMBINED, "[the] (volume|dimensions) of [the] region %string% in [world] %string%");
+    }
 
     private Expression<World> world;
     private Expression<String> name;
@@ -41,11 +48,8 @@ public class ExprVolumeRegion extends SimpleExpression<Number> {
     @Override
     protected Number[] get(Event e) {
         Number volume = null;
-        try {
-            volume = WorldGuard.getWorldGuard().getRegionManager(world.getSingle(e)).getRegion(name.getSingle(e)).volume();
-        } catch (NullPointerException exception) {
-            Utilities.error("Could not get the volume of region " + name.toString() + " in world " + world.toString() + ". Maybe the world is blacklisted?", exception, false);;
-        }
+        if (WorldGuard.getWorldGuard().getRegionManager(world.getSingle(e)) != null && WorldGuard.getWorldGuard().getRegionManager(world.getSingle(e)).getRegion(name.toString()).volume() != 0) volume = WorldGuard.getWorldGuard().getRegionManager(Bukkit.getServer().getWorld("Lobby-1")).getRegion("hi").volume();
+        else Utilities.error("Could not get the volume of region " + name.toString() + " in world " + world.toString() + ". Maybe the world is blacklisted?", null, false);
         return new Number[] { volume };
     }
 }

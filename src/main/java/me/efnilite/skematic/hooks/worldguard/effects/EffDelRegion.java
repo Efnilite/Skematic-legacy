@@ -1,5 +1,6 @@
 package me.efnilite.skematic.hooks.worldguard.effects;
 
+import ch.njol.skript.Skript;
 import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
@@ -10,6 +11,10 @@ import org.bukkit.World;
 import org.bukkit.event.Event;
 
 public class EffDelRegion extends Effect {
+
+    static {
+        Skript.registerEffect(EffDelRegion.class, "del[ete] [the] [worldguard] region [(named|call)] %string% in [world] %world%");
+    }
 
     private Expression<String> name;
     private Expression<World> world;

@@ -1,5 +1,6 @@
 package me.efnilite.skematic.elements.effects;
 
+import ch.njol.skript.Skript;
 import ch.njol.skript.classes.Changer;
 import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
@@ -12,6 +13,10 @@ import org.bukkit.event.Event;
 import org.eclipse.jdt.annotation.Nullable;
 
 public class EffDelAsyncWorld extends Effect {
+
+    static {
+        Skript.registerEffect(EffDelAsyncWorld.class, "del[ete] [the] [async[hronous]] [world] %object%");
+    }
 
     private Expression<World> world;
     private Expression<Variable> var;

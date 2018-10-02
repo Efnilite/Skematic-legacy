@@ -1,5 +1,6 @@
 package me.efnilite.skematic.elements.effects;
 
+import ch.njol.skript.Skript;
 import ch.njol.skript.classes.Changer;
 import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
@@ -15,6 +16,10 @@ import org.bukkit.event.Event;
 import org.eclipse.jdt.annotation.Nullable;
 
 public class EffNewAsyncWorld extends Effect {
+
+    static {
+        Skript.registerEffect(EffNewAsyncWorld.class, "(create|load) [a] [new] [async[hronous]] [world] %object% [sav[(e[d]|ing)]] (as|to) %object%");
+    }
 
     private Expression<String> world;
     private Expression<Variable> save;
@@ -40,13 +45,8 @@ public class EffNewAsyncWorld extends Effect {
     @Override
     protected void execute(Event e) {
         if (world != null && save != null) {
-            TaskManager.IMP.async(new Runnable() {
-                @Override
-                public void run() {
-                    AsyncWorld.create(new WorldCreator(world.toString().replaceAll("\"", "")));
-                    save.change(e, CollectionUtils.array(world.getSingle(e)), Changer.ChangeMode.SET);
-                }
-            });
+            AsyncWorld.create(new WorldCreator(world.toString().replaceAll("\"", "")));
+            save.change(e, CollectionUtils.array(world.getSingle(e)), Changer.ChangeMode.SET);
         }
     }
 }

@@ -1,6 +1,8 @@
 package me.efnilite.skematic.elements.expressions;
 
+import ch.njol.skript.Skript;
 import ch.njol.skript.lang.Expression;
+import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
@@ -11,6 +13,10 @@ import org.bukkit.World;
 import org.bukkit.event.Event;
 
 public class ExprBiome extends SimpleExpression<BaseBiome> {
+
+    static {
+        Skript.registerExpression(ExprBiome.class, BaseBiome.class, ExpressionType.PROPERTY, "[the] biome (of|at) %integer% to %integer% in %world%");
+    }
 
     private Expression<World> world;
     private Expression<Integer> x;
@@ -23,7 +29,7 @@ public class ExprBiome extends SimpleExpression<BaseBiome> {
         x = (Expression<Integer>) exprs[1];
         z = (Expression<Integer>) exprs[2];
 
-        return false;
+        return true;
     }
 
     @Override
@@ -43,9 +49,6 @@ public class ExprBiome extends SimpleExpression<BaseBiome> {
 
     @Override
     protected BaseBiome[] get(Event e) {
-
-        BaseBiome biome = FaweAPI.getWorld(world.toString()).getBiome(new Vector2D(x.getSingle(e),z.getSingle(e)));
-
-        return new BaseBiome[] { biome };
+        return new BaseBiome[] { FaweAPI.getWorld(world.toString()).getBiome(new Vector2D(x.getSingle(e),z.getSingle(e))) };
     }
 }

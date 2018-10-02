@@ -1,5 +1,6 @@
 package me.efnilite.skematic.elements.effects;
 
+import ch.njol.skript.Skript;
 import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
@@ -10,6 +11,10 @@ import org.bukkit.event.Event;
 import org.eclipse.jdt.annotation.Nullable;
 
 public class EffSaveAsyncWorld extends Effect {
+
+    static {
+        Skript.registerEffect(EffSaveAsyncWorld.class, "save [the] [async[hronous]] [world] %object%");
+    }
 
     private Expression<World> world;
 

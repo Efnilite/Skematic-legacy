@@ -1,5 +1,6 @@
 package me.efnilite.skematic.elements.effects;
 
+import ch.njol.skript.Skript;
 import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
@@ -18,6 +19,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class EffPasteSchematic extends Effect {
+
+    static {
+        Skript.registerEffect(EffPasteSchematic.class, "paste [a] [new] schem[atic] %string% at [loc[ation]] %location% [(without|excluding) air %-boolean%[(,| and) allow[ing] undo %-boolean%]]");
+    }
 
     private Expression<String> schematic;
     private Expression<Location> location;

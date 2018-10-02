@@ -1,5 +1,6 @@
 package me.efnilite.skematic.elements.effects;
 
+import ch.njol.skript.Skript;
 import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
@@ -10,6 +11,10 @@ import org.bukkit.World;
 import org.bukkit.event.Event;
 
 public class EffWeather extends Effect {
+
+    static {
+        Skript.registerEffect(EffWeather.class, "set [the] weather [condition] to (1¦rain|2¦thunder[[_]storm]|3¦clear) in [world] %world% [for %integer% sec[onds]]");
+    }
 
     private int mark;
     private Expression<World> world;

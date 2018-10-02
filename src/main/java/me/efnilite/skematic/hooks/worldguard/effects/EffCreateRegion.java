@@ -1,5 +1,6 @@
 package me.efnilite.skematic.hooks.worldguard.effects;
 
+import ch.njol.skript.Skript;
 import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
@@ -16,6 +17,10 @@ import org.bukkit.event.Event;
 import org.eclipse.jdt.annotation.Nullable;
 
 public class EffCreateRegion extends Effect {
+
+    static {
+        Skript.registerEffect(EffCreateRegion.class, "create [the] [new] [worldguard] region [(named|called)] %string% with [the] [sel[ection]] of %player% [(with|and) world %world%]");
+    }
 
     private Expression<Player> player;
     private Expression<World> world;

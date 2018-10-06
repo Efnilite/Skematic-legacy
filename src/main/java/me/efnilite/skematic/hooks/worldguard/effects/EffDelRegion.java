@@ -5,10 +5,12 @@ import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
+import me.efnilite.skematic.Skematic;
 import me.efnilite.skematic.hooks.worldguard.WorldGuard;
-import me.efnilite.skematic.util.Utilities;
 import org.bukkit.World;
 import org.bukkit.event.Event;
+
+import java.util.logging.Level;
 
 public class EffDelRegion extends Effect {
 
@@ -38,7 +40,7 @@ public class EffDelRegion extends Effect {
         try {
             WorldGuard.getWorldGuard().getRegionManager(world.getSingle(e)).removeRegion(name.getSingle(e));
         } catch (NullPointerException exception) {
-            Utilities.error("Could not delete region " + name.toString() + ". Is the world " + world.toString() + " blacklisted?", exception, false);
+            Skematic.log("Could not delete region " + name.toString() + ". Is the world " + world.toString() + " blacklisted?", Level.SEVERE);
         }
     }
 }

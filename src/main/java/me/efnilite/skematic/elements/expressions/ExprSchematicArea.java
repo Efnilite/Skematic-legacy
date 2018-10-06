@@ -8,7 +8,7 @@ import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
 import com.boydti.fawe.FaweAPI;
 import com.sk89q.worldedit.Vector;
-import me.efnilite.skematic.util.Utilities;
+import me.efnilite.skematic.Skematic;
 import org.bukkit.event.Event;
 import org.eclipse.jdt.annotation.Nullable;
 
@@ -56,7 +56,7 @@ public class ExprSchematicArea extends SimpleExpression<Number> {
         try {
             size = FaweAPI.load(file).getClipboard().getDimensions();
         } catch (FileNotFoundException exception) {
-            Utilities.sendConsoleMessage("Schematic file '" + file + "' not found! Error:" + exception);
+            Skematic.log("Schematic file '" + file + "' not found! Error:" + exception);
             return null;
         } catch (IOException exception) {
             exception.printStackTrace();

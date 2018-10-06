@@ -9,6 +9,7 @@ import ch.njol.util.Kleenean;
 import com.boydti.fawe.FaweAPI;
 import com.sk89q.worldedit.Vector2D;
 import com.sk89q.worldedit.world.biome.BaseBiome;
+import org.apache.commons.lang.ObjectUtils;
 import org.bukkit.World;
 import org.bukkit.event.Event;
 
@@ -44,11 +45,15 @@ public class ExprBiome extends SimpleExpression<BaseBiome> {
 
     @Override
     public String toString(Event e, boolean debug) {
-        return null;
+        return "get the biome of " + x.toString(e, debug) + "," + z.toString(e, debug) + " in world " + world.toString(e, debug);
     }
 
     @Override
     protected BaseBiome[] get(Event e) {
-        return new BaseBiome[] { FaweAPI.getWorld(world.toString()).getBiome(new Vector2D(x.getSingle(e),z.getSingle(e))) };
+        try {
+            return new BaseBiome[]{FaweAPI.getWorld(world.toString()).getBiome(new Vector2D(x.getSingle(e), z.getSingle(e)))};
+        } catch (NullPointerException ex) {
+            return null;
+        }
     }
 }

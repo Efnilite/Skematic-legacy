@@ -8,13 +8,16 @@ import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
 import com.boydti.fawe.FaweAPI;
 import com.sk89q.worldedit.Vector;
-import me.efnilite.skematic.util.Utilities;
+import com.sun.media.jfxmedia.logging.Logger;
+import me.efnilite.skematic.Skematic;
+import org.bukkit.Bukkit;
 import org.bukkit.event.Event;
 import org.eclipse.jdt.annotation.Nullable;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.logging.Level;
 
 public class ExprSchematicDimensions extends SimpleExpression<Vector> {
 
@@ -55,7 +58,7 @@ public class ExprSchematicDimensions extends SimpleExpression<Vector> {
         try {
             dimension = FaweAPI.load(file).getClipboard().getDimensions();
         } catch (FileNotFoundException exception) {
-            Utilities.error("File " + file + " was not found!", exception, false);
+            Skematic.log("File " + file + " was not found!", Level.SEVERE);
             return null;
         } catch (IOException exception) {
             exception.printStackTrace();

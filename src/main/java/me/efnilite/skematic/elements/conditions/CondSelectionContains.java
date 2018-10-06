@@ -35,7 +35,11 @@ public class CondSelectionContains extends Condition {
 
     @Override
     public boolean check(Event e) {
-        if (!FaweAPI.wrapPlayer(player.toString()).getSelection().contains((int) location.getSingle(e).getX(), (int) location.getSingle(e).getY(), (int) location.getSingle(e).getZ())) return !isNegated();
-        return isNegated();
+        try {
+            if (!FaweAPI.wrapPlayer(player.toString()).getSelection().contains(location.getSingle(e).getBlockX(), location.getSingle(e).getBlockY(), location.getSingle(e).getBlockZ())) return !isNegated();
+            return isNegated();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 }

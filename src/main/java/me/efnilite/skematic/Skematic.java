@@ -3,10 +3,11 @@ package me.efnilite.skematic;
 import ch.njol.skript.Skript;
 import ch.njol.skript.SkriptAddon;
 import me.efnilite.skematic.hooks.Hooks;
-import me.efnilite.skematic.util.Utilities;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.IOException;
+import java.util.logging.Level;
 
 public class Skematic extends JavaPlugin {
 
@@ -27,14 +28,14 @@ public class Skematic extends JavaPlugin {
             exception.printStackTrace();
         }
 
-        Utilities.sendConsoleMessage("Enabled Skematic " + getDescription().getVersion());
+        Skematic.log("Enabled Skematic " + getDescription().getVersion());
 
     }
 
     @Override
     public void onDisable() {
 
-        Utilities.sendConsoleMessage("Disabled Skematic " + getDescription().getVersion());
+        Skematic.log("Disabled Skematic " + getDescription().getVersion());
 
     }
 
@@ -45,5 +46,15 @@ public class Skematic extends JavaPlugin {
     public static SkriptAddon getAddonInstance() {
         return addon;
     }
+
+    public static void log(String s, Level level) {
+        instance.getLogger().log(level, s);
+    }
+
+    public static void log(String s) {
+        instance.getLogger().info(s);
+    }
+
+
 
 }

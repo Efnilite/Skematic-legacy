@@ -9,10 +9,10 @@ import com.boydti.fawe.FaweAPI;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
-public class EffUndoPlayer extends Effect {
+public class EffRedo extends Effect {
 
     static {
-        Skript.registerEffect(EffUndoPlayer.class, "undo [the] last [(fawe|fastasyncworldedit)] ((action|change) of %player%|%player%'s (action|change))");
+        Skript.registerEffect(EffRedo.class, "redo [the] last [(fawe|fastasyncworldedit)] ((action|change) of %player%|%player%'s (action|change))");
     }
 
     private Expression<Player> player;
@@ -27,11 +27,12 @@ public class EffUndoPlayer extends Effect {
 
     @Override
     public String toString(Event e, boolean debug) {
-        return "undo last change of " + player.toString(e, debug);
+        return "redo last change of " + player.toString(e, debug);
     }
 
     @Override
     protected void execute(Event e) {
-        FaweAPI.wrapPlayer(player.getSingle(e)).getNewEditSession().undo(FaweAPI.wrapPlayer(player.getSingle(e)).getNewEditSession());
+        FaweAPI.wrapPlayer(player.getSingle(e)).getNewEditSession().redo(FaweAPI.wrapPlayer(player.getSingle(e)).getNewEditSession());
     }
+
 }

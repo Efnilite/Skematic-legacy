@@ -9,7 +9,6 @@ import com.boydti.fawe.FaweAPI;
 import com.sk89q.worldedit.Vector;
 import com.sk89q.worldedit.bukkit.BukkitWorld;
 import me.efnilite.skematic.Skematic;
-import me.efnilite.skematic.util.Utilities;
 import org.bukkit.Location;
 import org.bukkit.event.Event;
 import org.eclipse.jdt.annotation.Nullable;
@@ -17,11 +16,12 @@ import org.eclipse.jdt.annotation.Nullable;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.logging.Level;
 
 public class EffPasteSchematic extends Effect {
 
     static {
-        Skript.registerEffect(EffPasteSchematic.class, "paste [a] [new] schem[atic] %string% at [loc[ation]] %location% [(without|excluding) air %-boolean%[(,| and) allow[ing] undo %-boolean%]]");
+        Skript.registerEffect(EffPasteSchematic.class, "paste [a] [new] schem[atic] %string% at %location% [(without|excluding) air %-boolean%[(,| and) allow[ing] undo %-boolean%]]");
     }
 
     private Expression<String> schematic;
@@ -52,9 +52,9 @@ public class EffPasteSchematic extends Effect {
             try {
                 FaweAPI.load(schematic).paste(new BukkitWorld(location.getSingle(event).getWorld()), new Vector(location.getSingle(event).getX(), location.getSingle(event).getY(), location.getSingle(event).getZ()), new Boolean(redo.toString()), new Boolean(air.toString()), null);
             } catch (FileNotFoundException exception) {
-                Utilities.error("Could not find file '" + schematic + "'", exception, false);
+                Skematic.log("Could not find file '" + schematic + "'", Level.SEVERE);
             } catch (IOException exception) {
-                Utilities.error("Could not paste schematic '" + schematic + "'", exception, true);
+                Skematic.log("Could not paste schematic '" + schematic + "'", Level.SEVERE);
             }
         });
     }

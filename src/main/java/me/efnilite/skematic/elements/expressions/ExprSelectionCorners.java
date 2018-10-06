@@ -14,7 +14,7 @@ import org.bukkit.event.Event;
 public class ExprSelectionCorners extends SimpleExpression<Vector> {
 
     static {
-        Skript.registerExpression(ExprSelectionCorners.class, Vector.class, ExpressionType.PROPERTY, "[the] (1¦min[imum]|2¦max[imum]) (coord[inate]|point[s]) of (%player%'s selection area|selection area of %player%)");
+        Skript.registerExpression(ExprSelectionCorners.class, Vector.class, ExpressionType.PROPERTY, "[the] [skematic] (1¦min[imum]|2¦max[imum]) (coord[inate]|point[s]) of (%player%'s selection area|selection area of %player%)");
     }
 
     private Expression<Player> player;

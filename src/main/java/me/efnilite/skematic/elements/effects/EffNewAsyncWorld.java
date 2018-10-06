@@ -9,11 +9,12 @@ import ch.njol.skript.lang.Variable;
 import ch.njol.util.Kleenean;
 import ch.njol.util.coll.CollectionUtils;
 import com.boydti.fawe.bukkit.wrapper.AsyncWorld;
-import com.boydti.fawe.util.TaskManager;
-import me.efnilite.skematic.util.Utilities;
+import me.efnilite.skematic.Skematic;
 import org.bukkit.WorldCreator;
 import org.bukkit.event.Event;
 import org.eclipse.jdt.annotation.Nullable;
+
+import java.util.logging.Level;
 
 public class EffNewAsyncWorld extends Effect {
 
@@ -29,11 +30,9 @@ public class EffNewAsyncWorld extends Effect {
     public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parser) {
 
         world = (Expression<String>) exprs[0];
-        if (exprs[1] instanceof Variable) {
-            save = (Expression<Variable>) exprs[1];
-        } else {
-            Utilities.error(save + " is not a variable! Use variables to save AsyncWorlds.", null, false);
-        }
+        if (exprs[1] instanceof Variable)  save = (Expression<Variable>) exprs[1];
+        else Skematic.log(save + " is not a variable! Use variables to save AsyncWorlds.", Level.SEVERE);
+
         return true;
     }
 

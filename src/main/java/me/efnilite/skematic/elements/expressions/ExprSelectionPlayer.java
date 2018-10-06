@@ -14,7 +14,7 @@ import org.bukkit.event.Event;
 public class ExprSelectionPlayer extends SimpleExpression<Region> {
 
     static {
-        Skript.registerExpression(ExprSelectionPlayer.class, Region.class, ExpressionType.PROPERTY, "[the] (%player%'s selection|selection of %player%)");
+        Skript.registerExpression(ExprSelectionPlayer.class, Region.class, ExpressionType.PROPERTY, "[the] [skematic] (%player%'s selection|selection of %player%)");
     }
 
     private Expression<Player> player;
@@ -44,6 +44,10 @@ public class ExprSelectionPlayer extends SimpleExpression<Region> {
 
     @Override
     protected Region[] get(Event e) {
-        return new Region[] { FaweAPI.wrapPlayer(player.toString()).getSelection() };
+        try {
+            return new Region[] { FaweAPI.wrapPlayer(player.toString()).getSelection() };
+        } catch (NullPointerException ex) {
+            return null;
+        }
     }
 }

@@ -22,7 +22,7 @@ public class ExprRegionOwners extends SimpleExpression<Player> {
     private Expression<Player> player;
 
     static {
-        Skript.registerExpression(ExprRegionOwners.class, Player.class, ExpressionType.COMBINED, "region %string% in %world%");
+        Skript.registerExpression(ExprRegionOwners.class, Player.class, ExpressionType.COMBINED, "[skematic] region %string% in %world%");
     }
 
     @Override
@@ -37,7 +37,7 @@ public class ExprRegionOwners extends SimpleExpression<Player> {
 
     @Override
     public Class getReturnType() {
-        return null;
+        return Player.class;
     }
 
     @Override
@@ -52,9 +52,11 @@ public class ExprRegionOwners extends SimpleExpression<Player> {
 
     @Override
     protected Player[] get(Event e) {
-        DefaultDomain player;
-        player = WorldGuard.getWorldGuard().getRegionManager(world.getSingle(e)).getRegion(name.getSingle(e)).getOwners();
-        return new Player[] { (Player) player };
+        try {
+            return new Player[]{(Player) WorldGuard.getWorldGuard().getRegionManager(world.getSingle(e)).getRegion(name.getSingle(e)).getOwners()};
+        } catch (NullPointerException ex) {
+            return null;
+        }
     }
 
     @Override

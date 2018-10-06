@@ -9,12 +9,14 @@ import com.boydti.fawe.object.FawePlayer;
 import com.sk89q.worldedit.BlockVector;
 import com.sk89q.worldguard.domains.DefaultDomain;
 import com.sk89q.worldguard.protection.regions.ProtectedCuboidRegion;
+import me.efnilite.skematic.Skematic;
 import me.efnilite.skematic.hooks.worldguard.WorldGuard;
-import me.efnilite.skematic.util.Utilities;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.eclipse.jdt.annotation.Nullable;
+
+import java.util.logging.Level;
 
 public class EffCreateRegion extends Effect {
 
@@ -49,7 +51,7 @@ public class EffCreateRegion extends Effect {
         try {
             owners.addPlayer(WorldGuard.getWorldGuard().wrapPlayer(player.getSingle(e)));
         } catch (NullPointerException exception) {
-            Utilities.error("Could not add " + player.toString() + " to the owners of region " + region.toString(), exception, false);
+            Skematic.log("Could not add " + player.toString() + " to the owners of region " + region.toString(), Level.SEVERE);
         }
         region.setOwners(owners);
         if (world == null) world = (Expression<World>) player.getSingle(e).getWorld();

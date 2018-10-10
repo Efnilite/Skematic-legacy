@@ -21,7 +21,7 @@ import java.util.logging.Level;
 public class EffCreateRegion extends Effect {
 
     static {
-        Skript.registerEffect(EffCreateRegion.class, "create [the] [new] [worldguard] region [(named|called)] %string% with [the] [sel[ection]] of %player% [(with|and) world %world%]");
+        Skript.registerEffect(EffCreateRegion.class, "create [the] [new] [worldguard] region [(named|called)] %string% with [the] [sel[ection]] of %player% [(with|and) %world%]");
     }
 
     private Expression<Player> player;

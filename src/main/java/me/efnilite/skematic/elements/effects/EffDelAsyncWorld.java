@@ -8,6 +8,7 @@ import ch.njol.skript.lang.SkriptParser;
 import ch.njol.skript.lang.Variable;
 import ch.njol.util.Kleenean;
 import ch.njol.util.coll.CollectionUtils;
+import com.boydti.fawe.bukkit.wrapper.AsyncWorld;
 import org.bukkit.World;
 import org.bukkit.event.Event;
 import org.eclipse.jdt.annotation.Nullable;
@@ -18,14 +19,14 @@ public class EffDelAsyncWorld extends Effect {
         Skript.registerEffect(EffDelAsyncWorld.class, "del[ete] [the] [async[hronous]] [world] %object%");
     }
 
-    private Expression<World> world;
-    private Expression<Variable> var;
+    private Expression<AsyncWorld> world;
+    private Expression<Variable<AsyncWorld>> var;
 
     @SuppressWarnings("unchecked")
     @Override
     public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parser) {
-        var = (Expression<Variable>) exprs[0];
-        world = (Expression<World>) exprs[0];
+        var = (Expression<Variable<AsyncWorld>>) exprs[0];
+        world = (Expression<AsyncWorld>) exprs[0];
         return true;
     }
 
@@ -36,7 +37,7 @@ public class EffDelAsyncWorld extends Effect {
 
     @Override
     protected void execute(Event e) {
-        ((World) world).getWorldFolder().delete();
+        world.getSingle(e).getWorldFolder().delete();
         var.change(e, CollectionUtils.array(world.getSingle(e)), Changer.ChangeMode.DELETE);
     }
 

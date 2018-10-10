@@ -51,7 +51,7 @@ public class ExprBiome extends SimpleExpression<BaseBiome> {
     @Override
     protected BaseBiome[] get(Event e) {
         try {
-            return new BaseBiome[]{FaweAPI.getWorld(world.toString()).getBiome(new Vector2D(x.getSingle(e), z.getSingle(e)))};
+            return new BaseBiome[] { FaweAPI.getWorld(world.toString()).getBiome(new Vector2D(x.getSingle(e), z.getSingle(e))) };
         } catch (NullPointerException ex) {
             return null;
         }

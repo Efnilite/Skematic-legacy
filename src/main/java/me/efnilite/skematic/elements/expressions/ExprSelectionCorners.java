@@ -50,10 +50,10 @@ public class ExprSelectionCorners extends SimpleExpression<Vector> {
         Vector vector = null;
         switch (mark) {
             case 1:
-                vector = FaweAPI.wrapPlayer(player.toString()).getSelection().getMinimumPoint();
+                vector = FaweAPI.wrapPlayer(player.getSingle(e)).getSelection().getMinimumPoint();
                 break;
             case 2:
-                vector = FaweAPI.wrapPlayer(player.toString()).getSelection().getMaximumPoint();
+                vector = FaweAPI.wrapPlayer(player.getSingle(e)).getSelection().getMaximumPoint();
                 break;
         } return new Vector[] { vector };
     }

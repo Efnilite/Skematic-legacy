@@ -13,7 +13,7 @@ import org.bukkit.event.Event;
 public class ExprSelectionDimensions extends SimpleExpression<Number> {
 
     static {
-        Skript.registerExpression(ExprSelectionDimensions.class, Number.class, ExpressionType.PROPERTY, "[the] [skematic] (1¦length|2¦|height|3¦width) of (%player%'s selection|selection of %player%)");
+        Skript.registerExpression(ExprSelectionDimensions.class, Number.class, ExpressionType.PROPERTY, "[the] [skematic] (1¦length|2¦height|3¦width) of (%player%'s selection|selection of %player%)");
     }
 
     private Expression<Player> player;

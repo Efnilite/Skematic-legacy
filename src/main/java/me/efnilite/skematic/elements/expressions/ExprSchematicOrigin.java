@@ -8,10 +8,12 @@ import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
 import com.boydti.fawe.FaweAPI;
 import com.sk89q.worldedit.Vector;
+import me.efnilite.skematic.Skematic;
 import org.bukkit.event.Event;
 import org.eclipse.jdt.annotation.Nullable;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class ExprSchematicOrigin extends SimpleExpression<Vector> {
@@ -52,6 +54,9 @@ public class ExprSchematicOrigin extends SimpleExpression<Vector> {
         File file = new File(schem.getSingle(event));
         try {
             origin = FaweAPI.load(file).getClipboard().getOrigin();
+        } catch (FileNotFoundException exception) {
+            Skematic.log("Schematic file '" + file + "' not found! Error:" + exception);
+            return null;
         } catch (IOException exception) {
             exception.printStackTrace();
             return null;

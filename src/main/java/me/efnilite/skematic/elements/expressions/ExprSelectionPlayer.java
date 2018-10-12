@@ -44,10 +44,7 @@ public class ExprSelectionPlayer extends SimpleExpression<Region> {
 
     @Override
     protected Region[] get(Event e) {
-        try {
-            return new Region[] { FaweAPI.wrapPlayer(player.toString()).getSelection() };
-        } catch (NullPointerException ex) {
-            return null;
-        }
+        if (FaweAPI.wrapPlayer(player.toString()).getSelection() != null) return new Region[] { FaweAPI.wrapPlayer(player.toString()).getSelection() };
+        else return null;
     }
 }

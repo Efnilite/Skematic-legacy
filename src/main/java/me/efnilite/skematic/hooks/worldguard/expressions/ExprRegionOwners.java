@@ -22,7 +22,7 @@ public class ExprRegionOwners extends SimpleExpression<Player> {
     private Expression<Player> player;
 
     static {
-        Skript.registerExpression(ExprRegionOwners.class, Player.class, ExpressionType.COMBINED, "[skematic] region %string% in %world%");
+        Skript.registerExpression(ExprRegionOwners.class, Player.class, ExpressionType.COMBINED, "owners of region %string% in %world%");
     }
 
     @Override

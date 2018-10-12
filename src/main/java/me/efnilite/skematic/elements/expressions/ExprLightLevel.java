@@ -15,7 +15,7 @@ import org.bukkit.event.Event;
 public class ExprLightLevel extends SimpleExpression<Number> {
 
     static {
-        Skript.registerExpression(ExprLightLevel.class, Number.class, ExpressionType.PROPERTY, "[the] [block(-| )]]light of [the] [block] (at|of) %location%");
+        Skript.registerExpression(ExprLightLevel.class, Number.class, ExpressionType.PROPERTY, "[the] [block(-| )]light of [the] [block] (at|of) %location%");
     }
 
     private Expression<World> world;
@@ -47,10 +47,9 @@ public class ExprLightLevel extends SimpleExpression<Number> {
 
     @Override
     protected Number[] get(Event e) {
-        try {
-            return new Number[] { FaweAPI.getWorld(world.toString()).getBlockLightLevel(new Vector(location.getSingle(e).getBlockX(), location.getSingle(e).getBlockY(), location.getSingle(e).getBlockZ()))};
-        } catch (NullPointerException ex) {
-            return null;
-        }
+
+        Location loc = location.getSingle(e);
+        return new Number[] { FaweAPI.getWorld(world.toString()).getBlockLightLevel(new Vector(loc.getBlockX(), loc.getBlockY(), location.getSingle(e).getBlockZ())) };
+
     }
 }

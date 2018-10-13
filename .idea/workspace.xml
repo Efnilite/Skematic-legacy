@@ -5,29 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="803ebd51-27ed-4ebc-9901-4e65245daf37" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/FaweConverters.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/FaweTypes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffClearContainer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffDrain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffS.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprRegionArea.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/conditions/CondSelectionContains.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/conditions/CondSelectionContains.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffDelAsyncWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffDelAsyncWorld.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffGreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffGreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffNewAsyncWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffNewAsyncWorld.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffPasteSchematic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffPasteSchematic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffRedo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffRedo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffSnowy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffSnowy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffUndo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffUndo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprLightLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprLightLevel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSelectionArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSelectionArea.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSelectionDimensions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSelectionDimensions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSelectionPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSelection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/hooks/worldguard/WorldGuard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/hooks/worldguard/WorldGuard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/hooks/worldguard/effects/EffCreateRegion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/hooks/worldguard/effects/EffCreateRegion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/hooks/worldguard/effects/EffDelRegion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/hooks/worldguard/effects/EffDelRegion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/hooks/worldguard/expressions/ExprRegionOwners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/hooks/worldguard/expressions/ExprRegionOwners.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/hooks/worldguard/expressions/ExprVolumeRegion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/hooks/worldguard/expressions/ExprVolumeRegion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/FaweTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/FaweTypes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSelection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSelection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSelectionArea.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSelectionCorners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprRegionPoints.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSelectionDimensions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprRegionDimensions.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -72,7 +61,7 @@
           <entry key="gitignore" value="5" />
           <entry key="gradle" value="11" />
           <entry key="gradlew" value="1" />
-          <entry key="java" value="558" />
+          <entry key="java" value="563" />
           <entry key="yml" value="8" />
         </counts>
       </usages-collector>
@@ -80,7 +69,7 @@
         <counts>
           <entry key="CLASS" value="97" />
           <entry key="Groovy" value="11" />
-          <entry key="JAVA" value="558" />
+          <entry key="JAVA" value="563" />
           <entry key="PLAIN_TEXT" value="6" />
           <entry key="YAML" value="8" />
         </counts>
@@ -88,10 +77,10 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="class" value="115" />
-          <entry key="dummy" value="207" />
+          <entry key="dummy" value="287" />
           <entry key="gitignore" value="73" />
           <entry key="gradle" value="475" />
-          <entry key="java" value="50237" />
+          <entry key="java" value="51367" />
           <entry key="yml" value="510" />
         </counts>
       </usages-collector>
@@ -99,8 +88,8 @@
         <counts>
           <entry key="CLASS" value="115" />
           <entry key="Groovy" value="475" />
-          <entry key="JAVA" value="50237" />
-          <entry key="PLAIN_TEXT" value="280" />
+          <entry key="JAVA" value="51367" />
+          <entry key="PLAIN_TEXT" value="360" />
           <entry key="YAML" value="510" />
         </counts>
       </usages-collector>
@@ -111,54 +100,45 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffS.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/FaweTypes.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="50" column="20" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
+            <state relative-caret-position="245">
+              <caret line="56" column="73" selection-start-line="56" selection-start-column="73" selection-end-line="56" selection-end-column="73" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#738#739#0" expanded="true" />
                 <element signature="e#803#804#0" expanded="true" />
                 <element signature="e#1180#1181#0" expanded="true" />
                 <element signature="e#1255#1256#0" expanded="true" />
-                <element signature="e#972#997#0" expanded="true" />
+                <element signature="e#1028#1053#0" expanded="true" />
+                <element signature="e#2312#2313#0" expanded="true" />
+                <element signature="e#2400#2401#0" expanded="true" />
+                <element signature="e#2330#2331#0" expanded="true" />
+                <element signature="e#2397#2398#0" expanded="true" />
+                <element signature="e#2396#2421#0" expanded="true" />
+                <element signature="e#2540#2541#0" expanded="true" />
+                <element signature="e#2596#2597#0" expanded="true" />
+                <element signature="e#2878#2879#0" expanded="true" />
+                <element signature="e#2943#2944#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffUndo.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffPasteSchematic.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="24" column="39" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="39" />
+            <state relative-caret-position="163">
+              <caret line="22" column="106" selection-start-line="22" selection-start-column="106" selection-end-line="22" selection-end-column="106" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffSnowy.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="17" column="94" selection-start-line="17" selection-start-column="89" selection-end-line="17" selection-end-column="94" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/hooks/worldguard/expressions/ExprRegionOwners.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="502">
@@ -171,39 +151,58 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/hooks/worldguard/expressions/ExprVolumeRegion.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSelection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="53" column="7" lean-forward="true" selection-start-line="53" selection-start-column="7" selection-end-line="53" selection-end-column="142" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/hooks/worldguard/effects/EffCreateRegion.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="50" column="37" selection-start-line="50" selection-start-column="37" selection-end-line="50" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/hooks/worldguard/effects/EffDelRegion.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="44" column="25" selection-start-line="44" selection-start-column="12" selection-end-line="44" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/FaweConverters.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+            <state relative-caret-position="459">
+              <caret line="27" column="28" lean-forward="true" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1018#1019#0" expanded="true" />
+                <element signature="e#1051#1052#0" expanded="true" />
+                <element signature="e#1109#1110#0" expanded="true" />
+                <element signature="e#1144#1145#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprRegionArea.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="26" column="1" lean-forward="true" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
+              <folding>
+                <element signature="e#574#575#0" expanded="true" />
+                <element signature="e#623#624#0" expanded="true" />
+                <element signature="e#1329#1330#0" expanded="true" />
+                <element signature="e#1363#1364#0" expanded="true" />
+                <element signature="e#1421#1422#0" expanded="true" />
+                <element signature="e#1456#1457#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprRegionDimensions.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="602">
+              <caret line="55" column="52" lean-forward="true" selection-start-line="55" selection-start-column="52" selection-end-line="55" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprRegionPoints.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1267#1268#0" expanded="true" />
+                <element signature="e#1294#1295#0" expanded="true" />
+                <element signature="e#1362#1363#0" expanded="true" />
+                <element signature="e#1397#1398#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -622,10 +621,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffWeather.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprEditSessionPlayer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffUndoPlayer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffSomething.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprBiome.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/Convs.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/lang/Convs.java" />
@@ -648,7 +643,6 @@
         <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprLightLevel.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffNewAsyncWorld.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSelectionDimensions.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSelectionCorners.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/hooks/worldguard/expressions/ExprVolumeRegion.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/hooks/worldguard/WorldGuard.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/hooks/worldguard/effects/EffDelRegion.java" />
@@ -659,24 +653,29 @@
         <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/util/Changers.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffClearContainer.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/SkriptTypes.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSelectionArea.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSelectionPlayer.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/hooks/worldguard/effects/EffCreateRegion.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffCreateSchematic.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffPasteSchematic.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffDrain.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffS.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSelection.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/FaweConverters.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/Skematic.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/conditions/CondSelectionContains.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffUndo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/FaweTypes.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/hooks/worldguard/expressions/ExprRegionOwners.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSelection.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSelectionArea.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSelectionCorners.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSelectionMinimal.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprRegionArea.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprRegionPoints.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprRegionDimensions.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffPasteSchematic.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/FaweTypes.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
@@ -825,7 +824,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/Addons/Skematic/src/main/java/me/efnilite/skematic/elements/expressions/ExprSelectionArea.java" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539467102264" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539471584098" />
     <property name="last_opened_file_path" value="D:/Downloads/worldedit-bukkit-6.1.9.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -891,7 +890,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.329718" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5010661" side_tool="true" weight="0.329718" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4989339" visible="true" weight="0.30911064" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4989339" weight="0.30911064" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Build" order="10" weight="0.3286334" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.329718" />
@@ -1108,13 +1107,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSelectionDimensions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="51" column="58" selection-start-line="51" selection-start-column="58" selection-end-line="51" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/libs/FastAsyncWorldEdit-bukkit-18.09.25-cfbf7db-2050.jar!/com/sk89q/worldedit/extent/clipboard/Clipboard.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1143,16 +1135,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="36" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffPasteSchematic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="22" column="47" selection-start-line="22" selection-start-column="47" selection-end-line="22" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1193,13 +1175,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSelectionCorners.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="679">
-          <caret line="55" column="15" lean-forward="true" selection-start-line="55" selection-start-column="15" selection-end-line="55" selection-end-column="98" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/libs/FastAsyncWorldEdit-bukkit-18.09.25-cfbf7db-2050.jar!/com/boydti/fawe/object/FawePlayer.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4488">
@@ -1207,27 +1182,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSelectionArea.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="45" column="97" lean-forward="true" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="97" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/conditions/CondSelectionContains.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="15" column="74" selection-start-line="15" selection-start-column="74" selection-end-line="15" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSelection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="26" column="47" lean-forward="true" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1275,28 +1233,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/FaweTypes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="50" column="20" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#738#739#0" expanded="true" />
-            <element signature="e#803#804#0" expanded="true" />
-            <element signature="e#1180#1181#0" expanded="true" />
-            <element signature="e#1255#1256#0" expanded="true" />
-            <element signature="e#972#997#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/hooks/worldguard/expressions/ExprVolumeRegion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="53" column="7" lean-forward="true" selection-start-line="53" selection-start-column="7" selection-end-line="53" selection-end-column="142" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/hooks/worldguard/effects/EffCreateRegion.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
@@ -1311,12 +1247,103 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/hooks/worldguard/expressions/ExprVolumeRegion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="53" column="7" lean-forward="true" selection-start-line="53" selection-start-column="7" selection-end-line="53" selection-end-column="142" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/hooks/worldguard/expressions/ExprRegionOwners.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="502">
           <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprRegionPoints.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1267#1268#0" expanded="true" />
+            <element signature="e#1294#1295#0" expanded="true" />
+            <element signature="e#1362#1363#0" expanded="true" />
+            <element signature="e#1397#1398#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprRegionDimensions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="602">
+          <caret line="55" column="52" lean-forward="true" selection-start-line="55" selection-start-column="52" selection-end-line="55" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprRegionArea.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="26" column="1" lean-forward="true" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
+          <folding>
+            <element signature="e#574#575#0" expanded="true" />
+            <element signature="e#623#624#0" expanded="true" />
+            <element signature="e#1329#1330#0" expanded="true" />
+            <element signature="e#1363#1364#0" expanded="true" />
+            <element signature="e#1421#1422#0" expanded="true" />
+            <element signature="e#1456#1457#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/effects/EffPasteSchematic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="22" column="106" selection-start-line="22" selection-start-column="106" selection-end-line="22" selection-end-column="106" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/expressions/ExprSelection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="28" lean-forward="true" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1018#1019#0" expanded="true" />
+            <element signature="e#1051#1052#0" expanded="true" />
+            <element signature="e#1109#1110#0" expanded="true" />
+            <element signature="e#1144#1145#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/efnilite/skematic/elements/FaweTypes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="56" column="73" selection-start-line="56" selection-start-column="73" selection-end-line="56" selection-end-column="73" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#738#739#0" expanded="true" />
+            <element signature="e#803#804#0" expanded="true" />
+            <element signature="e#1180#1181#0" expanded="true" />
+            <element signature="e#1255#1256#0" expanded="true" />
+            <element signature="e#1028#1053#0" expanded="true" />
+            <element signature="e#2312#2313#0" expanded="true" />
+            <element signature="e#2400#2401#0" expanded="true" />
+            <element signature="e#2330#2331#0" expanded="true" />
+            <element signature="e#2397#2398#0" expanded="true" />
+            <element signature="e#2396#2421#0" expanded="true" />
+            <element signature="e#2540#2541#0" expanded="true" />
+            <element signature="e#2596#2597#0" expanded="true" />
+            <element signature="e#2878#2879#0" expanded="true" />
+            <element signature="e#2943#2944#0" expanded="true" />
           </folding>
         </state>
       </provider>

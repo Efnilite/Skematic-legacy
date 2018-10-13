@@ -7,7 +7,12 @@ import ch.njol.skript.lang.ParseContext;
 import ch.njol.skript.registrations.Classes;
 import com.boydti.fawe.FaweAPI;
 import com.boydti.fawe.object.FawePlayer;
+import com.sk89q.worldedit.WorldEdit;
+import com.sk89q.worldedit.bukkit.WorldEditPlugin;
 import com.sk89q.worldedit.bukkit.selections.Selection;
+import com.sk89q.worldedit.regions.Region;
+import com.sk89q.worldedit.world.World;
+import org.bukkit.Bukkit;
 import org.eclipse.jdt.annotation.Nullable;
 
 public class FaweTypes {
@@ -46,6 +51,33 @@ public class FaweTypes {
                         } else {
                             return "\\S+";
                         }
+                    }
+                }));
+
+        Classes.registerClass(new ClassInfo<>(Selection.class, "selection")
+                .user("selections")
+                .parser(new Parser<Selection>() {
+
+                    @Override
+                    @Nullable
+                    public Selection parse(String s, ParseContext context) {
+                        return ;
+                    }
+
+                    @Override
+                    public String toString(Selection o, int flags) {
+                        return o.toString();
+                    }
+
+                    @SuppressWarnings("null")
+                    @Override
+                    public String toVariableNameString(Selection p) {
+                        return p.toString();
+                    }
+
+                    @Override
+                    public String getVariableNamePattern() {
+                        return "\\S+";
                     }
 
                 }));

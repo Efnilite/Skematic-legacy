@@ -10,19 +10,23 @@ import com.boydti.fawe.FaweAPI;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
-public class ExprSelectionDimensions extends SimpleExpression<Number> {
+public class ExprRegionDimensions extends SimpleExpression<Number> {
 
     static {
-        Skript.registerExpression(ExprSelectionDimensions.class, Number.class, ExpressionType.PROPERTY, "[the] [skematic] (1¦length|2¦height|3¦width) of (%player%'s selection|selection of %player%)");
+        Skript.registerExpression(ExprRegionDimensions.class, Number.class, ExpressionType.PROPERTY, "[the] [skematic] (1¦length|2¦height|3¦width) of (%player%'s selection|selection of %player%)");
+    }
+
+    enum Dimension {
+        LONG, HIGH, WIDE
     }
 
     private Expression<Player> player;
-    private Integer mark;
+    private Dimension dimension;
 
     @Override
     public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parseResult) {
 
-        mark = parseResult.mark;
+        dimension = Dimension.values()[parseResult.mark];
 
         player = (Expression<Player>) exprs[0];
 
@@ -47,14 +51,14 @@ public class ExprSelectionDimensions extends SimpleExpression<Number> {
     @Override
     protected Number[] get(Event e) {
         Number result = null;
-        switch (mark) {
-            case 1:
+        switch (dimension) {
+            case LONG:
                 result = FaweAPI.wrapPlayer(player.getSingle(e)).getSelection().getLength();
                 break;
-            case 2:
+            case HIGH:
                 result = FaweAPI.wrapPlayer(player.getSingle(e)).getSelection().getHeight();
                 break;
-            case 3:
+            case WIDE:
                 result = FaweAPI.wrapPlayer(player.getSingle(e)).getSelection().getWidth();
                 break;
         } return new Number[] { result };

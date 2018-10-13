@@ -6,15 +6,17 @@ import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
+import ch.njol.util.coll.CollectionUtils;
 import com.boydti.fawe.FaweAPI;
+import com.sk89q.worldedit.LocalSession;
+import com.sk89q.worldedit.entity.Player;
 import com.sk89q.worldedit.regions.Region;
-import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
-public class ExprSelectionPlayer extends SimpleExpression<Region> {
+public class ExprSelection extends SimpleExpression<Region> {
 
     static {
-        Skript.registerExpression(ExprSelectionPlayer.class, Region.class, ExpressionType.PROPERTY, "[the] [skematic] (%player%'s selection|selection of %player%)");
+        Skript.registerExpression(ExprSelection.class, Region.class, ExpressionType.PROPERTY, "selection[s]", "players");
     }
 
     private Expression<Player> player;
@@ -44,7 +46,8 @@ public class ExprSelectionPlayer extends SimpleExpression<Region> {
 
     @Override
     protected Region[] get(Event e) {
-        if (FaweAPI.wrapPlayer(player.toString()).getSelection() != null) return new Region[] { FaweAPI.wrapPlayer(player.toString()).getSelection() };
-        else return null;
+        Player p = player.getSingle(e);
+        LocalSession session = FaweAPI.wrapPlayer(p).getSession();
+        return CollectionUtils.array(session.getSelection(session.getSelectionWorld()));
     }
 }

@@ -6,23 +6,21 @@ import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
 import com.boydti.fawe.FaweAPI;
-import com.boydti.fawe.object.FawePlayer;
-import com.sk89q.worldedit.EditSession;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
-public class EffUndo extends Effect {
+public class EffS extends Effect {
 
     static {
-        Skript.registerEffect(EffUndo.class, "undo [the] last [(fawe|fastasyncworldedit)] ((action|change) of %faweplayer%");
+        Skript.registerEffect(EffUndo.class, "undo [the] last [(fawe|fastasyncworldedit)] ((action|change) of %player%|%player%'s (action|change))");
     }
 
-    private Expression<FawePlayer> player;
+    private Expression<Player> player;
 
     @Override
     public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parseResult) {
 
-        player = (Expression<FawePlayer>) exprs[0];
+        player = (Expression<Player>) exprs[0];
 
         return true;
     }
@@ -34,8 +32,13 @@ public class EffUndo extends Effect {
 
     @Override
     protected void execute(Event e) {
-        FawePlayer p = player.getSingle(e);
-        EditSession s = p.getNewEditSession();
-        s.undo(s);
+        Player p = player.getSingle(e);
+        FaweAPI.wrapPlayer(player.getSingle(e)).getFaweQueue(true).addTask(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        });
     }
+
 }

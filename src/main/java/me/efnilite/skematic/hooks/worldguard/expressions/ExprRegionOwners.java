@@ -11,6 +11,7 @@ import ch.njol.util.coll.CollectionUtils;
 import com.sk89q.worldguard.domains.DefaultDomain;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 import me.efnilite.skematic.hooks.worldguard.WorldGuard;
+import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
@@ -52,9 +53,10 @@ public class ExprRegionOwners extends SimpleExpression<Player> {
 
     @Override
     protected Player[] get(Event e) {
-        try {
-            return new Player[]{(Player) WorldGuard.getWorldGuard().getRegionManager(world.getSingle(e)).getRegion(name.getSingle(e)).getOwners()};
-        } catch (NullPointerException ex) {
+        ProtectedRegion region = WorldGuard.getWorldGuard().getRegionManager(Bukkit.getServer().getWorld(world.getSingle(e).toString())).getRegion(name.getSingle(e));
+        if (region != null && region.getOwners() != null) {
+            return new Player[] { (Player) region.getOwners()};
+        } else {
             return null;
         }
     }
@@ -74,15 +76,19 @@ public class ExprRegionOwners extends SimpleExpression<Player> {
 
         if (mode == Changer.ChangeMode.REMOVE) {
             region = WorldGuard.getWorldGuard().getRegionManager(world.getSingle(event)).getRegion(name.getSingle(event));
-            if (region.getOwners() != null) for (String owner : region.getOwners().getPlayers()) {
-                owners.addPlayer(owner);
+            if (region.getOwners() != null) {
+                for (String owner : region.getOwners().getPlayers()) {
+                    owners.addPlayer(owner);
+                }
             }
             owners.removePlayer(player.toString());
             region.setOwners(owners);
         } else if (mode == Changer.ChangeMode.ADD) {
             region = WorldGuard.getWorldGuard().getRegionManager(world.getSingle(event)).getRegion(name.getSingle(event));
-            if (region.getOwners() != null) for (String owner : region.getOwners().getPlayers()) {
-                owners.addPlayer(owner);
+            if (region.getOwners() != null) {
+                for (String owner : region.getOwners().getPlayers()) {
+                    owners.addPlayer(owner);
+                }
             }
             owners.addPlayer(player.toString());
             region.setOwners(owners);

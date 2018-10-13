@@ -49,13 +49,13 @@ public class ExprSelectionDimensions extends SimpleExpression<Number> {
         Number result = null;
         switch (mark) {
             case 1:
-                result = FaweAPI.wrapPlayer(player.toString()).getSelection().getLength();
+                result = FaweAPI.wrapPlayer(player.getSingle(e)).getSelection().getLength();
                 break;
             case 2:
-                result = FaweAPI.wrapPlayer(player.toString()).getSelection().getHeight();
+                result = FaweAPI.wrapPlayer(player.getSingle(e)).getSelection().getHeight();
                 break;
             case 3:
-                result = FaweAPI.wrapPlayer(player.toString()).getSelection().getWidth();
+                result = FaweAPI.wrapPlayer(player.getSingle(e)).getSelection().getWidth();
                 break;
         } return new Number[] { result };
     }

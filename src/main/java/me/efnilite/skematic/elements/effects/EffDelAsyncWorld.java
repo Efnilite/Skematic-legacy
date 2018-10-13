@@ -16,7 +16,7 @@ import org.eclipse.jdt.annotation.Nullable;
 public class EffDelAsyncWorld extends Effect {
 
     static {
-        Skript.registerEffect(EffDelAsyncWorld.class, "del[ete] [the] [async[hronous]] [world] %object%");
+        Skript.registerEffect(EffDelAsyncWorld.class, "del[ete] [the] async[hronous] [world] %object%");
     }
 
     private Expression<AsyncWorld> world;

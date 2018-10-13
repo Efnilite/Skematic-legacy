@@ -47,9 +47,7 @@ public class ExprLightLevel extends SimpleExpression<Number> {
 
     @Override
     protected Number[] get(Event e) {
-
-        Location loc = location.getSingle(e);
-        return new Number[] { FaweAPI.getWorld(world.toString()).getBlockLightLevel(new Vector(loc.getBlockX(), loc.getBlockY(), location.getSingle(e).getBlockZ())) };
-
+        Location pos = location.getSingle(e);
+        return new Number[] { FaweAPI.getWorld(world.toString()).getBlockLightLevel(new Vector(pos.getBlockX(), pos.getBlockY(), pos.getBlockZ())) };
     }
 }

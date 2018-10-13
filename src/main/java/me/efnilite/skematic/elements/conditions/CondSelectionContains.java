@@ -13,7 +13,7 @@ import org.bukkit.event.Event;
 public class CondSelectionContains extends Condition {
 
     static {
-        Skript.registerCondition(CondSelectionContains.class, "(%player%'s selection|selection of %player%) contains %location%");
+        Skript.registerCondition(CondSelectionContains.class, "%selections% contains %location%");
     }
 
     private Expression<Player> player;
@@ -35,11 +35,11 @@ public class CondSelectionContains extends Condition {
 
     @Override
     public boolean check(Event e) {
-        try {
-            if (!FaweAPI.wrapPlayer(player.toString()).getSelection().contains(location.getSingle(e).getBlockX(), location.getSingle(e).getBlockY(), location.getSingle(e).getBlockZ())) return !isNegated();
-            return isNegated();
-        } catch (NullPointerException ex) {
-            return false;
-        }
+
+        Location pos = location.getSingle(e);
+
+        if (!FaweAPI.wrapPlayer(player.toString()).getSelection().contains(pos.getBlockX(), pos.getBlockY(), pos.getBlockZ())) return !isNegated();
+        return isNegated();
+
     }
 }

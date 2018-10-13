@@ -13,7 +13,7 @@ import org.bukkit.event.Event;
 public class ExprSelectionArea extends SimpleExpression<Number> {
 
     static {
-        Skript.registerExpression(ExprSelectionArea.class, Number.class, ExpressionType.PROPERTY, "[the] [skematic] (%player%'s selection area|selection area of %player%)");
+        Skript.registerExpression(ExprSelectionArea.class, Number.class, ExpressionType.PROPERTY, "[the] [fawe] %player%'s selection area", "[the] [fawe] selection area of %player%)");
     }
 
     private Expression<Player> player;
@@ -43,6 +43,6 @@ public class ExprSelectionArea extends SimpleExpression<Number> {
 
     @Override
     protected Number[] get(Event e) {
-        return new Number[] { FaweAPI.wrapPlayer(player.toString()).getSelection().getArea() };
+        return new Number[] { FaweAPI.wrapPlayer(player.getSingle(e)).getSelection().getArea() };
     }
 }

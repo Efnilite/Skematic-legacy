@@ -5,42 +5,44 @@ import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
+
 import com.boydti.fawe.FaweAPI;
+
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.Vector;
 import com.sk89q.worldedit.world.World;
+
 import org.bukkit.Location;
 import org.bukkit.event.Event;
 
-public class EffSnowy extends Effect {
+public class EffClearContainer extends Effect {
 
     static {
-        Skript.registerEffect(EffSnowy.class, "(sim[ulate]|place) snow at %location% in %world% (in|within) [a] radius [of] %number%");
+        Skript.registerEffect(EffGreen.class, "(clear|delete) [the] content[s] of [the] [container] at %location% in %world%");
     }
 
-    private Expression<Location> position;
-    private Expression<Number> radius;
     private Expression<World> world;
+    private Expression<Location> position;
 
     @Override
     public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parseResult) {
 
         position = (Expression<Location>) exprs[0];
-        radius = (Expression<Number>) exprs[1];
-        world = (Expression<World>) exprs[2];
+        world = (Expression<World>) exprs[1];
 
         return true;
     }
 
     @Override
     public String toString(Event e, boolean debug) {
-        return "simulate snow at " + position.toString(e, debug) + " with radius " + radius.toString(e, debug) + " in world " + world.toString(e, debug);
+        return "clear the contents of the container at " + position.toString(e, debug) + " in world " + world.toString(e, debug);
     }
 
     @Override
     protected void execute(Event e) {
+        Location loc = position.getSingle(e);
         EditSession session = FaweAPI.getEditSessionBuilder(world.getSingle(e)).autoQueue(true).build();
-        Location pos = position.getSingle(e);
-        session.simulateSnow(new Vector(pos.getBlockX(), pos.getBlockY(), pos.getBlockZ()), (double) radius.getSingle(e));
+        session.clearContainerBlockContents(new Vector(loc.getBlockX(), loc.getBlockY(), loc.getBlockZ()));
     }
+
 }

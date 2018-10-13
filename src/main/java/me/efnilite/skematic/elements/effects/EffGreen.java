@@ -15,7 +15,7 @@ import org.bukkit.event.Event;
 public class EffGreen extends Effect {
 
     static {
-        Skript.registerEffect(EffGreen.class, "green[ify] %location% in %world%[(,| and)] [with] radius %number%");
+        Skript.registerEffect(EffGreen.class, "green[ify] %location% in %world% (in|within) [a] radius [of] %number%");
     }
 
     private Expression<World> world;

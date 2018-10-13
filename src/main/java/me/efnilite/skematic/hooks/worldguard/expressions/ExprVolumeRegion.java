@@ -7,6 +7,7 @@ import ch.njol.skript.lang.SkriptParser;
 import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
 import com.avaje.ebean.LogLevel;
+import com.sk89q.worldguard.protection.managers.RegionManager;
 import me.efnilite.skematic.Skematic;
 import me.efnilite.skematic.hooks.worldguard.WorldGuard;
 import org.bukkit.Bukkit;
@@ -50,9 +51,10 @@ public class ExprVolumeRegion extends SimpleExpression<Number> {
 
     @Override
     protected Number[] get(Event e) {
-        try {
-            return new Number[] { WorldGuard.getWorldGuard().getRegionManager(Bukkit.getServer().getWorld(world.toString())).getRegion(name.toString()).volume() };
-        } catch (NullPointerException ex) {
+        RegionManager regionManager = WorldGuard.getWorldGuard().getRegionManager(Bukkit.getServer().getWorld(world.getSingle(e).toString()));
+        if (regionManager != null) {
+            return new Number[] { regionManager.getRegion(name.getSingle(e)).volume() };
+        } else {
             return null;
         }
     }

@@ -10,6 +10,7 @@ import ch.njol.util.Kleenean;
 import ch.njol.util.coll.CollectionUtils;
 import com.boydti.fawe.bukkit.wrapper.AsyncWorld;
 import me.efnilite.skematic.Skematic;
+import org.bukkit.World;
 import org.bukkit.WorldCreator;
 import org.bukkit.event.Event;
 import org.eclipse.jdt.annotation.Nullable;
@@ -19,17 +20,17 @@ import java.util.logging.Level;
 public class EffNewAsyncWorld extends Effect {
 
     static {
-        Skript.registerEffect(EffNewAsyncWorld.class, "(create|load) [a[n]] [new] [async[hronous]] [world] %string% [sav(e[d]|ing)] (as|to) %object%");
+        Skript.registerEffect(EffNewAsyncWorld.class, "(create|load) [a[n]] [new] [async[hronous]] %world% [sav(e[d]|ing)] (as|to) %object%");
     }
 
-    private Expression<String> world;
+    private Expression<World> world;
     private Expression<Variable> save;
 
     @SuppressWarnings("unchecked")
     @Override
     public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parser) {
 
-        world = (Expression<String>) exprs[0];
+        world = (Expression<World>) exprs[0];
         if (exprs[1] instanceof Variable)  save = (Expression<Variable>) exprs[1];
         else Skematic.log(save + " is not a variable! Use variables to save AsyncWorlds.", Level.SEVERE);
 
@@ -43,7 +44,7 @@ public class EffNewAsyncWorld extends Effect {
 
     @Override
     protected void execute(Event e) {
-        if (world != null && save != null) {
+        if (save != null) {
             AsyncWorld.create(new WorldCreator(world.toString().replaceAll("\"", "")));
             save.change(e, CollectionUtils.array(world.getSingle(e)), Changer.ChangeMode.SET);
         }

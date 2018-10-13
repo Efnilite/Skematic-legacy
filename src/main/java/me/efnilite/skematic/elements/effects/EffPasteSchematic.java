@@ -14,7 +14,6 @@ import org.bukkit.event.Event;
 import org.eclipse.jdt.annotation.Nullable;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 
@@ -48,14 +47,15 @@ public class EffPasteSchematic extends Effect {
     protected void execute(Event event) {
         Skematic.getInstance().getServer().getScheduler().runTaskAsynchronously(Skematic.getInstance(), () -> {
             File schematic = new File(this.schematic.toString());
-            if (!this.schematic.toString().endsWith(".schematic")) schematic = new File(this.schematic.toString() + ".schematic");
+            if (!this.schematic.toString().endsWith(".schematic")) {
+                schematic = new File(this.schematic.toString() + ".schematic");
+            }
             try {
                 FaweAPI.load(schematic).paste(new BukkitWorld(location.getSingle(event).getWorld()), new Vector(location.getSingle(event).getX(), location.getSingle(event).getY(), location.getSingle(event).getZ()), new Boolean(redo.toString()), new Boolean(air.toString()), null);
-            } catch (FileNotFoundException exception) {
-                Skematic.log("Could not find file '" + schematic + "'", Level.SEVERE);
             } catch (IOException exception) {
-                Skematic.log("Could not paste schematic '" + schematic + "'", Level.SEVERE);
+                Skematic.log("Could not create schematic '" + schematic + "'", Level.SEVERE);
             }
         });
     }
+
 }

@@ -7,6 +7,7 @@ import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
 import com.boydti.fawe.object.FawePlayer;
 import com.sk89q.worldedit.BlockVector;
+import com.sk89q.worldedit.regions.CuboidRegion;
 import com.sk89q.worldguard.domains.DefaultDomain;
 import com.sk89q.worldguard.protection.regions.ProtectedCuboidRegion;
 import me.efnilite.skematic.Skematic;
@@ -33,7 +34,9 @@ public class EffCreateRegion extends Effect {
 
         name = (Expression<String>) exprs[0];
         player = (Expression<Player>) exprs[1];
-        if (exprs[2] != null) world = (Expression<World>) exprs[2];
+        if (exprs[2] != null) {
+            world = (Expression<World>) exprs[2];
+        }
 
         return true;
     }
@@ -46,16 +49,18 @@ public class EffCreateRegion extends Effect {
 
     @Override
     protected void execute(Event e) {
-        ProtectedCuboidRegion region = new ProtectedCuboidRegion(name.toString(), new BlockVector(FawePlayer.wrap(player).getSelection().getMaximumPoint()), new BlockVector(FawePlayer.wrap(player).getSelection().getMinimumPoint()));
+
+        Player p = player.getSingle(e);
+        ProtectedCuboidRegion region = new ProtectedCuboidRegion(name.getSingle(e), new BlockVector(FawePlayer.wrap(p).getSelection().getMaximumPoint()), new BlockVector(FawePlayer.wrap(p).getSelection().getMinimumPoint()));
         DefaultDomain owners = new DefaultDomain();
-        try {
-            owners.addPlayer(WorldGuard.getWorldGuard().wrapPlayer(player.getSingle(e)));
-        } catch (NullPointerException exception) {
-            Skematic.log("Could not add " + player.toString() + " to the owners of region " + region.toString(), Level.SEVERE);
+        if (WorldGuard.getWorldGuard().wrapPlayer(p) != null) {
+            owners.addPlayer(WorldGuard.getWorldGuard().wrapPlayer(p));
+            region.setOwners(owners);
+            if (world.getSingle(e) == null) {
+                world = (Expression<World>) p.getWorld();
+            }
+            WorldGuard.getWorldGuard().getRegionManager(world.getSingle(e)).addRegion(region);
         }
-        region.setOwners(owners);
-        if (world == null) world = (Expression<World>) player.getSingle(e).getWorld();
-        WorldGuard.getWorldGuard().getRegionManager(world.getSingle(e)).addRegion(region);
     }
 
 }

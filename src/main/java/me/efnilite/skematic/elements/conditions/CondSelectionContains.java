@@ -13,7 +13,7 @@ import org.bukkit.event.Event;
 public class CondSelectionContains extends Condition {
 
     static {
-        Skript.registerCondition(CondSelectionContains.class, "%selections% contains %location%");
+        Skript.registerCondition(CondSelectionContains.class, "hello contains %location%");
     }
 
     private Expression<Player> player;

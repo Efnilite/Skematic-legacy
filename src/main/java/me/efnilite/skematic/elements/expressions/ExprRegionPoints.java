@@ -23,7 +23,6 @@ public class ExprRegionPoints extends SimpleExpression<Vector> {
     }
 
     private Expression<Region> player;
-
     private Point point;
 
     @Override

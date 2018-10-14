@@ -12,6 +12,7 @@ import com.sk89q.worldguard.domains.DefaultDomain;
 import com.sk89q.worldguard.protection.regions.ProtectedCuboidRegion;
 import me.efnilite.skematic.Skematic;
 import me.efnilite.skematic.hooks.worldguard.WorldGuard;
+import me.efnilite.skematic.util.TaskManager;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
@@ -49,18 +50,19 @@ public class EffCreateRegion extends Effect {
 
     @Override
     protected void execute(Event e) {
-
         Player p = player.getSingle(e);
         ProtectedCuboidRegion region = new ProtectedCuboidRegion(name.getSingle(e), new BlockVector(FawePlayer.wrap(p).getSelection().getMaximumPoint()), new BlockVector(FawePlayer.wrap(p).getSelection().getMinimumPoint()));
-        DefaultDomain owners = new DefaultDomain();
-        if (WorldGuard.getWorldGuard().wrapPlayer(p) != null) {
-            owners.addPlayer(WorldGuard.getWorldGuard().wrapPlayer(p));
-            region.setOwners(owners);
-            if (world.getSingle(e) == null) {
-                world = (Expression<World>) p.getWorld();
+        TaskManager.manager.async(() -> {
+            DefaultDomain owners = new DefaultDomain();
+            if (WorldGuard.getWorldGuard().wrapPlayer(p) != null) {
+                owners.addPlayer(WorldGuard.getWorldGuard().wrapPlayer(p));
+                region.setOwners(owners);
+                if (world.getSingle(e) == null) {
+                    world = (Expression<World>) p.getWorld();
+                }
+                WorldGuard.getWorldGuard().getRegionManager(world.getSingle(e)).addRegion(region);
             }
-            WorldGuard.getWorldGuard().getRegionManager(world.getSingle(e)).addRegion(region);
-        }
+        });
     }
 
 }

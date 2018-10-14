@@ -2,6 +2,7 @@ package me.efnilite.skematic;
 
 import ch.njol.skript.Skript;
 import ch.njol.skript.SkriptAddon;
+import com.boydti.fawe.util.TaskManager;
 import me.efnilite.skematic.hooks.Hooks;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -53,7 +54,5 @@ public class Skematic extends JavaPlugin {
     public static void log(String s) {
         instance.getLogger().info(s);
     }
-
-
 
 }

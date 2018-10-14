@@ -10,6 +10,7 @@ import com.sk89q.worldguard.protection.managers.RemovalStrategy;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 import me.efnilite.skematic.Skematic;
 import me.efnilite.skematic.hooks.worldguard.WorldGuard;
+import me.efnilite.skematic.util.TaskManager;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.event.Event;
@@ -41,9 +42,11 @@ public class EffDelRegion extends Effect {
 
     @Override
     protected void execute(Event e) {
-        RegionManager regionManager = WorldGuard.getWorldGuard().getRegionManager(Bukkit.getServer().getWorld(world.getSingle(e).toString()));
-        if (regionManager != null) {
-            regionManager.removeRegion(name.getSingle(e));
-        }
+        TaskManager.manager.async(() -> {
+            RegionManager regionManager = WorldGuard.getWorldGuard().getRegionManager(Bukkit.getServer().getWorld(world.getSingle(e).toString()));
+            if (regionManager != null) {
+                regionManager.removeRegion(name.getSingle(e));
+            }
+        });
     }
 }

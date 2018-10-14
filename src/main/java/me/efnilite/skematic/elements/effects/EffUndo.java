@@ -14,15 +14,15 @@ import org.bukkit.event.Event;
 public class EffUndo extends Effect {
 
     static {
-        Skript.registerEffect(EffUndo.class, "undo [the] last [(fawe|fastasyncworldedit)] ((action|change) of %faweplayer%");
+        Skript.registerEffect(EffUndo.class, "undo [the] last [(fawe|fastasyncworldedit)] ((action|change) of %player%");
     }
 
-    private Expression<FawePlayer> player;
+    private Expression<Player> player;
 
     @Override
     public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parseResult) {
 
-        player = (Expression<FawePlayer>) exprs[0];
+        player = (Expression<Player>) exprs[0];
 
         return true;
     }
@@ -34,7 +34,7 @@ public class EffUndo extends Effect {
 
     @Override
     protected void execute(Event e) {
-        FawePlayer p = player.getSingle(e);
+        FawePlayer p = FaweAPI.wrapPlayer(player.getSingle(e));
         EditSession s = p.getNewEditSession();
         s.undo(s);
     }

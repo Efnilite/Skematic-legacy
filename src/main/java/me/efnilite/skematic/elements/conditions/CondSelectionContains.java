@@ -1,6 +1,9 @@
 package me.efnilite.skematic.elements.conditions;
 
 import ch.njol.skript.Skript;
+import ch.njol.skript.doc.Description;
+import ch.njol.skript.doc.Examples;
+import ch.njol.skript.doc.Name;
 import ch.njol.skript.lang.Condition;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
@@ -10,6 +13,9 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
+@Name("Selection contains")
+@Description("Check whether the selection of a player contains a location.")
+@Examples("player's selection contains location 0, 0, 0 in \"World\"")
 public class CondSelectionContains extends Condition {
 
     static {

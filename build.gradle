@@ -53,3 +53,7 @@ dependencies {
     implementation 'com.sk89q.worldguard:worldguard-legacy:6.2'
 
 }
+
+compileJava.options.encoding = 'UTF-8'
+
+compileTestJava.options.encoding = 'UTF-8'

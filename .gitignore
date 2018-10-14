@@ -6,3 +6,5 @@ libs/
 
 ## IntelliJ
 .idea/
+
+src/main/java/me/efnilite/skematic/util/scope

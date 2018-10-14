@@ -18,13 +18,13 @@ import org.bukkit.event.Event;
 
 public class ExprRegionOwners extends SimpleExpression<Player> {
 
-    private Expression<String> name;
-    private Expression<World> world;
-    private Expression<Player> player;
-
     static {
         Skript.registerExpression(ExprRegionOwners.class, Player.class, ExpressionType.COMBINED, "owners of region %string% in %world%");
     }
+
+    private Expression<String> name;
+    private Expression<World> world;
+    private Expression<Player> player;
 
     @Override
     public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parseResult) {
@@ -52,6 +52,14 @@ public class ExprRegionOwners extends SimpleExpression<Player> {
     }
 
     @Override
+    public Class<?>[] acceptChange(Changer.ChangeMode mode) {
+        if (mode == Changer.ChangeMode.ADD || mode == Changer.ChangeMode.REMOVE) {
+            return CollectionUtils.array(Player[].class);
+        }
+        return null;
+    }
+
+    @Override
     protected Player[] get(Event e) {
         ProtectedRegion region = WorldGuard.getWorldGuard().getRegionManager(Bukkit.getServer().getWorld(world.getSingle(e).toString())).getRegion(name.getSingle(e));
         if (region != null && region.getOwners() != null) {
@@ -59,14 +67,6 @@ public class ExprRegionOwners extends SimpleExpression<Player> {
         } else {
             return null;
         }
-    }
-
-    @Override
-    public Class<?>[] acceptChange(Changer.ChangeMode mode) {
-        if (mode == Changer.ChangeMode.ADD || mode == Changer.ChangeMode.REMOVE) {
-            return CollectionUtils.array(Player[].class);
-        }
-        return null;
     }
 
     public void change(Event event, Object[] delta, Changer.ChangeMode mode) {

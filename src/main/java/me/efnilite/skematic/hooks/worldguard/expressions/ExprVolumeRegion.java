@@ -19,7 +19,7 @@ import java.util.logging.Level;
 public class ExprVolumeRegion extends SimpleExpression<Number> {
 
     static {
-        Skript.registerExpression(ExprVolumeRegion.class, Number.class, ExpressionType.COMBINED, "[the] [skematic] (volume|dimensions) of [the] region %string% in %world%");
+        Skript.registerExpression(ExprVolumeRegion.class, Number.class, ExpressionType.COMBINED, "[the] [(skematic|fawe)] (volume|dimensions) of [the] region %string% in %world%");
     }
 
     private Expression<World> world;

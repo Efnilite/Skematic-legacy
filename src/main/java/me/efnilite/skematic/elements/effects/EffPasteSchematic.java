@@ -20,18 +20,15 @@ import java.util.logging.Level;
 public class EffPasteSchematic extends Effect {
 
     static {
-        Skript.registerEffect(EffPasteSchematic.class, "paste [a] [new] schem[atic] %string% at %location% in %world% [(1¦(without|excluding) air)] [(2¦[(,| and)] allow[ing] undo)]");
+        Skript.registerEffect(EffPasteSchematic.class, "paste [the] s(ch|k)em[atic] %string% at %location% [(1¦(without|excluding) air)] [(2¦[(,| and)] allow[ing] undo)]");
     }
 
     enum Subarg {
-        AIR, UNDO, BOTH
+        NONE, AIR, UNDO, BOTH
     }
 
     private Expression<String> schematic;
     private Expression<Location> location;
-    private Expression<org.bukkit.World> world;
-    private Expression<Boolean> air;
-    private Expression<Boolean> redo;
 
     private Subarg arg;
 
@@ -42,16 +39,13 @@ public class EffPasteSchematic extends Effect {
 
         schematic = (Expression<String>) exprs[0];
         location = (Expression<Location>) exprs[1];
-        world = (Expression<org.bukkit.World>) exprs[2];
-        air = (Expression<Boolean>) exprs[3];
-        redo = (Expression<Boolean>) exprs[4];
 
         return true;
     }
 
     @Override
     public String toString(@Nullable Event event, boolean debug) {
-        return "paste the schematic " + schematic.toString(event, debug) + ", at location " + location.toString(event, debug) + " with air " + air.toString(event, debug) + " and with redo " + redo.toString(event, debug);
+        return "paste the schematic " + schematic.toString(event, debug) + ", at location " + location.toString(event, debug);
     }
 
     @Override
@@ -71,6 +65,8 @@ public class EffPasteSchematic extends Effect {
                 ignoreAir = true;
                 allowUndo = true;
                 break;
+            case NONE:
+                break;
         }
 
         String s = schematic.getSingle(e).replace("\"", "");
@@ -81,7 +77,7 @@ public class EffPasteSchematic extends Effect {
         }
 
         try {
-            FaweAPI.load(new File(s)).paste(BukkitUtil.getLocalWorld(world.getSingle(e)), new Vector(l.getBlockX(), l.getBlockY(),l.getBlockZ()), allowUndo, ignoreAir, null);
+            FaweAPI.load(new File(s)).paste(BukkitUtil.getLocalWorld(l.getWorld()), new Vector(l.getBlockX(), l.getBlockY(), l.getBlockZ()), allowUndo, ignoreAir, null);
         } catch (IOException ex) {
             Skematic.log("Could not paste schematic " + schematic.getSingle(e) + ". Exception: " + ex.toString(), Level.SEVERE);
         }

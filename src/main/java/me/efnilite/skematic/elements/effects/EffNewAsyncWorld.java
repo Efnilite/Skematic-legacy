@@ -20,7 +20,7 @@ import java.util.logging.Level;
 public class EffNewAsyncWorld extends Effect {
 
     static {
-        Skript.registerEffect(EffNewAsyncWorld.class, "(create|load) [a[n]] [new] [async[hronous]] %world% [sav(e[d]|ing)] (as|to) %object%");
+        Skript.registerEffect(EffNewAsyncWorld.class, "(create|load) [the] async[hronous] [called] %world% [sav(e[d]|ing)] (as|to) %object%");
     }
 
     private Expression<World> world;

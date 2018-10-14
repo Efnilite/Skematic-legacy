@@ -18,7 +18,7 @@ import org.bukkit.event.Event;
 public class EffClearContainer extends Effect {
 
     static {
-        Skript.registerEffect(EffGreen.class, "(clear|delete) [the] content[s] of [the] [container] at %location% in %world%");
+        Skript.registerEffect(EffClearContainer.class, "(clear|delete) [the] [(fawe|skematic)] content[s] of [the] [container] at %location%");
     }
 
     private Expression<World> world;

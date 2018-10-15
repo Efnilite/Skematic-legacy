@@ -1,6 +1,10 @@
 package me.efnilite.skematic.elements.effects;
 
 import ch.njol.skript.Skript;
+import ch.njol.skript.doc.Description;
+import ch.njol.skript.doc.Examples;
+import ch.njol.skript.doc.Name;
+import ch.njol.skript.doc.Since;
 import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
@@ -12,10 +16,14 @@ import com.sk89q.worldedit.world.World;
 import org.bukkit.Location;
 import org.bukkit.event.Event;
 
+@Name("Snowify")
+@Description("Place snow at a location - Let it go.")
+@Examples("snowify 1, 3, 19 in \"world\" within a radius of 10")
+@Since("1.0.0")
 public class EffSnowy extends Effect {
 
     static {
-        Skript.registerEffect(EffSnowy.class, "(sim[ulate]|place) snow at %location% in %world% (in|within) [a] radius [of] %number%");
+        Skript.registerEffect(EffSnowy.class, "(sim[ulate] snow at|place snow at|snowify) %location% in %world% (in|within) [a] radius [of] %number%");
     }
 
     private Expression<Location> position;

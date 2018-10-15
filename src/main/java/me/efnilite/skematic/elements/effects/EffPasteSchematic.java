@@ -1,6 +1,10 @@
 package me.efnilite.skematic.elements.effects;
 
 import ch.njol.skript.Skript;
+import ch.njol.skript.doc.Description;
+import ch.njol.skript.doc.Examples;
+import ch.njol.skript.doc.Name;
+import ch.njol.skript.doc.Since;
 import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
@@ -17,12 +21,15 @@ import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 
+@Name("Paste schematic")
+@Description("Paste a schematic at a location with or without using air")
+@Examples("paste skematic \"plugins/WorldEdit/skematic.schematic\" at player excluding air")
+@Since("1.0.0")
 public class EffPasteSchematic extends Effect {
 
     static {
         Skript.registerEffect(EffPasteSchematic.class, "paste [the] s(ch|k)em[atic] %string% at %location% [(1¦(without|excluding) air)] [(2¦[(,| and)] allow[ing] undo)]");
     }
-
     enum Subarg {
         NONE, AIR, UNDO, BOTH
     }
@@ -39,7 +46,6 @@ public class EffPasteSchematic extends Effect {
 
         schematic = (Expression<String>) exprs[0];
         location = (Expression<Location>) exprs[1];
-
         return true;
     }
 

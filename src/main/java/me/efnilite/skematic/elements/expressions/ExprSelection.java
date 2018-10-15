@@ -1,11 +1,19 @@
 package me.efnilite.skematic.elements.expressions;
 
+import ch.njol.skript.doc.Description;
+import ch.njol.skript.doc.Examples;
+import ch.njol.skript.doc.Name;
+import ch.njol.skript.doc.Since;
 import ch.njol.skript.expressions.base.SimplePropertyExpression;
 import com.boydti.fawe.FaweAPI;
 import com.sk89q.worldedit.LocalSession;
 import com.sk89q.worldedit.regions.Region;
 import org.bukkit.entity.Player;
 
+@Name("Selection")
+@Description("Gets the selection of a player (region)")
+@Examples("set {_size} to selection of player")
+@Since("1.0.0")
 public class ExprSelection extends SimplePropertyExpression<Player, Region> {
 
     static {

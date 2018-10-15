@@ -10,12 +10,14 @@ public abstract class TaskManager {
 
     public abstract void sync(Runnable r);
 
-    public abstract void laterAsync(Runnable r, long d);
+    public abstract void laterAsync(Runnable r, long delay);
 
-    public abstract void laterSync(Runnable r, long d);
+    public abstract void laterSync(Runnable r, long delay);
+
+    public abstract void repeatSync(Runnable r, long delay, long period);
 
     public static Skematic get() {
         return Skematic.getInstance();
-    }
+}
 
 }

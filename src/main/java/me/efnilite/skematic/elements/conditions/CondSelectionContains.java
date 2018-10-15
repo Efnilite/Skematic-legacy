@@ -4,6 +4,7 @@ import ch.njol.skript.Skript;
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
+import ch.njol.skript.doc.Since;
 import ch.njol.skript.lang.Condition;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
@@ -16,10 +17,11 @@ import org.bukkit.event.Event;
 @Name("Selection contains")
 @Description("Check whether the selection of a player contains a location.")
 @Examples("player's selection contains location 0, 0, 0 in \"World\"")
+@Since("1.0.0")
 public class CondSelectionContains extends Condition {
 
     static {
-        Skript.registerCondition(CondSelectionContains.class, "hello contains %location%");
+        Skript.registerCondition(CondSelectionContains.class, "(%player%'s selection|selection of %player%) contains %location%");
     }
 
     private Expression<Player> player;

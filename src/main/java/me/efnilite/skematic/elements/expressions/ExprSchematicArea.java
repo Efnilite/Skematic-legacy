@@ -1,6 +1,10 @@
 package me.efnilite.skematic.elements.expressions;
 
 import ch.njol.skript.Skript;
+import ch.njol.skript.doc.Description;
+import ch.njol.skript.doc.Examples;
+import ch.njol.skript.doc.Name;
+import ch.njol.skript.doc.Since;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
@@ -16,10 +20,14 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+@Name("Schematic dimensions")
+@Description("Gets one of the schematic dimensions (width, length or height)")
+@Examples("set {_width} to the width of the skematic \"plugins/WorldEdit/skematic.schematic\"")
+@Since("1.0.0")
 public class ExprSchematicArea extends SimpleExpression<Number> {
 
     static {
-        Skript.registerExpression(ExprSchematicArea.class, Number.class, ExpressionType.COMBINED, "[skematic] (1¦width|2¦height|3¦lenght) of [the] [schem[atic]] %string%");
+        Skript.registerExpression(ExprSchematicArea.class, Number.class, ExpressionType.COMBINED, "[the] (1¦width|2¦height|3¦length) of [the] [(sc|k)hem[atic]] %string%");
     }
 
     private Expression<String> schem;

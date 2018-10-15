@@ -1,6 +1,10 @@
 package me.efnilite.skematic.hooks.worldguard.expressions;
 
 import ch.njol.skript.Skript;
+import ch.njol.skript.doc.Description;
+import ch.njol.skript.doc.Examples;
+import ch.njol.skript.doc.Name;
+import ch.njol.skript.doc.Since;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
@@ -16,6 +20,10 @@ import org.bukkit.event.Event;
 
 import java.util.logging.Level;
 
+@Name("Region volume")
+@Description("Gets volume of a region.")
+@Examples("set {_volume} to the volume of region \"region-1\" in \"world\"")
+@Since("1.0.0")
 public class ExprVolumeRegion extends SimpleExpression<Number> {
 
     static {

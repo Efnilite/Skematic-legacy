@@ -2,6 +2,10 @@ package me.efnilite.skematic.elements.effects;
 
 import ch.njol.skript.Skript;
 import ch.njol.skript.classes.Changer;
+import ch.njol.skript.doc.Description;
+import ch.njol.skript.doc.Examples;
+import ch.njol.skript.doc.Name;
+import ch.njol.skript.doc.Since;
 import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
@@ -13,6 +17,10 @@ import org.bukkit.World;
 import org.bukkit.event.Event;
 import org.eclipse.jdt.annotation.Nullable;
 
+@Name("AsyncWorld - Delete")
+@Description("Delete an AsyncWorld.")
+@Examples("delete async world {_world}")
+@Since("1.0.0")
 public class EffDelAsyncWorld extends Effect {
 
     static {

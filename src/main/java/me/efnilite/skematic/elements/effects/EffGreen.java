@@ -1,6 +1,10 @@
 package me.efnilite.skematic.elements.effects;
 
 import ch.njol.skript.Skript;
+import ch.njol.skript.doc.Description;
+import ch.njol.skript.doc.Examples;
+import ch.njol.skript.doc.Name;
+import ch.njol.skript.doc.Since;
 import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
@@ -12,6 +16,10 @@ import com.sk89q.worldedit.world.World;
 import org.bukkit.Location;
 import org.bukkit.event.Event;
 
+@Name("Greenify")
+@Description("Greenify an area - Turns it into grass.")
+@Examples("greenify 2, 3, 4 in \"world\" within a radius of 20")
+@Since("1.0.0")
 public class EffGreen extends Effect {
 
     static {

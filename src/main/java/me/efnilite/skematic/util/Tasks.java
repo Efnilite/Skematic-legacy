@@ -15,15 +15,22 @@ public class Tasks extends TaskManager {
         }
     }
 
-    public void laterAsync(Runnable r, long d) {
+    public void laterAsync(Runnable r, long delay) {
         if (r != null) {
-            get().getServer().getScheduler().runTaskLaterAsynchronously(get(), r, d).getTaskId();
+            get().getServer().getScheduler().runTaskLaterAsynchronously(get(), r, delay).getTaskId();
         }
     }
 
-    public void laterSync(Runnable r, long d) {
+    public void laterSync(Runnable r, long delay) {
         if (r != null) {
-            get().getServer().getScheduler().runTaskLater(get(), r, d).getTaskId();
+            get().getServer().getScheduler().runTaskLater(get(), r, delay).getTaskId();
         }
     }
+
+    public void repeatSync(Runnable r, long delay, long period) {
+        if (r != null) {
+            get().getServer().getScheduler().scheduleSyncRepeatingTask(get(), r, delay, period);
+        }
+    }
+
 }

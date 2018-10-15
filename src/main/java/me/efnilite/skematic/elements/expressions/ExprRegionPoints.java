@@ -1,6 +1,10 @@
 package me.efnilite.skematic.elements.expressions;
 
 import ch.njol.skript.Skript;
+import ch.njol.skript.doc.Description;
+import ch.njol.skript.doc.Examples;
+import ch.njol.skript.doc.Name;
+import ch.njol.skript.doc.Since;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
@@ -11,11 +15,15 @@ import com.sk89q.worldedit.Vector;
 import com.sk89q.worldedit.regions.Region;
 import org.bukkit.event.Event;
 
-
+@Name("Selection points")
+@Description("Gets the minimal or maximal points of a player's selection")
+@Examples("set {_point} to the maximum point of player's selection")
+@Since("1.0.0")
 public class ExprRegionPoints extends SimpleExpression<Vector> {
 
     static {
-        Skript.registerExpression(ExprRegionPoints.class, Vector.class, ExpressionType.PROPERTY, "[the] (1¦min|2¦max)[imum] (coord[inate]|point)[s] of %weregions%" + "%weregions%'[s] (1¦min|2¦max)[imum] (coord[inate]|point)[s]");
+        Skript.registerExpression(ExprRegionPoints.class, Vector.class, ExpressionType.PROPERTY, "[the] (1¦min|2¦max)[imum] (coord[inate]|point)[s] of (selection of %player%|%player%'s selection)",
+                "(selection of %player%|%player%'s selection)'[s] (1¦min|2¦max)[imum] (coord[inate]|point)[s]");
     }
 
     enum Point {

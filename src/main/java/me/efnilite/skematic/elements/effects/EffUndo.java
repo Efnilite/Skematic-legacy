@@ -1,6 +1,10 @@
 package me.efnilite.skematic.elements.effects;
 
 import ch.njol.skript.Skript;
+import ch.njol.skript.doc.Description;
+import ch.njol.skript.doc.Examples;
+import ch.njol.skript.doc.Name;
+import ch.njol.skript.doc.Since;
 import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
@@ -11,6 +15,10 @@ import com.sk89q.worldedit.EditSession;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
+@Name("Undo")
+@Description("Undo the last edit of a player.")
+@Examples("undo the last change of player")
+@Since("1.0.0")
 public class EffUndo extends Effect {
 
     static {
@@ -34,8 +42,7 @@ public class EffUndo extends Effect {
 
     @Override
     protected void execute(Event e) {
-        FawePlayer p = FaweAPI.wrapPlayer(player.getSingle(e));
-        EditSession s = p.getNewEditSession();
+        EditSession s = FaweAPI.wrapPlayer(player.getSingle(e)).getNewEditSession();
         s.undo(s);
     }
 }

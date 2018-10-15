@@ -1,6 +1,10 @@
 package me.efnilite.skematic.elements.effects;
 
 import ch.njol.skript.Skript;
+import ch.njol.skript.doc.Description;
+import ch.njol.skript.doc.Examples;
+import ch.njol.skript.doc.Name;
+import ch.njol.skript.doc.Since;
 import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
@@ -12,10 +16,14 @@ import com.sk89q.worldedit.world.World;
 import org.bukkit.Location;
 import org.bukkit.event.Event;
 
+@Name("Drain liquids")
+@Description("Drain all liquids at a certain location with a radius.")
+@Examples("drain all liquids at 124, 32, 12 in \"world\" in a radius of 10")
+@Since("1.0.1")
 public class EffDrain extends Effect {
 
     static {
-        Skript.registerEffect(EffDrain.class, "drain [all] [liquid[s]] [at] %location% (in|within) [a] radius [of] %number%");
+        Skript.registerEffect(EffDrain.class, "drain [all] [(skematic|fawe)] [liquid[s]] [at] %location% (in|within) [a] radius [of] %number%");
     }
 
     private Expression<World> world;

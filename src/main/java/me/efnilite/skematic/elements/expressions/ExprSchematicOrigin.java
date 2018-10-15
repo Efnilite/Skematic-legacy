@@ -1,6 +1,10 @@
 package me.efnilite.skematic.elements.expressions;
 
 import ch.njol.skript.Skript;
+import ch.njol.skript.doc.Description;
+import ch.njol.skript.doc.Examples;
+import ch.njol.skript.doc.Name;
+import ch.njol.skript.doc.Since;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
@@ -16,10 +20,14 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+@Name("Schematic origin")
+@Description("Returns the origin location of a schematic (where it was copied and saved)")
+@Examples("set {_origin} to the origin of skematic \"plugins/WorldEdit/skematic.schematic\"")
+@Since("1.0.0")
 public class ExprSchematicOrigin extends SimpleExpression<Vector> {
 
     static {
-        Skript.registerExpression(ExprSchematicOrigin.class, Vector.class, ExpressionType.COMBINED, "[skematic] [the] origin [area] of [schem[atic]] %string%");
+        Skript.registerExpression(ExprSchematicOrigin.class, Vector.class, ExpressionType.COMBINED, "[skematic] [the] origin [area] of [s(ch|k)em[atic]] %string%");
     }
 
     private Expression<String> schem;

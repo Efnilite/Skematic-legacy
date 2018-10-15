@@ -1,6 +1,10 @@
 package me.efnilite.skematic.elements.expressions;
 
 import ch.njol.skript.Skript;
+import ch.njol.skript.doc.Description;
+import ch.njol.skript.doc.Examples;
+import ch.njol.skript.doc.Name;
+import ch.njol.skript.doc.Since;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
@@ -10,10 +14,14 @@ import com.boydti.fawe.FaweAPI;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
+@Name("Selection dimensions")
+@Description("Get one of the region dimensions of a player's selection.")
+@Examples("set {area} to the length of player's selection")
+@Since("1.0.0")
 public class ExprRegionDimensions extends SimpleExpression<Number> {
 
     static {
-        Skript.registerExpression(ExprRegionDimensions.class, Number.class, ExpressionType.PROPERTY, "[the] [skematic] (1¦length|2¦height|3¦width) of (%player%'s selection|selection of %player%)");
+        Skript.registerExpression(ExprRegionDimensions.class, Number.class, ExpressionType.PROPERTY, "[the] [(skematic|fawe)] (1¦length|2¦height|3¦width) of (%player%'s selection|selection of %player%)");
     }
 
     enum Dimension {

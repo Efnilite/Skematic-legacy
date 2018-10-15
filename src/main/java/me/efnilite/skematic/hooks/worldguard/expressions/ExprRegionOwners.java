@@ -2,6 +2,10 @@ package me.efnilite.skematic.hooks.worldguard.expressions;
 
 import ch.njol.skript.Skript;
 import ch.njol.skript.classes.Changer;
+import ch.njol.skript.doc.Description;
+import ch.njol.skript.doc.Examples;
+import ch.njol.skript.doc.Name;
+import ch.njol.skript.doc.Since;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
@@ -16,6 +20,10 @@ import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
+@Name("Region owners")
+@Description("Gets/sets/removes/adds the owners of a region.")
+@Examples("add player to the owners of of region \"hub\" in \"Hubworld\"")
+@Since("1.0.0")
 public class ExprRegionOwners extends SimpleExpression<Player> {
 
     static {

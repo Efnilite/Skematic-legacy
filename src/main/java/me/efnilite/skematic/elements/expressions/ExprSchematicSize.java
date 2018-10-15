@@ -1,6 +1,10 @@
 package me.efnilite.skematic.elements.expressions;
 
 import ch.njol.skript.Skript;
+import ch.njol.skript.doc.Description;
+import ch.njol.skript.doc.Examples;
+import ch.njol.skript.doc.Name;
+import ch.njol.skript.doc.Since;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
@@ -8,9 +12,7 @@ import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
 import com.boydti.fawe.FaweAPI;
 import com.sk89q.worldedit.Vector;
-import com.sun.media.jfxmedia.logging.Logger;
 import me.efnilite.skematic.Skematic;
-import org.bukkit.Bukkit;
 import org.bukkit.event.Event;
 import org.eclipse.jdt.annotation.Nullable;
 
@@ -19,10 +21,14 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 
-public class ExprSchematicDimensions extends SimpleExpression<Vector> {
+@Name("Schematic size")
+@Description("Gets the size of a schematic.")
+@Examples("set {_size} to the size of skematic \"plugins/WorldEdit/skematic.schematic\"")
+@Since("1.0.0")
+public class ExprSchematicSize extends SimpleExpression<Vector> {
 
     static {
-        Skript.registerExpression(ExprSchematicDimensions.class, Vector.class, ExpressionType.COMBINED, "[skematic] [the] dimension[s] of [the] [schem[atic]] %string%");
+        Skript.registerExpression(ExprSchematicSize.class, Vector.class, ExpressionType.COMBINED, "[the] (dimensions|size) of [the] [s(ch|k)em[atic]] %string%");
     }
 
     private Expression<String> schem;

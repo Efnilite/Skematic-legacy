@@ -45,11 +45,11 @@ public class EffDelRegion extends Effect {
 
     @Override
     protected void execute(Event e) {
-        TaskManager.manager.async(() -> {
-            RegionManager regionManager = WorldGuard.getWorldGuard().getRegionManager(Bukkit.getServer().getWorld(world.getSingle(e).toString()));
-            if (regionManager != null) {
-                regionManager.removeRegion(name.getSingle(e));
-            }
-        });
+        RegionManager regionManager = WorldGuard.getWorldGuard().getRegionManager(Bukkit.getServer().getWorld(world.getSingle(e).toString()));
+        if (regionManager != null) {
+            TaskManager.manager.async(() ->
+                    regionManager.removeRegion(name.getSingle(e))
+            );
+        }
     }
 }

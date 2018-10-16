@@ -25,16 +25,16 @@ import java.util.logging.Level;
 @Description("Paste a schematic at a location with or without using air")
 @Examples("paste skematic \"plugins/WorldEdit/skematic.schematic\" at player excluding air")
 @Since("1.0.0")
-public class EffPasteSchematic extends Effect {
+public class EffSchematicPaste extends Effect {
 
     static {
-        Skript.registerEffect(EffPasteSchematic.class, "paste [the] s(ch|k)em[atic] %string% at %location% [(1¦(without|excluding) air)] [(2¦[(,| and)] allow[ing] undo)]");
+        Skript.registerEffect(EffSchematicPaste.class, "paste [the] s(ch|k)em[atic] %schematic% at %location% [(1¦(without|excluding) air)] [(2¦[(,| and)] allow[ing] undo)]");
     }
     enum Subarg {
         NONE, AIR, UNDO, BOTH
     }
 
-    private Expression<String> schematic;
+    private Expression<File> schematic;
     private Expression<Location> location;
 
     private Subarg arg;
@@ -44,18 +44,26 @@ public class EffPasteSchematic extends Effect {
 
         arg = Subarg.values()[parser.mark];
 
-        schematic = (Expression<String>) exprs[0];
+        schematic = (Expression<File>) exprs[0];
         location = (Expression<Location>) exprs[1];
+
         return true;
     }
 
     @Override
-    public String toString(@Nullable Event event, boolean debug) {
-        return "paste the schematic " + schematic.toString(event, debug) + ", at location " + location.toString(event, debug);
+    public String toString(@Nullable Event e, boolean debug) {
+        return "paste the schematic " + schematic.toString(e, debug) + ", at location " + location.toString(e, debug);
     }
 
     @Override
     protected void execute(Event e) {
+
+        File s = schematic.getSingle(e);
+        Location l = location.getSingle(e);
+
+        if (s == null || l == null) {
+            return;
+        }
 
         boolean ignoreAir = false;
         boolean allowUndo = false;
@@ -75,17 +83,14 @@ public class EffPasteSchematic extends Effect {
                 break;
         }
 
-        String s = schematic.getSingle(e).replace("\"", "");
-        Location l = location.getSingle(e);
-
-        if (!s.endsWith(".schematic")) {
-            s = s + ".schematic";
+        if (!s.toString().endsWith(".schematic")) {
+            s = new File(s + ".schematic");
         }
 
         try {
-            FaweAPI.load(new File(s)).paste(BukkitUtil.getLocalWorld(l.getWorld()), new Vector(l.getBlockX(), l.getBlockY(), l.getBlockZ()), allowUndo, ignoreAir, null);
+            FaweAPI.load(s).paste(BukkitUtil.getLocalWorld(l.getWorld()), new Vector(l.getBlockX(), l.getBlockY(), l.getBlockZ()), allowUndo, ignoreAir, null);
         } catch (IOException ex) {
-            Skematic.log("Could not paste schematic " + schematic.getSingle(e) + ". Exception: " + ex.toString(), Level.SEVERE);
+            Skematic.log("Could not paste schematic " + s + ". Exception: " + ex.toString(), Level.SEVERE);
         }
     }
 }

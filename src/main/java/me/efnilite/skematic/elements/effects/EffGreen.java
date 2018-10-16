@@ -47,9 +47,17 @@ public class EffGreen extends Effect {
 
     @Override
     protected void execute(Event e) {
-        Location loc = position.getSingle(e);
-        EditSession session = FaweAPI.getEditSessionBuilder(world.getSingle(e)).autoQueue(true).build();
-        session.green(new Vector(loc.getBlockX(), loc.getBlockY(), loc.getBlockZ()), (double) radius.getSingle(e));
+
+        Location l = position.getSingle(e);
+        World w = world.getSingle(e);
+        Number r = radius.getSingle(e);
+
+        if (r == null || w == null || l == null) {
+            return;
+        }
+
+        EditSession session = FaweAPI.getEditSessionBuilder(w).autoQueue(true).build();
+        session.green(new Vector(l.getBlockX(), l.getBlockY(), l.getBlockZ()), (double) r);
     }
 
 }

@@ -10,7 +10,6 @@ import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
-import com.boydti.fawe.FaweAPI;
 import com.sk89q.worldedit.Vector;
 import com.sk89q.worldedit.regions.Region;
 import org.bukkit.event.Event;
@@ -19,18 +18,18 @@ import org.bukkit.event.Event;
 @Description("Gets the minimal or maximal points of a player's selection")
 @Examples("set {_point} to the maximum point of player's selection")
 @Since("1.0.0")
-public class ExprRegionPoints extends SimpleExpression<Vector> {
+public class ExprCuboidRegionPoints extends SimpleExpression<Vector> {
 
     static {
-        Skript.registerExpression(ExprRegionPoints.class, Vector.class, ExpressionType.PROPERTY, "[the] (1¦min|2¦max)[imum] (coord[inate]|point)[s] of (selection of %player%|%player%'s selection)",
-                "(selection of %player%|%player%'s selection)'[s] (1¦min|2¦max)[imum] (coord[inate]|point)[s]");
+        Skript.registerExpression(ExprCuboidRegionPoints.class, Vector.class, ExpressionType.PROPERTY, "[the] (1¦min|2¦max)[imum] (coord[inate]|point)[s] of %weregions%",
+                "%weregions%'[s] (1¦min|2¦max)[imum] (coord[inate]|point)[s]");
     }
 
     enum Point {
         MIN, MAX
     }
 
-    private Expression<Region> player;
+    private Expression<Region> region;
     private Point point;
 
     @Override
@@ -38,14 +37,14 @@ public class ExprRegionPoints extends SimpleExpression<Vector> {
 
         point = Point.values()[parseResult.mark];
 
-        player = (Expression<Region>) exprs[0];
+        region = (Expression<Region>) exprs[0];
 
         return true;
     }
 
     @Override
     public String toString(Event e, boolean debug) {
-        return "get the min and max points of the region of " + player.toString(e, debug) ;
+        return "get the min and max points of the region" + region.toString(e, debug) ;
     }
 
     @Override
@@ -63,12 +62,13 @@ public class ExprRegionPoints extends SimpleExpression<Vector> {
         Vector r = null;
         switch (point) {
             case MAX:
-                r = FaweAPI.wrapPlayer(player.getSingle(e)).getSelection().getMinimumPoint();
+                r = region.getSingle(e).getMinimumPoint();
                 break;
             case MIN:
-                r = FaweAPI.wrapPlayer(player.getSingle(e)).getSelection().getMaximumPoint();
+                r = region.getSingle(e).getMaximumPoint();
                 break;
-        } return new Vector[] { r };
+        }
+        return new Vector[] { r };
     }
 
 }

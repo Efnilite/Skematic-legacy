@@ -40,7 +40,13 @@ public class EffRedo extends Effect {
 
     @Override
     protected void execute(Event e) {
+
         Player p = player.getSingle(e);
+
+        if (p == null) {
+            return;
+        }
+
         FaweAPI.wrapPlayer(p).getNewEditSession().redo(FaweAPI.wrapPlayer(p).getNewEditSession());
     }
 

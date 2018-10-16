@@ -1,6 +1,7 @@
 package me.efnilite.skematic.elements.expressions;
 
 import ch.njol.skript.Skript;
+import ch.njol.skript.classes.Changer;
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
@@ -10,6 +11,7 @@ import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
+import ch.njol.util.coll.CollectionUtils;
 import com.boydti.fawe.FaweAPI;
 import com.boydti.fawe.example.NMSMappedFaweQueue;
 import com.boydti.fawe.jnbt.anvil.MCAQueue;
@@ -21,7 +23,14 @@ import com.sk89q.worldedit.Vector;
 import com.sk89q.worldedit.bukkit.BukkitUtil;
 import org.bukkit.Location;
 import org.bukkit.World;
+import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
+
+import java.io.File;
+import java.nio.file.Path;
+import java.util.ArrayList;
+
+import static sun.security.krb5.Confounder.intValue;
 
 @Name("Light level")
 @Description("Get the light level of a block.")
@@ -33,13 +42,11 @@ public class ExprLightLevel extends SimpleExpression<Number> {
         Skript.registerExpression(ExprLightLevel.class, Number.class, ExpressionType.PROPERTY, "[the] [block(-| )]light of [the] [block] (at|of) %location%");
     }
 
-    private Expression<World> world;
     private Expression<Location> location;
 
     @Override
     public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parseResult) {
 
-        world = (Expression<World>) exprs[1];
         location = (Expression<Location>) exprs[0];
 
         return true;
@@ -47,12 +54,12 @@ public class ExprLightLevel extends SimpleExpression<Number> {
 
     @Override
     public String toString(Event e, boolean debug) {
-        return "light level of block at " + location.toString(e, debug) + " in world " + world.toString(e, debug);
+        return "light level of block at " + location.toString(e, debug);
     }
 
     @Override
     public boolean isSingle() {
-        return true;
+        return false;
     }
 
     @Override
@@ -62,15 +69,39 @@ public class ExprLightLevel extends SimpleExpression<Number> {
 
     @Override
     protected Number[] get(Event e) {
-        Location pos = location.getSingle(e);
 
+        Location l = location.getSingle(e);
 
-        FaweQueue defaultQueue = SetQueue.IMP.getNewQueue(BukkitUtil.getLocalWorld(world.getSingle(e)), true, false);
-        MCAQueue mcaQueue = new MCAQueue(defaultQueue);
-        mcaQueue.setBlockLight(1, 1, 1, 1);
+        if (l == null) {
+            return null;
+        }
 
-        NMSMappedFaweQueue nmsQueue = (NMSMappedFaweQueue) SetQueue.IMP.getNewQueue("worldName", true, false);
-
-        return new Number[] { FaweAPI.getWorld(world.getSingle(e).getName()).getBlockLightLevel(new Vector(pos.getBlockX(), pos.getBlockY(), pos.getBlockZ())) };
+        return new Number[] { FaweAPI.getWorld(l.getWorld().getName()).getBlockLightLevel(new Vector(l.getBlockX(), l.getBlockY(), l.getBlockZ())) };
     }
+
+    @Override
+    public Class<?>[] acceptChange(Changer.ChangeMode mode) {
+        if (mode == Changer.ChangeMode.SET) {
+            return CollectionUtils.array(Player[].class);
+        }
+        return null;
+    }
+
+    @Override
+    public void change(Event e, Object[] delta, Changer.ChangeMode mode) {
+
+        if (mode == Changer.ChangeMode.SET) {
+
+            Location l = location.getSingle(e);
+
+            if (l == null) {
+                return;
+            }
+
+            NMSMappedFaweQueue nmsQueue = (NMSMappedFaweQueue) SetQueue.IMP.getNewQueue(BukkitUtil.getLocalWorld(l.getWorld()), true, false);
+            nmsQueue.setBlockLight(l.getBlockX(), l.getBlockY(), l.getBlockZ(), (int) delta[0]);
+
+        }
+    }
+
 }

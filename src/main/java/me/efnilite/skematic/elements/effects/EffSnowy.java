@@ -47,8 +47,16 @@ public class EffSnowy extends Effect {
 
     @Override
     protected void execute(Event e) {
-        EditSession session = FaweAPI.getEditSessionBuilder(world.getSingle(e)).autoQueue(true).build();
-        Location pos = position.getSingle(e);
-        session.simulateSnow(new Vector(pos.getBlockX(), pos.getBlockY(), pos.getBlockZ()), (double) radius.getSingle(e));
+
+        Location l = position.getSingle(e);
+        World w = world.getSingle(e);
+        Number r = radius.getSingle(e);
+
+        if (l == null || w == null || r == null) {
+            return;
+        }
+
+        EditSession session = FaweAPI.getEditSessionBuilder(w).autoQueue(true).build();
+        session.simulateSnow(new Vector(l.getBlockX(), l.getBlockY(), l.getBlockZ()), (double) r);
     }
 }

@@ -1,10 +1,8 @@
 ## Gradle
-.gradle
-build/
-gradle/
-libs/
+/.gradle
+/build/
+/gradle/
+/libs/
 
 ## IntelliJ
-.idea/
-
-src/main/java/me/efnilite/skematic/util/scope
+/.idea/

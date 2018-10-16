@@ -32,12 +32,9 @@ public class ExprRegionOwners extends SimpleExpression<Player> {
 
     private Expression<String> name;
     private Expression<World> world;
-    private Expression<Player> player;
 
     @Override
     public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parseResult) {
-
-        player = (Expression<Player>) exprs[0];
         name = (Expression<String>) exprs[1];
         world = (Expression<World>) exprs[2];
 
@@ -56,7 +53,7 @@ public class ExprRegionOwners extends SimpleExpression<Player> {
 
     @Override
     public String toString(Event e, boolean debug) {
-        return "set or remove " + player.toString(e, debug) + " of region " + name.toString(e, debug) + " in world " + world.toString(e, debug);
+        return "region " + name.toString(e, debug) + " in world " + world.toString(e, debug);
     }
 
     @Override
@@ -89,7 +86,7 @@ public class ExprRegionOwners extends SimpleExpression<Player> {
                     owners.addPlayer(owner);
                 }
             }
-            owners.removePlayer(player.toString());
+            owners.removePlayer(delta[0].toString());
             region.setOwners(owners);
         } else if (mode == Changer.ChangeMode.ADD) {
             region = WorldGuard.getWorldGuard().getRegionManager(world.getSingle(event)).getRegion(name.getSingle(event));
@@ -98,7 +95,7 @@ public class ExprRegionOwners extends SimpleExpression<Player> {
                     owners.addPlayer(owner);
                 }
             }
-            owners.addPlayer(player.toString());
+            owners.addPlayer(delta[0].toString());
             region.setOwners(owners);
         }
     }

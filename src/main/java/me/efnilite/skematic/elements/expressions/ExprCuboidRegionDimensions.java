@@ -10,40 +10,41 @@ import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
-import com.boydti.fawe.FaweAPI;
-import org.bukkit.entity.Player;
+import com.sk89q.worldedit.regions.Region;
 import org.bukkit.event.Event;
 
 @Name("Selection dimensions")
 @Description("Get one of the region dimensions of a player's selection.")
 @Examples("set {area} to the length of player's selection")
 @Since("1.0.0")
-public class ExprRegionDimensions extends SimpleExpression<Number> {
+public class ExprCuboidRegionDimensions extends SimpleExpression<Number> {
 
     static {
-        Skript.registerExpression(ExprRegionDimensions.class, Number.class, ExpressionType.PROPERTY, "[the] [(skematic|fawe)] (1¦length|2¦height|3¦width) of (%player%'s selection|selection of %player%)");
+        Skript.registerExpression(ExprCuboidRegionDimensions.class, Number.class, ExpressionType.PROPERTY,
+                "[the] [(skematic|fawe)] (1¦length|2¦height|3¦width) of %weregions%",
+                "[the] %weregions%'s [(skematic|fawe)] (1¦length|2¦height|3¦width)");
     }
 
     enum Dimension {
         LONG, HIGH, WIDE
     }
 
-    private Expression<Player> player;
+    private Expression<Region> region;
     private Dimension dimension;
 
     @Override
-    public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parseResult) {
+    public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parser) {
 
-        dimension = Dimension.values()[parseResult.mark];
+        dimension = Dimension.values()[parser.mark - 1];
 
-        player = (Expression<Player>) exprs[0];
+        region = (Expression<Region>) exprs[0];
 
         return true;
     }
 
     @Override
     public String toString(Event e, boolean debug) {
-        return "get the dimensions of the selection of " + player.toString(e, debug);
+        return "get the dimensions of the region " + region.toString(e, debug);
     }
 
     @Override
@@ -58,17 +59,25 @@ public class ExprRegionDimensions extends SimpleExpression<Number> {
 
     @Override
     protected Number[] get(Event e) {
-        Number result = null;
+
+        Region r = region.getSingle(e);
+
+        if (r == null) {
+            return null;
+        }
+
+        Number t = null;
         switch (dimension) {
             case LONG:
-                result = FaweAPI.wrapPlayer(player.getSingle(e)).getSelection().getLength();
+                t = region.getSingle(e).getLength();
                 break;
             case HIGH:
-                result = FaweAPI.wrapPlayer(player.getSingle(e)).getSelection().getHeight();
+                t = region.getSingle(e).getHeight();
                 break;
             case WIDE:
-                result = FaweAPI.wrapPlayer(player.getSingle(e)).getSelection().getWidth();
+                t = region.getSingle(e).getWidth();
                 break;
-        } return new Number[] { result };
+        }
+        return new Number[] { t };
     }
 }

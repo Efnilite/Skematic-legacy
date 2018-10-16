@@ -19,34 +19,40 @@ import org.eclipse.jdt.annotation.Nullable;
 
 @Name("AsyncWorld - Delete")
 @Description("Delete an AsyncWorld.")
-@Examples("delete async world {_world}")
+@Examples("delete async world \"hi\"")
 @Since("1.0.0")
 public class EffDelAsyncWorld extends Effect {
 
     static {
-        Skript.registerEffect(EffDelAsyncWorld.class, "del[ete] [the] async[hronous] [world] %object%");
+        Skript.registerEffect(EffDelAsyncWorld.class, "del[ete] [the] async[hronous] [world] %world%");
     }
 
     private Expression<AsyncWorld> world;
-    private Expression<Variable<AsyncWorld>> var;
 
     @SuppressWarnings("unchecked")
     @Override
     public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parser) {
-        var = (Expression<Variable<AsyncWorld>>) exprs[0];
+
         world = (Expression<AsyncWorld>) exprs[0];
+
         return true;
     }
 
     @Override
     public String toString(@Nullable Event event, boolean debug) {
-        return "delete the async world " + world.toString(event, debug) + " stored in the variable " + var.toString(event, debug);
+        return "delete the async world " + world.toString(event, debug);
     }
 
     @Override
     protected void execute(Event e) {
-        world.getSingle(e).getWorldFolder().delete();
-        var.change(e, CollectionUtils.array(world.getSingle(e)), Changer.ChangeMode.DELETE);
+
+        World w = world.getSingle(e);
+
+        if (w == null) {
+            return;
+        }
+
+        w.getWorldFolder().delete();
     }
 
 }

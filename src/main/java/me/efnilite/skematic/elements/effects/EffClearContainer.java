@@ -45,9 +45,16 @@ public class EffClearContainer extends Effect {
 
     @Override
     protected void execute(Event e) {
-        Location loc = position.getSingle(e);
-        EditSession session = FaweAPI.getEditSessionBuilder(world.getSingle(e)).autoQueue(true).build();
-        session.clearContainerBlockContents(new Vector(loc.getBlockX(), loc.getBlockY(), loc.getBlockZ()));
+
+        Location l = position.getSingle(e);
+        World w = world.getSingle(e);
+
+        if (w == null || l == null) {
+            return;
+        }
+
+        EditSession session = FaweAPI.getEditSessionBuilder(w).autoQueue(true).build();
+        session.clearContainerBlockContents(new Vector(l.getBlockX(), l.getBlockY(), l.getBlockZ()));
     }
 
 }

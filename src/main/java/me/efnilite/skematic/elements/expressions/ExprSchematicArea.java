@@ -27,11 +27,33 @@ import java.io.IOException;
 public class ExprSchematicArea extends SimpleExpression<Number> {
 
     static {
-        Skript.registerExpression(ExprSchematicArea.class, Number.class, ExpressionType.COMBINED, "[the] (1¦width|2¦height|3¦length) of [the] [(sc|k)hem[atic]] %string%");
+        Skript.registerExpression(ExprSchematicArea.class, Number.class, ExpressionType.COMBINED,
+                "[the] (1¦width|2¦height|3¦length|4¦floor[(-| )]size) of [the] [(sc|k)hem[atic]] %schematics%");
     }
 
-    private Expression<String> schem;
-    private int marker;
+    enum Dimension {
+        WIDTH, HEIGHT, LENGTH, FLOORSIZE
+    }
+
+    private Expression<String> schematic;
+    private Dimension dimension;
+
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parser) {
+
+        dimension = Dimension.values()[parser.mark - 1];
+
+        schematic = (Expression<String>) exprs[0];
+
+        return true;
+    }
+
+    @Override
+    public String toString(@Nullable Event event, boolean debug) {
+        return "schematic sizes of " + schematic.toString(event, debug);
+    }
 
     @Override
     public Class<? extends Number> getReturnType() {
@@ -43,24 +65,19 @@ public class ExprSchematicArea extends SimpleExpression<Number> {
         return true;
     }
 
-    @SuppressWarnings("unchecked")
-    @Override
-    public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parser) {
-        marker = parser.mark;
-        schem = (Expression<String>) exprs[0];
-        return true;
-    }
-
-    @Override
-    public String toString(@Nullable Event event, boolean debug) {
-        return "schematic sizes of " + schem.toString(event, debug);
-    }
-
     @Override
     @Nullable
-    protected Number[] get(Event event) {
+    protected Number[] get(Event e) {
+
+        String s = schematic.getSingle(e);
+
+        if (s == null || dimension == null) {
+            return null;
+        }
+
         Vector size;
-        File file = new File(schem.getSingle(event));
+        File file = new File(s);
+
         try {
             size = FaweAPI.load(file).getClipboard().getDimensions();
         } catch (FileNotFoundException exception) {
@@ -70,20 +87,24 @@ public class ExprSchematicArea extends SimpleExpression<Number> {
             exception.printStackTrace();
             return null;
         }
-        Number result = null;
-        switch (marker) {
-            case 1:
-                result = size.getY();
+
+
+        Number t = null;
+
+        switch (dimension) {
+            case WIDTH:
+                t = size.getY();
                 break;
-            case 2:
-                result = size.getX();
+            case HEIGHT:
+                t = size.getX();
                 break;
-            case 3:
-                result = size.getZ();
+            case LENGTH:
+                t = size.getZ();
                 break;
-            case 4:
-                result = (size.getZ() * size.getX());
+            case FLOORSIZE:
+                t = (size.getZ() * size.getX());
                 break;
-        } return new Number[] { result };
+        }
+        return new Number[] { t };
     }
 }

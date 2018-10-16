@@ -42,7 +42,14 @@ public class EffUndo extends Effect {
 
     @Override
     protected void execute(Event e) {
-        EditSession s = FaweAPI.wrapPlayer(player.getSingle(e)).getNewEditSession();
+
+        Player p = player.getSingle(e);
+
+        if (p == null) {
+            return;
+        }
+
+        EditSession s = FaweAPI.wrapPlayer(p).getNewEditSession();
         s.undo(s);
     }
 }

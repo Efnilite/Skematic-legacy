@@ -21,7 +21,7 @@ import java.util.logging.Level;
 public class ExprSchematicSize extends SimplePropertyExpression<File, Vector> {
 
     static {
-        register(me.efnilite.skematic.elements.expressions.ExprSchematicOrigin.class, Vector.class, "(dimensions|size)", "schematics");
+        register(ExprSchematicSize.class, Vector.class, "dimensions", "schematics");
     }
 
     @Override

@@ -36,11 +36,6 @@ public class EffUndo extends Effect {
     }
 
     @Override
-    public String toString(Event e, boolean debug) {
-        return "undo last change of " + player.toString(e, debug);
-    }
-
-    @Override
     protected void execute(Event e) {
 
         Player p = player.getSingle(e);
@@ -51,5 +46,12 @@ public class EffUndo extends Effect {
 
         EditSession s = FaweAPI.wrapPlayer(p).getNewEditSession();
         s.undo(s);
+        s.flushQueue();
     }
+
+    @Override
+    public String toString(Event e, boolean debug) {
+        return "undo last change of " + player.toString(e, debug);
+    }
+
 }

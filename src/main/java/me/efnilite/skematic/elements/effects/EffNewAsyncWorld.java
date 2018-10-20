@@ -1,7 +1,6 @@
 package me.efnilite.skematic.elements.effects;
 
 import ch.njol.skript.Skript;
-import ch.njol.skript.classes.Changer;
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
@@ -9,17 +8,11 @@ import ch.njol.skript.doc.Since;
 import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
-import ch.njol.skript.lang.Variable;
 import ch.njol.util.Kleenean;
-import ch.njol.util.coll.CollectionUtils;
 import com.boydti.fawe.bukkit.wrapper.AsyncWorld;
-import me.efnilite.skematic.Skematic;
-import org.bukkit.World;
 import org.bukkit.WorldCreator;
 import org.bukkit.event.Event;
 import org.eclipse.jdt.annotation.Nullable;
-
-import java.util.logging.Level;
 
 @Name("AsyncWorld - Create")
 @Description("Create an AsyncWorld.")

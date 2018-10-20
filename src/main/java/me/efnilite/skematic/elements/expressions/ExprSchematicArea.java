@@ -51,21 +51,6 @@ public class ExprSchematicArea extends SimpleExpression<Number> {
     }
 
     @Override
-    public String toString(@Nullable Event event, boolean debug) {
-        return "schematic sizes of " + schematic.toString(event, debug);
-    }
-
-    @Override
-    public Class<? extends Number> getReturnType() {
-        return Number.class;
-    }
-
-    @Override
-    public boolean isSingle() {
-        return true;
-    }
-
-    @Override
     @Nullable
     protected Number[] get(Event e) {
 
@@ -88,7 +73,6 @@ public class ExprSchematicArea extends SimpleExpression<Number> {
             return null;
         }
 
-
         Number t = null;
 
         switch (dimension) {
@@ -105,6 +89,23 @@ public class ExprSchematicArea extends SimpleExpression<Number> {
                 t = (size.getZ() * size.getX());
                 break;
         }
-        return new Number[] { t };
+        return new Number[]{
+                t
+        };
+    }
+
+    @Override
+    public String toString(@Nullable Event event, boolean debug) {
+        return "schematic sizes of " + schematic.toString(event, debug);
+    }
+
+    @Override
+    public Class<? extends Number> getReturnType() {
+        return Number.class;
+    }
+
+    @Override
+    public boolean isSingle() {
+        return true;
     }
 }

@@ -41,11 +41,6 @@ public class EffGreen extends Effect {
     }
 
     @Override
-    public String toString(Event e, boolean debug) {
-        return "greenify " + position.toString(e, debug) + " with radius " + radius.toString(e, debug) + " in world " + world.toString(e, debug);
-    }
-
-    @Override
     protected void execute(Event e) {
 
         Location l = position.getSingle(e);
@@ -56,8 +51,15 @@ public class EffGreen extends Effect {
             return;
         }
 
-        EditSession session = FaweAPI.getEditSessionBuilder(w).autoQueue(true).build();
-        session.green(new Vector(l.getBlockX(), l.getBlockY(), l.getBlockZ()), (double) r);
+        EditSession s = FaweAPI.getEditSessionBuilder(w).autoQueue(true).build();
+        s.green(new Vector(l.getBlockX(), l.getBlockY(), l.getBlockZ()), (double) r);
+        s.flushQueue();
     }
+
+    @Override
+    public String toString(Event e, boolean debug) {
+        return "greenify " + position.toString(e, debug) + " with radius " + radius.toString(e, debug) + " in world " + world.toString(e, debug);
+    }
+
 
 }

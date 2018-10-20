@@ -20,7 +20,7 @@ import org.bukkit.event.Event;
 public class CondSelectionContains extends Condition {
 
     static {
-        Skript.registerCondition(CondSelectionContains.class, "%weregions% contains %location%");
+        Skript.registerCondition(CondSelectionContains.class, "%cuboidregions% contains %location%");
     }
 
     private Expression<Region> region;
@@ -33,11 +33,6 @@ public class CondSelectionContains extends Condition {
         location = (Expression<Location>) exprs[1];
 
         return true;
-    }
-
-    @Override
-    public String toString(Event e, boolean debug) {
-        return "test if " + location.toString(e, debug) + " is in the region " + region.toString(e, debug);
     }
 
     @Override
@@ -56,4 +51,10 @@ public class CondSelectionContains extends Condition {
             return isNegated();
         }
     }
+
+    @Override
+    public String toString(Event e, boolean debug) {
+        return "test if " + location.toString(e, debug) + " is in the region " + region.toString(e, debug);
+    }
+
 }

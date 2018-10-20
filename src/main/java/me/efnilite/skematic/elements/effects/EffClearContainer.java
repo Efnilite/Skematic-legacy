@@ -39,11 +39,6 @@ public class EffClearContainer extends Effect {
     }
 
     @Override
-    public String toString(Event e, boolean debug) {
-        return "clear the contents of the container at " + position.toString(e, debug) + " in world " + world.toString(e, debug);
-    }
-
-    @Override
     protected void execute(Event e) {
 
         Location l = position.getSingle(e);
@@ -53,8 +48,14 @@ public class EffClearContainer extends Effect {
             return;
         }
 
-        EditSession session = FaweAPI.getEditSessionBuilder(w).autoQueue(true).build();
-        session.clearContainerBlockContents(new Vector(l.getBlockX(), l.getBlockY(), l.getBlockZ()));
+        EditSession s = FaweAPI.getEditSessionBuilder(w).autoQueue(true).build();
+        s.clearContainerBlockContents(new Vector(l.getBlockX(), l.getBlockY(), l.getBlockZ()));
+        s.flushQueue();
+    }
+
+    @Override
+    public String toString(Event e, boolean debug) {
+        return "clear the contents of the container at " + position.toString(e, debug) + " in world " + world.toString(e, debug);
     }
 
 }

@@ -10,6 +10,7 @@ import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
+import com.sk89q.worldedit.regions.CuboidRegion;
 import com.sk89q.worldedit.regions.Region;
 import org.bukkit.event.Event;
 
@@ -21,15 +22,15 @@ public class ExprCuboidRegionDimensions extends SimpleExpression<Number> {
 
     static {
         Skript.registerExpression(ExprCuboidRegionDimensions.class, Number.class, ExpressionType.PROPERTY,
-                "[the] [(skematic|fawe)] (1¦length|2¦height|3¦width) of %weregions%",
-                "[the] %weregions%'s [(skematic|fawe)] (1¦length|2¦height|3¦width)");
+                "[the] [(skematic|fawe)] (1¦length|2¦height|3¦width) of %cuboidregions%",
+                "[the] %cuboidregions%'s [(skematic|fawe)] (1¦length|2¦height|3¦width)");
     }
 
     enum Dimension {
         LONG, HIGH, WIDE
     }
 
-    private Expression<Region> region;
+    private Expression<CuboidRegion> region;
     private Dimension dimension;
 
     @Override
@@ -37,24 +38,9 @@ public class ExprCuboidRegionDimensions extends SimpleExpression<Number> {
 
         dimension = Dimension.values()[parser.mark - 1];
 
-        region = (Expression<Region>) exprs[0];
+        region = (Expression<CuboidRegion>) exprs[0];
 
         return true;
-    }
-
-    @Override
-    public String toString(Event e, boolean debug) {
-        return "get the dimensions of the region " + region.toString(e, debug);
-    }
-
-    @Override
-    public boolean isSingle() {
-        return true;
-    }
-
-    @Override
-    public Class<? extends Number> getReturnType() {
-        return Number.class;
     }
 
     @Override
@@ -78,6 +64,24 @@ public class ExprCuboidRegionDimensions extends SimpleExpression<Number> {
                 t = region.getSingle(e).getWidth();
                 break;
         }
-        return new Number[] { t };
+        return new Number[] {
+                t
+        };
     }
+
+    @Override
+    public String toString(Event e, boolean debug) {
+        return "get the dimensions of the region " + region.toString(e, debug);
+    }
+
+    @Override
+    public boolean isSingle() {
+        return true;
+    }
+
+    @Override
+    public Class<? extends Number> getReturnType() {
+        return Number.class;
+    }
+
 }

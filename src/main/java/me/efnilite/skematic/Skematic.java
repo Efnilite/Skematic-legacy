@@ -2,7 +2,6 @@ package me.efnilite.skematic;
 
 import ch.njol.skript.Skript;
 import ch.njol.skript.SkriptAddon;
-import me.efnilite.skematic.hooks.Hooks;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.IOException;
@@ -11,15 +10,13 @@ import java.util.logging.Level;
 public class Skematic extends JavaPlugin {
 
     private static Skematic instance;
-    public static SkriptAddon addon;
+    private static SkriptAddon addon;
 
     @Override
     public void onEnable() {
 
         instance = this;
-        addon = Skript.registerAddon(this);
-
-        Hooks.load();
+        addon = Skript.registerAddon(this).setLanguageFileDirectory("lang");
 
         try {
             addon.loadClasses("me.efnilite.skematic", "elements");

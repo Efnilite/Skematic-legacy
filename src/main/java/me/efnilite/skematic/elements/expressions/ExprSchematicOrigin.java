@@ -5,6 +5,7 @@ import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
 import ch.njol.skript.doc.Since;
 import ch.njol.skript.expressions.base.SimplePropertyExpression;
+import ch.njol.skript.hooks.regions.classes.Region;
 import com.boydti.fawe.FaweAPI;
 import com.sk89q.worldedit.Vector;
 import me.efnilite.skematic.Skematic;
@@ -45,4 +46,5 @@ public class ExprSchematicOrigin extends SimplePropertyExpression<File, Vector> 
     public Class<Vector> getReturnType() {
         return Vector.class;
     }
+
 }

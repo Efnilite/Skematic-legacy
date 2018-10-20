@@ -10,6 +10,7 @@ import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
 import com.boydti.fawe.FaweAPI;
+import com.sk89q.worldedit.EditSession;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
@@ -34,11 +35,6 @@ public class EffRedo extends Effect {
     }
 
     @Override
-    public String toString(Event e, boolean debug) {
-        return "redo last change of " + player.toString(e, debug);
-    }
-
-    @Override
     protected void execute(Event e) {
 
         Player p = player.getSingle(e);
@@ -47,7 +43,14 @@ public class EffRedo extends Effect {
             return;
         }
 
-        FaweAPI.wrapPlayer(p).getNewEditSession().redo(FaweAPI.wrapPlayer(p).getNewEditSession());
+        EditSession s = FaweAPI.wrapPlayer(p).getNewEditSession();
+        s.redo(FaweAPI.wrapPlayer(p).getNewEditSession());
+        s.flushQueue();
+    }
+
+    @Override
+    public String toString(Event e, boolean debug) {
+        return "redo last change of " + player.toString(e, debug);
     }
 
 }

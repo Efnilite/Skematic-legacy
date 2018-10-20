@@ -39,11 +39,6 @@ public class EffDelAsyncWorld extends Effect {
     }
 
     @Override
-    public String toString(@Nullable Event event, boolean debug) {
-        return "delete the async world " + world.toString(event, debug);
-    }
-
-    @Override
     protected void execute(Event e) {
 
         World w = world.getSingle(e);
@@ -53,6 +48,11 @@ public class EffDelAsyncWorld extends Effect {
         }
 
         w.getWorldFolder().delete();
+    }
+
+    @Override
+    public String toString(@Nullable Event event, boolean debug) {
+        return "delete the async world " + world.toString(event, debug);
     }
 
 }

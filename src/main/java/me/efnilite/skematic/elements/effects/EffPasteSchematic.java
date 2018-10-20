@@ -25,10 +25,10 @@ import java.util.logging.Level;
 @Description("Paste a schematic at a location with or without using air")
 @Examples("paste skematic \"plugins/WorldEdit/skematic.schematic\" at player excluding air")
 @Since("1.0.0")
-public class EffSchematicPaste extends Effect {
+public class EffPasteSchematic extends Effect {
 
     static {
-        Skript.registerEffect(EffSchematicPaste.class, "paste [the] s(ch|k)em[atic] %schematic% at %location% [(1¦(without|excluding) air)] [(2¦[(,| and)] allow[ing] undo)]");
+        Skript.registerEffect(EffPasteSchematic.class, "paste [the] s(ch|k)em[atic] %schematic% at %location% [(1¦(without|excluding) air)] [(2¦[(,| and)] allow[ing] undo)]");
     }
     enum Subarg {
         NONE, AIR, UNDO, BOTH
@@ -48,11 +48,6 @@ public class EffSchematicPaste extends Effect {
         location = (Expression<Location>) exprs[1];
 
         return true;
-    }
-
-    @Override
-    public String toString(@Nullable Event e, boolean debug) {
-        return "paste the schematic " + schematic.toString(e, debug) + ", at location " + location.toString(e, debug);
     }
 
     @Override
@@ -92,5 +87,10 @@ public class EffSchematicPaste extends Effect {
         } catch (IOException ex) {
             Skematic.log("Could not paste schematic " + s + ". Exception: " + ex.toString(), Level.SEVERE);
         }
+    }
+
+    @Override
+    public String toString(@Nullable Event e, boolean debug) {
+        return "paste the schematic " + schematic.toString(e, debug) + ", at location " + location.toString(e, debug);
     }
 }

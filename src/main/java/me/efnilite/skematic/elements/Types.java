@@ -1,23 +1,26 @@
 package me.efnilite.skematic.elements;
 
 import ch.njol.skript.classes.ClassInfo;
-import ch.njol.skript.classes.Converter;
 import ch.njol.skript.classes.Parser;
+import ch.njol.skript.expressions.base.EventValueExpression;
 import ch.njol.skript.lang.ParseContext;
 import ch.njol.skript.registrations.Classes;
-import ch.njol.skript.registrations.Converters;
-import com.sk89q.worldedit.bukkit.BukkitUtil;
+import ch.njol.skript.util.EnumUtils;
+import com.sk89q.worldedit.Vector;
+import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormat;
 import com.sk89q.worldedit.regions.CuboidRegion;
-import org.bukkit.Bukkit;
+import org.eclipse.jdt.annotation.Nullable;
 
 import java.io.File;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Types {
 
     static {
 
         Classes.registerClass(new ClassInfo<>(File.class, "schematic")
-                .user("schematics")
+                .user("schem(atic)6s?")
                 .parser(new Parser<File>() {
 
                     @Override
@@ -41,22 +44,18 @@ public class Types {
                     }
                 }));
 
-        Converters.registerConverter(String.class, File.class, (Converter<String, File>) s ->
-                new File(s)
-        );
-
         Classes.registerClass(new ClassInfo<>(CuboidRegion.class, "cuboidregion")
-                .user("cuboidregions")
+                .user("cuboidregions?")
                 .parser(new Parser<CuboidRegion>() {
 
                     @Override
                     public CuboidRegion parse(String s, ParseContext context) {
-                        return CuboidRegion.makeCuboid(new CuboidRegion(BukkitUtil.getLocalWorld(Bukkit.getServer().getWorld(s)), 1, 1));
+                        return null;
                     }
 
                     @Override
                     public String toString(CuboidRegion o, int flags) {
-                        return o.toString();
+                        return null;
                     }
 
                     @Override
@@ -70,6 +69,33 @@ public class Types {
                     }
                 }));
 
-    }
+        final EnumUtils<ClipboardFormat> clipboardFormats = new EnumUtils<>(ClipboardFormat.class, "schematicformat");
+        Classes.registerClass(new ClassInfo<>(ClipboardFormat.class, "schematicformat")
+                .user("schematicformats?")
+                .defaultExpression(new EventValueExpression<>(ClipboardFormat.class))
+                .parser(new Parser<ClipboardFormat>() {
 
+                    @Override
+                    @Nullable
+                    public ClipboardFormat parse(String s, ParseContext context) {
+                        return clipboardFormats.parse(s);
+                    }
+
+                    @Override
+                    public String toString(ClipboardFormat o, int flags) {
+                        return clipboardFormats.toString(o, flags);
+                    }
+
+                    @Override
+                    public String toVariableNameString(ClipboardFormat o) {
+                        return o.name();
+                    }
+
+                    @Override
+                    public String getVariableNamePattern() {
+                        return "\\S+";
+                    }
+
+                }));
+    }
 }

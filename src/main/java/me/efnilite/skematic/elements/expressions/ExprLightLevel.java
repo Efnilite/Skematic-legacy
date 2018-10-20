@@ -53,21 +53,6 @@ public class ExprLightLevel extends SimpleExpression<Number> {
     }
 
     @Override
-    public String toString(Event e, boolean debug) {
-        return "light level of block at " + location.toString(e, debug);
-    }
-
-    @Override
-    public boolean isSingle() {
-        return false;
-    }
-
-    @Override
-    public Class<? extends Number> getReturnType() {
-        return Number.class;
-    }
-
-    @Override
     protected Number[] get(Event e) {
 
         Location l = location.getSingle(e);
@@ -76,7 +61,9 @@ public class ExprLightLevel extends SimpleExpression<Number> {
             return null;
         }
 
-        return new Number[] { FaweAPI.getWorld(l.getWorld().getName()).getBlockLightLevel(new Vector(l.getBlockX(), l.getBlockY(), l.getBlockZ())) };
+        return new Number[] {
+                FaweAPI.getWorld(l.getWorld().getName()).getBlockLightLevel(new Vector(l.getBlockX(), l.getBlockY(), l.getBlockZ()))
+        };
     }
 
     @Override
@@ -98,10 +85,24 @@ public class ExprLightLevel extends SimpleExpression<Number> {
                 return;
             }
 
-            NMSMappedFaweQueue nmsQueue = (NMSMappedFaweQueue) SetQueue.IMP.getNewQueue(BukkitUtil.getLocalWorld(l.getWorld()), true, false);
-            nmsQueue.setBlockLight(l.getBlockX(), l.getBlockY(), l.getBlockZ(), (int) delta[0]);
-
+            NMSMappedFaweQueue n = (NMSMappedFaweQueue) SetQueue.IMP.getNewQueue(BukkitUtil.getLocalWorld(l.getWorld()), true, false);
+            n.setBlockLight(l.getBlockX(), l.getBlockY(), l.getBlockZ(), (int) delta[0]);
         }
+    }
+
+    @Override
+    public String toString(Event e, boolean debug) {
+        return "light level of block at " + location.toString(e, debug);
+    }
+
+    @Override
+    public boolean isSingle() {
+        return false;
+    }
+
+    @Override
+    public Class<? extends Number> getReturnType() {
+        return Number.class;
     }
 
 }

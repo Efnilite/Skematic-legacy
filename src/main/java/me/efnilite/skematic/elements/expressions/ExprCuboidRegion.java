@@ -14,18 +14,22 @@ import com.sk89q.worldedit.Vector;
 import com.sk89q.worldedit.bukkit.BukkitUtil;
 import com.sk89q.worldedit.regions.CuboidRegion;
 import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.event.Event;
 
-@Name("Custom region")
+@Name("Create region")
 @Description("Create a virtual region (for saving schematics, etc.)")
-@Examples("set {region} to a new region between location 0, 2, 3 in \"world\" and location 4, 3, 7 in \"world\"")
+@Examples({"create a new cuboidregion from {_location} to {_location-2}",
+            "set {_region} to the last created region"})
 @Since("1.1.0")
 public class ExprCuboidRegion extends SimpleExpression<CuboidRegion> {
 
     static {
         Skript.registerExpression(ExprCuboidRegion.class, CuboidRegion.class, ExpressionType.SIMPLE,
-                "[(the|[a] new)] (worldedit|we)[ ]region (within|between) %location% and %location%");
+                "[a] [new] (cuboid|we|wordedit)[ ]region from %location% to %location%");
     }
+
+    private static CuboidRegion[] last;
 
     private Expression<Location> position1;
     private Expression<Location> position2;
@@ -39,9 +43,35 @@ public class ExprCuboidRegion extends SimpleExpression<CuboidRegion> {
         return true;
     }
 
+    protected CuboidRegion[] get(Event e) {
+
+        Location p1 = position1.getSingle(e);
+        Location p2 = position2.getSingle(e);
+
+        if (p1 == null || p2 == null) {
+            return null;
+        }
+
+        World w = p1.getWorld();
+
+        if (p1.getWorld() == null) {
+            w = p2.getWorld();
+        }
+
+        CuboidRegion cuboid =  new CuboidRegion(BukkitUtil.getLocalWorld(w),
+                new Vector(p1.getBlockX(), p1.getBlockY(), p1.getBlockZ()),
+                new Vector(p2.getBlockX(), p2.getBlockY(), p2.getBlockZ()));
+
+        last = new CuboidRegion[] {
+                cuboid
+        };
+
+        return last;
+    }
+
     @Override
     public String toString(Event e, boolean debug) {
-        return "the new region between " + position1.toString(e, debug) + " and " + position2.toString(e, debug);
+        return "create a new cuboidregion between " + position1.toString(e, debug) + " and " + position2.toString(e, debug);
     }
 
     @Override
@@ -54,20 +84,8 @@ public class ExprCuboidRegion extends SimpleExpression<CuboidRegion> {
         return true;
     }
 
-    @Override
-    protected CuboidRegion[] get(Event e) {
-
-        Location p1 = position1.getSingle(e);
-        Location p2 = position2.getSingle(e);
-
-        if (p1 == null || p2 == null) {
-            return null;
-        }
-
-        return new CuboidRegion[] { new CuboidRegion(BukkitUtil.getLocalWorld(p1.getWorld()),
-                new Vector(p1.getBlockX(), p1.getBlockY(), p1.getBlockZ()),
-                new Vector(p2.getBlockX(), p2.getBlockY(), p2.getBlockZ()))
-        };
+    static CuboidRegion[] getLastCuboidRegion() {
+        return last;
     }
 
 }

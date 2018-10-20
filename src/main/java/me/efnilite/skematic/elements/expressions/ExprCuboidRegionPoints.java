@@ -11,7 +11,7 @@ import ch.njol.skript.lang.SkriptParser;
 import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
 import com.sk89q.worldedit.Vector;
-import com.sk89q.worldedit.regions.Region;
+import com.sk89q.worldedit.regions.CuboidRegion;
 import org.bukkit.event.Event;
 
 @Name("Selection points")
@@ -21,25 +21,41 @@ import org.bukkit.event.Event;
 public class ExprCuboidRegionPoints extends SimpleExpression<Vector> {
 
     static {
-        Skript.registerExpression(ExprCuboidRegionPoints.class, Vector.class, ExpressionType.PROPERTY, "[the] (1¦min|2¦max)[imum] (coord[inate]|point)[s] of %weregions%",
-                "%weregions%'[s] (1¦min|2¦max)[imum] (coord[inate]|point)[s]");
+        Skript.registerExpression(ExprCuboidRegionPoints.class, Vector.class, ExpressionType.PROPERTY, "[the] (1¦min|2¦max)[imum] (coord[inate]|point)[s] of %cuboidregions%",
+                "%cuboidregions%'[s] (1¦min|2¦max)[imum] (coord[inate]|point)[s]");
     }
 
     enum Point {
         MIN, MAX
     }
 
-    private Expression<Region> region;
+    private Expression<CuboidRegion> region;
     private Point point;
 
     @Override
     public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parseResult) {
 
-        point = Point.values()[parseResult.mark];
+        point = Point.values()[parseResult.mark - 1];
 
-        region = (Expression<Region>) exprs[0];
+        region = (Expression<CuboidRegion>) exprs[0];
 
         return true;
+    }
+
+    @Override
+    protected Vector[] get(Event e) {
+        Vector r = null;
+        switch (point) {
+            case MAX:
+                r = region.getSingle(e).getMinimumPoint();
+                break;
+            case MIN:
+                r = region.getSingle(e).getMaximumPoint();
+                break;
+        }
+        return new Vector[] {
+                r
+        };
     }
 
     @Override
@@ -57,18 +73,5 @@ public class ExprCuboidRegionPoints extends SimpleExpression<Vector> {
         return Vector.class;
     }
 
-    @Override
-    protected Vector[] get(Event e) {
-        Vector r = null;
-        switch (point) {
-            case MAX:
-                r = region.getSingle(e).getMinimumPoint();
-                break;
-            case MIN:
-                r = region.getSingle(e).getMaximumPoint();
-                break;
-        }
-        return new Vector[] { r };
-    }
 
 }

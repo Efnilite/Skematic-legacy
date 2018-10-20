@@ -16,6 +16,7 @@ public class Skematic extends JavaPlugin {
     public void onEnable() {
 
         instance = this;
+        
         addon = Skript.registerAddon(this).setLanguageFileDirectory("lang");
 
         try {

@@ -1,0 +1,9 @@
+## Gradle
+/.gradle
+/build/
+/gradle/
+/libs/
+
+## IntelliJ
+/.idea/
+/out/

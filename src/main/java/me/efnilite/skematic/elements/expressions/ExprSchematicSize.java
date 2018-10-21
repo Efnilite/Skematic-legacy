@@ -21,7 +21,7 @@ import java.util.logging.Level;
 public class ExprSchematicSize extends SimplePropertyExpression<File, Vector> {
 
     static {
-        register(ExprSchematicSize.class, Vector.class, "dimensions", "schematics");
+        register(ExprSchematicSize.class, Vector.class, "[s(ch|k)em[atic]] dimensions", "schematics");
     }
 
     @Override

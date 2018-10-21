@@ -21,7 +21,7 @@ import java.io.IOException;
 public class ExprSchematicOrigin extends SimplePropertyExpression<File, Vector> {
 
     static {
-        register(ExprSchematicOrigin.class, Vector.class, "origin (location|area)", "schematics");
+        register(ExprSchematicOrigin.class, Vector.class, "[s(ch|k)em[atic]] origin (location|area)", "schematics");
     }
 
     @Override

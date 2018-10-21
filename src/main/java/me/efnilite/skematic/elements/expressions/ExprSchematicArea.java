@@ -28,7 +28,7 @@ public class ExprSchematicArea extends SimpleExpression<Number> {
 
     static {
         Skript.registerExpression(ExprSchematicArea.class, Number.class, ExpressionType.COMBINED,
-                "[the] (1¦width|2¦height|3¦length|4¦floor[(-| )]size) of [the] [(sc|k)hem[atic]] %schematics%");
+                "[the] (1¦width|2¦height|3¦length|4¦floor[(-| )]size) of [the] s(ch|k)em[atic] %schematics%");
     }
 
     enum Dimension {

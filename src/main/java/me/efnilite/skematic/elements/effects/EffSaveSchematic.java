@@ -29,7 +29,7 @@ public class EffSaveSchematic extends Effect {
 
     static {
         Skript.registerEffect(EffSaveSchematic.class,
-                "save [[the] s(ch|k)ematic] %cuboidregions% to [[the] file] %string% [with format %-schematicformat%]");
+                "save [[the] s(ch|k)ematic] %cuboidregions% to [[the] file] %string% [with %-schematicformat% format]");
     }
 
     private Expression<CuboidRegion> region;

@@ -19,31 +19,6 @@ public class Types {
 
     static {
 
-        Classes.registerClass(new ClassInfo<>(File.class, "schematic")
-                .user("schem(atic)6s?")
-                .parser(new Parser<File>() {
-
-                    @Override
-                    public File parse(String s, ParseContext context) {
-                        return new File(s);
-                    }
-
-                    @Override
-                    public String toString(File o, int flags) {
-                        return o.toString();
-                    }
-
-                    @Override
-                    public String toVariableNameString(File o) {
-                        return o.toString();
-                    }
-
-                    @Override
-                    public String getVariableNamePattern() {
-                        return "\\S+";
-                    }
-                }));
-
         Classes.registerClass(new ClassInfo<>(CuboidRegion.class, "cuboidregion")
                 .user("cuboidregions?")
                 .parser(new Parser<CuboidRegion>() {

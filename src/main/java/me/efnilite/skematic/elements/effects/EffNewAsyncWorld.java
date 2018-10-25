@@ -21,7 +21,8 @@ import org.eclipse.jdt.annotation.Nullable;
 public class EffNewAsyncWorld extends Effect {
 
     static {
-        Skript.registerEffect(EffNewAsyncWorld.class, "(create|load) [the] async[hronous] [world] [called] %string%");
+        Skript.registerEffect(EffNewAsyncWorld.class, "[skematic] (create|load) [the] async[hronous] [world] [(called|named)] %strings%",
+                                                    "[skematic] (load|create) world[s] [(called|named)] %strings% async[hronously]");
     }
 
     private Expression<String> world;

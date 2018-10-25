@@ -18,17 +18,16 @@ import java.io.IOException;
 @Description("Returns the origin location of a schematic (where it was copied and saved)")
 @Examples("set {_origin} to the origin of \"plugins/WorldEdit/skematic.schematic\"")
 @Since("1.0.0")
-public class ExprSchematicOrigin extends SimplePropertyExpression<File, Vector> {
+public class ExprSchematicOrigin extends SimplePropertyExpression<String, Vector> {
 
     static {
-        register(ExprSchematicOrigin.class, Vector.class, "[s(ch|k)em[atic]] origin (location|area)", "schematics");
+        register(ExprSchematicOrigin.class, Vector.class, "[s(ch|k)em[atic]] origin (location|area)", "strings");
     }
 
     @Override
-    public Vector convert(final File f) {
-
+    public Vector convert(final String f) {
         try {
-            return FaweAPI.load(f).getClipboard().getOrigin();
+            return FaweAPI.load(new File(f)).getClipboard().getOrigin();
         } catch (FileNotFoundException exception) {
             Skematic.log("Schematic file '" + f + "' not found! Error:" + exception);
             return null;

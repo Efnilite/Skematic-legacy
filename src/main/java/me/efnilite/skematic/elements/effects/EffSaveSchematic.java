@@ -13,6 +13,7 @@ import com.boydti.fawe.object.schematic.Schematic;
 import com.sk89q.worldedit.extent.clipboard.BlockArrayClipboard;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormat;
 import com.sk89q.worldedit.regions.CuboidRegion;
+import com.sk89q.worldedit.regions.Region;
 import me.efnilite.skematic.Skematic;
 import org.bukkit.event.Event;
 import org.eclipse.jdt.annotation.Nullable;
@@ -62,12 +63,10 @@ public class EffSaveSchematic extends Effect {
             cf = ClipboardFormat.SCHEMATIC;
         }
 
-        File f = new File(t);
-        BlockArrayClipboard c = r.getWorld().lazyCopy(r);
-        Schematic s = new Schematic(c);
+        Schematic s = new Schematic(r);
 
         try {
-            s.save(f, cf);
+            s.save(new File(t), cf);
         } catch (IOException ex) {
             Skematic.log("Could not save schematic " + schematic.getSingle(e) + " with format " + cf, Level.SEVERE);
         }

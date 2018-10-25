@@ -18,19 +18,19 @@ import java.util.logging.Level;
 @Description("Gets the size of a schematic.")
 @Examples("set {_size} to the size of skematic \"plugins/WorldEdit/skematic.schematic\"")
 @Since("1.0.0")
-public class ExprSchematicSize extends SimplePropertyExpression<File, Vector> {
+public class ExprSchematicSize extends SimplePropertyExpression<String, Vector> {
 
     static {
-        register(ExprSchematicSize.class, Vector.class, "[s(ch|k)em[atic]] dimensions", "schematics");
+        register(ExprSchematicSize.class, Vector.class, "[s(ch|k)em[atic]] dimensions", "strings");
     }
 
     @Override
-    public Vector convert(final File f) {
+    public Vector convert(final String f) {
 
         Vector d;
 
         try {
-            d = FaweAPI.load(f).getClipboard().getDimensions();
+            d = FaweAPI.load(new File(f)).getClipboard().getDimensions();
         } catch (FileNotFoundException exception) {
             Skematic.log("File " + f + " was not found!", Level.SEVERE);
             return null;

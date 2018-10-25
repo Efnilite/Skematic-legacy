@@ -28,7 +28,7 @@ public class ExprSchematicArea extends SimpleExpression<Number> {
 
     static {
         Skript.registerExpression(ExprSchematicArea.class, Number.class, ExpressionType.COMBINED,
-                "[the] (1¦width|2¦height|3¦length|4¦floor[(-| )]size) of [the] s(ch|k)em[atic] %schematics%");
+                "[the] (1¦width|2¦height|3¦length|4¦floor[(-| )]size) of [the] s(ch|k)em[atic] %string%");
     }
 
     enum Dimension {
@@ -61,12 +61,11 @@ public class ExprSchematicArea extends SimpleExpression<Number> {
         }
 
         Vector size;
-        File file = new File(s);
 
         try {
-            size = FaweAPI.load(file).getClipboard().getDimensions();
+            size = FaweAPI.load(new File(s)).getClipboard().getDimensions();
         } catch (FileNotFoundException exception) {
-            Skematic.log("Schematic file '" + file + "' not found! Error:" + exception);
+            Skematic.log("Schematic file " + s + " not found!");
             return null;
         } catch (IOException exception) {
             exception.printStackTrace();

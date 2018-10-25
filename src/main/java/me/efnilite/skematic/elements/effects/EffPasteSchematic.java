@@ -10,9 +10,19 @@ import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
 import com.boydti.fawe.FaweAPI;
+import com.sk89q.worldedit.CuboidClipboard;
+import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.Vector;
 import com.sk89q.worldedit.bukkit.BukkitUtil;
+import com.sk89q.worldedit.extent.Extent;
+import com.sk89q.worldedit.extent.clipboard.BlockArrayClipboard;
+import com.sk89q.worldedit.extent.clipboard.Clipboard;
+import com.sk89q.worldedit.regions.CuboidRegion;
+import com.sk89q.worldedit.schematic.SchematicFormat;
+import com.sk89q.worldedit.util.Direction;
+import com.sk89q.worldedit.world.DataException;
 import me.efnilite.skematic.Skematic;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.event.Event;
 import org.eclipse.jdt.annotation.Nullable;
@@ -28,14 +38,15 @@ import java.util.logging.Level;
 public class EffPasteSchematic extends Effect {
 
     static {
-        Skript.registerEffect(EffPasteSchematic.class, "paste [the] s(ch|k)em[atic] %schematic% at %location% [(1¦(without|excluding) air)] [(2¦[(,| and)] allow[ing] undo)]");
+        Skript.registerEffect(EffPasteSchematic.class, "paste [the] s(ch|k)em[atic] %string% at %location% [(1¦(without|excluding) air)] [(2¦[(,| and)] allow[ing] undo)] [[with] angle %-integer%]");
     }
     enum Subarg {
         NONE, AIR, UNDO, BOTH
     }
 
-    private Expression<File> schematic;
+    private Expression<String> schematic;
     private Expression<Location> location;
+    private Expression<Integer> angle;
 
     private Subarg arg;
 
@@ -44,25 +55,27 @@ public class EffPasteSchematic extends Effect {
 
         arg = Subarg.values()[parser.mark];
 
-        schematic = (Expression<File>) exprs[0];
+        schematic = (Expression<String>) exprs[0];
         location = (Expression<Location>) exprs[1];
+        angle = (Expression<Integer>) exprs[2];
 
         return true;
     }
 
     @Override
+    @SuppressWarnings("deprecation")
     protected void execute(Event e) {
 
-        File s = schematic.getSingle(e);
+        String file = schematic.getSingle(e);
         Location l = location.getSingle(e);
 
-        if (s == null || l == null) {
+        if (file == null || l == null) {
             return;
         }
 
+        File s = new File(file);
         boolean ignoreAir = false;
         boolean allowUndo = false;
-
         switch (arg) {
             case AIR:
                 ignoreAir = true;
@@ -77,15 +90,33 @@ public class EffPasteSchematic extends Effect {
             case NONE:
                 break;
         }
-
-        if (!s.toString().endsWith(".schematic")) {
-            s = new File(s + ".schematic");
+        if (!file.endsWith(".schematic")) {
+            s = new File(file + ".schematic");
         }
 
-        try {
-            FaweAPI.load(s).paste(BukkitUtil.getLocalWorld(l.getWorld()), new Vector(l.getBlockX(), l.getBlockY(), l.getBlockZ()), allowUndo, ignoreAir, null);
-        } catch (IOException ex) {
-            Skematic.log("Could not paste schematic " + s + ". Exception: " + ex.toString(), Level.SEVERE);
+        Vector vector = new Vector(l.getBlockX(), l.getBlockY(), l.getBlockZ());
+        if (angle != null) {
+
+            System.out.println("old");
+
+            EditSession session = FaweAPI.getEditSessionBuilder(BukkitUtil.getLocalWorld(l.getWorld())).autoQueue(true).build();
+            CuboidClipboard clipboard;
+            try {
+                clipboard = SchematicFormat.getFormat(s).load(s);
+            } catch (IOException | DataException ex) {
+                return;
+            }
+            if (clipboard != null) {
+                clipboard.rotate2D(angle.getSingle(e));
+            }
+            clipboard.paste(session, vector, ignoreAir);
+            session.flushQueue();
+        } else {
+            try {
+                FaweAPI.load(s).paste(BukkitUtil.getLocalWorld(l.getWorld()), vector, allowUndo, ignoreAir, null);
+            } catch (IOException ex) {
+                Skematic.log("Could not paste schematic " + s, Level.SEVERE);
+            }
         }
     }
 

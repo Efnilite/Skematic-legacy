@@ -42,7 +42,6 @@ public class EffGreen extends Effect {
 
     @Override
     protected void execute(Event e) {
-
         Location l = position.getSingle(e);
         Number r = radius.getSingle(e);
 

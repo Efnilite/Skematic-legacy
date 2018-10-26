@@ -60,7 +60,7 @@ public class ExprCuboidRegionPoints extends SimpleExpression<Vector> {
 
     @Override
     public String toString(Event e, boolean debug) {
-        return "get the min and max points of the region" + region.toString(e, debug) ;
+        return "points of " + region.toString(e, debug) ;
     }
 
     @Override

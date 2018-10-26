@@ -71,7 +71,7 @@ public class ExprCuboidRegionDimensions extends SimpleExpression<Number> {
 
     @Override
     public String toString(Event e, boolean debug) {
-        return "get the dimensions of the region " + region.toString(e, debug);
+        return "dimensions of " + region.toString(e, debug);
     }
 
     @Override

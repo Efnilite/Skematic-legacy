@@ -43,7 +43,6 @@ public class EffNewAsyncWorld extends Effect {
 
     @Override
     protected void execute(Event e) {
-
         String w = world.getSingle(e);
 
         if (w == null) {

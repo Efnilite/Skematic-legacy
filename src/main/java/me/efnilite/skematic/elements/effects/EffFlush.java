@@ -1,6 +1,10 @@
 package me.efnilite.skematic.elements.effects;
 
 import ch.njol.skript.Skript;
+import ch.njol.skript.doc.Description;
+import ch.njol.skript.doc.Examples;
+import ch.njol.skript.doc.Name;
+import ch.njol.skript.doc.Since;
 import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
@@ -9,6 +13,10 @@ import com.boydti.fawe.FaweAPI;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
+@Name("Flush Queue")
+@Description("Flush the queue of a player - clear it.")
+@Examples("flush player's queue")
+@Since("1.2")
 public class EffFlush extends Effect {
 
     static {

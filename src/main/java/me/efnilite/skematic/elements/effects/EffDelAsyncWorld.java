@@ -40,7 +40,6 @@ public class EffDelAsyncWorld extends Effect {
 
     @Override
     protected void execute(Event e) {
-
         World w = world.getSingle(e);
 
         if (w == null) {

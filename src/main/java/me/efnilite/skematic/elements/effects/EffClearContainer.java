@@ -40,7 +40,6 @@ public class EffClearContainer extends Effect {
 
     @Override
     protected void execute(Event e) {
-
         Location l = position.getSingle(e);
         World w = world.getSingle(e);
 

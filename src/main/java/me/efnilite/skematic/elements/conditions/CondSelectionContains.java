@@ -37,7 +37,6 @@ public class CondSelectionContains extends Condition {
 
     @Override
     public boolean check(Event e) {
-
         Location l = location.getSingle(e);
         Region r = region.getSingle(e);
 

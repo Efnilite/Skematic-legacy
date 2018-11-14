@@ -13,6 +13,7 @@ import com.boydti.fawe.FaweAPI;
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.Vector;
 import com.sk89q.worldedit.world.World;
+import me.efnilite.skematic.utils.FaweTools;
 import org.bukkit.Location;
 import org.bukkit.event.Event;
 
@@ -47,7 +48,7 @@ public class EffClearContainer extends Effect {
             return;
         }
 
-        EditSession s = FaweAPI.getEditSessionBuilder(w).autoQueue(true).build();
+        EditSession s = FaweTools.getEditSession(l.getWorld());
         s.clearContainerBlockContents(new Vector(l.getBlockX(), l.getBlockY(), l.getBlockZ()));
         s.flushQueue();
     }

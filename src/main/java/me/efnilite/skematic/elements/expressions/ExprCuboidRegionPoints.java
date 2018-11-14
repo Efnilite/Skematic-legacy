@@ -25,7 +25,7 @@ public class ExprCuboidRegionPoints extends SimpleExpression<Vector> {
                 "%cuboidregions%'[s] (1¦min|2¦max)[imum] (coord[inate]|point)[s]");
     }
 
-    enum Point {
+    private enum Point {
         MIN, MAX
     }
 

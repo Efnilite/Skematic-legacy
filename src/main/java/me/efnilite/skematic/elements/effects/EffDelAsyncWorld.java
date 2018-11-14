@@ -24,16 +24,16 @@ import org.eclipse.jdt.annotation.Nullable;
 public class EffDelAsyncWorld extends Effect {
 
     static {
-        Skript.registerEffect(EffDelAsyncWorld.class, "del[ete] [the] async[hronous] [world] %world%");
+        Skript.registerEffect(EffDelAsyncWorld.class, "del[ete] [the] async[hronous] %world%");
     }
 
-    private Expression<AsyncWorld> world;
+    private Expression<World> world;
 
     @SuppressWarnings("unchecked")
     @Override
     public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parser) {
 
-        world = (Expression<AsyncWorld>) exprs[0];
+        world = (Expression<World>) exprs[0];
 
         return true;
     }

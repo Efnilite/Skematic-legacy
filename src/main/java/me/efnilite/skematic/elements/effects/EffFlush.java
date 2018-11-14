@@ -9,7 +9,7 @@ import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
-import com.boydti.fawe.FaweAPI;
+import me.efnilite.skematic.utils.FaweTools;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
@@ -41,7 +41,7 @@ public class EffFlush extends Effect {
             return;
         }
 
-        FaweAPI.wrapPlayer(p).getNewEditSession().flushQueue();
+        FaweTools.getPlayer(p).getNewEditSession().flushQueue();
     }
 
     @Override

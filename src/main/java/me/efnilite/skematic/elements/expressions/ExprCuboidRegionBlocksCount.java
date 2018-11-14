@@ -1,6 +1,7 @@
 package me.efnilite.skematic.elements.expressions;
 
 import ch.njol.skript.Skript;
+import ch.njol.skript.aliases.ItemType;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
@@ -13,31 +14,32 @@ import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.event.Event;
 
-import java.util.ArrayList;
-
-public class ExprCuboidRegionBlocks extends SimpleExpression<Material> {
+public class ExprCuboidRegionBlocksCount extends SimpleExpression<Number> {
 
     static {
-        Skript.registerExpression(ExprCuboidRegionBlocks.class, Material.class, ExpressionType.PROPERTY,
-                "[all] [of] [the] [skematic] blocks in %cuboidregions%",
-                "[all] [of] %cuboidregions%'s [skematic] blocks");
+        Skript.registerExpression(ExprCuboidRegionBlocksCount.class, Number.class, ExpressionType.PROPERTY,
+                "[skematic] (size|amount) of %material% in [region] %cuboidregions%",
+                "%cuboidregions%'s (size|amount) of %material%");
     }
 
+    private Expression<ItemType> material;
     private Expression<CuboidRegion> region;
 
     @Override
     public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parser) {
 
-        region = (Expression<CuboidRegion>) exprs[0];
+        material = (Expression<ItemType>) exprs[0];
+        region = (Expression<CuboidRegion>) exprs[1];
 
         return true;
     }
 
     @Override
-    protected Material[] get(Event e) {
+    protected Number[] get(Event e) {
+        ItemType m = material.getSingle(e);
         CuboidRegion r = region.getSingle(e);
 
-        if (r == null) {
+        if (r == null || m == null) {
             return null;
         }
 
@@ -46,30 +48,32 @@ public class ExprCuboidRegionBlocks extends SimpleExpression<Material> {
 
         World w = Bukkit.getServer().getWorld(r.getWorld().getName());
 
-        ArrayList<Material> blocks = new ArrayList<>();
+        int blocks = 0;
         for (int x = pos1.getBlockX(); x <= pos2.getBlockX(); x++) {
             for (int y = pos1.getBlockY(); y <= pos2.getBlockY(); y++) {
                 for (int z = pos1.getBlockZ(); z <= pos2.getBlockZ(); z++) {
                     Material block = w.getBlockAt(x, y, z).getType();
-                    blocks.add(block);
+                    if (block == m.getRandom().getType()) {
+                        blocks++;
+                    }
                 }
             }
         }
-        return blocks.toArray(new Material[0]);
+        return new Number[] { blocks };
     }
 
     @Override
     public String toString(Event e, boolean debug) {
-        return "all blocks of " + region.toString(e, debug);
+        return "amount of " + material.getSingle(e) + " in " +  region.toString(e, debug);
     }
 
     @Override
     public boolean isSingle() {
-        return false;
+        return true;
     }
 
     @Override
-    public Class<? extends Material> getReturnType() {
-        return Material.class;
+    public Class<? extends Number> getReturnType() {
+        return Number.class;
     }
 }

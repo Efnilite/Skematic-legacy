@@ -13,16 +13,10 @@ import com.boydti.fawe.FaweAPI;
 import com.sk89q.worldedit.CuboidClipboard;
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.Vector;
-import com.sk89q.worldedit.bukkit.BukkitUtil;
-import com.sk89q.worldedit.extent.Extent;
-import com.sk89q.worldedit.extent.clipboard.BlockArrayClipboard;
 import com.sk89q.worldedit.extent.clipboard.Clipboard;
-import com.sk89q.worldedit.regions.CuboidRegion;
-import com.sk89q.worldedit.schematic.SchematicFormat;
-import com.sk89q.worldedit.util.Direction;
 import com.sk89q.worldedit.world.DataException;
 import me.efnilite.skematic.Skematic;
-import org.bukkit.Bukkit;
+import me.efnilite.skematic.utils.FaweTools;
 import org.bukkit.Location;
 import org.bukkit.event.Event;
 import org.eclipse.jdt.annotation.Nullable;
@@ -40,7 +34,8 @@ public class EffPasteSchematic extends Effect {
     static {
         Skript.registerEffect(EffPasteSchematic.class, "paste [the] s(ch|k)em[atic] %string% at %location% [(1¦(without|excluding) air)] [(2¦[(,| and)] allow[ing] undo)] [[with] angle %-integer%]");
     }
-    enum Subarg {
+    
+    private enum Subarg {
         NONE, AIR, UNDO, BOTH
     }
 
@@ -97,12 +92,10 @@ public class EffPasteSchematic extends Effect {
         Vector vector = new Vector(l.getBlockX(), l.getBlockY(), l.getBlockZ());
         if (angle != null) {
 
-            System.out.println("old");
-
-            EditSession session = FaweAPI.getEditSessionBuilder(BukkitUtil.getLocalWorld(l.getWorld())).autoQueue(true).build();
+            EditSession session = FaweAPI.getEditSessionBuilder(FaweTools.getWorld(l.getWorld().getName())).autoQueue(true).build();
             CuboidClipboard clipboard;
             try {
-                clipboard = SchematicFormat.getFormat(s).load(s);
+                clipboard = CuboidClipboard.loadSchematic(s);
             } catch (IOException | DataException ex) {
                 return;
             }
@@ -113,7 +106,7 @@ public class EffPasteSchematic extends Effect {
             session.flushQueue();
         } else {
             try {
-                FaweAPI.load(s).paste(BukkitUtil.getLocalWorld(l.getWorld()), vector, allowUndo, ignoreAir, null);
+                FaweAPI.load(s).paste(FaweTools.getWorld(l.getWorld().getName()), vector, allowUndo, ignoreAir, null);
             } catch (IOException ex) {
                 Skematic.log("Could not paste schematic " + s, Level.SEVERE);
             }

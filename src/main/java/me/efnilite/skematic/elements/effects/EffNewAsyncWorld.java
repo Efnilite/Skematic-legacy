@@ -50,6 +50,5 @@ public class EffNewAsyncWorld extends Effect {
         }
 
         AsyncWorld.create(new WorldCreator(w));
-
     }
 }

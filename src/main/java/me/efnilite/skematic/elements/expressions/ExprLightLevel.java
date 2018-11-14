@@ -14,23 +14,13 @@ import ch.njol.util.Kleenean;
 import ch.njol.util.coll.CollectionUtils;
 import com.boydti.fawe.FaweAPI;
 import com.boydti.fawe.example.NMSMappedFaweQueue;
-import com.boydti.fawe.jnbt.anvil.MCAQueue;
-import com.boydti.fawe.object.FaweChunk;
-import com.boydti.fawe.object.FaweQueue;
 import com.boydti.fawe.util.SetQueue;
-import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.Vector;
 import com.sk89q.worldedit.bukkit.BukkitUtil;
+import me.efnilite.skematic.utils.FaweTools;
 import org.bukkit.Location;
-import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
-
-import java.io.File;
-import java.nio.file.Path;
-import java.util.ArrayList;
-
-import static sun.security.krb5.Confounder.intValue;
 
 @Name("Light level")
 @Description("Get the light level of a block.")
@@ -54,16 +44,13 @@ public class ExprLightLevel extends SimpleExpression<Number> {
 
     @Override
     protected Number[] get(Event e) {
-
         Location l = location.getSingle(e);
 
         if (l == null) {
             return null;
         }
 
-        return new Number[] {
-                FaweAPI.getWorld(l.getWorld().getName()).getBlockLightLevel(new Vector(l.getBlockX(), l.getBlockY(), l.getBlockZ()))
-        };
+        return new Number[] { FaweTools.getWorld(l.getWorld().getName()).getBlockLightLevel(new Vector(l.getBlockX(), l.getBlockY(), l.getBlockZ())) };
     }
 
     @Override
@@ -76,7 +63,6 @@ public class ExprLightLevel extends SimpleExpression<Number> {
 
     @Override
     public void change(Event e, Object[] delta, Changer.ChangeMode mode) {
-
         if (mode == Changer.ChangeMode.SET) {
 
             Location l = location.getSingle(e);
@@ -85,14 +71,14 @@ public class ExprLightLevel extends SimpleExpression<Number> {
                 return;
             }
 
-            NMSMappedFaweQueue n = (NMSMappedFaweQueue) SetQueue.IMP.getNewQueue(BukkitUtil.getLocalWorld(l.getWorld()), true, false);
+            NMSMappedFaweQueue n = (NMSMappedFaweQueue) SetQueue.IMP.getNewQueue(FaweTools.getWorld(l.getWorld().getName()), true, false);
             n.setBlockLight(l.getBlockX(), l.getBlockY(), l.getBlockZ(), (int) delta[0]);
         }
     }
 
     @Override
     public String toString(Event e, boolean debug) {
-        return "light level of block at " + location.toString(e, debug);
+        return "light level at " + location.toString(e, debug);
     }
 
     @Override

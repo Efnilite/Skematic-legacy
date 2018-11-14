@@ -11,7 +11,9 @@ import ch.njol.skript.lang.SkriptParser;
 import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
 import com.boydti.fawe.FaweAPI;
+import com.sk89q.worldedit.CuboidClipboard;
 import com.sk89q.worldedit.Vector;
+import com.sk89q.worldedit.extent.clipboard.Clipboard;
 import me.efnilite.skematic.Skematic;
 import org.bukkit.event.Event;
 import org.eclipse.jdt.annotation.Nullable;
@@ -31,7 +33,7 @@ public class ExprSchematicArea extends SimpleExpression<Number> {
                 "[the] (1¦width|2¦height|3¦length|4¦floor[(-| )]size) of [the] s(ch|k)em[atic] %string%");
     }
 
-    enum Dimension {
+    private enum Dimension {
         WIDTH, HEIGHT, LENGTH, FLOORSIZE
     }
 

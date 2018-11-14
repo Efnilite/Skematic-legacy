@@ -13,6 +13,8 @@ import com.boydti.fawe.FaweAPI;
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.Vector;
 import com.sk89q.worldedit.world.World;
+import me.efnilite.skematic.utils.FaweTools;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.event.Event;
 
@@ -23,41 +25,37 @@ import org.bukkit.event.Event;
 public class EffSnowy extends Effect {
 
     static {
-        Skript.registerEffect(EffSnowy.class, "(sim[ulate] snow at|place snow at|snowify) %location% in %world% (in|within) [a] radius [of] %number%");
+        Skript.registerEffect(EffSnowy.class, "(sim[ulate] snow at|place snow at|snowify) %location% (in|within) [a] radius [of] %number%");
     }
 
     private Expression<Location> position;
     private Expression<Number> radius;
-    private Expression<World> world;
 
     @Override
     public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parseResult) {
 
         position = (Expression<Location>) exprs[0];
         radius = (Expression<Number>) exprs[1];
-        world = (Expression<World>) exprs[2];
 
         return true;
     }
 
     @Override
     protected void execute(Event e) {
-
         Location l = position.getSingle(e);
-        World w = world.getSingle(e);
         Number r = radius.getSingle(e);
 
-        if (l == null || w == null || r == null) {
+        if (l == null || r == null) {
             return;
         }
 
-        EditSession s = FaweAPI.getEditSessionBuilder(w).autoQueue(true).build();
+        EditSession s = FaweTools.getEditSession(l.getWorld());
         s.simulateSnow(new Vector(l.getBlockX(), l.getBlockY(), l.getBlockZ()), (double) r);
         s.flushQueue();
     }
 
     @Override
     public String toString(Event e, boolean debug) {
-        return "simulate snow at " + position.toString(e, debug) + " with radius " + radius.toString(e, debug) + " in world " + world.toString(e, debug);
+        return "simulate snow at " + position.toString(e, debug) + " with radius " + radius.toString(e, debug);
     }
 }

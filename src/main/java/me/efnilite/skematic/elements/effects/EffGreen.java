@@ -10,10 +10,13 @@ import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
 import com.boydti.fawe.FaweAPI;
+import com.boydti.fawe.wrappers.WorldWrapper;
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.Vector;
 import com.sk89q.worldedit.bukkit.BukkitUtil;
+import com.sk89q.worldedit.bukkit.BukkitWorld;
 import com.sk89q.worldedit.world.World;
+import me.efnilite.skematic.utils.FaweTools;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.event.Event;
@@ -32,7 +35,7 @@ public class EffGreen extends Effect {
     private Expression<Number> radius;
 
     @Override
-    public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parseResult) {
+    public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parser) {
 
         position = (Expression<Location>) exprs[0];
         radius = (Expression<Number>) exprs[1];
@@ -49,7 +52,7 @@ public class EffGreen extends Effect {
             return;
         }
 
-        EditSession s = FaweAPI.getEditSessionBuilder(BukkitUtil.getLocalWorld(Bukkit.getServer().getWorld(l.getWorld().getName()))).autoQueue(true).build();
+        EditSession s = FaweTools.getEditSession(l.getWorld());
         s.green(new Vector(l.getBlockX(), l.getBlockY(), l.getBlockZ()), (double) r);
         s.flushQueue();
     }

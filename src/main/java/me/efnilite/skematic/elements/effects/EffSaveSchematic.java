@@ -48,6 +48,7 @@ public class EffSaveSchematic extends Effect {
     }
 
     @Override
+    @SuppressWarnings("deprecation")
     protected void execute(Event e) {
 
         CuboidRegion r = region.getSingle(e);

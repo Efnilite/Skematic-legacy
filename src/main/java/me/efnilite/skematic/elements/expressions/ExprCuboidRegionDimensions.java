@@ -22,11 +22,11 @@ public class ExprCuboidRegionDimensions extends SimpleExpression<Number> {
 
     static {
         Skript.registerExpression(ExprCuboidRegionDimensions.class, Number.class, ExpressionType.PROPERTY,
-                "[the] [(skematic|fawe)] (1¦length|2¦height|3¦width) of %cuboidregions%",
-                "[the] %cuboidregions%'s [(skematic|fawe)] (1¦length|2¦height|3¦width)");
+                "[the] [(skematic|fawe)] (cuboid|we|worldedit)[ ]region (1¦length|2¦height|3¦width) of %cuboidregions%",
+                "[the] %cuboidregions%'s [(skematic|fawe)] (cuboid|we|worldedit)[ ]region (1¦length|2¦height|3¦width)");
     }
 
-    enum Dimension {
+    private enum Dimension {
         LONG, HIGH, WIDE
     }
 

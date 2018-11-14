@@ -12,6 +12,7 @@ import ch.njol.util.Kleenean;
 import com.boydti.fawe.FaweAPI;
 import com.boydti.fawe.object.FawePlayer;
 import com.sk89q.worldedit.EditSession;
+import me.efnilite.skematic.utils.FaweTools;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
@@ -44,7 +45,7 @@ public class EffUndo extends Effect {
             return;
         }
 
-        EditSession s = FaweAPI.wrapPlayer(p).getNewEditSession();
+        EditSession s = FaweTools.getPlayer(p).getNewEditSession();
         s.undo(s);
         s.flushQueue();
     }

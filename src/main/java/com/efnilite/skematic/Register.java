@@ -14,13 +14,21 @@ import java.util.jar.JarFile;
 
 public class Register {
 
-    public void register() {
-        Class[] effects = getClasses(Skematic.getInstance(), "com.efnilite.skematic.elements.effects").toArray(new Class[0]);
-        Class[] expressions = getClasses(Skematic.getInstance(), "com.efnilite.skematic.elements.expressions").toArray(new Class[0]);
-        Class[] conditions = getClasses(Skematic.getInstance(), "com.efnilite.skematic.elements.conditions").toArray(new Class[0]);
+    private Class[] effects;
+    private Class[] expressions;
+    private Class[] conditions;
+
+    public Register() {
+        effects = getClasses(Skematic.getInstance(), "com.efnilite.skematic.elements.effects").toArray(new Class[0]);
+        expressions = getClasses(Skematic.getInstance(), "com.efnilite.skematic.elements.expressions").toArray(new Class[0]);
+        conditions = getClasses(Skematic.getInstance(), "com.efnilite.skematic.elements.conditions").toArray(new Class[0]);
+
+        registerEffects();
+        registerExpressions();
+        registerConditions();
     }
 
-    public static Set<Class<?>> getClasses(JarFile jar, String... packages){
+    private Set<Class<?>> getClasses(JarFile jar, String... packages){
         Set<Class<?>> classes = new HashSet<>();
         try {
             for (Enumeration<JarEntry> jarEntry = jar.entries(); jarEntry.hasMoreElements();) {
@@ -40,7 +48,7 @@ public class Register {
         return classes;
     }
 
-    public static Set<Class<?>> getClasses(JavaPlugin instance, String... packages) {
+    private Set<Class<?>> getClasses(JavaPlugin instance, String... packages) {
         try {
             Method method = JavaPlugin.class.getDeclaredMethod("getFile");
             method.setAccessible(true);
@@ -53,5 +61,15 @@ public class Register {
         return null;
     }
 
+    private void registerEffects() {
 
+    }
+
+    private void registerExpressions() {
+
+    }
+
+    private void registerConditions() {
+
+    }
 }

@@ -11,13 +11,13 @@ public class Skematic extends JavaPlugin {
 
     private static Skematic instance;
     private static SkriptAddon addon;
+    private static Register register;
 
     @Override
     public void onEnable() {
-
         instance = this;
-        
         addon = Skript.registerAddon(this).setLanguageFileDirectory("lang");
+        register = new Register();
 
         try {
             addon.loadClasses("com.efnilite.skematic", "elements");
@@ -26,30 +26,26 @@ public class Skematic extends JavaPlugin {
         }
 
         Skematic.log("Enabled Skematic " + getDescription().getVersion());
-
     }
 
     @Override
     public void onDisable() {
-
         Skematic.log("Disabled Skematic " + getDescription().getVersion());
-
     }
 
     public static Skematic getInstance() {
         return instance;
     }
 
-    public static SkriptAddon getAddonInstance() {
-        return addon;
-    }
-
     public static void log(String s, Level level) {
         instance.getLogger().log(level, s);
     }
 
-    public static void log(String s) {
+    private static void log(String s) {
         instance.getLogger().info(s);
     }
 
+    public static Register getRegister() {
+        return register;
+    }
 }

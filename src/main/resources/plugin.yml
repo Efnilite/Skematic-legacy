@@ -1,6 +1,5 @@
 name: Skematic
-version: 1.2
+version: 1.4
 author: Efnilite
-main: me.efnilite.skematic.Skematic
+main: com.efnilite.skematic.Skematic
 depend: [Skript, FastAsyncWorldEdit]
-softdepend: [WorldGuard]

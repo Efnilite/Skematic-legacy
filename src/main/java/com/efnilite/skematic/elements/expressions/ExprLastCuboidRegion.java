@@ -1,0 +1,40 @@
+package com.efnilite.skematic.elements.expressions;
+
+import ch.njol.skript.Skript;
+import ch.njol.skript.doc.Description;
+import ch.njol.skript.doc.Examples;
+import ch.njol.skript.doc.Name;
+import ch.njol.skript.doc.Since;
+import ch.njol.skript.lang.Expression;
+import ch.njol.skript.lang.ExpressionType;
+import ch.njol.skript.lang.SkriptParser;
+import ch.njol.skript.lang.util.SimpleExpression;
+import ch.njol.util.Kleenean;
+import com.efnilite.skematic.lang.SkematicExpression;
+import com.efnilite.skematic.lang.annotations.Patterns;
+import com.efnilite.skematic.lang.annotations.Return;
+import com.efnilite.skematic.lang.annotations.Single;
+import com.sk89q.worldedit.regions.CuboidRegion;
+import org.bukkit.event.Event;
+
+@Name("Last region")
+@Description("Get the last created region.")
+@Examples({"create a new cuboidregion from {_location} to {_location-2}",
+        "set {_region} to the last created region"})
+@Since("1.1.0")
+@Patterns("[the] last[ly] created [(cuboid|we|wordedit)][ ]region")
+@Return(CuboidRegion.class)
+@Single
+public class ExprLastCuboidRegion extends SkematicExpression<CuboidRegion> {
+
+    static {
+        Skript.registerExpression(ExprLastCuboidRegion.class, CuboidRegion.class, ExpressionType.SIMPLE,
+                "[the] last[ly] created [(cuboid|we|wordedit)][ ]region");
+    }
+
+    @Override
+    protected CuboidRegion[] get(Event e) {
+        return ExprCuboidRegion.getLastCuboidRegion();
+    }
+
+}

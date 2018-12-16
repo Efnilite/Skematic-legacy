@@ -10,7 +10,6 @@ import com.efnilite.skematic.lang.annotations.PropertyExpression;
 import com.efnilite.skematic.lang.annotations.Return;
 import com.sk89q.worldedit.IncompleteRegionException;
 import com.sk89q.worldedit.LocalSession;
-import com.sk89q.worldedit.regions.CuboidRegion;
 import com.sk89q.worldedit.regions.Region;
 import org.bukkit.entity.Player;
 

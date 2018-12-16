@@ -18,11 +18,11 @@ import org.eclipse.jdt.annotation.Nullable;
 @Description("Create an AsyncWorld.")
 @Examples("create the async world called \"myworld\"")
 @Since("1.0.0")
-public class EffNewAsyncWorld extends Effect {
+public class EffAsyncWorldCreate extends Effect {
 
     static {
-        Skript.registerEffect(EffNewAsyncWorld.class, "[skematic] (create|load) [the] async[hronous] [world] [(called|named)] %strings%",
-                                                    "[skematic] (load|create) world[s] [(called|named)] %strings% async[hronously]");
+        Skript.registerEffect(EffAsyncWorldCreate.class, "[skematic] (create|load) [the] async[hronous] [world] [(called|named)] %strings%",
+                "[skematic] (load|create) world[s] [(called|named)] %strings% async[hronously]");
     }
 
     private Expression<String> world;

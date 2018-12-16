@@ -4,11 +4,8 @@ import ch.njol.skript.Skript;
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
-import ch.njol.skript.doc.Since;
-import ch.njol.skript.lang.Effect;
-import ch.njol.skript.lang.Expression;
-import ch.njol.skript.lang.SkriptParser;
-import ch.njol.util.Kleenean;
+import com.efnilite.skematic.lang.SkematicEffect;
+import com.efnilite.skematic.lang.annotations.Patterns;
 import com.efnilite.skematic.utils.FaweTools;
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.Vector;
@@ -18,41 +15,24 @@ import org.bukkit.event.Event;
 @Name("Snowify")
 @Description("Place snow at a location - Let it go.")
 @Examples("snowify 1, 3, 19 in \"world\" within a radius of 10")
-@Since("1.0.0")
-public class EffSnowy extends Effect {
+@Patterns("(sim[ulate] snow at|place snow at|snowify) %location% (in|within) [a] radius [of] %number%")
+public class EffSnowy extends SkematicEffect {
 
     static {
         Skript.registerEffect(EffSnowy.class, "(sim[ulate] snow at|place snow at|snowify) %location% (in|within) [a] radius [of] %number%");
     }
 
-    private Expression<Location> position;
-    private Expression<Number> radius;
-
-    @Override
-    public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parseResult) {
-
-        position = (Expression<Location>) exprs[0];
-        radius = (Expression<Number>) exprs[1];
-
-        return true;
-    }
-
     @Override
     protected void execute(Event e) {
-        Location l = position.getSingle(e);
-        Number r = radius.getSingle(e);
+        Location location = (Location) expressions[0].getSingle(e);
+        Number radius = (Number) expressions[1].getSingle(e);
 
-        if (l == null || r == null) {
+        if (location == null || radius == null) {
             return;
         }
 
-        EditSession s = FaweTools.getEditSession(l.getWorld());
-        s.simulateSnow(new Vector(l.getBlockX(), l.getBlockY(), l.getBlockZ()), (double) r);
-        s.flushQueue();
-    }
-
-    @Override
-    public String toString(Event e, boolean debug) {
-        return "simulate snow at " + position.toString(e, debug) + " with radius " + radius.toString(e, debug);
+        EditSession session = FaweTools.getEditSession(location.getWorld());
+        session.simulateSnow(new Vector(location.getBlockX(), location.getBlockY(), location.getBlockZ()), (double) radius);
+        session.flushQueue();
     }
 }

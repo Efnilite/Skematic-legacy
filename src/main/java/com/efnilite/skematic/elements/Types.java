@@ -6,19 +6,13 @@ import ch.njol.skript.expressions.base.EventValueExpression;
 import ch.njol.skript.lang.ParseContext;
 import ch.njol.skript.registrations.Classes;
 import ch.njol.skript.util.EnumUtils;
-import com.sk89q.worldedit.Vector;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormat;
 import com.sk89q.worldedit.regions.CuboidRegion;
 import org.eclipse.jdt.annotation.Nullable;
 
-import java.io.File;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class Types {
 
     static {
-
         Classes.registerClass(new ClassInfo<>(CuboidRegion.class, "cuboidregion")
                 .user("cuboidregions?")
                 .parser(new Parser<CuboidRegion>() {
@@ -43,7 +37,6 @@ public class Types {
                         return "\\S+";
                     }
                 }));
-
         final EnumUtils<ClipboardFormat> clipboardFormats = new EnumUtils<>(ClipboardFormat.class, "schematicformat");
         Classes.registerClass(new ClassInfo<>(ClipboardFormat.class, "schematicformat")
                 .user("schematicformats?")

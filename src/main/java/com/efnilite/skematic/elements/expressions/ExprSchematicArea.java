@@ -4,7 +4,6 @@ import ch.njol.skript.Skript;
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
-import ch.njol.skript.doc.Since;
 import ch.njol.skript.lang.ExpressionType;
 import com.boydti.fawe.FaweAPI;
 import com.efnilite.skematic.lang.SkematicExpression;
@@ -20,7 +19,6 @@ import java.io.IOException;
 @Name("Schematic dimensions")
 @Description("Gets one of the schematic dimensions (width, length or height)")
 @Examples("set {_width} to the width of the skematic \"plugins/WorldEdit/skematic.schematic\"")
-@Since("1.0.0")
 @Patterns("[the] (1¦width|2¦height|3¦length|4¦floor[(-| )]size) of [the] s(ch|k)em[atic] %string%")
 @Return(Number.class)
 public class ExprSchematicArea extends SkematicExpression<Number> {

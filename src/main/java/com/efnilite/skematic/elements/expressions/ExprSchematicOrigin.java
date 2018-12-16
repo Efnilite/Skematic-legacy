@@ -3,13 +3,11 @@ package com.efnilite.skematic.elements.expressions;
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
-import ch.njol.skript.doc.Since;
 import com.boydti.fawe.FaweAPI;
 import com.efnilite.skematic.lang.SkematicPropertyExpression;
 import com.efnilite.skematic.lang.annotations.Patterns;
 import com.efnilite.skematic.lang.annotations.PropertyExpression;
 import com.efnilite.skematic.lang.annotations.Return;
-import com.efnilite.skematic.lang.annotations.Single;
 import com.sk89q.worldedit.Vector;
 
 import java.io.File;
@@ -18,7 +16,6 @@ import java.io.IOException;
 @Name("Schematic origin")
 @Description("Returns the origin location of a schematic (where it was copied and saved)")
 @Examples("set {_origin} to the origin of \"plugins/WorldEdit/skematic.schematic\"")
-@Since("1.0.0")
 @Patterns({"[s(ch|k)em[atic]] origin (location|area)", "strings"})
 @Return(Vector.class)
 @PropertyExpression

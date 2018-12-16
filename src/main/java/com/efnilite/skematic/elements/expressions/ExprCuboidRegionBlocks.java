@@ -12,7 +12,6 @@ import com.sk89q.worldedit.blocks.BaseBlock;
 import com.sk89q.worldedit.regions.CuboidRegion;
 import com.sk89q.worldedit.util.Countable;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Item;
 import org.bukkit.event.Event;
 
 import java.util.ArrayList;

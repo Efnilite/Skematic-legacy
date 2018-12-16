@@ -4,11 +4,8 @@ import ch.njol.skript.Skript;
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
-import ch.njol.skript.doc.Since;
-import ch.njol.skript.lang.Effect;
-import ch.njol.skript.lang.Expression;
-import ch.njol.skript.lang.SkriptParser;
-import ch.njol.util.Kleenean;
+import com.efnilite.skematic.lang.SkematicEffect;
+import com.efnilite.skematic.lang.annotations.Patterns;
 import com.efnilite.skematic.utils.FaweTools;
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.Vector;
@@ -18,43 +15,28 @@ import org.bukkit.event.Event;
 @Name("Greenify")
 @Description("Greenify an area - Turns it into grass.")
 @Examples("greenify 2, 3, 4 in \"world\" within a radius of 20")
-@Since("1.0.0")
-public class EffGreen extends Effect {
+@Patterns("(green|grass)[ify] %location% (in|within) [a] radius [of] %number% (1¦[(with|and)] only [normal] dirt)")
+public class EffGreen extends SkematicEffect {
 
     static {
-        Skript.registerEffect(EffGreen.class, "(green|grass)[ify] %location% (in|within) [a] radius [of] %number%");
-    }
-
-    private Expression<Location> position;
-    private Expression<Number> radius;
-
-    @Override
-    public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parser) {
-
-        position = (Expression<Location>) exprs[0];
-        radius = (Expression<Number>) exprs[1];
-
-        return true;
+        Skript.registerEffect(EffGreen.class, "(green|grass)[ify] %location% (in|within) [a] radius [of] %number% (1¦[(with|and)] only [normal] dirt)");
     }
 
     @Override
     protected void execute(Event e) {
-        Location l = position.getSingle(e);
-        Number r = radius.getSingle(e);
+        Location location = (Location) expressions[0].getSingle(e);
+        Number radius = (Number) expressions[1].getSingle(e);
+        boolean dirt = false;
 
-        if (r == null || l == null) {
+        if (radius == null || location == null) {
             return;
         }
+        if (mark == 1) {
+            dirt = true;
+        }
 
-        EditSession s = FaweTools.getEditSession(l.getWorld());
-        s.green(new Vector(l.getBlockX(), l.getBlockY(), l.getBlockZ()), (double) r);
-        s.flushQueue();
+        EditSession session = FaweTools.getEditSession(location.getWorld());
+        session.green(new Vector(location.getBlockX(), location.getBlockY(), location.getBlockZ()), (double) radius, dirt);
+        session.flushQueue();
     }
-
-    @Override
-    public String toString(Event e, boolean debug) {
-        return "greenify " + position.toString(e, debug) + " with radius " + radius.toString(e, debug);
-    }
-
-
 }

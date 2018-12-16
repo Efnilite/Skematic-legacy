@@ -4,12 +4,7 @@ import ch.njol.skript.Skript;
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
-import ch.njol.skript.doc.Since;
-import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.ExpressionType;
-import ch.njol.skript.lang.SkriptParser;
-import ch.njol.skript.lang.util.SimpleExpression;
-import ch.njol.util.Kleenean;
 import com.efnilite.skematic.lang.SkematicExpression;
 import com.efnilite.skematic.lang.annotations.Patterns;
 import com.efnilite.skematic.lang.annotations.Return;
@@ -21,7 +16,6 @@ import org.bukkit.event.Event;
 @Description("Get the last created region.")
 @Examples({"create a new cuboidregion from {_location} to {_location-2}",
         "set {_region} to the last created region"})
-@Since("1.1.0")
 @Patterns("[the] last[ly] created [(cuboid|we|wordedit)][ ]region")
 @Return(CuboidRegion.class)
 @Single

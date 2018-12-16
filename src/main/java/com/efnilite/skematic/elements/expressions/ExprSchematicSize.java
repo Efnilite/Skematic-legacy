@@ -3,7 +3,6 @@ package com.efnilite.skematic.elements.expressions;
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
-import ch.njol.skript.doc.Since;
 import com.boydti.fawe.FaweAPI;
 import com.efnilite.skematic.lang.SkematicPropertyExpression;
 import com.efnilite.skematic.lang.annotations.Patterns;
@@ -17,7 +16,6 @@ import java.io.IOException;
 @Name("Schematic size")
 @Description("Gets the size of a schematic.")
 @Examples("set {_size} to the size of skematic \"plugins/WorldEdit/skematic.schematic\"")
-@Since("1.0.0")
 @Patterns({"[s(ch|k)em[atic]] dimensions", "strings"})
 @Return(Vector.class)
 @PropertyExpression

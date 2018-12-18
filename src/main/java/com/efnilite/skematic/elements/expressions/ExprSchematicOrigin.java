@@ -16,14 +16,10 @@ import java.io.IOException;
 @Name("Schematic origin")
 @Description("Returns the origin location of a schematic (where it was copied and saved)")
 @Examples("set {_origin} to the origin of \"plugins/WorldEdit/skematic.schematic\"")
-@Patterns({"[s(ch|k)em[atic]] origin (location|area)", "strings"})
+@Patterns({"[(skematic|fawe)] [s(ch|k)em[atic]] origin (location|area)", "strings"})
 @Return(Vector.class)
 @PropertyExpression
 public class ExprSchematicOrigin extends SkematicPropertyExpression<String, Vector> {
-
-    static {
-        register(ExprSchematicOrigin.class, Vector.class, "[s(ch|k)em[atic]] origin (location|area)", "strings");
-    }
 
     @Override
     public Vector convert(final String f) {
@@ -32,5 +28,10 @@ public class ExprSchematicOrigin extends SkematicPropertyExpression<String, Vect
         } catch (IOException e) {
             return null;
         }
+    }
+
+    @Override
+    protected String getPropertyName() {
+        return "origin";
     }
 }

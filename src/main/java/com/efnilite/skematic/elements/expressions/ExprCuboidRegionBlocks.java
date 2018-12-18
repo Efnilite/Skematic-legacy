@@ -1,8 +1,8 @@
 package com.efnilite.skematic.elements.expressions;
 
-import ch.njol.skript.Skript;
 import ch.njol.skript.aliases.ItemType;
-import ch.njol.skript.lang.ExpressionType;
+import ch.njol.skript.doc.Description;
+import ch.njol.skript.doc.Name;
 import com.efnilite.skematic.lang.SkematicExpression;
 import com.efnilite.skematic.lang.annotations.Patterns;
 import com.efnilite.skematic.lang.annotations.Return;
@@ -17,15 +17,12 @@ import org.bukkit.event.Event;
 import java.util.ArrayList;
 import java.util.List;
 
-@Patterns({"[all] [of] [the] [skematic] blocks in %cuboidregions%", "[all] [of] %cuboidregions%'s [skematic] blocks"})
+@Name("All blocks")
+@Description("Get all blocks in a cuboidregion")
+@Patterns({"[all] [of] [the] [skematic] blocks in %cuboidregions%",
+        "[all] [of] %cuboidregions%'s [skematic] blocks"})
 @Return(ItemType.class)
 public class ExprCuboidRegionBlocks extends SkematicExpression<ItemType> {
-
-    static {
-        Skript.registerExpression(ExprCuboidRegionBlocks.class, ItemType.class, ExpressionType.PROPERTY,
-                "[all] [of] [the] [skematic] blocks in %cuboidregions%",
-                "[all] [of] %cuboidregions%'s [skematic] blocks");
-    }
 
     @Override
     @SuppressWarnings("deprecation")
@@ -49,5 +46,10 @@ public class ExprCuboidRegionBlocks extends SkematicExpression<ItemType> {
         }
 
         return materials.toArray(new ItemType[0]);
+    }
+
+    @Override
+    public String toString(Event e, boolean debug) {
+        return "get all blocks in " + expressions[0].toString(e, debug);
     }
 }

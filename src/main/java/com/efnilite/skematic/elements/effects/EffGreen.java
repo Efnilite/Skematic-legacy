@@ -1,6 +1,5 @@
 package com.efnilite.skematic.elements.effects;
 
-import ch.njol.skript.Skript;
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
@@ -8,7 +7,6 @@ import com.efnilite.skematic.lang.SkematicEffect;
 import com.efnilite.skematic.lang.annotations.Patterns;
 import com.efnilite.skematic.utils.FaweTools;
 import com.sk89q.worldedit.EditSession;
-import com.sk89q.worldedit.Vector;
 import org.bukkit.Location;
 import org.bukkit.event.Event;
 
@@ -17,10 +15,6 @@ import org.bukkit.event.Event;
 @Examples("greenify 2, 3, 4 in \"world\" within a radius of 20")
 @Patterns("(green|grass)[ify] %location% (in|within) [a] radius [of] %number% (1¦[(with|and)] only [normal] dirt)")
 public class EffGreen extends SkematicEffect {
-
-    static {
-        Skript.registerEffect(EffGreen.class, "(green|grass)[ify] %location% (in|within) [a] radius [of] %number% (1¦[(with|and)] only [normal] dirt)");
-    }
 
     @Override
     protected void execute(Event e) {
@@ -36,7 +30,12 @@ public class EffGreen extends SkematicEffect {
         }
 
         EditSession session = FaweTools.getEditSession(location.getWorld());
-        session.green(new Vector(location.getBlockX(), location.getBlockY(), location.getBlockZ()), (double) radius, dirt);
+        session.green(FaweTools.toVector(location), (double) radius, dirt);
         session.flushQueue();
+    }
+
+    @Override
+    public String toString(Event e, boolean debug) {
+        return "grassify " + expressions[0].toString(e, debug) + " with radius " + expressions[1].toString(e, debug);
     }
 }

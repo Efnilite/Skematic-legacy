@@ -1,6 +1,5 @@
 package com.efnilite.skematic.elements.conditions;
 
-import ch.njol.skript.Skript;
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
@@ -15,10 +14,6 @@ import org.bukkit.event.Event;
 @Examples("player's selection contains location 0, 0, 0 in \"World\"")
 @Patterns("%cuboidregions% contains %location%")
 public class CondSelectionContains extends SkematicCondition {
-
-    static {
-        Skript.registerCondition(CondSelectionContains.class, "%cuboidregions% contains %location%");
-    }
 
     @Override
     public boolean check(Event e) {
@@ -36,4 +31,8 @@ public class CondSelectionContains extends SkematicCondition {
         }
     }
 
+    @Override
+    public String toString(Event e, boolean debug) {
+        return "if " + expressions[1].toString(e, debug) + " is in " + expressions[0].toString(e, debug);
+    }
 }

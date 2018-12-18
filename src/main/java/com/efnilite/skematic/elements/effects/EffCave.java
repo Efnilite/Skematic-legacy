@@ -1,4 +1,4 @@
-package com.efnilite.skematic.elements.effects.shapes;
+package com.efnilite.skematic.elements.effects;
 
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
@@ -33,5 +33,10 @@ public class EffCave extends SkematicEffect {
             ex.printStackTrace();
         }
         session.flushQueue();
+    }
+
+    @Override
+    public String toString(Event e, boolean debug) {
+        return "cavify " + expressions[0].toString(e, debug);
     }
 }

@@ -1,6 +1,5 @@
 package com.efnilite.skematic.elements.effects;
 
-import ch.njol.skript.Skript;
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
@@ -17,10 +16,6 @@ import org.bukkit.event.Event;
 @Patterns("redo [the] last [(fawe|fastasyncworldedit)] ((action|change) of %player%|%player%'s (action|change))")
 public class EffRedo extends SkematicEffect {
 
-    static {
-        Skript.registerEffect(EffRedo.class, "redo [the] last [(fawe|fastasyncworldedit)] ((action|change) of %player%|%player%'s (action|change))");
-    }
-
     @Override
     protected void execute(Event e) {
         Player player = (Player) expressions[0].getSingle(e);
@@ -32,5 +27,10 @@ public class EffRedo extends SkematicEffect {
         EditSession session = FaweTools.getPlayer(player).getNewEditSession();
         session.redo(FaweTools.getPlayer(player).getNewEditSession());
         session.flushQueue();
+    }
+
+    @Override
+    public String toString(Event e, boolean debug) {
+        return "redo last change of " + expressions[0].toString(e, debug);
     }
 }

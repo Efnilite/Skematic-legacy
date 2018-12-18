@@ -1,6 +1,5 @@
 package com.efnilite.skematic.elements.effects;
 
-import ch.njol.skript.Skript;
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
@@ -22,15 +21,9 @@ import java.util.logging.Level;
 @Patterns("save [[the] s(ch|k)ematic] %cuboidregions% to [[the] file] %string% [with %-schematicformat% format]")
 public class EffSaveSchematic extends SkematicEffect {
 
-    static {
-        Skript.registerEffect(EffSaveSchematic.class,
-                "save [[the] s(ch|k)ematic] %cuboidregions% to [[the] file] %string% [with %-schematicformat% format]");
-    }
-
     @Override
     @SuppressWarnings("deprecation")
     protected void execute(Event e) {
-
         CuboidRegion cuboid = (CuboidRegion) expressions[0].getSingle(e);
         String schematic = (String) expressions[1].getSingle(e);
         ClipboardFormat format = (ClipboardFormat) expressions[2].getSingle(e);
@@ -38,6 +31,7 @@ public class EffSaveSchematic extends SkematicEffect {
         if (cuboid == null || schematic == null) {
             return;
         }
+
         if (format == null) {
             format = ClipboardFormat.SCHEMATIC;
         }
@@ -49,5 +43,10 @@ public class EffSaveSchematic extends SkematicEffect {
         } catch (IOException ex) {
             Skematic.log("Could not save schematic " + schematic + " with format " + format, Level.SEVERE);
         }
+    }
+
+    @Override
+    public String toString(Event e, boolean debug) {
+        return "save schematic " + expressions[1].toString(e, debug) + " with region " + expressions[0].toString(e, debug) + (expressions[2] != null ? " with format " + expressions[2].toString(e, debug) : "");
     }
 }

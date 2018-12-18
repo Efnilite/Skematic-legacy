@@ -16,14 +16,10 @@ import java.io.IOException;
 @Name("Schematic size")
 @Description("Gets the size of a schematic.")
 @Examples("set {_size} to the size of skematic \"plugins/WorldEdit/skematic.schematic\"")
-@Patterns({"[s(ch|k)em[atic]] dimensions", "strings"})
+@Patterns({"[(skematic|fawe)] [s(ch|k)em[atic]] dimensions", "strings"})
 @Return(Vector.class)
 @PropertyExpression
 public class ExprSchematicSize extends SkematicPropertyExpression<String, Vector> {
-
-    static {
-        register(ExprSchematicSize.class, Vector.class, "[s(ch|k)em[atic]] dimensions", "strings");
-    }
 
     @Override
     public Vector convert(final String f) {
@@ -34,6 +30,11 @@ public class ExprSchematicSize extends SkematicPropertyExpression<String, Vector
             return null;
         }
         return d;
+    }
+
+    @Override
+    protected String getPropertyName() {
+        return "dimensions";
     }
 }
 

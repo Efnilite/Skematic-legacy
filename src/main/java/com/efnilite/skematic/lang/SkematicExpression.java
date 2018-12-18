@@ -48,10 +48,4 @@ public abstract class SkematicExpression<T> extends SimpleExpression {
     public boolean isSingle() {
         return getClass().isAnnotationPresent(Single.class);
     }
-
-    @Override
-    public String toString(Event e, boolean debug) {
-        return null;
-    }
-
 }

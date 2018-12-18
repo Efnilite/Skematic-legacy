@@ -41,10 +41,4 @@ public abstract class SkematicPropertyExpression<F, T> extends SimplePropertyExp
             throw new IllegalAccessError("Return type not set");
         }
     }
-
-    @Override
-    protected String getPropertyName() {
-        return null;
-    }
-
 }

@@ -1,7 +1,6 @@
 package com.efnilite.skematic.elements.expressions;
 
 import ch.njol.skript.doc.Description;
-import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
 import com.boydti.fawe.FaweAPI;
 import com.efnilite.skematic.lang.SkematicPropertyExpression;
@@ -15,15 +14,10 @@ import org.bukkit.entity.Player;
 
 @Name("Selection")
 @Description("Gets the selection of a player (region)")
-@Examples("set {_size} to selection of player")
-@Patterns({"selection", "players"})
+@Patterns({"[(skematic|fawe)] selection[s]", "players"})
 @Return(Region.class)
 @PropertyExpression
 public class ExprSelection extends SkematicPropertyExpression<Player, Region> {
-
-    static {
-        register(ExprSelection.class, Region.class, "selection[s]", "players");
-    }
 
     @Override
     public Region convert(final Player p) {
@@ -37,4 +31,8 @@ public class ExprSelection extends SkematicPropertyExpression<Player, Region> {
         return selection;
     }
 
+    @Override
+    protected String getPropertyName() {
+        return "selection";
+    }
 }

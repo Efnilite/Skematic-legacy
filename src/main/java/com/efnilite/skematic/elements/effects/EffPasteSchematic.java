@@ -1,6 +1,5 @@
 package com.efnilite.skematic.elements.effects;
 
-import ch.njol.skript.Skript;
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
@@ -26,10 +25,6 @@ import java.util.logging.Level;
 @Examples("paste skematic \"plugins/WorldEdit/skematic.schematic\" at player excluding air")
 @Patterns("paste [the] s(ch|k)em[atic] %string% at %location% [(1¦(without|excluding) air)] [(2¦[(,| and)] allow[ing] undo)] [[with] angle %-number%]")
 public class EffPasteSchematic extends SkematicEffect {
-
-    static {
-        Skript.registerEffect(EffPasteSchematic.class, "paste [the] s(ch|k)em[atic] %string% at %location% [(1¦(without|excluding) air)] [(2¦[(,| and)] allow[ing] undo)] [[with] angle %-number%]");
-    }
 
     @Override
     @SuppressWarnings("deprecation")
@@ -63,7 +58,7 @@ public class EffPasteSchematic extends SkematicEffect {
             file = new File(schematic + ".schematic");
         }
 
-        Vector vector = new Vector(location.getBlockX(), location.getBlockY(), location.getBlockZ());
+        Vector vector = FaweTools.toVector(location);
         if (angle != null) {
 
             EditSession session = FaweTools.getEditSession(location.getWorld());
@@ -90,5 +85,10 @@ public class EffPasteSchematic extends SkematicEffect {
                 Skematic.log("Could not paste schematic " + file, Level.SEVERE);
             }
         }
+    }
+
+    @Override
+    public String toString(Event e, boolean debug) {
+        return "paste schematic " + expressions[0].toString(e, debug) + " at " + expressions[1].toString(e, debug) + (expressions[3] != null ? " with angle " + expressions[3].toString(e, debug) : "");
     }
 }

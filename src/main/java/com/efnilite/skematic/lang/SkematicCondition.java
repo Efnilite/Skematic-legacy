@@ -31,10 +31,4 @@ public abstract class SkematicCondition extends Condition {
             throw new IllegalAccessError("Pattern type not set");
         }
     }
-
-    @Override
-    public String toString(Event e, boolean debug) {
-        return null;
-    }
-
 }

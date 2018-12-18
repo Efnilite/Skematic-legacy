@@ -1,6 +1,5 @@
 package com.efnilite.skematic.elements.effects;
 
-import ch.njol.skript.Skript;
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
@@ -16,10 +15,6 @@ import org.bukkit.event.Event;
 @Patterns("(flush|dequeue) [the] (queue of %player%|%player%'s queue)")
 public class EffFlush extends SkematicEffect {
 
-    static {
-        Skript.registerEffect(EffFlush.class, "(flush|dequeue) [the] (queue of %player%|%player%'s queue)");
-    }
-
     @Override
     protected void execute(Event e) {
         Player player = (Player) expressions[0].getSingle(e);
@@ -29,5 +24,10 @@ public class EffFlush extends SkematicEffect {
         }
 
         FaweTools.getPlayer(player).getNewEditSession().flushQueue();
+    }
+
+    @Override
+    public String toString(Event e, boolean debug) {
+        return "flush queue of " + expressions[0].toString(e, debug);
     }
 }

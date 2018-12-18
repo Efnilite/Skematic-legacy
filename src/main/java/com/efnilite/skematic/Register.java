@@ -9,88 +9,67 @@ import ch.njol.skript.lang.util.SimpleExpression;
 import com.efnilite.skematic.lang.annotations.Patterns;
 import com.efnilite.skematic.lang.annotations.PropertyExpression;
 import com.efnilite.skematic.lang.annotations.Return;
-import org.bukkit.plugin.java.JavaPlugin;
+import com.google.common.reflect.ClassPath;
 
-import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.*;
-import java.util.jar.JarEntry;
-import java.util.jar.JarFile;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
+@SuppressWarnings("all")
 public class Register {
 
-    private Class[] effects;
-    private Class[] expressions;
-    private Class[] conditions;
+    private List<Class<?>> effects;
+    private List<Class<?>> expressions;
+    private List<Class<?>> conditions;
 
-    private List<Class> syntax;
+    private List<Class> syntax = new ArrayList<>();
 
     public Register() {
-        effects = getClasses(Skematic.getInstance(), "com.efnilite.skematic.elements.effects").toArray(new Class[0]);
-        expressions = getClasses(Skematic.getInstance(), "com.efnilite.skematic.elements.expressions").toArray(new Class[0]);
-        conditions = getClasses(Skematic.getInstance(), "com.efnilite.skematic.elements.conditions").toArray(new Class[0]);
+        syntax.clear();
 
-        syntax.addAll(Arrays.asList(effects));
-        syntax.addAll(Arrays.asList(expressions));
-        syntax.addAll(Arrays.asList(conditions));
+        effects = getClasses("com.efnilite.skematic.elements.effects");
+        expressions = getClasses("com.efnilite.skematic.elements.expressions");
+        conditions = getClasses("com.efnilite.skematic.elements.conditions");
+
+        syntax.addAll(effects);
+        syntax.addAll(expressions);
+        syntax.addAll(conditions);
 
         registerSyntaxes();
     }
 
-    @SuppressWarnings("unchecked")
     private void registerSyntaxes() {
         if (syntax == null) {
             throw new IllegalStateException("Syntaxes not yet initialized");
         }
         for (Class clazz : syntax) {
             if (Effect.class.isAssignableFrom(clazz)) {
-                Skript.registerEffect(clazz, clazz.getClass().getAnnotation(Patterns.class).value());
+                System.out.println(clazz.getName());
+                Skript.registerEffect(clazz, ((Patterns) clazz.getAnnotation(Patterns.class)).value());
             } else if (SimpleExpression.class.isAssignableFrom(clazz)) {
-                Skript.registerExpression(clazz, clazz.getClass().getAnnotation(Return.class).value(), ExpressionType.PROPERTY, clazz.getClass().getAnnotation(Patterns.class).value());
-            } else if (SimplePropertyExpression.class.isAssignableFrom(clazz) && clazz.getClass().isAnnotationPresent(PropertyExpression.class)) {
-                String property = clazz.getClass().getAnnotation(Patterns.class).value()[0];
-                String fromType = clazz.getClass().getAnnotation(Patterns.class).value()[1];
-                Skript.registerExpression(clazz, clazz.getClass().getAnnotation(Return.class).value(), ExpressionType.PROPERTY, "[the] " + property + " of %" + fromType + "%", "%" + fromType + "%'[s] " + property);
+                Skript.registerExpression(clazz, ((Return) clazz.getAnnotation(Return.class)).value(), ExpressionType.PROPERTY, ((Patterns) clazz.getAnnotation(Patterns.class)).value());
+            } else if (SimplePropertyExpression.class.isAssignableFrom(clazz) && clazz.isAnnotationPresent(PropertyExpression.class)) {
+                String property = ((Patterns) clazz.getAnnotation(Patterns.class)).value()[0];
+                String fromType = ((Patterns) clazz.getAnnotation(Patterns.class)).value()[1];
+                Skript.registerExpression(clazz, ((Return) clazz.getAnnotation(Return.class)).value(), ExpressionType.PROPERTY, "[the] " + property + " of %" + fromType + "%", "%" + fromType + "%'[s] " + property);
             } else if (Condition.class.isAssignableFrom(clazz)) {
-                Skript.registerCondition(clazz, clazz.getClass().getAnnotation(Patterns.class).value());
+                Skript.registerCondition(clazz, ((Patterns) clazz.getAnnotation(Patterns.class)).value());
             } else {
                 throw new IllegalStateException("Class of unknown type");
             }
         }
     }
 
-    private Set<Class<?>> getClasses(JarFile jar, String... packages){
-        Set<Class<?>> classes = new HashSet<>();
+    private List<Class<?>> getClasses(String pack) {
         try {
-            for (Enumeration<JarEntry> jarEntry = jar.entries(); jarEntry.hasMoreElements();) {
-                String name = jarEntry.nextElement().getName().replace("/", ".");
-                String className = name.substring(0, name.length() - 6);
-                className = className.replace('/', '.');
-                for (String packageName : packages) {
-                    if (name.startsWith(packageName) && name.endsWith(".class")) {
-                        classes.add(Class.forName(className));
-                    }
-                }
-            }
-            jar.close();
-        } catch (IOException | ClassNotFoundException ex) {
-            ex.printStackTrace();
-        }
-        return classes;
-    }
-
-    private Set<Class<?>> getClasses(JavaPlugin instance, String... packages) {
-        try {
-            Method method = JavaPlugin.class.getDeclaredMethod("getFile");
-            method.setAccessible(true);
-            File file = (File) method.invoke(instance);
-            JarFile jar = new JarFile(file);
-            return getClasses(jar, packages);
-        } catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | IOException e) {
+            return ClassPath.from(getClass().getClassLoader()).getTopLevelClassesRecursive(pack)
+                    .stream()
+                    .map(ClassPath.ClassInfo::load)
+                    .collect(Collectors.toList());
+        } catch (IOException e) {
             e.printStackTrace();
+            return null;
         }
-        return null;
     }
 }

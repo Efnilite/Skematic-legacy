@@ -1,11 +1,8 @@
 package com.efnilite.skematic.elements.expressions;
 
-import ch.njol.skript.Skript;
 import ch.njol.skript.classes.Changer;
 import ch.njol.skript.doc.Description;
-import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
-import ch.njol.skript.lang.ExpressionType;
 import ch.njol.util.coll.CollectionUtils;
 import com.boydti.fawe.example.NMSMappedFaweQueue;
 import com.boydti.fawe.util.SetQueue;
@@ -14,32 +11,26 @@ import com.efnilite.skematic.lang.annotations.Patterns;
 import com.efnilite.skematic.lang.annotations.Return;
 import com.efnilite.skematic.lang.annotations.Single;
 import com.efnilite.skematic.utils.FaweTools;
-import com.sk89q.worldedit.Vector;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
 @Name("Light level")
 @Description("Get the light level of a block.")
-@Examples("set {light} to the block light of the block at 2, 3, 4 in \"lightworld\"")
-@Patterns("[the] [block(-| )]light of [the] [block] (at|of) %location%")
+@Patterns("[the] [(skematic|fawe)] [block(-| )]light of [the] [block] (at|of) %location%")
 @Return(Number.class)
 @Single
 public class ExprLightLevel extends SkematicExpression<Number> {
 
-    static {
-        Skript.registerExpression(ExprLightLevel.class, Number.class, ExpressionType.PROPERTY, "[the] [block(-| )]light of [the] [block] (at|of) %location%");
-    }
-
     @Override
     protected Number[] get(Event e) {
-        Location l = (Location) expressions[0].getSingle(e);
+        Location location = (Location) expressions[0].getSingle(e);
 
-        if (l == null) {
+        if (location == null) {
             return null;
         }
 
-        return new Number[] { FaweTools.getWorld(l.getWorld().getName()).getBlockLightLevel(new Vector(l.getBlockX(), l.getBlockY(), l.getBlockZ())) };
+        return new Number[] { FaweTools.getWorld(location.getWorld().getName()).getBlockLightLevel(FaweTools.toVector(location)) };
     }
 
     @Override
@@ -62,4 +53,8 @@ public class ExprLightLevel extends SkematicExpression<Number> {
         }
     }
 
+    @Override
+    public String toString(Event e, boolean debug) {
+        return "block light at " + expressions[0].toString(e, debug);
+    }
 }

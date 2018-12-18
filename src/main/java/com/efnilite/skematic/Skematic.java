@@ -2,6 +2,11 @@ package com.efnilite.skematic;
 
 import ch.njol.skript.Skript;
 import ch.njol.skript.SkriptAddon;
+import com.boydti.fawe.FaweAPI;
+import com.boydti.fawe.object.FawePlayer;
+import com.sk89q.worldedit.EditSession;
+import com.sk89q.worldedit.world.World;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.IOException;
@@ -33,16 +38,16 @@ public class Skematic extends JavaPlugin {
         Skematic.log("Disabled Skematic " + getDescription().getVersion());
     }
 
-    public static Skematic getInstance() {
-        return instance;
-    }
-
     public static void log(String s, Level level) {
         instance.getLogger().log(level, s);
     }
 
     private static void log(String s) {
         instance.getLogger().info(s);
+    }
+
+    public static Skematic getInstance() {
+        return instance;
     }
 
     public static Register getRegister() {

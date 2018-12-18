@@ -1,6 +1,5 @@
 package com.efnilite.skematic.elements.effects;
 
-import ch.njol.skript.Skript;
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
@@ -18,10 +17,6 @@ import org.bukkit.event.Event;
 @Patterns("(sim[ulate] snow at|place snow at|snowify) %location% (in|within) [a] radius [of] %number%")
 public class EffSnowy extends SkematicEffect {
 
-    static {
-        Skript.registerEffect(EffSnowy.class, "(sim[ulate] snow at|place snow at|snowify) %location% (in|within) [a] radius [of] %number%");
-    }
-
     @Override
     protected void execute(Event e) {
         Location location = (Location) expressions[0].getSingle(e);
@@ -34,5 +29,10 @@ public class EffSnowy extends SkematicEffect {
         EditSession session = FaweTools.getEditSession(location.getWorld());
         session.simulateSnow(new Vector(location.getBlockX(), location.getBlockY(), location.getBlockZ()), (double) radius);
         session.flushQueue();
+    }
+
+    @Override
+    public String toString(Event e, boolean debug) {
+        return "snowify " + expressions[0].toString(e, debug) + " with radius " + expressions[1].toString(e, debug);
     }
 }

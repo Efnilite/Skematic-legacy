@@ -1,5 +1,7 @@
 package com.efnilite.skematic.elements.expressions;
 
+import ch.njol.skript.doc.Description;
+import ch.njol.skript.doc.Name;
 import com.boydti.fawe.object.FawePlayer;
 import com.efnilite.skematic.lang.SkematicPropertyExpression;
 import com.efnilite.skematic.lang.annotations.Patterns;
@@ -8,14 +10,12 @@ import com.efnilite.skematic.lang.annotations.Return;
 import com.sk89q.worldedit.command.tool.InvalidToolBindException;
 import org.bukkit.entity.Player;
 
+@Name("Brush size")
+@Description("Get the brush size of players.")
 @Patterns({"brush size[s]", "players"})
 @Return(Number.class)
 @PropertyExpression
 public class ExprBrushSize extends SkematicPropertyExpression<Player, Number> {
-
-    static {
-        register(ExprBrushSize.class, Number.class, "brush size", "players");
-    }
 
     @Override
     public Number convert(Player player) {
@@ -25,5 +25,10 @@ public class ExprBrushSize extends SkematicPropertyExpression<Player, Number> {
         } catch (InvalidToolBindException e) {
             return null;
         }
+    }
+
+    @Override
+    protected String getPropertyName() {
+        return "brush size";
     }
 }

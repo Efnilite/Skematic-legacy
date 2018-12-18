@@ -5,7 +5,6 @@ import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
 import com.efnilite.skematic.lang.annotations.Patterns;
-import org.bukkit.event.Event;
 
 public abstract class SkematicEffect extends Effect {
 
@@ -25,11 +24,6 @@ public abstract class SkematicEffect extends Effect {
 
     private String[] getSyntax() {
         return getClass().getAnnotation(Patterns.class).value();
-    }
-
-    @Override
-    public String toString(Event e, boolean debug) {
-        return null;
     }
 
 }

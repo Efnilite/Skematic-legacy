@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: ch.njol:skript:2.2-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/ch.njol/skript/2.2-SNAPSHOT/e1c4cb04fc89b45faf2ba0e27fed4bd4c465564/skript-2.2-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/ch.njol/skript/2.2-SNAPSHOT/8dc2cebb1b1be7e6a7ee7905cd1c65d93554150/skript-2.2-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

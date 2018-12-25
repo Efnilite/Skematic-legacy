@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: ch.njol:utils:1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/ch.njol/utils/1.0-SNAPSHOT/90ab677e3b35bb7bec72a5b550f5b35328a16ec4/utils-1.0-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/ch.njol/utils/1.0-SNAPSHOT/fea15355e7e813de245b5ba7f62ada5fc2fd9038/utils-1.0-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

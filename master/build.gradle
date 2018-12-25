@@ -1,0 +1,51 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
+group 'com.efnilite.skematic'
+version '2.0'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+    }
+    maven {
+        url 'https://oss.sonatype.org/content/groups/public/'
+    }
+    maven {
+        url 'http://maven.njol.ch/repo/'
+    }
+    maven {
+        url 'https://ci.athion.net/job/FAWE-1.13/ws/mvn/'
+    }
+    maven {
+        url 'https://oss.sonatype.org/content/groups/public/'
+    }
+}
+
+processResources {
+    inputs.files 'build.gradle'
+
+    from sourceSets.main.resources.srcDirs
+
+    filter(ReplaceTokens, tokens: [version: version])
+}
+
+dependencies {
+
+    implementation 'org.spigotmc:spigot-api:1.12-R0.1-SNAPSHOT'
+    implementation 'ch.njol:skript:2.2-SNAPSHOT'
+
+    implementation 'com.boydti:fawe-api:latest'
+    compile files("libs/FAWE.jar")
+
+    implementation 'org.reflections:reflections:0.9.9-RC1'
+
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+compileTestJava.options.encoding = 'UTF-8'

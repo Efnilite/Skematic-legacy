@@ -1,6 +1,0 @@
-version: 2.0
-schematicformat:
-    schematic: schematic, mcedit, mce
-    structure: structure, nbt
-    png: png, image
-    fawe: fawe

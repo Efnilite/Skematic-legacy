@@ -1,5 +1,0 @@
-name: Skematic
-version: 1.4
-author: Efnilite
-main: com.efnilite.skematic.Skematic
-depend: [Skript, FastAsyncWorldEdit]

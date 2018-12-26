@@ -10,8 +10,8 @@ import com.sk89q.worldedit.regions.CuboidRegion;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Event;
 
-@Name("Shape - Line")
-@Description("Create a line between 2 locations")
+@Name("Regenerate")
+@Description("Regenerate a cuboidregion.")
 public class EffRegenerate extends SkematicEffect {
 
     static {

@@ -11,8 +11,8 @@ import com.sk89q.worldedit.regions.CuboidRegion;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Event;
 
-@Name("Shape - Line")
-@Description("Create a line between 2 locations")
+@Name("Fill walls")
+@Description("Fill the walls of a cuboidregion with a pattern")
 public class EffCuboidWalls extends SkematicEffect {
 
     static {

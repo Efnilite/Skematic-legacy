@@ -10,9 +10,6 @@ import com.efnilite.skematic.utils.FaweTools;
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.blocks.BaseBlock;
 import com.sk89q.worldedit.regions.CuboidRegion;
-import com.sk89q.worldedit.world.block.BlockStateHolder;
-import com.sk89q.worldedit.world.block.BlockType;
-import com.sk89q.worldedit.world.block.BlockTypes;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Event;
 
@@ -39,9 +36,9 @@ public class EffReplaceBlocks extends SkematicEffect {
             return;
         }
 
-        Set<BlockStateHolder> set = new HashSet<>();
+        Set<BaseBlock> set = new HashSet<>();
         for (ItemType type : target) {
-            set.add(new BaseBlock(type.getRandom().getType().getId(), type.getRandom().getAmount()));
+            set.add(new BaseBlock(type.getRandom().getType().getId()));
         }
 
         EditSession session = FaweTools.getEditSession(Bukkit.getServer().getWorld(cuboid.getWorld().getName()));

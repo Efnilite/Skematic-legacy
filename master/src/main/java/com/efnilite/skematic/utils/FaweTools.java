@@ -7,8 +7,9 @@ import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.Vector;
 import com.sk89q.worldedit.blocks.BaseBlock;
 import com.sk89q.worldedit.function.pattern.BlockPattern;
-import com.sk89q.worldedit.function.pattern.Pattern;
+import com.sk89q.worldedit.function.pattern.Patterns;
 import com.sk89q.worldedit.function.pattern.RandomPattern;
+import com.sk89q.worldedit.patterns.Pattern;
 import com.sk89q.worldedit.world.World;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -35,7 +36,7 @@ public class FaweTools {
                 parsedPattern.add(new BlockPattern(new BaseBlock(b.getRandom().getType().getId(), b.getRandom().getDurability())), 50);
             }
         }
-        return parsedPattern;
+        return Patterns.wrap(parsedPattern);
     }
 
     public static Vector toVector(Location location) {

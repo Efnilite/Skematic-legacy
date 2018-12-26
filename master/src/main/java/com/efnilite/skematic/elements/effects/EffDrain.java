@@ -18,14 +18,14 @@ import org.bukkit.event.Event;
 public class EffDrain extends SkematicEffect {
 
     static {
-        Skript.registerEffect(EffDrain.class, "drain [all] [(skematic|fawe)] [liquid[s]] at %location% (in|within) [a] radius [of] %number%");
+        Skript.registerEffect(EffDrain.class, "drain [all] [(skematic|fawe)] [liquid[s]] %direction% %location% (in|within) [a] radius [of] %number%");
     }
 
     @Override
     @SuppressWarnings("unchecked")
     protected void execute(Event e) {
-        Location location = (Location) expressions[0].getSingle(e);
-        Number radius = (Number) expressions[1].getSingle(e);
+        Location location = (Location) Direction.combine((Expression<Direction>) expressions[0], (Expression<Location>) expressions[1]);;
+        Number radius = (Number) expressions[2].getSingle(e);
 
         if (radius == null) {
             return;

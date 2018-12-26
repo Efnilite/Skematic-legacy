@@ -18,15 +18,15 @@ import org.bukkit.event.Event;
 public class EffShapeSphere extends SkematicEffect {
 
     static {
-        Skript.registerEffect(EffShapeSphere.class, "(make|create) [a] [new] [(1¦hollow)] sphere at %location% (with|and) pattern %string% (with|and) radius %number%");
+        Skript.registerEffect(EffShapeSphere.class, "(make|create) [a] [new] [(1¦hollow)] sphere %direction% %location% (with|and) pattern %string% (with|and) radius %number%");
     }
 
     @Override
     @SuppressWarnings("deprecation")
     protected void execute(Event e) {
-        Location location = (Location) expressions[0].getSingle(e);
-        ItemType[] blocks = (ItemType[]) expressions[1].getAll(e);
-        Number size = (Number) expressions[2].getSingle(e);
+        Location location = (Location) Direction.combine((Expression<Direction>) expressions[0], (Expression<Location>) expressions[1]);
+        ItemType[] blocks = (ItemType[]) expressions[2].getAll(e);
+        Number size = (Number) expressions[3].getSingle(e);
         boolean filled = true;
 
         if (blocks == null || size == null) {

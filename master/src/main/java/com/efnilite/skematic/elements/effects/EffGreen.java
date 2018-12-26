@@ -18,21 +18,25 @@ import org.bukkit.event.Event;
 public class EffGreen extends SkematicEffect {
 
     static {
-        Skript.registerEffect(EffGreen.class, "(green|grass)[ify] at %location% (in|within) [a] radius [of] %number%");
+        Skript.registerEffect(EffGreen.class, "(green|grass)[ify] %direction% %location% (in|within) [a] radius [of] %number% (1¦[(with|and)] only [normal] dirt)");
     }
 
     @Override
     @SuppressWarnings("unchecked")
     protected void execute(Event e) {
-        Location location = (Location) expressions[0].getSingle(e);
-        Number radius = (Number) expressions[1].getSingle(e);
+        Location location = (Location) Direction.combine((Expression<Direction>) expressions[0], (Expression<Location>) expressions[1]);
+        Number radius = (Number) expressions[2].getSingle(e);
+        boolean dirt = false;
 
         if (radius == null) {
             return;
         }
+        if (mark == 1) {
+            dirt = true;
+        }
 
         EditSession session = FaweTools.getEditSession(location.getWorld());
-        session.green(FaweTools.toVector(location), (double) radius);
+        session.green(FaweTools.toVector(location), (double) radius, dirt);
         session.flushQueue();
     }
 

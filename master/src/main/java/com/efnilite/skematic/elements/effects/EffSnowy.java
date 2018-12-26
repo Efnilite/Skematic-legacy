@@ -17,7 +17,7 @@ import org.bukkit.event.Event;
 public class EffSnowy extends SkematicEffect {
 
     static {
-        Skript.registerEffect(EffSnowy.class, "(sim[ulate]|place) snow at %location% (in|within) [a] radius [of] %number%");
+        Skript.registerEffect(EffSnowy.class, "(sim[ulate] snow at|place snow at|snowify) %location% (in|within) [a] radius [of] %number%");
     }
 
     @Override

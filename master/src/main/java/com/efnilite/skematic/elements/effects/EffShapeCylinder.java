@@ -19,16 +19,16 @@ import org.bukkit.event.Event;
 public class EffShapeCylinder extends SkematicEffect {
 
     static {
-        Skript.registerEffect(EffShapeCylinder.class, "(make|create) [a] [new] [(1¦hollow)] cylinder at %location% (with|and) [(itemtypes[s]|block[s]|pattern)] %itemtypes% (with|and) radius %number% (with|and) height %number%");
+        Skript.registerEffect(EffShapeCylinder.class, "(make|create) [a] [new] [(1¦hollow)] cylinder %direction% %location% (with|and) [(itemtypes[s]|block[s]|pattern)] %itemtypes% (with|and) radius %number% (with|and) height %number%");
     }
 
     @Override
     @SuppressWarnings("deprecation")
     protected void execute(Event e) {
-        Location location = (Location) expressions[0].getSingle(e);
-        ItemType[] blocks = (ItemType[]) expressions[1].getAll(e);
-        Number radius = (Number) expressions[2].getSingle(e);
-        Number height = (Number) expressions[3].getSingle(e);
+        Location location = (Location) Direction.combine((Expression<Direction>) expressions[0], (Expression<Location>) expressions[1]);
+        ItemType[] blocks = (ItemType[]) expressions[2].getAll(e);
+        Number radius = (Number) expressions[3].getSingle(e);
+        Number height = (Number) expressions[4].getSingle(e);
 
         boolean filled = true;
 

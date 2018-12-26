@@ -10,7 +10,6 @@ import com.sk89q.worldedit.IncompleteRegionException;
 import com.sk89q.worldedit.LocalSession;
 import com.sk89q.worldedit.regions.Region;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
 
 @Name("Selection")
 @Description("Gets the selection of a player (region)")

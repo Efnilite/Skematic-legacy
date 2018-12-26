@@ -12,11 +12,8 @@ import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.blocks.BaseBlock;
 import com.sk89q.worldedit.regions.CuboidRegion;
 import com.sk89q.worldedit.util.Countable;
-import com.sk89q.worldedit.world.block.BlockStateHolder;
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.event.Event;
-import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,15 +38,15 @@ public class ExprCuboidRegionBlocks extends SkematicExpression<ItemType> {
         }
 
         EditSession session = FaweTools.getEditSession(Bukkit.getServer().getWorld(cuboid.getWorld().getName()));
-        List<Countable<BlockStateHolder>> blocks = session.getBlockDistributionWithData(cuboid);
+        List<Countable<BaseBlock>> blocks = session.getBlockDistributionWithData(cuboid);
         List<ItemType> materials = new ArrayList<>();
 
         if (blocks == null) {
             return null;
         }
 
-        for (Countable<BlockStateHolder> block : blocks) {
-            materials.add(new ItemType(new ItemStack(Material.valueOf(block.getID().getBlockType().getName()))));
+        for (Countable<BaseBlock> block : blocks) {
+            materials.add(new ItemType(block.getID().getId()));
         }
 
         return materials.toArray(new ItemType[0]);

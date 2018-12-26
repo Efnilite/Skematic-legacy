@@ -17,15 +17,15 @@ import org.bukkit.event.Event;
 public class EffShapeLine extends SkematicEffect {
 
     static {
-        Skript.registerEffect(EffShapeLine.class, "(make|create) [a] [new] [(1¦hollow)] line from %location% to %location% (with|and) [(itemtypes[s]|block[s]|pattern)] %itemtypes% (with|and) radius %number%");
+        Skript.registerEffect(EffShapeLine.class, "(make|create) [a] [new] [(1¦hollow)] line from %direction% %location% to %direction% %location% (with|and) [(itemtypes[s]|block[s]|pattern)] %itemtypes% (with|and) radius %number%");
     }
 
     @Override
     protected void execute(Event e) {
-        Location location1 = (Location) expressions[0].getSingle(e);
-        Location location2 = (Location) expressions[1].getSingle(e);
-        ItemType[] blocks = (ItemType[]) expressions[2].getAll(e);
-        Number radius = (Number) expressions[3].getSingle(e);
+        Location location1 = (Location) Direction.combine((Expression<Direction>) expressions[0], (Expression<Location>) expressions[1]);
+        Location location2 = (Location) Direction.combine((Expression<Direction>) expressions[2], (Expression<Location>) expressions[3]);
+        ItemType[] blocks = (ItemType[]) expressions[4].getAll(e);
+        Number radius = (Number) expressions[5].getSingle(e);
 
         boolean filled = true;
 

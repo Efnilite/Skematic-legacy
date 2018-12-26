@@ -18,16 +18,12 @@ import org.bukkit.event.Event;
 public class EffClearContainer extends SkematicEffect {
 
     static {
-        Skript.registerEffect(EffClearContainer.class, "(clear|delete) [the] [(fawe|skematic)] content[s] of [the] [container] at %location%");
+        Skript.registerEffect(EffClearContainer.class, "(clear|delete) [the] [(fawe|skematic)] content[s] of [the] [container] %direction% %location%");
     }
 
     @Override
     protected void execute(Event e) {
-        Location location = (Location) expressions[0].getSingle(e);
-
-        if (location == null) {
-            return;
-        }
+        Location location = (Location) Direction.combine((Expression<Direction>) expressions[0], (Expression<Location>) expressions[1]);
 
         EditSession session = FaweTools.getEditSession(location.getWorld());
         session.clearContainerBlockContents(FaweTools.toVector(location));

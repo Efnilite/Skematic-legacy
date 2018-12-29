@@ -28,15 +28,15 @@ import java.util.logging.Level;
 public class EffPasteSchematic extends SkematicEffect {
 
     static {
-        Skript.registerEffect(EffPasteSchematic.class, "paste [the] s(ch|k)em[atic] %string% %direction% %location% [(1¦(without|excluding) air)] [(2¦[(,| and)] allow[ing] undo)] [[with] angle %-number%]");
+        Skript.registerEffect(EffPasteSchematic.class, "paste [the] s(ch|k)em[atic] %string% at %location% [(1¦(without|excluding) air)] [(2¦[(,| and)] allow[ing] undo)] [[with] angle %-number%]");
     }
 
     @Override
     @SuppressWarnings("deprecation")
     protected void execute(Event e) {
         String schematic = (String) expressions[0].getSingle(e);
-        Location location = (Location) Direction.combine((Expression<Direction>) expressions[1], (Expression<Location>) expressions[2]);
-        Number angle = (Number) expressions[3].getSingle(e);
+        Location location = (Location) expressions[1].getSingle(e);
+        Number angle = (Number) expressions[2].getSingle(e);
 
         if (schematic == null) {
             return;

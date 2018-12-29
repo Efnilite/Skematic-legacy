@@ -20,14 +20,14 @@ import org.bukkit.event.Event;
 public class EffFastBlock extends SkematicEffect {
 
     static {
-        Skript.registerEffect(EffFastBlock.class, "fast[( |-|)]place %itemtype% %direction% %location%");
+        Skript.registerEffect(EffFastBlock.class, "fast[( |-|)]place %itemtype% at %location%");
     }
 
     @Override
     @SuppressWarnings({"deprecation", "unchecked"})
     protected void execute(Event e) {
         ItemType type = (ItemType) expressions[0].getSingle(e);
-        Location location = (Location) Direction.combine((Expression<Direction>) expressions[1], (Expression<Location>) expressions[2]);
+        Location location = (Location) expressions[1].getSingle(e);
 
         if (type == null) {
             return;

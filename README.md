@@ -1,6 +1,7 @@
 # Skematic
 
 Do you want to create stuff like this? In Skript?
+
 ![Pyramid](https://i.imgur.com/YKlufMT.jpg)
 ![Circle](https://i.imgur.com/wQo0Ijs.jpg)
 
@@ -14,3 +15,8 @@ You can (for example)
 - And a lot more FAWE related stuff!
 
 You can explore the docs here: https://skripthub.net/docs/?addon=Skematic
+
+Want to try out some pre-made syntaxes made by me?
+Click on this link (https://imgur.com/a/1x7eeOs) to view all of the available shapes and the codes I used to create them.
+
+Have fun!

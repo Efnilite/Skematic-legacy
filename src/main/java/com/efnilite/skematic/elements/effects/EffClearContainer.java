@@ -7,7 +7,7 @@ import ch.njol.skript.doc.Name;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.util.Direction;
 import com.efnilite.skematic.lang.SkematicEffect;
-import com.efnilite.skematic.utils.FaweTools;
+import com.efnilite.skematic.utils.FaweUtils;
 import com.sk89q.worldedit.EditSession;
 import org.bukkit.Location;
 import org.bukkit.event.Event;
@@ -18,15 +18,19 @@ import org.bukkit.event.Event;
 public class EffClearContainer extends SkematicEffect {
 
     static {
-        Skript.registerEffect(EffClearContainer.class, "(clear|delete) [the] [(fawe|skematic)] content[s] of [the] [container] at %location%");
+        Skript.registerEffect(EffClearContainer.class, "(clear|delete) [the] [(fawe|skematic)] content[s] of [the] [container] %direction% %location%");
     }
 
     @Override
     protected void execute(Event e) {
-        Location location = (Location) expressions[0].getSingle(e);
+        Location location = Direction.combine((Expression<Direction>) expressions[0], (Expression<Location>) expressions[1]).getSingle(e);
 
-        EditSession session = FaweTools.getEditSession(location.getWorld());
-        session.clearContainerBlockContents(FaweTools.toVector(location));
+        if (location == null) {
+            return;
+        }
+
+        EditSession session = FaweUtils.getEditSession(location.getWorld());
+        session.clearContainerBlockContents(FaweUtils.toVector(location));
         session.flushQueue();
     }
 

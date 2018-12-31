@@ -9,7 +9,7 @@ import ch.njol.skript.lang.ExpressionType;
 import com.efnilite.skematic.lang.SkematicExpression;
 import com.efnilite.skematic.lang.annotations.Return;
 import com.efnilite.skematic.lang.annotations.Single;
-import com.efnilite.skematic.utils.FaweTools;
+import com.efnilite.skematic.utils.FaweUtils;
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.blocks.BaseBlock;
 import com.sk89q.worldedit.regions.CuboidRegion;
@@ -45,7 +45,7 @@ public class ExprCuboidRegionBlocksCount extends SkematicExpression<Number> {
         }
 
         int count = 0;
-        EditSession session = FaweTools.getEditSession(Bukkit.getServer().getWorld(cuboid.getWorld().getName()));
+        EditSession session = FaweUtils.getEditSession(Bukkit.getServer().getWorld(cuboid.getWorld().getName()));
         List<Countable<BaseBlock>> blocks = session.getBlockDistributionWithData(cuboid);
 
         for (Countable<BaseBlock> block : blocks) {

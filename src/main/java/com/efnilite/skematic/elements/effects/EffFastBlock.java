@@ -5,10 +5,8 @@ import ch.njol.skript.aliases.ItemType;
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
-import ch.njol.skript.lang.Expression;
-import ch.njol.skript.util.Direction;
 import com.efnilite.skematic.lang.SkematicEffect;
-import com.efnilite.skematic.utils.FaweTools;
+import com.efnilite.skematic.utils.FaweUtils;
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.blocks.BaseBlock;
 import org.bukkit.Location;
@@ -33,8 +31,8 @@ public class EffFastBlock extends SkematicEffect {
             return;
         }
 
-        EditSession session = FaweTools.getEditSession(location.getWorld());
-        session.setBlockFast(FaweTools.toVector(location), new BaseBlock(type.getRandom().getType().getId()));
+        EditSession session = FaweUtils.getEditSession(location.getWorld());
+        session.setBlockFast(FaweUtils.toVector(location), new BaseBlock(type.getRandom().getType().getId()));
         session.flushQueue();
     }
 

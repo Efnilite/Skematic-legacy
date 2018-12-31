@@ -4,8 +4,10 @@ import ch.njol.skript.Skript;
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
+import ch.njol.skript.lang.Expression;
+import ch.njol.skript.util.Direction;
 import com.efnilite.skematic.lang.SkematicEffect;
-import com.efnilite.skematic.utils.FaweTools;
+import com.efnilite.skematic.utils.FaweUtils;
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.Vector;
 import org.bukkit.Location;
@@ -17,19 +19,19 @@ import org.bukkit.event.Event;
 public class EffSnowy extends SkematicEffect {
 
     static {
-        Skript.registerEffect(EffSnowy.class, "(sim[ulate] snow at|place snow at|snowify) %location% (in|within) [a] radius [of] %number%");
+        Skript.registerEffect(EffSnowy.class, "(sim[ulate] snow at|place snow at|snowify) %direction% %location% (in|within) [a] radius [of] %number%");
     }
 
     @Override
     protected void execute(Event e) {
-        Location location = (Location) expressions[0].getSingle(e);
-        Number radius = (Number) expressions[1].getSingle(e);
+        Location location = Direction.combine((Expression<Direction>) expressions[0], (Expression<Location>) expressions[1].getSingle(e)).getSingle(e);
+        Number radius = (Number) expressions[2].getSingle(e);
 
         if (location == null || radius == null) {
             return;
         }
 
-        EditSession session = FaweTools.getEditSession(location.getWorld());
+        EditSession session = FaweUtils.getEditSession(location.getWorld());
         session.simulateSnow(new Vector(location.getBlockX(), location.getBlockY(), location.getBlockZ()), (double) radius);
         session.flushQueue();
     }

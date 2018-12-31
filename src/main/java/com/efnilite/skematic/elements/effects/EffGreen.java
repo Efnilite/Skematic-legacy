@@ -4,10 +4,8 @@ import ch.njol.skript.Skript;
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
-import ch.njol.skript.lang.Expression;
-import ch.njol.skript.util.Direction;
 import com.efnilite.skematic.lang.SkematicEffect;
-import com.efnilite.skematic.utils.FaweTools;
+import com.efnilite.skematic.utils.FaweUtils;
 import com.sk89q.worldedit.EditSession;
 import org.bukkit.Location;
 import org.bukkit.event.Event;
@@ -31,12 +29,13 @@ public class EffGreen extends SkematicEffect {
         if (radius == null) {
             return;
         }
+
         if (mark == 1) {
             dirt = true;
         }
 
-        EditSession session = FaweTools.getEditSession(location.getWorld());
-        session.green(FaweTools.toVector(location), (double) radius, dirt);
+        EditSession session = FaweUtils.getEditSession(location.getWorld());
+        session.green(FaweUtils.toVector(location), (double) radius, dirt);
         session.flushQueue();
     }
 

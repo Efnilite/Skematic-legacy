@@ -9,7 +9,7 @@ import ch.njol.skript.util.Direction;
 import com.boydti.fawe.FaweAPI;
 import com.efnilite.skematic.Skematic;
 import com.efnilite.skematic.lang.SkematicEffect;
-import com.efnilite.skematic.utils.FaweTools;
+import com.efnilite.skematic.utils.FaweUtils;
 import com.sk89q.worldedit.CuboidClipboard;
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.MaxChangedBlocksException;
@@ -28,15 +28,15 @@ import java.util.logging.Level;
 public class EffPasteSchematic extends SkematicEffect {
 
     static {
-        Skript.registerEffect(EffPasteSchematic.class, "paste [the] s(ch|k)em[atic] %string% at %location% [(1¦(without|excluding) air)] [(2¦[(,| and)] allow[ing] undo)] [[with] angle %-number%]");
+        Skript.registerEffect(EffPasteSchematic.class, "paste [the] s(ch|k)em[atic] %string% %direction% %location% [(1¦(without|excluding) air)] [(2¦[(,| and)] allow[ing] undo)] [[with] angle %-number%]");
     }
 
     @Override
     @SuppressWarnings("deprecation")
     protected void execute(Event e) {
         String schematic = (String) expressions[0].getSingle(e);
-        Location location = (Location) expressions[1].getSingle(e);
-        Number angle = (Number) expressions[2].getSingle(e);
+        Location location = Direction.combine((Expression<Direction>) expressions[1], (Expression<Location>) expressions[2]).getSingle(e);
+        Number angle = (Number) expressions[3].getSingle(e);
 
         if (schematic == null) {
             return;
@@ -63,10 +63,10 @@ public class EffPasteSchematic extends SkematicEffect {
             file = new File(schematic + ".schematic");
         }
 
-        Vector vector = FaweTools.toVector(location);
+        Vector vector = FaweUtils.toVector(location);
         if (angle != null) {
 
-            EditSession session = FaweTools.getEditSession(location.getWorld());
+            EditSession session = FaweUtils.getEditSession(location.getWorld());
             CuboidClipboard clipboard;
             try {
                 clipboard = CuboidClipboard.loadSchematic(file);
@@ -85,7 +85,7 @@ public class EffPasteSchematic extends SkematicEffect {
             session.flushQueue();
         } else {
             try {
-                FaweAPI.load(file).paste(FaweTools.getWorld(location.getWorld().getName()), vector, allowUndo, ignoreAir, null);
+                FaweAPI.load(file).paste(FaweUtils.getWorld(location.getWorld().getName()), vector, allowUndo, ignoreAir, null);
             } catch (IOException ex) {
                 Skematic.log("Could not paste schematic " + file, Level.SEVERE);
             }

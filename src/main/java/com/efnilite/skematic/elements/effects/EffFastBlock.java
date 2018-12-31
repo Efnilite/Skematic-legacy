@@ -13,7 +13,7 @@ import org.bukkit.Location;
 import org.bukkit.event.Event;
 
 @Name("Fastplace")
-@Description("Place a block fast at a location.")
+@Description("Place a block fast at a location - This effect is legacy version only.")
 @Examples("fastplace stone at {_location}")
 public class EffFastBlock extends SkematicEffect {
 

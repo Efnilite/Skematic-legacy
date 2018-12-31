@@ -7,7 +7,7 @@ import ch.njol.skript.doc.Name;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.util.Direction;
 import com.efnilite.skematic.lang.SkematicEffect;
-import com.efnilite.skematic.utils.FaweUtils;
+import com.efnilite.skematic.utils.FaweTools;
 import com.sk89q.worldedit.EditSession;
 import org.bukkit.Location;
 import org.bukkit.event.Event;
@@ -29,8 +29,8 @@ public class EffClearContainer extends SkematicEffect {
             return;
         }
 
-        EditSession session = FaweUtils.getEditSession(location.getWorld());
-        session.clearContainerBlockContents(FaweUtils.toVector(location));
+        EditSession session = FaweTools.getEditSession(location.getWorld());
+        session.clearContainerBlockContents(FaweTools.toVector(location));
         session.flushQueue();
     }
 

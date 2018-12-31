@@ -5,7 +5,7 @@ import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
 import com.efnilite.skematic.lang.SkematicEffect;
-import com.efnilite.skematic.utils.FaweUtils;
+import com.efnilite.skematic.utils.FaweTools;
 import com.sk89q.worldedit.EditSession;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
@@ -27,7 +27,7 @@ public class EffUndo extends SkematicEffect {
             return;
         }
 
-        EditSession session = FaweUtils.getPlayer(player).getNewEditSession();
+        EditSession session = FaweTools.getPlayer(player).getNewEditSession();
         session.undo(session);
         session.flushQueue();
     }

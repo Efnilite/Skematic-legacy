@@ -7,7 +7,7 @@ import ch.njol.skript.doc.Name;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.util.Direction;
 import com.efnilite.skematic.lang.SkematicEffect;
-import com.efnilite.skematic.utils.FaweUtils;
+import com.efnilite.skematic.utils.FaweTools;
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.Vector;
 import org.bukkit.Location;
@@ -37,8 +37,8 @@ public class EffShapeSphere extends SkematicEffect {
             filled = false;
         }
 
-        EditSession session = FaweUtils.getEditSession(location.getWorld());
-        session.makeSphere(new Vector(location.getBlockX(), location.getBlockY(), location.getBlockZ()), FaweUtils.parsePattern(blocks), Math.round((long) size), filled);
+        EditSession session = FaweTools.getEditSession(location.getWorld());
+        session.makeSphere(new Vector(location.getBlockX(), location.getBlockY(), location.getBlockZ()), FaweTools.parsePattern(blocks), Math.round((long) size), filled);
         session.flushQueue();
     }
 

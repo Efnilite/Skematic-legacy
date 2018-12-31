@@ -8,7 +8,7 @@ import ch.njol.skript.doc.Name;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.util.Direction;
 import com.efnilite.skematic.lang.SkematicEffect;
-import com.efnilite.skematic.utils.FaweUtils;
+import com.efnilite.skematic.utils.FaweTools;
 import com.sk89q.worldedit.EditSession;
 import org.bukkit.Location;
 import org.bukkit.event.Event;
@@ -36,8 +36,8 @@ public class EffShapeHollowCylinder extends SkematicEffect {
             return;
         }
 
-        EditSession session = FaweUtils.getEditSession(location.getWorld());
-        session.makeHollowCylinder(FaweUtils.toVector(location), FaweUtils.parsePattern(blocks), (Double) x, (Double) z, Math.round((long) height), (Double) thickness);
+        EditSession session = FaweTools.getEditSession(location.getWorld());
+        session.makeHollowCylinder(FaweTools.toVector(location), FaweTools.parsePattern(blocks), (Double) x, (Double) z, Math.round((long) height), (Double) thickness);
         session.flushQueue();
     }
 

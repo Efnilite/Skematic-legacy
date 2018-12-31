@@ -9,7 +9,7 @@ import ch.njol.skript.util.Direction;
 import com.boydti.fawe.FaweAPI;
 import com.efnilite.skematic.Skematic;
 import com.efnilite.skematic.lang.SkematicEffect;
-import com.efnilite.skematic.utils.FaweUtils;
+import com.efnilite.skematic.utils.FaweTools;
 import com.sk89q.worldedit.CuboidClipboard;
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.MaxChangedBlocksException;
@@ -63,10 +63,10 @@ public class EffPasteSchematic extends SkematicEffect {
             file = new File(schematic + ".schematic");
         }
 
-        Vector vector = FaweUtils.toVector(location);
+        Vector vector = FaweTools.toVector(location);
         if (angle != null) {
 
-            EditSession session = FaweUtils.getEditSession(location.getWorld());
+            EditSession session = FaweTools.getEditSession(location.getWorld());
             CuboidClipboard clipboard;
             try {
                 clipboard = CuboidClipboard.loadSchematic(file);
@@ -85,7 +85,7 @@ public class EffPasteSchematic extends SkematicEffect {
             session.flushQueue();
         } else {
             try {
-                FaweAPI.load(file).paste(FaweUtils.getWorld(location.getWorld().getName()), vector, allowUndo, ignoreAir, null);
+                FaweAPI.load(file).paste(FaweTools.getWorld(location.getWorld().getName()), vector, allowUndo, ignoreAir, null);
             } catch (IOException ex) {
                 Skematic.log("Could not paste schematic " + file, Level.SEVERE);
             }

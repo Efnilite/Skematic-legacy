@@ -5,7 +5,7 @@ import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
 import com.efnilite.skematic.lang.SkematicEffect;
-import com.efnilite.skematic.utils.FaweUtils;
+import com.efnilite.skematic.utils.FaweTools;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
@@ -26,7 +26,7 @@ public class EffFlush extends SkematicEffect {
             return;
         }
 
-        FaweUtils.getPlayer(player).getNewEditSession().flushQueue();
+        FaweTools.getPlayer(player).getNewEditSession().flushQueue();
     }
 
     @Override

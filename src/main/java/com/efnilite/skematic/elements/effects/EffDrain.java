@@ -5,7 +5,7 @@ import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
 import com.efnilite.skematic.lang.SkematicEffect;
-import com.efnilite.skematic.utils.FaweUtils;
+import com.efnilite.skematic.utils.FaweTools;
 import com.sk89q.worldedit.EditSession;
 import org.bukkit.Location;
 import org.bukkit.event.Event;
@@ -29,8 +29,8 @@ public class EffDrain extends SkematicEffect {
             return;
         }
 
-        EditSession session = FaweUtils.getEditSession(location.getWorld());
-        session.drainArea(FaweUtils.toVector(location), (double) radius);
+        EditSession session = FaweTools.getEditSession(location.getWorld());
+        session.drainArea(FaweTools.toVector(location), (double) radius);
         session.flushQueue();
     }
 

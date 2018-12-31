@@ -11,7 +11,7 @@ import com.boydti.fawe.util.SetQueue;
 import com.efnilite.skematic.lang.SkematicExpression;
 import com.efnilite.skematic.lang.annotations.Return;
 import com.efnilite.skematic.lang.annotations.Single;
-import com.efnilite.skematic.utils.FaweUtils;
+import com.efnilite.skematic.utils.FaweTools;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
@@ -34,7 +34,7 @@ public class ExprLightLevel extends SkematicExpression<Number> {
             return null;
         }
 
-        return new Number[] { FaweUtils.getWorld(location.getWorld().getName()).getBlockLightLevel(FaweUtils.toVector(location)) };
+        return new Number[] { FaweTools.getWorld(location.getWorld().getName()).getBlockLightLevel(FaweTools.toVector(location)) };
     }
 
     @Override
@@ -52,7 +52,7 @@ public class ExprLightLevel extends SkematicExpression<Number> {
             if (l == null) {
                 return;
             }
-            NMSMappedFaweQueue n = (NMSMappedFaweQueue) SetQueue.IMP.getNewQueue(FaweUtils.getWorld(l.getWorld().getName()), true, false);
+            NMSMappedFaweQueue n = (NMSMappedFaweQueue) SetQueue.IMP.getNewQueue(FaweTools.getWorld(l.getWorld().getName()), true, false);
             n.setBlockLight(l.getBlockX(), l.getBlockY(), l.getBlockZ(), (int) delta[0]);
         }
     }

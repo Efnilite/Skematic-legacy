@@ -8,7 +8,7 @@ import ch.njol.skript.doc.Name;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.util.Direction;
 import com.efnilite.skematic.lang.SkematicEffect;
-import com.efnilite.skematic.utils.FaweUtils;
+import com.efnilite.skematic.utils.FaweTools;
 import com.sk89q.worldedit.EditSession;
 import org.bukkit.Location;
 import org.bukkit.event.Event;
@@ -40,8 +40,8 @@ public class EffShapeCylinder extends SkematicEffect {
             filled = false;
         }
 
-        EditSession session = FaweUtils.getEditSession(location.getWorld());
-        session.makeCylinder(FaweUtils.toVector(location), FaweUtils.parsePattern(blocks), Math.round((long) radius), Math.round((long) height), filled);
+        EditSession session = FaweTools.getEditSession(location.getWorld());
+        session.makeCylinder(FaweTools.toVector(location), FaweTools.parsePattern(blocks), Math.round((long) radius), Math.round((long) height), filled);
         session.flushQueue();
     }
 

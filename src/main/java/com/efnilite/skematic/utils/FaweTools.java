@@ -15,7 +15,7 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 @SuppressWarnings("deprecation")
-public class FaweUtils {
+public class FaweTools {
 
     public static World getWorld(String s) {
         return FaweAPI.getWorld(s);

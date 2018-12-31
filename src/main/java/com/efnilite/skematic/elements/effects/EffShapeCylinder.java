@@ -8,7 +8,7 @@ import ch.njol.skript.doc.Name;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.util.Direction;
 import com.efnilite.skematic.lang.SkematicEffect;
-import com.efnilite.skematic.utils.FaweTools;
+import com.efnilite.skematic.utils.FaweUtils;
 import com.sk89q.worldedit.EditSession;
 import org.bukkit.Location;
 import org.bukkit.event.Event;
@@ -25,14 +25,14 @@ public class EffShapeCylinder extends SkematicEffect {
     @Override
     @SuppressWarnings("deprecation")
     protected void execute(Event e) {
-        Location location = (Location) expressions[0].getSingle(e);
-        ItemType[] blocks = (ItemType[]) expressions[1].getAll(e);
-        Number radius = (Number) expressions[2].getSingle(e);
-        Number height = (Number) expressions[3].getSingle(e);
+        Location location = Direction.combine((Expression<Direction>) expressions[0], (Expression<Location>) expressions[1]).getSingle(e);
+        ItemType[] blocks = (ItemType[]) expressions[2].getAll(e);
+        Number radius = (Number) expressions[3].getSingle(e);
+        Number height = (Number) expressions[4].getSingle(e);
 
         boolean filled = true;
 
-        if (blocks == null || radius == null) {
+        if (blocks == null || radius == null || location == null | height == null) {
             return;
         }
 
@@ -40,8 +40,8 @@ public class EffShapeCylinder extends SkematicEffect {
             filled = false;
         }
 
-        EditSession session = FaweTools.getEditSession(location.getWorld());
-        session.makeCylinder(FaweTools.toVector(location), FaweTools.parsePattern(blocks), Math.round((long) radius), Math.round((long) height), filled);
+        EditSession session = FaweUtils.getEditSession(location.getWorld());
+        session.makeCylinder(FaweUtils.toVector(location), FaweUtils.parsePattern(blocks), Math.round((long) radius), Math.round((long) height), filled);
         session.flushQueue();
     }
 

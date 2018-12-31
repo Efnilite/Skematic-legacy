@@ -7,7 +7,7 @@ import ch.njol.skript.doc.Name;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.util.Direction;
 import com.efnilite.skematic.lang.SkematicEffect;
-import com.efnilite.skematic.utils.FaweTools;
+import com.efnilite.skematic.utils.FaweUtils;
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.Vector;
 import org.bukkit.Location;
@@ -18,18 +18,18 @@ import org.bukkit.event.Event;
 public class EffShapeSphere extends SkematicEffect {
 
     static {
-        Skript.registerEffect(EffShapeSphere.class, "(make|create) [a] [new] [(1¦hollow)] sphere at %location% (with|and) pattern %string% (with|and) radius %number%");
+        Skript.registerEffect(EffShapeSphere.class, "(make|create) [a] [new] [(1¦hollow)] sphere %direction% %location% (with|and) pattern %string% (with|and) radius %number%");
     }
 
     @Override
     @SuppressWarnings("deprecation")
     protected void execute(Event e) {
-        Location location = (Location) expressions[0].getSingle(e);
-        ItemType[] blocks = (ItemType[]) expressions[1].getAll(e);
-        Number size = (Number) expressions[2].getSingle(e);
+        Location location = Direction.combine((Expression<Direction>) expressions[0], (Expression<Location>) expressions[1]).getSingle(e);
+        ItemType[] blocks = (ItemType[]) expressions[2].getAll(e);
+        Number size = (Number) expressions[3].getSingle(e);
         boolean filled = true;
 
-        if (blocks == null || size == null) {
+        if (blocks == null || size == null || location == null) {
             return;
         }
 
@@ -37,13 +37,13 @@ public class EffShapeSphere extends SkematicEffect {
             filled = false;
         }
 
-        EditSession session = FaweTools.getEditSession(location.getWorld());
-        session.makeSphere(new Vector(location.getBlockX(), location.getBlockY(), location.getBlockZ()), FaweTools.parsePattern(blocks), Math.round((long) size), filled);
+        EditSession session = FaweUtils.getEditSession(location.getWorld());
+        session.makeSphere(new Vector(location.getBlockX(), location.getBlockY(), location.getBlockZ()), FaweUtils.parsePattern(blocks), Math.round((long) size), filled);
         session.flushQueue();
     }
 
     @Override
     public String toString(Event e, boolean debug) {
-        return "create sphere at " + expressions[1].toString(e, debug) + " with blocks " + expressions[1].toString(e, debug) + " with radius " + expressions[2].toString(e, debug);
+        return "create sphere at " + expressions[1].toString(e, debug) + " with blocks " + expressions[2].toString(e, debug) + " with radius " + expressions[3].toString(e, debug);
     }
 }

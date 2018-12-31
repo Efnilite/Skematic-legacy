@@ -5,7 +5,7 @@ import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
 import com.efnilite.skematic.lang.SkematicEffect;
-import com.efnilite.skematic.utils.FaweTools;
+import com.efnilite.skematic.utils.FaweUtils;
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.Vector;
 import org.bukkit.Location;
@@ -29,7 +29,7 @@ public class EffSnowy extends SkematicEffect {
             return;
         }
 
-        EditSession session = FaweTools.getEditSession(location.getWorld());
+        EditSession session = FaweUtils.getEditSession(location.getWorld());
         session.simulateSnow(new Vector(location.getBlockX(), location.getBlockY(), location.getBlockZ()), (double) radius);
         session.flushQueue();
     }

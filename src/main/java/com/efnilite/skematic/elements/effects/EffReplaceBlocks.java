@@ -6,13 +6,11 @@ import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
 import com.efnilite.skematic.lang.SkematicEffect;
-import com.efnilite.skematic.utils.FaweTools;
+import com.efnilite.skematic.utils.FaweUtils;
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.blocks.BaseBlock;
 import com.sk89q.worldedit.regions.CuboidRegion;
 import com.sk89q.worldedit.world.block.BlockStateHolder;
-import com.sk89q.worldedit.world.block.BlockType;
-import com.sk89q.worldedit.world.block.BlockTypes;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Event;
 
@@ -44,8 +42,8 @@ public class EffReplaceBlocks extends SkematicEffect {
             set.add(new BaseBlock(type.getRandom().getType().getId(), type.getRandom().getAmount()));
         }
 
-        EditSession session = FaweTools.getEditSession(Bukkit.getServer().getWorld(cuboid.getWorld().getName()));
-        session.replaceBlocks(cuboid, set, FaweTools.parsePattern(replacement));
+        EditSession session = FaweUtils.getEditSession(Bukkit.getServer().getWorld(cuboid.getWorld().getName()));
+        session.replaceBlocks(cuboid, set, FaweUtils.parsePattern(replacement));
         session.flushQueue();
     }
 

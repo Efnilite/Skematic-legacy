@@ -7,7 +7,7 @@ import ch.njol.skript.doc.Name;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.util.Direction;
 import com.efnilite.skematic.lang.SkematicEffect;
-import com.efnilite.skematic.utils.FaweTools;
+import com.efnilite.skematic.utils.FaweUtils;
 import com.sk89q.worldedit.EditSession;
 import org.bukkit.Location;
 import org.bukkit.event.Event;
@@ -18,21 +18,21 @@ import org.bukkit.event.Event;
 public class EffGreen extends SkematicEffect {
 
     static {
-        Skript.registerEffect(EffGreen.class, "(green|grass)[ify] at %location% (in|within) [a] radius [of] %number%");
+        Skript.registerEffect(EffGreen.class, "(green|grass)[ify] %direction% %location% (in|within) [a] radius [of] %number%");
     }
 
     @Override
     @SuppressWarnings("unchecked")
     protected void execute(Event e) {
-        Location location = (Location) expressions[0].getSingle(e);
-        Number radius = (Number) expressions[1].getSingle(e);
+        Location location = Direction.combine((Expression<Direction>) expressions[0], (Expression<Location>) expressions[1]).getSingle(e);
+        Number radius = (Number) expressions[2].getSingle(e);
 
-        if (radius == null) {
+        if (radius == null || location == null) {
             return;
         }
 
-        EditSession session = FaweTools.getEditSession(location.getWorld());
-        session.green(FaweTools.toVector(location), (double) radius);
+        EditSession session = FaweUtils.getEditSession(location.getWorld());
+        session.green(FaweUtils.toVector(location), (double) radius);
         session.flushQueue();
     }
 

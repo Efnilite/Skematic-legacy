@@ -23,7 +23,7 @@ import java.util.Set;
 public class EffReplaceBlocks extends SkematicEffect {
 
     static {
-        Skript.registerEffect(EffReplaceBlocks.class, "replace [all] [(fawe|skematic)] [(block[s]|item[type[s]])] %itemtypes% with (block[s]|item[type[s]]) %itemtypes% in %cuboidregions%");
+        Skript.registerEffect(EffReplaceBlocks.class, "replace [all] %itemtypes% [block[s]] with %itemtypes% [block[s]] in %cuboidregions%");
     }
 
     @Override

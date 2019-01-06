@@ -22,7 +22,6 @@ public class EffShapeSphere extends SkematicEffect {
     }
 
     @Override
-    @SuppressWarnings("deprecation")
     protected void execute(Event e) {
         Location location = Direction.combine((Expression<Direction>) expressions[0], (Expression<Location>) expressions[1]).getSingle(e);
         ItemType[] blocks = (ItemType[]) expressions[2].getAll(e);

@@ -12,6 +12,7 @@ import com.efnilite.skematic.utils.FaweUtils;
 import com.sk89q.worldedit.regions.CuboidRegion;
 import org.bukkit.Location;
 import org.bukkit.World;
+import org.bukkit.block.Block;
 import org.bukkit.event.Event;
 
 @Name("Create region")
@@ -23,14 +24,28 @@ import org.bukkit.event.Event;
 public class ExprCuboidRegion extends SkematicExpression<CuboidRegion> {
 
     static {
-        Skript.registerExpression(ExprCuboidRegion.class, CuboidRegion.class, ExpressionType.PROPERTY, "[a] [new] (cuboid|we|wordedit)[ ]region from %location% to %location%");
+        Skript.registerExpression(ExprCuboidRegion.class, CuboidRegion.class, ExpressionType.PROPERTY, "[a] [new] (cuboid|we|wordedit)[ ]region from %locations/blocks% to %location/blocks%");
     }
 
     private static CuboidRegion[] last;
 
     protected CuboidRegion[] get(Event e) {
-        Location location1 = (Location) expressions[0].getSingle(e);
-        Location location2 = (Location) expressions[1].getSingle(e);
+        Location location1;
+        Location location2;
+
+        if (expressions[0].getSingle(e) == null || expressions[1].getSingle(e) == null) {
+            return null;
+        }
+
+        if (expressions[0].getSingle(e) instanceof Block && expressions[1].getSingle(e) instanceof Block) {
+            location1 = ((Block) expressions[0].getSingle(e)).getLocation();
+            location2 = ((Block) expressions[1].getSingle(e)).getLocation();
+        } else if (expressions[0].getSingle(e) instanceof Location && expressions[1].getSingle(e) instanceof Location) {
+            location1 = (Location) expressions[0].getSingle(e);
+            location2 = (Location) expressions[1].getSingle(e);
+        } else {
+            return null;
+        }
 
         if (location1 == null || location2 == null) {
             return null;
@@ -45,6 +60,7 @@ public class ExprCuboidRegion extends SkematicExpression<CuboidRegion> {
         CuboidRegion cuboid =  new CuboidRegion(FaweUtils.getWorld(w.getName()),
                 FaweUtils.toVector(location1),
                 FaweUtils.toVector(location2));
+
         last = new CuboidRegion[] { cuboid };
         return last;
     }

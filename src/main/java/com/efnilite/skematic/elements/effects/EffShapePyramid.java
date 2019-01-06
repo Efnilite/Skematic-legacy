@@ -5,6 +5,7 @@ import ch.njol.skript.aliases.ItemType;
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
+import ch.njol.skript.entity.EntityType;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.util.Direction;
 import com.efnilite.skematic.lang.SkematicEffect;
@@ -13,6 +14,9 @@ import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.Vector;
 import org.bukkit.Location;
 import org.bukkit.event.Event;
+
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 @Name("Shape - Pyramid")
 @Description("Create a (hollow) pyramid at a location.")
@@ -24,7 +28,6 @@ public class EffShapePyramid extends SkematicEffect {
     }
 
     @Override
-    @SuppressWarnings("deprecation")
     protected void execute(Event e) {
         Location location = Direction.combine((Expression<Direction>) expressions[0], (Expression<Location>) expressions[1]).getSingle(e);
         ItemType[] blocks = (ItemType[]) expressions[2].getAll(e);
@@ -46,6 +49,6 @@ public class EffShapePyramid extends SkematicEffect {
 
     @Override
     public String toString(Event e, boolean debug) {
-        return "create pyramid at " + expressions[1].toString(e, debug) + " with blocks " + expressions[1].toString(e, debug) + " with radius " + expressions[2].toString(e, debug);
+        return "create pyramid at " + expressions[1].toString(e, debug) + " with blocks " + expressions[2].toString(e, debug) + " with radius " + expressions[3].toString(e, debug);
     }
 }

@@ -5,10 +5,22 @@ import ch.njol.skript.aliases.ItemType;
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
+import com.boydti.fawe.config.BBC;
+import com.boydti.fawe.object.FaweLimit;
+import com.boydti.fawe.object.FawePlayer;
+import com.boydti.fawe.object.exception.FaweException;
+import com.boydti.fawe.util.MaskTraverser;
 import com.efnilite.skematic.lang.SkematicEffect;
-import com.efnilite.skematic.utils.FaweTools;
+import com.efnilite.skematic.utils.FaweUtils;
 import com.sk89q.worldedit.EditSession;
+import com.sk89q.worldedit.Vector;
 import com.sk89q.worldedit.blocks.BaseBlock;
+import com.sk89q.worldedit.extent.clipboard.BlockArrayClipboard;
+import com.sk89q.worldedit.function.mask.Mask;
+import com.sk89q.worldedit.function.mask.Masks;
+import com.sk89q.worldedit.function.operation.ForwardExtentCopy;
+import com.sk89q.worldedit.session.ClipboardHolder;
+import com.sk89q.worldedit.world.registry.WorldData;
 import org.bukkit.Location;
 import org.bukkit.event.Event;
 
@@ -22,7 +34,7 @@ public class EffFastBlock extends SkematicEffect {
     }
 
     @Override
-    @SuppressWarnings({"deprecation", "unchecked"})
+    @SuppressWarnings({"deprecation"})
     protected void execute(Event e) {
         ItemType type = (ItemType) expressions[0].getSingle(e);
         Location location = (Location) expressions[1].getSingle(e);
@@ -31,8 +43,8 @@ public class EffFastBlock extends SkematicEffect {
             return;
         }
 
-        EditSession session = FaweTools.getEditSession(location.getWorld());
-        session.setBlockFast(FaweTools.toVector(location), new BaseBlock(type.getRandom().getType().getId()));
+        EditSession session = FaweUtils.getEditSession(location.getWorld());
+        session.setBlockFast(FaweUtils.toVector(location), new BaseBlock(type.getRandom().getType().getId()));
         session.flushQueue();
     }
 

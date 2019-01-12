@@ -4,6 +4,7 @@ import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
+import org.bukkit.event.Event;
 
 public abstract class SkematicEffect extends Effect {
 
@@ -19,5 +20,21 @@ public abstract class SkematicEffect extends Effect {
         mark = parseResult.mark;
 
         return true;
+    }
+
+    protected Object getNullable(Event e, Expression<?> expression)  {
+        if (expression != null && expression.getSingle(e) != null) {
+            return expression.getSingle(e);
+        } else {
+            return null;
+        }
+    }
+
+    protected Object getNullable(Event e, Expression<?> expression, Object def)  {
+        if (expression != null && expression.getSingle(e) != null) {
+            return expression.getSingle(e);
+        } else {
+            return def;
+        }
     }
 }

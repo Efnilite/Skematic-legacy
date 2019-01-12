@@ -8,7 +8,7 @@ import ch.njol.skript.lang.ExpressionType;
 import com.efnilite.skematic.lang.SkematicExpression;
 import com.efnilite.skematic.lang.annotations.Return;
 import com.efnilite.skematic.lang.annotations.Single;
-import com.efnilite.skematic.utils.FaweTools;
+import com.efnilite.skematic.utils.FaweUtils;
 import com.sk89q.worldedit.regions.CuboidRegion;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -42,9 +42,9 @@ public class ExprCuboidRegion extends SkematicExpression<CuboidRegion> {
             w = location2.getWorld();
         }
 
-        CuboidRegion cuboid =  new CuboidRegion(FaweTools.getWorld(w.getName()),
-                FaweTools.toVector(location1),
-                FaweTools.toVector(location2));
+        CuboidRegion cuboid =  new CuboidRegion(FaweUtils.getWorld(w.getName()),
+                FaweUtils.toVector(location1),
+                FaweUtils.toVector(location2));
         last = new CuboidRegion[] { cuboid };
         return last;
     }

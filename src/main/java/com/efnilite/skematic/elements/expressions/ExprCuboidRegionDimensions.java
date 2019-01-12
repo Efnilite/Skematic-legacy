@@ -24,10 +24,12 @@ public class ExprCuboidRegionDimensions extends SkematicExpression<Number> {
     @Override
     protected Number[] get(Event e) {
         CuboidRegion cuboid = (CuboidRegion) expressions[0].getSingle(e);
+
         if (cuboid == null) {
             return null;
         }
-        double t = 0;
+
+        double t;
         switch (mark) {
             case 1:
                 t = cuboid.getLength();
@@ -37,6 +39,9 @@ public class ExprCuboidRegionDimensions extends SkematicExpression<Number> {
                 break;
             case 3:
                 t = cuboid.getWidth();
+                break;
+            default:
+                t = 0;
                 break;
         }
         return new Number[] { t };

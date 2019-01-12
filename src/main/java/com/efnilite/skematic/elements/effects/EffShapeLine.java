@@ -5,7 +5,7 @@ import ch.njol.skript.aliases.ItemType;
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Name;
 import com.efnilite.skematic.lang.SkematicEffect;
-import com.efnilite.skematic.utils.FaweTools;
+import com.efnilite.skematic.utils.FaweUtils;
 import com.sk89q.worldedit.EditSession;
 import org.bukkit.Location;
 import org.bukkit.event.Event;
@@ -34,8 +34,8 @@ public class EffShapeLine extends SkematicEffect {
             filled = false;
         }
 
-        EditSession session = FaweTools.getEditSession(location1.getWorld());
-        session.drawLine(FaweTools.parsePattern(blocks), FaweTools.toVector(location1), FaweTools.toVector(location2), Math.round((long) radius), filled);
+        EditSession session = FaweUtils.getEditSession(location1.getWorld());
+        session.drawLine(FaweUtils.parsePattern(blocks), FaweUtils.toVector(location1), FaweUtils.toVector(location2), Math.round((long) radius), filled);
         session.flushQueue();
     }
 

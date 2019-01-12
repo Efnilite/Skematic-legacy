@@ -5,7 +5,7 @@ import ch.njol.skript.aliases.ItemType;
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Name;
 import com.efnilite.skematic.lang.SkematicEffect;
-import com.efnilite.skematic.utils.FaweTools;
+import com.efnilite.skematic.utils.FaweUtils;
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.regions.CuboidRegion;
 import org.bukkit.Bukkit;
@@ -29,8 +29,8 @@ public class EffCuboidWalls extends SkematicEffect {
             return;
         }
 
-        EditSession session = FaweTools.getEditSession(Bukkit.getServer().getWorld(cuboid.getWorld().getName()));
-        session.makeCuboidWalls(cuboid, FaweTools.parsePattern(blocks));
+        EditSession session = FaweUtils.getEditSession(Bukkit.getServer().getWorld(cuboid.getWorld().getName()));
+        session.makeCuboidWalls(cuboid, FaweUtils.parsePattern(blocks));
         session.flushQueue();
     }
 

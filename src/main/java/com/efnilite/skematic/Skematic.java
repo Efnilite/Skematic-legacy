@@ -22,21 +22,6 @@ public class Skematic extends JavaPlugin {
         } catch (IOException exception) {
             exception.printStackTrace();
         }
-
-        Skematic.log("Enabled Skematic " + getDescription().getVersion());
-    }
-
-    @Override
-    public void onDisable() {
-        Skematic.log("Disabled Skematic " + getDescription().getVersion());
-    }
-
-    public static void log(String s, Level level) {
-        instance.getLogger().log(level, s);
-    }
-
-    private static void log(String s) {
-        instance.getLogger().info(s);
     }
 
     public static Skematic getInstance() {

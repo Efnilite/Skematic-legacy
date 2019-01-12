@@ -37,6 +37,7 @@ public class Types {
                         return "\\S+";
                     }
                 }));
+
         final EnumUtils<ClipboardFormat> clipboardFormats = new EnumUtils<>(ClipboardFormat.class, "schematicformat");
         Classes.registerClass(new ClassInfo<>(ClipboardFormat.class, "schematicformat")
                 .user("schematicformats?")

@@ -8,7 +8,7 @@ import ch.njol.skript.doc.Name;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.util.Direction;
 import com.efnilite.skematic.lang.SkematicEffect;
-import com.efnilite.skematic.utils.FaweTools;
+import com.efnilite.skematic.utils.FaweUtils;
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.Vector;
 import org.bukkit.Location;
@@ -24,7 +24,6 @@ public class EffShapePyramid extends SkematicEffect {
     }
 
     @Override
-    @SuppressWarnings("deprecation")
     protected void execute(Event e) {
         Location location = Direction.combine((Expression<Direction>) expressions[0], (Expression<Location>) expressions[1]).getSingle(e);
         ItemType[] blocks = (ItemType[]) expressions[2].getAll(e);
@@ -39,8 +38,8 @@ public class EffShapePyramid extends SkematicEffect {
             filled = false;
         }
 
-        EditSession session = FaweTools.getEditSession(location.getWorld());
-        session.makePyramid(new Vector(location.getBlockX(), location.getBlockY(), location.getBlockZ()), FaweTools.parsePattern(blocks), Math.round((long) size), filled);
+        EditSession session = FaweUtils.getEditSession(location.getWorld());
+        session.makePyramid(new Vector(location.getBlockX(), location.getBlockY(), location.getBlockZ()), FaweUtils.parsePattern(blocks), Math.round((long) size), filled);
         session.flushQueue();
     }
 

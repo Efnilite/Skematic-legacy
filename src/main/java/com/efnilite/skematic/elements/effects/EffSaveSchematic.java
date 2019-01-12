@@ -5,7 +5,6 @@ import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
 import com.boydti.fawe.object.schematic.Schematic;
-import com.efnilite.skematic.Skematic;
 import com.efnilite.skematic.lang.SkematicEffect;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormat;
 import com.sk89q.worldedit.regions.CuboidRegion;
@@ -13,7 +12,6 @@ import org.bukkit.event.Event;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.logging.Level;
 
 @Name("Save schematic")
 @Description("Create a new schematic.")
@@ -29,14 +27,10 @@ public class EffSaveSchematic extends SkematicEffect {
     protected void execute(Event e) {
         CuboidRegion cuboid = (CuboidRegion) expressions[0].getSingle(e);
         String schematic = (String) expressions[1].getSingle(e);
-        ClipboardFormat format = (ClipboardFormat) expressions[2].getSingle(e);
+        ClipboardFormat format = (ClipboardFormat) getNullable(e, expressions[2], ClipboardFormat.SCHEMATIC);
 
         if (cuboid == null || schematic == null) {
             return;
-        }
-
-        if (format == null) {
-            format = ClipboardFormat.SCHEMATIC;
         }
 
         Schematic file = new Schematic(cuboid);
@@ -44,7 +38,7 @@ public class EffSaveSchematic extends SkematicEffect {
         try {
             file.save(new File(schematic), format);
         } catch (IOException ex) {
-            Skematic.log("Could not save schematic " + schematic + " with format " + format, Level.SEVERE);
+            Skript.error("Could not save schematic " + schematic + " with format " + format);
         }
     }
 

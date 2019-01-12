@@ -34,6 +34,6 @@ public class CondSelectionContains extends SkematicCondition {
 
     @Override
     public String toString(Event e, boolean debug) {
-        return "if " + expressions[1].toString(e, debug) + " is in " + expressions[0].toString(e, debug);
+        return "if " + expressions[0].toString(e, debug) + " contains " + expressions[1].toString(e, debug);
     }
 }

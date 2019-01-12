@@ -5,6 +5,7 @@ import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
 import com.efnilite.skematic.lang.annotations.Return;
+import org.bukkit.event.Event;
 
 public abstract class SkematicPropertyExpression<F, T> extends SimplePropertyExpression<F, T> {
 
@@ -26,7 +27,6 @@ public abstract class SkematicPropertyExpression<F, T> extends SimplePropertyExp
         return true;
     }
 
-
     @Override
     @SuppressWarnings("unchecked")
     public Class getReturnType() {
@@ -34,6 +34,22 @@ public abstract class SkematicPropertyExpression<F, T> extends SimplePropertyExp
             return getClass().getAnnotation(Return.class).value();
         } else {
             throw new IllegalAccessError("Return type not set");
+        }
+    }
+
+    protected Object getNullable(Event e, Expression<?> expression)  {
+        if (expression != null && expression.getSingle(e) != null) {
+            return expression.getSingle(e);
+        } else {
+            return null;
+        }
+    }
+
+    protected Object getNullable(Event e, Expression<?> expression, Object def)  {
+        if (expression != null && expression.getSingle(e) != null) {
+            return expression.getSingle(e);
+        } else {
+            return def;
         }
     }
 }

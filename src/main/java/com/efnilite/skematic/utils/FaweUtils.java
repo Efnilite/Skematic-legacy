@@ -15,7 +15,7 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 @SuppressWarnings("deprecation")
-public class FaweTools {
+public class FaweUtils {
 
     public static World getWorld(String s) {
         return FaweAPI.getWorld(s);
@@ -29,7 +29,7 @@ public class FaweTools {
         return FaweAPI.getEditSessionBuilder(getWorld(w.getName())).autoQueue(true).build();
     }
 
-    public static Pattern parsePattern(ItemType[] blocks) {
+    public static Pattern parsePattern(ItemType... blocks) {
         RandomPattern parsedPattern = new RandomPattern();
         for (ItemType b : blocks) {
             if (b.getRandom().getType().isBlock()) {

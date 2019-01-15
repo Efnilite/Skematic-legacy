@@ -2,107 +2,73 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d8175df6-c00c-48f5-a411-1f799cf00988" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileContent/annotation-processors.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileContent/annotation-processors.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileContent/fileContent.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_boydti_fawe_api_latest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_boydti_fawe_api_latest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/Skematic.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/Skematic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/elements/effects/EffCuboidFill.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/elements/effects/EffCuboidFill.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/elements/effects/EffDrain.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/elements/effects/EffDrain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/elements/effects/EffFastBlock.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/elements/effects/EffFastBlock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/elements/effects/EffPasteSchematic.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/elements/effects/EffPasteSchematic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/elements/effects/EffSaveSchematic.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/elements/effects/EffSaveSchematic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/elements/expressions/ExprCuboidRegionBlocks.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/elements/expressions/ExprCuboidRegionBlocks.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/elements/Types$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/elements/Types$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/elements/Types.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/elements/Types.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/elements/conditions/CondSelectionContains.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/elements/conditions/CondSelectionContains.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/elements/effects/EffRegenerate.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/elements/effects/EffRegenerate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/elements/effects/EffShapeCylinder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/elements/effects/EffShapeCylinder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/elements/effects/EffShapeHollowCylinder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/elements/effects/EffShapeHollowCylinder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/elements/effects/EffShapePyramid.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/elements/effects/EffShapePyramid.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/elements/effects/EffShapeSphere.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/elements/effects/EffShapeSphere.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/elements/expressions/ExprCuboidRegionDimensions.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/elements/expressions/ExprCuboidRegionDimensions.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/elements/expressions/ExprCuboidRegionPoints.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/elements/expressions/ExprCuboidRegionPoints.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/elements/expressions/ExprSelection.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/elements/expressions/ExprSelection.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/lang/SkematicCondition.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/lang/SkematicCondition.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/lang/SkematicEffect.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/lang/SkematicEffect.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/lang/SkematicExpression.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/lang/SkematicExpression.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/lang/SkematicPropertyExpression.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/lang/SkematicPropertyExpression.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/utils/FaweUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/efnilite/skematic/utils/FaweUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/Skematic-2.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/Register.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/Skematic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/Skematic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/conditions/CondSelectionContains.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/conditions/CondSelectionContains.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffAsyncWorldCreate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffAsyncWorldCreate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffAsyncWorldSave.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffAsyncWorldSave.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffCave.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffCave.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffClearContainer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffClearContainer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffCuboidRegionFill.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffDrain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffDrain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffFastBlock.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffFastBlock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffFlush.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffFlush.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffGreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffGreen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffPasteSchematic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffPasteSchematic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffRedo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffRedo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffReplaceBlocks.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffReplaceBlocks.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffSaveSchematic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffSaveSchematic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffShapeCylinder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffShapeCylinder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffShapeHollowCylinder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffShapeHollowCylinder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffShapePyramid.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffShapePyramid.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffShapeSphere.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffShapeSphere.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffSnowy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffSnowy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffUndo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffUndo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprBrushSize.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprBrushSize.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprCuboidRegion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprCuboidRegion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprCuboidRegionArea.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprCuboidRegionArea.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprCuboidRegionBlocks.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprCuboidRegionBlocks.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprCuboidRegionBlocksCount.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprCuboidRegionBlocksCount.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprCuboidRegionDimensions.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprCuboidRegionDimensions.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprCuboidRegionPoints.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprCuboidRegionPoints.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprLastCuboidRegion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprLastCuboidRegion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprLightLevel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprLightLevel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprSchematicArea.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprSchematicArea.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprSchematicOrigin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprSchematicOrigin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprSchematicSize.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprSchematicSize.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprSelection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprSelection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/lang/SkematicCondition.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/lang/SkematicCondition.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/lang/SkematicEffect.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/lang/SkematicEffect.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/lang/SkematicExpression.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/lang/SkematicExpression.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/lang/SkematicPropertyExpression.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/lang/SkematicPropertyExpression.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/lang/annotations/Patterns.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/utils/FaweTools.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/utils/FaweTools.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/lang/english.lang" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/lang/english.lang" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/Skematic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/Skematic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/Types.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/Types.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/conditions/CondSelectionContains.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/conditions/CondSelectionContains.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffCave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffCave.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffClearContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffClearContainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffCuboidFaces.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffCuboidFaces.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffCuboidFill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffCuboidFill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffCuboidWalls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffCuboidWalls.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffDrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffDrain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffFastBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffFastBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffFlush.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffFlush.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffGreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffGreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffPasteSchematic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffPasteSchematic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffRedo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffRedo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffRegenerate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffRegenerate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffReplaceBlocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffReplaceBlocks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffSaveSchematic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffSaveSchematic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffShapeCylinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffShapeCylinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffShapeHollowCylinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffShapeHollowCylinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffShapeLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffShapeLine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffShapePyramid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffShapePyramid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffShapeSphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffShapeSphere.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffSnowy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffSnowy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffUndo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffUndo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprCuboidRegion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprCuboidRegion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprCuboidRegionBlocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprCuboidRegionBlocks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprCuboidRegionBlocksCount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprCuboidRegionBlocksCount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprCuboidRegionDimensions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprCuboidRegionDimensions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprCuboidRegionPoints.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprCuboidRegionPoints.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprLightLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprLightLevel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/lang/SkematicCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/lang/SkematicCondition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/lang/SkematicEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/lang/SkematicEffect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/lang/SkematicExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/lang/SkematicExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/lang/SkematicPropertyExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/lang/SkematicPropertyExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/utils/FaweTools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/utils/FaweUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/Skematic.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/Types$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/Types$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/Types.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/conditions/CondSelectionContains.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffAsyncWorldCreate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffAsyncWorldSave.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffCave.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffClearContainer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffCuboidFaces.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffCuboidFill.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffCuboidWalls.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffDrain.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffFlush.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffGreen.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffRedo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffRegenerate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffReplaceBlocks.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffShapeCylinder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffShapeHollowCylinder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffShapeLine.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffShapePyramid.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffShapeSphere.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffSnowy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/effects/EffUndo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprBrushSize.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprCuboidRegion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprCuboidRegionArea.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprCuboidRegionBlocks.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprCuboidRegionBlocksCount.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprCuboidRegionDimensions.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprCuboidRegionPoints.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprLastCuboidRegion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprLightLevel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprSchematicArea.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprSchematicOrigin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprSchematicSize.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/elements/expressions/ExprSelection.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/lang/SkematicCondition.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/lang/SkematicEffect.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/lang/SkematicExpression.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/lang/SkematicPropertyExpression.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/lang/annotations/PropertyExpression.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/lang/annotations/Return.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/efnilite/skematic/lang/annotations/Single.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprSelection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprSelection.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -124,46 +90,51 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffAsyncWorldSave.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffReplaceBlocks.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+            <state relative-caret-position="170">
+              <caret line="24" column="186" selection-start-line="24" selection-start-column="55" selection-end-line="24" selection-end-column="186" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffAsyncWorldCreate.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/Types.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="29" column="26" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
+            <state relative-caret-position="-56">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffShapeHollowCylinder.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffSaveSchematic.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+            <state relative-caret-position="425">
+              <caret line="36" selection-start-line="36" selection-end-line="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprSelection.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="437">
+              <caret line="29" selection-start-line="29" selection-end-line="29" selection-end-column="116" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1263#1264#0" expanded="true" />
+                <element signature="e#1297#1298#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffShapeLine.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffShapeSphere.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="25" column="61" selection-start-line="25" selection-start-column="61" selection-end-line="25" selection-end-column="61" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffShapePyramid.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
+            <state relative-caret-position="340">
+              <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -178,19 +149,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffShapeSphere.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprLightLevel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="47" column="1" selection-start-line="47" selection-start-column="1" selection-end-line="47" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffRegenerate.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="31" column="29" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
+            <state relative-caret-position="697">
+              <caret line="55" column="89" selection-start-line="55" selection-start-column="89" selection-end-line="55" selection-end-column="89" />
             </state>
           </provider>
         </entry>
@@ -198,8 +160,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffShapeCylinder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+            <state relative-caret-position="323">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffShapeHollowCylinder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="27" column="66" selection-start-line="27" selection-start-column="66" selection-end-line="27" selection-end-column="66" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffShapeLine.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="25" column="61" selection-start-line="25" selection-start-column="61" selection-end-line="25" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -209,6 +189,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -244,7 +225,7 @@
       <find>Actor</find>
       <find>makeCircle</find>
       <find>registerExpression</find>
-      <find>exprs</find>
+      <find>element</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -258,35 +239,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffReplaceBlocks.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprCuboidRegion.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/Skematic.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffDrain.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/utils/FaweTools.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/lang/Expressions.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/lang/SyntaxData.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/lang/Syntax.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/lang/NullableExpression.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffFastBlock.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffCuboidFill.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprCuboidRegionBlocks.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprLightLevel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffSaveSchematic.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/lang/SkematicEffect.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffPasteSchematic.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/lang/SkematicPropertyExpression.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/lang/SkematicExpression.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/lang/SkematicCondition.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/Types.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprCuboidRegionPoints.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprCuboidRegionDimensions.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprCuboidRegionArea.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprSchematicArea.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/conditions/CondSelectionContains.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffShapeLine.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffReplaceBlocks.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprBrushSize.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/lang/SkematicExpression.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/lang/SkematicPropertyExpression.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/lang/SkematicEffect.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/utils/SchematicQueue.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/utils/SkematicBuilder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/queue/EffQueueSchematic.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/queue/EffQueueSchematic.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffCuboidPaste.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/queue/ExprSchematicQueue.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/queue/ExprLastSchematic.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/utils/SchematicBuilder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/queue/EffSchematicSettings.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprLightLevel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/utils/builder/SchematicBuilder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/queue/ExprSchematicLocation.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/plugin.yml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/queue/ExprSchematicAir.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffAsyncWorldCreate.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffShapeCylinder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffShapeHollowCylinder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffShapePyramid.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffShapeSphere.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffRegenerate.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/utils/FaweUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/lang/english.lang" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/lang/PasteOptions.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/queue/EffAddSchematic.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/queue/EffIgnore.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffSchematicPaste.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/queue/EffQueue.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/Skematic.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/queue/EffPasteQueue.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/utils/queue/Queueable.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/utils/queue/SchemQueue.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/utils/queue/Queueables.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/queue/ExprPasteLocation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/utils/queue/schematicdata.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/utils/queue/SkematicData.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/utils/queue/SkematicQueue.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/utils/queue/SchematicData.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/utils/queue/SchematicQueue.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/queue/EffSchematicQueue.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprLastSchematic.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/Types.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/queue/EffPasteLocation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/queue/EffPasteOptions.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/lang/queue/SchematicQueue.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprSchematicQueue.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprSelection.java" />
       </list>
     </option>
   </component>
@@ -306,7 +309,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -318,11 +320,6 @@
             <path>
               <item name="Skematic" type="b2602c69:ProjectViewProjectNode" />
               <item name="Skematic" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="libs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Skematic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Skematic" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -354,16 +351,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="skematic" type="462c0819:PsiDirectoryNode" />
               <item name="elements" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Skematic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Skematic" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="skematic" type="462c0819:PsiDirectoryNode" />
-              <item name="elements" type="462c0819:PsiDirectoryNode" />
-              <item name="conditions" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Skematic" type="b2602c69:ProjectViewProjectNode" />
@@ -385,15 +372,50 @@
               <item name="elements" type="462c0819:PsiDirectoryNode" />
               <item name="expressions" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Skematic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Skematic" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="skematic" type="462c0819:PsiDirectoryNode" />
+              <item name="lang" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Skematic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Skematic" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="skematic" type="462c0819:PsiDirectoryNode" />
+              <item name="lang" type="462c0819:PsiDirectoryNode" />
+              <item name="annotations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Skematic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Skematic" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="skematic" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547255822435" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547504461168" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Nucleus" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.efnilite.skematic.elements.effects.queue" />
+      <recent name="com.efnilite.skematic.elements.expressions" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -406,6 +428,27 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="com.efnilite.skematic.utils in Skematic_main" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Skematic_main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.efnilite.skematic.utils.builder.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.efnilite.skematic.utils" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.com.efnilite.skematic.utils in Skematic_main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -420,6 +463,11 @@
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="com_efnilite_skematic_utils_in_Skematic_main - 2019.01.13 at 02h 23m 33s.xml">
+      <configuration name="com.efnilite.skematic.utils in Skematic_main" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
@@ -431,8 +479,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49838188" visible="true" weight="0.22121535" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49838188" visible="true" weight="0.22761194" />
       <window_info id="Structure" order="1" sideWeight="0.50161815" side_tool="true" weight="0.19296375" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -441,13 +490,13 @@
       <window_info id="Favorites" order="6" sideWeight="0.50161815" side_tool="true" weight="0.19296375" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286334" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32936078" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49946696" weight="0.329718" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50053304" side_tool="true" weight="0.24186552" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49626866" visible="true" weight="0.23510292" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5026652" side_tool="true" weight="0.23510292" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49733475" visible="true" weight="0.23510292" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4989339" weight="0.329718" />
       <window_info anchor="bottom" id="Build" order="10" weight="0.3286334" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49946696" weight="0.32936078" />
@@ -463,7 +512,7 @@
       <window_info anchor="right" id="Maven" order="9" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49838188" visible="true" weight="0.19349681" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49838188" visible="true" weight="0.21695095" />
       <window_info id="Structure" order="1" sideWeight="0.50161815" side_tool="true" weight="0.19296375" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -472,16 +521,16 @@
       <window_info id="Favorites" order="6" sideWeight="0.50161815" side_tool="true" weight="0.19296375" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286334" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32936078" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49946696" weight="0.329718" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50053304" side_tool="true" weight="0.24186552" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49626866" weight="0.24186552" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49626866" visible="true" weight="0.23510292" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4989339" weight="0.329718" />
       <window_info anchor="bottom" id="Build" order="10" weight="0.3286334" />
-      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49946696" weight="0.329718" />
+      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49946696" weight="0.32936078" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="1" weight="0.25" />
       <window_info anchor="right" id="Palette" order="2" />
@@ -491,6 +540,7 @@
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Maven Projects" order="8" weight="0.32995737" />
+      <window_info anchor="right" id="Maven" order="9" />
     </layout-to-restore>
   </component>
   <component name="XDebuggerManager">
@@ -516,247 +566,18 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffFlush.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffGreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffDrain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/lang/Integer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="51" column="19" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/lang/SyntaxData.java" />
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/ch.njol/skript/2.2-SNAPSHOT/8dc2cebb1b1be7e6a7ee7905cd1c65d93554150/skript-2.2-SNAPSHOT-sources.jar!/ch/njol/skript/lang/SkriptParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="124" column="18" selection-start-line="124" selection-start-column="18" selection-end-line="124" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/lang/Syntax.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/lang/NullableExpression.java" />
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sk89q.worldedit/worldedit-bukkit/6.1.5/d887cb95f6b2b69ac550ef58091d3724beffb44d/worldedit-bukkit-6.1.5.jar!/com/sk89q/worldedit/bukkit/BukkitWorldData.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sk89q.worldedit/worldedit-core/6.1.4-SNAPSHOT/482525227eb73602750b5382df8cdf24e1ab487a/worldedit-core-6.1.4-SNAPSHOT-sources.jar!/com/sk89q/worldedit/world/registry/WorldData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="21" column="3" lean-forward="true" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/lang/Iterable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="50" column="16" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/libs/FastAsyncWorldEdit-bukkit-18.09.16-b7f1ee3-1215-21.5.2_1.jar!/com/boydti/fawe/object/Metadatable.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/libs/FastAsyncWorldEdit-bukkit-18.09.16-b7f1ee3-1215-21.5.2_1.jar!/com/boydti/fawe/object/FawePlayer.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="78" column="49" lean-forward="true" selection-start-line="78" selection-start-column="49" selection-end-line="78" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffFastBlock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffCave.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffClearContainer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffCuboidFaces.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffCuboidFill.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffCuboidWalls.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprLightLevel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="55" column="89" selection-start-line="55" selection-start-column="89" selection-end-line="55" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprCuboidRegionBlocksCount.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprCuboidRegionBlocks.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$PROJECT_DIR$/libs/FAWE.jar!/com/sk89q/worldedit/session/PasteBuilder.class" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/queue/EffQueueSchematic.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprCuboidRegionArea.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprCuboidRegion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprBrushSize.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffUndo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffSaveSchematic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffPasteSchematic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="63" selection-start-line="62" selection-start-column="28" selection-end-line="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/lang/SkematicPropertyExpression.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/lang/SkematicEffect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="24" selection-start-line="24" selection-end-line="38" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/lang/SkematicExpression.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="57" column="5" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/lang/SkematicCondition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
+        <state relative-caret-position="323">
           <caret line="24" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/Types.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprSelection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprSchematicSize.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprSchematicOrigin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprSchematicArea.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-153">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/queue/EffSchematicSettings.java" />
+    <entry file="jar://$PROJECT_DIR$/libs/FAWE.jar!/com/sk89q/worldedit/function/operation/OperationQueue.class" />
+    <entry file="jar://$PROJECT_DIR$/libs/FAWE.jar!/com/sk89q/worldedit/function/operation/Operation.class" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprLastCuboidRegion.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -764,66 +585,142 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprCuboidRegionPoints.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/lang/SkematicEffect.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="44" column="22" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
+        <state relative-caret-position="68">
+          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprCuboidRegionDimensions.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/utils/builder/SchematicBuilder.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/queue/ExprSchematicAir.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/utils/FaweUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
-          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+        <state relative-caret-position="637">
+          <caret line="79" column="13" lean-forward="true" selection-start-line="79" selection-start-column="13" selection-end-line="79" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/conditions/CondSelectionContains.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/queue/ExprSchematicLocation.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/lang/english.lang">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="37" lean-forward="true" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/ch.njol/skript/2.2-SNAPSHOT/8dc2cebb1b1be7e6a7ee7905cd1c65d93554150/skript-2.2-SNAPSHOT-sources.jar!/ch/njol/skript/lang/Effect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="43" column="4" lean-forward="true" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/plugin.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="59" selection-start-line="6" selection-start-column="59" selection-end-line="6" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/Queue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="168" column="32" lean-forward="true" selection-start-line="168" selection-start-column="32" selection-end-line="168" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffCuboidPaste.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/Skematic.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
-          <caret line="36" column="87" selection-start-line="36" selection-start-column="87" selection-end-line="36" selection-end-column="87" />
+          <caret line="40" column="1" lean-forward="true" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
+          <folding>
+            <element signature="e#1035#1036#0" expanded="true" />
+            <element signature="e#1072#1073#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffAsyncWorldSave.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffSchematicPaste.java" />
+    <entry file="jar://$PROJECT_DIR$/libs/FAWE.jar!/com/boydti/fawe/example/MappedFaweQueue.class" />
+    <entry file="jar://$PROJECT_DIR$/libs/FAWE.jar!/com/boydti/fawe/object/FaweQueue.class" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/utils/queue/Queueables.java" />
+    <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        <state relative-caret-position="680">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/queue/ExprPasteLocation.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffAsyncWorldCreate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="29" column="26" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
+        <state relative-caret-position="272">
+          <caret line="23" column="56" selection-start-line="23" selection-start-column="56" selection-end-line="23" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffShapeCylinder.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprBrushSize.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+        <state relative-caret-position="68">
+          <caret line="13" selection-start-line="13" selection-end-line="37" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffShapeHollowCylinder.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/utils/queue/SchemQueue.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/utils/queue/SkematicQueue.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/lang/PasteOptions.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/Iterator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+        <state relative-caret-position="299">
+          <caret line="69" column="6" selection-start-line="69" selection-start-column="6" selection-end-line="69" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffShapeLine.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/function/Predicate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="25" column="61" selection-start-line="25" selection-start-column="61" selection-end-line="25" selection-end-column="61" />
+        <state relative-caret-position="214">
+          <caret line="43" column="6" lean-forward="true" selection-start-line="43" selection-start-column="6" selection-end-line="43" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffShapePyramid.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/io/File.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
+        <state relative-caret-position="2288">
+          <caret line="2109" column="19" selection-start-line="2109" selection-start-column="19" selection-end-line="2109" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprLastSchematic.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprSchematicQueue.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/queue/EffSchematicQueue.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/queue/EffPasteQueue.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/queue/EffPasteOptions.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/queue/EffPasteLocation.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/lang/queue/SchematicData.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/lang/queue/SchematicQueue.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffPasteSchematic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffSaveSchematic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffShapeSphere.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -834,24 +731,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffShapeSphere.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprLightLevel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="47" column="1" selection-start-line="47" selection-start-column="1" selection-end-line="47" selection-end-column="1" />
+        <state relative-caret-position="697">
+          <caret line="55" column="89" selection-start-line="55" selection-start-column="89" selection-end-line="55" selection-end-column="89" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/libs/FastAsyncWorldEdit-bukkit-18.09.16-b7f1ee3-1215-21.5.2_1.jar!/com/sk89q/worldedit/world/biome/BaseBiome.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffShapeCylinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffShapeHollowCylinder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="27" column="66" selection-start-line="27" selection-start-column="66" selection-end-line="27" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffShapeLine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="25" column="61" selection-start-line="25" selection-start-column="61" selection-end-line="25" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/Types.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-56">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffReplaceBlocks.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <caret line="24" column="186" selection-start-line="24" selection-start-column="55" selection-end-line="24" selection-end-column="186" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/effects/EffRegenerate.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/efnilite/skematic/elements/expressions/ExprSelection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="31" column="29" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
+        <state relative-caret-position="437">
+          <caret line="29" selection-start-line="29" selection-end-line="29" selection-end-column="116" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1263#1264#0" expanded="true" />
+            <element signature="e#1297#1298#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -29,9 +29,9 @@ public class EffShapePyramid extends SkematicEffect {
 
     @Override
     protected void execute(Event e) {
-        Location location = Direction.combine((Expression<Direction>) expressions[0], (Expression<Location>) expressions[1]).getSingle(e);
-        ItemType[] blocks = (ItemType[]) expressions[2].getAll(e);
-        Number size = (Number) expressions[3].getSingle(e);
+        Location location = (Location) expressions[0].getSingle(e);
+        ItemType[] blocks = (ItemType[]) expressions[1].getAll(e);
+        Number size = (Number) expressions[2].getSingle(e);
         boolean filled = true;
 
         if (blocks == null || size == null || location == null) {
@@ -43,7 +43,7 @@ public class EffShapePyramid extends SkematicEffect {
         }
 
         EditSession session = FaweUtils.getEditSession(location.getWorld());
-        session.makePyramid(new Vector(location.getBlockX(), location.getBlockY(), location.getBlockZ()), FaweUtils.parsePattern(blocks), Math.round((long) size), filled);
+        session.makePyramid(FaweUtils.toVector(location), FaweUtils.parsePattern(blocks), Math.round((long) size), filled);
         session.flushQueue();
     }
 

@@ -43,7 +43,7 @@ public class ExprSchematicArea extends SkematicExpression<Number> {
             return null;
         }
 
-        double t = 0;
+        double t;
         switch (mark) {
             case 1:
                 t = size.getY();
@@ -56,6 +56,9 @@ public class ExprSchematicArea extends SkematicExpression<Number> {
                 break;
             case 4:
                 t = (size.getZ() * size.getX());
+                break;
+            default:
+                t = 0;
                 break;
         }
         return new Number[] { t };

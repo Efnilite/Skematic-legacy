@@ -18,8 +18,7 @@ public class ExprCuboidRegionArea extends SkematicPropertyExpression<CuboidRegio
     }
 
     @Override
-    public Number convert(final CuboidRegion r) {
-
+    public Number convert(CuboidRegion r) {
         if (r == null) {
             return null;
         }

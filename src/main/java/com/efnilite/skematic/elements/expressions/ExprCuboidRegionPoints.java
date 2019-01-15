@@ -27,7 +27,7 @@ public class ExprCuboidRegionPoints extends SkematicExpression<Vector> {
     @Override
     protected Vector[] get(Event e) {
         CuboidRegion cuboid = (CuboidRegion) expressions[0].getSingle(e);
-        Vector vector = null;
+        Vector vector;
 
         if (cuboid == null) {
             return null;
@@ -39,6 +39,9 @@ public class ExprCuboidRegionPoints extends SkematicExpression<Vector> {
                 break;
             case 2:
                 vector = cuboid.getMinimumPoint();
+                break;
+            default:
+                vector = null;
                 break;
         }
         return new Vector[] { vector };

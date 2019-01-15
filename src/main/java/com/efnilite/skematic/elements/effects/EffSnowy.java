@@ -30,7 +30,7 @@ public class EffSnowy extends SkematicEffect {
         }
 
         EditSession session = FaweUtils.getEditSession(location.getWorld());
-        session.simulateSnow(new Vector(location.getBlockX(), location.getBlockY(), location.getBlockZ()), (double) radius);
+        session.simulateSnow(FaweUtils.toVector(location), (double) radius);
         session.flushQueue();
     }
 

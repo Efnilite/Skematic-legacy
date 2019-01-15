@@ -4,8 +4,6 @@ import ch.njol.skript.Skript;
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
-import ch.njol.skript.lang.Expression;
-import ch.njol.skript.util.Direction;
 import com.boydti.fawe.FaweAPI;
 import com.efnilite.skematic.Skematic;
 import com.efnilite.skematic.lang.SkematicEffect;
@@ -25,26 +23,32 @@ import java.util.logging.Level;
 @Name("Paste schematic")
 @Description("Paste a schematic at a location with or without using air")
 @Examples("paste skematic \"plugins/WorldEdit/skematic.schematic\" at player excluding air")
-public class EffPasteSchematic extends SkematicEffect {
+public class EffSchematicPaste extends SkematicEffect {
 
     static {
-        Skript.registerEffect(EffPasteSchematic.class, "paste [the] s(ch|k)em[atic] %string% %direction% %location% [(1¦(without|excluding) air)] [(2¦[(,| and)] allow[ing] undo)] [[with] angle %-number%]");
+        Skript.registerEffect(EffSchematicPaste.class, "paste [the] s(ch|k)em[atic] %skematics% at %location% [(1¦ignoring air)] [(2¦[(,| and)] allow[ing] undo)] [[with] angle %-number%]");
     }
 
     @Override
-    @SuppressWarnings("deprecation")
+    @SuppressWarnings({"deprecation", "ConstantConditions"})
     protected void execute(Event e) {
-        String schematic = (String) expressions[0].getSingle(e);
-        Location location = Direction.combine((Expression<Direction>) expressions[1], (Expression<Location>) expressions[2]).getSingle(e);
-        Number angle = (Number) expressions[3].getSingle(e);
+        File schematic = (File) expressions[0].getSingle(e);
+        Location location = (Location) expressions[1].getSingle(e);
+        Number angle = (Number) getNullable(e, expressions[2]);
+        boolean ignoreAir = false;
+        boolean allowUndo = false;
 
         if (schematic == null || location == null) {
             return;
         }
 
-        File file = new File(schematic);
-        boolean ignoreAir = true;
-        boolean allowUndo = false;
+        if ((mark & 1) == 1) {
+            ignoreAir = true;
+        }
+        if ((mark & 2) == 2) {
+            allowUndo = true;
+        }
+
         switch (mark) {
             case 1:
                 ignoreAir = false;
@@ -59,8 +63,9 @@ public class EffPasteSchematic extends SkematicEffect {
             case 0:
                 break;
         }
-        if (!schematic.endsWith(".schematic")) {
-            file = new File(schematic + ".schematic");
+
+        if (!schematic.toString().endsWith(".schematic")) {
+            schematic = new File(schematic + ".schematic");
         }
 
         Vector vector = FaweUtils.toVector(location);
@@ -69,26 +74,20 @@ public class EffPasteSchematic extends SkematicEffect {
             EditSession session = FaweUtils.getEditSession(location.getWorld());
             CuboidClipboard clipboard;
             try {
-                clipboard = CuboidClipboard.loadSchematic(file);
+                clipboard = CuboidClipboard.loadSchematic(schematic);
             } catch (IOException | DataException ex) {
                 return;
             }
-            if (clipboard != null) {
-                clipboard.rotate2D((int) angle);
-            }
+            clipboard.rotate2D((int) angle);
             try {
                 clipboard.paste(session, vector, ignoreAir);
             } catch (MaxChangedBlocksException exception) {
-                Skematic.log("Could not paste schematic " + file, Level.SEVERE);
+                Skematic.log("Could not paste schematic " + schematic, Level.SEVERE);
                 return;
             }
             session.flushQueue();
         } else {
-            try {
-                FaweAPI.load(file).paste(FaweUtils.getWorld(location.getWorld().getName()), vector, allowUndo, ignoreAir, null);
-            } catch (IOException ex) {
-                Skematic.log("Could not paste schematic " + file, Level.SEVERE);
-            }
+            FaweUtils.toSchematic(schematic).paste(FaweUtils.getWorld(location.getWorld().getName()), vector, allowUndo, ignoreAir, null);
         }
     }
 

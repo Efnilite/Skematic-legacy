@@ -4,3 +4,7 @@ schematicformat:
     structure: structure, nbt
     png: png, image
     fawe: fawe
+pasteoption:
+    air: air
+    entities: entities, mobs, animals
+    biomes: biomes, biome

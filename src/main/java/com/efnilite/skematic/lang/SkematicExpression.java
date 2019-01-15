@@ -6,14 +6,12 @@ import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
 import com.efnilite.skematic.lang.annotations.Return;
 import com.efnilite.skematic.lang.annotations.Single;
+import org.bukkit.event.Event;
 
 public abstract class SkematicExpression<T> extends SimpleExpression {
 
     protected Expression<?>[] expressions;
     protected int mark;
-
-    private static Class type;
-    private static boolean single;
 
     @Override
     public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parseResult) {
@@ -22,10 +20,7 @@ public abstract class SkematicExpression<T> extends SimpleExpression {
             expressions = exprs;
         }
 
-
         mark = parseResult.mark;
-        type = getReturnType();
-        single = isSingle();
 
         return true;
     }
@@ -43,5 +38,21 @@ public abstract class SkematicExpression<T> extends SimpleExpression {
     @Override
     public boolean isSingle() {
         return getClass().isAnnotationPresent(Single.class);
+    }
+
+    protected Object getNullable(Event e, Expression<?> expression)  {
+        if (expression != null && expression.getSingle(e) != null) {
+            return expression.getSingle(e);
+        } else {
+            return null;
+        }
+    }
+
+    protected Object getNullable(Event e, Expression<?> expression, Object def)  {
+        if (expression != null && expression.getSingle(e) != null) {
+            return expression.getSingle(e);
+        } else {
+            return def;
+        }
     }
 }

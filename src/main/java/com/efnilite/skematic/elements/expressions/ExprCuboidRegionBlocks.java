@@ -31,7 +31,6 @@ public class ExprCuboidRegionBlocks extends SkematicExpression<ItemType> {
     }
 
     @Override
-    @SuppressWarnings("deprecation")
     protected ItemType[] get(Event e) {
         CuboidRegion cuboid = (CuboidRegion) expressions[0].getSingle(e);
 

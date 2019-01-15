@@ -16,17 +16,17 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="Gradle: org.spigotmc:spigot-api:1.12-R0.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Gradle: org.spigotmc:spigot-api:1.13-R0.1-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Gradle: ch.njol:skript:2.2-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Gradle: com.boydti:fawe-api:latest" level="project" />
     <orderEntry type="library" name="Gradle: org.reflections:reflections:0.9.9-RC1" level="project" />
     <orderEntry type="library" name="Gradle: com.google.code.findbugs:findbugs:2.0.3" level="project" />
     <orderEntry type="library" name="Gradle: commons-lang:commons-lang:2.6" level="project" />
     <orderEntry type="library" name="Gradle: com.googlecode.json-simple:json-simple:1.1.1" level="project" />
-    <orderEntry type="library" name="Gradle: net.md-5:bungeecord-chat:1.12-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Gradle: net.md-5:bungeecord-chat:1.13-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Gradle: com.google.guava:guava:21.0" level="project" />
     <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.8.0" level="project" />
-    <orderEntry type="library" name="Gradle: org.yaml:snakeyaml:1.18" level="project" />
+    <orderEntry type="library" name="Gradle: org.yaml:snakeyaml:1.21" level="project" />
     <orderEntry type="library" name="Gradle: ch.njol:yggdrasil:0.1" level="project" />
     <orderEntry type="library" name="Gradle: ch.njol:utils:1.0-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Gradle: org.eclipse:jdt.annotation:1.1.0" level="project" />

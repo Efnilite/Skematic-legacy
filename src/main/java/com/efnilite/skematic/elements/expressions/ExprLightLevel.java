@@ -13,7 +13,6 @@ import com.efnilite.skematic.lang.annotations.Return;
 import com.efnilite.skematic.lang.annotations.Single;
 import com.efnilite.skematic.utils.FaweUtils;
 import org.bukkit.Location;
-import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
 @Name("Light level")
@@ -40,7 +39,7 @@ public class ExprLightLevel extends SkematicExpression<Number> {
     @Override
     public Class<?>[] acceptChange(Changer.ChangeMode mode) {
         if (mode == Changer.ChangeMode.SET) {
-            return CollectionUtils.array(Player[].class);
+            return CollectionUtils.array(int[].class);
         }
         return null;
     }
@@ -48,12 +47,14 @@ public class ExprLightLevel extends SkematicExpression<Number> {
     @Override
     public void change(Event e, Object[] delta, Changer.ChangeMode mode) {
         if (mode == Changer.ChangeMode.SET) {
-            Location l = (Location) expressions[0].getSingle(e);
-            if (l == null) {
+            Location location = (Location) expressions[0].getSingle(e);
+
+            if (location == null) {
                 return;
             }
-            NMSMappedFaweQueue n = (NMSMappedFaweQueue) SetQueue.IMP.getNewQueue(FaweUtils.getWorld(l.getWorld().getName()), true, false);
-            n.setBlockLight(l.getBlockX(), l.getBlockY(), l.getBlockZ(), (int) delta[0]);
+
+            NMSMappedFaweQueue queue = (NMSMappedFaweQueue) SetQueue.IMP.getNewQueue(FaweUtils.getWorld(location.getWorld().getName()), true, false);
+            queue.setBlockLight(location.getBlockX(), location.getBlockY(), location.getBlockZ(), (int) delta[0]);
         }
     }
 

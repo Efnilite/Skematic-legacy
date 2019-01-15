@@ -19,18 +19,17 @@ import org.bukkit.event.Event;
 public class EffShapeHollowCylinder extends SkematicEffect {
 
     static {
-        Skript.registerEffect(EffShapeHollowCylinder.class, "(make|create) [a] [new] hollow cylinder %direction% %location% (with|and) [(itemtypes[s]|block[s]|pattern)] %itemtypes% (with|and) x[(-| )]radius %number% (with|and) z[(-| )]radius %number% (with|and) thickness %number% (with|and) height %number%");
+        Skript.registerEffect(EffShapeHollowCylinder.class, "(make|create) [a] [new] hollow cylinder at %location% (with|and) [(itemtypes[s]|block[s]|pattern)] %itemtypes% (with|and) x[(-| )]radius %number% (with|and) z[(-| )]radius %number% (with|and) thickness %number% (with|and) height %number%");
     }
 
     @Override
-    @SuppressWarnings("deprecation")
     protected void execute(Event e) {
-        Location location = Direction.combine((Expression<Direction>) expressions[0], (Expression<Location>) expressions[1]).getSingle(e);
-        ItemType[] blocks = (ItemType[]) expressions[2].getAll(e);
-        Number x = (Number) expressions[3].getSingle(e);
-        Number z = (Number) expressions[4].getSingle(e);
-        Number thickness = (Number) expressions[5].getSingle(e);
-        Number height = (Number) expressions[6].getSingle(e);
+        Location location = (Location) expressions[0].getSingle(e);
+        ItemType[] blocks = (ItemType[]) expressions[1].getAll(e);
+        Number x = (Number) expressions[2].getSingle(e);
+        Number z = (Number) expressions[3].getSingle(e);
+        Number thickness = (Number) expressions[4].getSingle(e);
+        Number height = (Number) expressions[5].getSingle(e);
 
         if (blocks == null || x == null || z == null || thickness == null || height == null | location == null) {
             return;

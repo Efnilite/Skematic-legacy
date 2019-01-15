@@ -18,10 +18,10 @@ import java.util.logging.Level;
 @Name("Save schematic")
 @Description("Create a new schematic.")
 @Examples("save schematic selection of player to the file \"plugins/schematic.schematic\" with schematic format")
-public class EffSaveSchematic extends SkematicEffect {
+public class EffSchematicSave extends SkematicEffect {
 
     static {
-        Skript.registerEffect(EffSaveSchematic.class, "save [[the] s(ch|k)ematic] %cuboidregions% to [[the] file] %string% [with %-schematicformat% format]");
+        Skript.registerEffect(EffSchematicSave.class, "save [[the] s(ch|k)ematic] %cuboidregions% to [[the] file] %string% [with %-schematicformat% format]");
     }
 
     @Override
@@ -29,16 +29,10 @@ public class EffSaveSchematic extends SkematicEffect {
     protected void execute(Event e) {
         CuboidRegion cuboid = (CuboidRegion) expressions[0].getSingle(e);
         String schematic = (String) expressions[1].getSingle(e);
-        ClipboardFormat format;
+        ClipboardFormat format = (ClipboardFormat) getNullable(e, expressions[2], ClipboardFormat.SCHEMATIC);
 
         if (cuboid == null || schematic == null) {
             return;
-        }
-
-        if (expressions[2] != null) {
-            format = (ClipboardFormat) expressions[2].getSingle(e);
-        } else {
-            format = ClipboardFormat.SCHEMATIC;
         }
 
         Schematic file = new Schematic(cuboid);

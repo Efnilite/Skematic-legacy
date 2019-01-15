@@ -8,9 +8,9 @@ import com.efnilite.skematic.lang.annotations.PropertyExpression;
 import com.efnilite.skematic.lang.annotations.Return;
 import com.sk89q.worldedit.IncompleteRegionException;
 import com.sk89q.worldedit.LocalSession;
+import com.sk89q.worldedit.regions.CuboidRegion;
 import com.sk89q.worldedit.regions.Region;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
 
 @Name("Selection")
 @Description("Gets the selection of a player (region)")
@@ -23,15 +23,14 @@ public class ExprSelection extends SkematicPropertyExpression<Player, Region> {
     }
 
     @Override
-    public Region convert(final Player p) {
+    public Region convert(Player p) {
         LocalSession session = FaweAPI.wrapPlayer(p).getSession();
-        Region selection;
         try {
-            selection = session.getSelection(session.getSelectionWorld());
+            Region selection = session.getSelection(session.getSelectionWorld());
+            return new CuboidRegion(selection.getWorld(), selection.getMaximumPoint(), selection.getMaximumPoint());
         } catch (IncompleteRegionException e) {
             return null;
         }
-        return selection;
     }
 
     @Override

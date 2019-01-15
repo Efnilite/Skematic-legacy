@@ -7,7 +7,11 @@ import ch.njol.skript.doc.Name;
 import com.efnilite.skematic.lang.SkematicEffect;
 import com.efnilite.skematic.utils.FaweUtils;
 import com.sk89q.worldedit.EditSession;
+import com.sk89q.worldedit.WorldEdit;
+import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormat;
+import com.sk89q.worldedit.world.biome.BaseBiome;
 import org.bukkit.Location;
+import org.bukkit.block.Biome;
 import org.bukkit.event.Event;
 
 @Name("Shape - Line")

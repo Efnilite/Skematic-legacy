@@ -5,13 +5,12 @@ import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
 import com.efnilite.skematic.lang.annotations.Return;
+import org.bukkit.event.Event;
 
 public abstract class SkematicPropertyExpression<F, T> extends SimplePropertyExpression<F, T> {
 
     protected Expression<?>[] expressions;
     protected int mark;
-
-    private static Class type;
 
     @Override
     public boolean init(Expression<?>[] exprs, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parseResult) {
@@ -19,9 +18,6 @@ public abstract class SkematicPropertyExpression<F, T> extends SimplePropertyExp
         if (exprs != null) {
             expressions = exprs;
         }
-
-        mark = parseResult.mark;
-        type = getReturnType();
 
         return true;
     }
@@ -34,6 +30,22 @@ public abstract class SkematicPropertyExpression<F, T> extends SimplePropertyExp
             return getClass().getAnnotation(Return.class).value();
         } else {
             throw new IllegalAccessError("Return type not set");
+        }
+    }
+
+    protected Object getNullable(Event e, Expression<?> expression)  {
+        if (expression != null && expression.getSingle(e) != null) {
+            return expression.getSingle(e);
+        } else {
+            return null;
+        }
+    }
+
+    protected Object getNullable(Event e, Expression<?> expression, Object def)  {
+        if (expression != null && expression.getSingle(e) != null) {
+            return expression.getSingle(e);
+        } else {
+            return def;
         }
     }
 }

@@ -55,7 +55,7 @@ public class EffSchematicPaste extends Effect {
     }
 
     @Override
-    @SuppressWarnings({"deprecation", "ConstantConditions"})
+    @SuppressWarnings("deprecation")
     protected void execute(Event e) {
         Location location = this.location.getSingle(e);
         PasteOptions[] options = this.options != null ? this.options.getArray(e) : new PasteOptions[] { PasteOptions.DEFAULT };
@@ -82,11 +82,7 @@ public class EffSchematicPaste extends Effect {
             return;
         }
 
-        Set<PasteOptions> optionsSet = new HashSet<>();
-
-        if (options == null) {
-            optionsSet.addAll(Arrays.asList(options));
-        }
+        Set<PasteOptions> optionsSet = new HashSet<>(Arrays.asList(options));
 
         Vector vector = FaweUtils.toVector(location);
         if (angle != null) {

@@ -4,29 +4,42 @@ import ch.njol.skript.Skript;
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
+import ch.njol.skript.doc.Since;
+import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.ExpressionType;
-import com.efnilite.skematic.lang.SkematicExpression;
-import com.efnilite.skematic.lang.annotations.Return;
-import com.efnilite.skematic.lang.annotations.Single;
+import ch.njol.skript.lang.SkriptParser;
+import ch.njol.skript.lang.util.SimpleExpression;
+import ch.njol.util.Kleenean;
 import com.sk89q.worldedit.Vector;
 import com.sk89q.worldedit.regions.CuboidRegion;
 import org.bukkit.event.Event;
 
 @Name("Selection points")
-@Description("Gets the minimal or maximal points of a player's selection")
+@Description("Gets the minimal or maximal points in a cuboidregion")
 @Examples("set {_point} to the maximum point of player's selection")
-@Return(Vector.class)
-@Single
-public class ExprCuboidRegionPoints extends SkematicExpression<Vector> {
+@Since("1.5")
+public class ExprCuboidRegionPoints extends SimpleExpression<Vector> {
+
+    private int mark;
+    private Expression<CuboidRegion> cuboid;
 
     static {
-        Skript.registerExpression(ExprCuboidRegionPoints.class, Vector.class, ExpressionType.PROPERTY, "[the] [(skematic|fawe)] (1¦min|2¦max)[imum] (coord[inate]|point)[s] of %cuboidregions%",
+        Skript.registerExpression(ExprCuboidRegionPoints.class, Vector.class, ExpressionType.PROPERTY,
+                "[the] [(skematic|fawe)] (1¦min|2¦max)[imum] (coord[inate]|point)[s] of %cuboidregions%",
                 "%cuboidregions%'[s] [(skematic|fawe)] (1¦min|2¦max)[imum] (coord[inate]|point)[s]");
     }
 
     @Override
+    public boolean init(Expression<?>[] expressions, int i, Kleenean kleenean, SkriptParser.ParseResult parseResult) {
+
+        cuboid = (Expression<CuboidRegion>) expressions[0];
+
+        return true;
+    }
+
+    @Override
     protected Vector[] get(Event e) {
-        CuboidRegion cuboid = (CuboidRegion) expressions[0].getSingle(e);
+        CuboidRegion cuboid = this.cuboid.getSingle(e);
         Vector vector;
 
         if (cuboid == null) {
@@ -48,7 +61,17 @@ public class ExprCuboidRegionPoints extends SkematicExpression<Vector> {
     }
 
     @Override
+    public boolean isSingle() {
+        return true;
+    }
+
+    @Override
+    public Class<? extends Vector> getReturnType() {
+        return Vector.class;
+    }
+
+    @Override
     public String toString(Event e, boolean debug) {
-        return "get min or max of " + expressions[0].toString(e, debug);
+        return "get min or max of " + cuboid.toString(e, debug);
     }
 }

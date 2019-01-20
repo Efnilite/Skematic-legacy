@@ -4,7 +4,11 @@ import ch.njol.skript.Skript;
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
-import com.efnilite.skematic.lang.SkematicEffect;
+import ch.njol.skript.doc.Since;
+import ch.njol.skript.lang.Effect;
+import ch.njol.skript.lang.Expression;
+import ch.njol.skript.lang.SkriptParser;
+import ch.njol.util.Kleenean;
 import com.efnilite.skematic.utils.FaweUtils;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
@@ -12,15 +16,26 @@ import org.bukkit.event.Event;
 @Name("Flush Queue")
 @Description("Flush the queue of a player - clear it.")
 @Examples("flush player's queue")
-public class EffFlush extends SkematicEffect {
+@Since("1.0")
+public class EffFlush extends Effect {
+
+    private Expression<Player> player;
 
     static {
         Skript.registerEffect(EffFlush.class, "(flush|dequeue) [the] (queue of %player%|%player%'s queue)");
     }
 
     @Override
+    public boolean init(Expression<?>[] expressions, int i, Kleenean kleenean, SkriptParser.ParseResult parseResult) {
+
+        player = (Expression<Player>) expressions[0];
+
+        return true;
+    }
+
+    @Override
     protected void execute(Event e) {
-        Player player = (Player) expressions[0].getSingle(e);
+        Player player = this.player.getSingle(e);
 
         if (player == null) {
             return;
@@ -31,6 +46,6 @@ public class EffFlush extends SkematicEffect {
 
     @Override
     public String toString(Event e, boolean debug) {
-        return "flush queue of " + expressions[0].toString(e, debug);
+        return "flush queue of " + player.toString(e, debug);
     }
 }

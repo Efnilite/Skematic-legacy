@@ -3,18 +3,22 @@ package com.efnilite.skematic.elements.expressions;
 import ch.njol.skript.Skript;
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Name;
+import ch.njol.skript.doc.Since;
+import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.ExpressionType;
-import com.efnilite.skematic.lang.SkematicExpression;
-import com.efnilite.skematic.lang.annotations.Return;
-import com.efnilite.skematic.lang.annotations.Single;
+import ch.njol.skript.lang.SkriptParser;
+import ch.njol.skript.lang.util.SimpleExpression;
+import ch.njol.util.Kleenean;
 import com.sk89q.worldedit.regions.CuboidRegion;
 import org.bukkit.event.Event;
 
 @Name("Selection dimensions")
-@Description("Get one of the region dimensions of a player's selection.")
-@Return(Number.class)
-@Single
-public class ExprCuboidRegionDimensions extends SkematicExpression<Number> {
+@Description("Get one of the region dimensions of a cuboidregion.")
+@Since("1.5")
+public class ExprCuboidRegionDimensions extends SimpleExpression<Number> {
+
+    private int mark;
+    private Expression<CuboidRegion> cuboid;
 
     static {
         Skript.registerExpression(ExprCuboidRegionDimensions.class, Number.class, ExpressionType.PROPERTY, "[the] [(skematic|fawe)] (cuboid|we|worldedit)[ ]region (1¦length|2¦height|3¦width) of %cuboidregions%",
@@ -22,31 +26,46 @@ public class ExprCuboidRegionDimensions extends SkematicExpression<Number> {
     }
 
     @Override
+    public boolean init(Expression<?>[] expressions, int i, Kleenean kleenean, SkriptParser.ParseResult parseResult) {
+
+        cuboid = (Expression<CuboidRegion>) expressions[0];
+        mark = parseResult.mark;
+
+        return true;
+    }
+
+    @Override
     protected Number[] get(Event e) {
-        CuboidRegion cuboid = (CuboidRegion) expressions[0].getSingle(e);
+        CuboidRegion cuboid = this.cuboid.getSingle(e);
+
         if (cuboid == null) {
             return null;
         }
-        double t;
+
         switch (mark) {
             case 1:
-                t = cuboid.getLength();
-                break;
+                return new Number[] { cuboid.getLength() };
             case 2:
-                t = cuboid.getHeight();
-                break;
+                return new Number[] { cuboid.getHeight() };
             case 3:
-                t = cuboid.getWidth();
-                break;
+                return new Number[] { cuboid.getWidth() };
             default:
-                t = 0;
-                break;
+                return new Number[] { 0 };
         }
-        return new Number[] { t };
+    }
+
+    @Override
+    public boolean isSingle() {
+        return true;
+    }
+
+    @Override
+    public Class<? extends Number> getReturnType() {
+        return Number.class;
     }
 
     @Override
     public String toString(Event e, boolean debug) {
-        return "get height of " + expressions[0].toString(e, debug);
+        return "dimensions of " + cuboid.toString(e, debug);
     }
 }

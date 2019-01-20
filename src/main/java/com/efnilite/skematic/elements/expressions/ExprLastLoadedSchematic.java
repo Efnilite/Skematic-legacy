@@ -2,7 +2,6 @@ package com.efnilite.skematic.elements.expressions;
 
 import ch.njol.skript.Skript;
 import ch.njol.skript.doc.Description;
-import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
 import ch.njol.skript.doc.Since;
 import ch.njol.skript.lang.Expression;
@@ -10,18 +9,17 @@ import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
-import com.sk89q.worldedit.regions.CuboidRegion;
+import com.efnilite.skematic.objects.Schematic;
+import com.efnilite.skematic.objects.SchematicCache;
 import org.bukkit.event.Event;
 
-@Name("Last region")
-@Description("Get the last created region.")
-@Examples({"create a new cuboidregion from {_location} to {_location-2}",
-        "set {_region} to the last created region"})
-@Since("1.5")
-public class ExprLastCuboidRegion extends SimpleExpression<CuboidRegion> {
+@Name("Last loaded schematic")
+@Description("Get the lastly loaded schematic")
+@Since("2.0")
+public class ExprLastLoadedSchematic extends SimpleExpression<Schematic> {
 
     static {
-        Skript.registerExpression(ExprLastCuboidRegion.class, CuboidRegion.class, ExpressionType.PROPERTY, "[the] last[ly] created [(skematic|fawe)] [(cuboid|we|wordedit)][ ]region");
+        Skript.registerExpression(ExprLastLoadedSchematic.class, Schematic.class, ExpressionType.PROPERTY, "[the] last[ly] loaded s(k|ch)ematic");
     }
 
     @Override
@@ -30,8 +28,8 @@ public class ExprLastCuboidRegion extends SimpleExpression<CuboidRegion> {
     }
 
     @Override
-    protected CuboidRegion[] get(Event e) {
-        return ExprCuboidRegion.getLastCuboidRegion();
+    protected Schematic[] get(Event e) {
+        return new Schematic[] { SchematicCache.getLastLoaded() };
     }
 
     @Override
@@ -40,12 +38,12 @@ public class ExprLastCuboidRegion extends SimpleExpression<CuboidRegion> {
     }
 
     @Override
-    public Class<? extends CuboidRegion> getReturnType() {
-        return CuboidRegion.class;
+    public Class<? extends Schematic> getReturnType() {
+        return Schematic.class;
     }
 
     @Override
     public String toString(Event e, boolean debug) {
-        return "last region";
+        return "last loaded schematic";
     }
 }

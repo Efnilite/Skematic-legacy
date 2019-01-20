@@ -4,9 +4,11 @@ import ch.njol.skript.Skript;
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
+import ch.njol.skript.doc.Since;
+import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
-import ch.njol.skript.util.Direction;
-import com.efnilite.skematic.lang.SkematicEffect;
+import ch.njol.skript.lang.SkriptParser;
+import ch.njol.util.Kleenean;
 import com.efnilite.skematic.utils.FaweUtils;
 import com.sk89q.worldedit.EditSession;
 import org.bukkit.Location;
@@ -15,17 +17,28 @@ import org.bukkit.event.Event;
 @Name("Greenify")
 @Description("Greenify an area - Turns it into grass.")
 @Examples("greenify 2, 3, 4 in \"world\" within a radius of 20")
-public class EffGreen extends SkematicEffect {
+@Since("1.0")
+public class EffGreen extends Effect {
+
+    private Expression<Location> location;
+    private Expression<Number> radius;
 
     static {
-        Skript.registerEffect(EffGreen.class, "(green|grass)[ify] %direction% %location% (in|within) [a] radius [of] %number%");
+        Skript.registerEffect(EffGreen.class, "(green|grass)[ify] at %location% (in|within) [a] radius [of] %number%");
+    }
+
+    public boolean init(Expression<?>[] expressions, int matchedPattern, Kleenean isDelayed, SkriptParser.ParseResult parseResult) {
+
+        location = (Expression<Location>) expressions[0];
+        radius = (Expression<Number>) expressions[1];
+
+        return true;
     }
 
     @Override
-    @SuppressWarnings("unchecked")
     protected void execute(Event e) {
-        Location location = Direction.combine((Expression<Direction>) expressions[0], (Expression<Location>) expressions[1]).getSingle(e);
-        Number radius = (Number) expressions[2].getSingle(e);
+        Location location = this.location.getSingle(e);
+        Number radius = this.radius.getSingle(e);
 
         if (radius == null || location == null) {
             return;
@@ -38,6 +51,6 @@ public class EffGreen extends SkematicEffect {
 
     @Override
     public String toString(Event e, boolean debug) {
-        return "grassify " + expressions[0].toString(e, debug) + " with radius " + expressions[1].toString(e, debug);
+        return "grassify " + location.toString(e, debug) + " with radius " + radius.toString(e, debug);
     }
 }

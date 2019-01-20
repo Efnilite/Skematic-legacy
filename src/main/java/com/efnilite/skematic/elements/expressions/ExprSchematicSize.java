@@ -3,33 +3,29 @@ package com.efnilite.skematic.elements.expressions;
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
-import com.boydti.fawe.FaweAPI;
-import com.efnilite.skematic.lang.SkematicPropertyExpression;
-import com.efnilite.skematic.lang.annotations.PropertyExpression;
-import com.efnilite.skematic.lang.annotations.Return;
+import ch.njol.skript.doc.Since;
+import ch.njol.skript.expressions.base.SimplePropertyExpression;
+import com.efnilite.skematic.objects.Schematic;
 import com.sk89q.worldedit.Vector;
-
-import java.io.File;
-import java.io.IOException;
 
 @Name("Schematic size")
 @Description("Gets the size of a schematic.")
 @Examples("set {_size} to the size of skematic \"plugins/WorldEdit/skematic.schematic\"")
-@Return(Vector.class)
-@PropertyExpression
-public class ExprSchematicSize extends SkematicPropertyExpression<String, Vector> {
+@Since("1.0")
+public class ExprSchematicSize extends SimplePropertyExpression<Schematic, Vector> {
 
     static {
-        register(ExprSchematicSize.class, Vector.class, "[(skematic|fawe)] [s(ch|k)em[atic]] dimensions", "strings");
+        register(ExprSchematicSize.class, Vector.class, "[(skematic|fawe)] [s(ch|k)em[atic]] dimensions", "schematics");
     }
 
     @Override
-    public Vector convert(final String f) {
-        try {
-            return FaweAPI.load(new File(f)).getClipboard().getDimensions();
-        } catch (IOException e) {
-            return null;
-        }
+    public Vector convert(Schematic schematic) {
+        return schematic.getClipboard().getDimensions();
+    }
+
+    @Override
+    public Class<? extends Vector> getReturnType() {
+        return Vector.class;
     }
 
     @Override

@@ -1,26 +1,24 @@
 package com.efnilite.skematic.elements;
 
 import ch.njol.skript.classes.ClassInfo;
-import ch.njol.skript.classes.Converter;
 import ch.njol.skript.classes.Parser;
 import ch.njol.skript.expressions.base.EventValueExpression;
 import ch.njol.skript.lang.ParseContext;
 import ch.njol.skript.registrations.Classes;
-import ch.njol.skript.registrations.Converters;
 import ch.njol.skript.util.EnumUtils;
-import com.efnilite.skematic.lang.PasteOptions;
-import com.efnilite.skematic.lang.queue.SchematicData;
+import com.efnilite.skematic.objects.PasteOptions;
+import com.efnilite.skematic.objects.Schematic;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormat;
 import com.sk89q.worldedit.regions.CuboidRegion;
-import org.eclipse.jdt.annotation.Nullable;
-
-import java.io.File;
 
 public class Types {
 
     static {
         Classes.registerClass(new ClassInfo<>(CuboidRegion.class, "cuboidregion")
                 .user("cuboidregions?")
+                .name("CuboidRegion")
+                .description("A virtual region selection.")
+                .since("1.0")
                 .parser(new Parser<CuboidRegion>() {
 
                     @Override
@@ -35,79 +33,60 @@ public class Types {
 
                     @Override
                     public String toString(CuboidRegion o, int flags) {
-                        return null;
+                        return o.toString();
                     }
 
                     @Override
                     public String toVariableNameString(CuboidRegion o) {
-                        return o.toString();
+                        return "cuboidregion:" + o.toString();
                     }
 
                     @Override
                     public String getVariableNamePattern() {
-                        return "\\S+";
+                        return "cuboidregion:<(.+)>";
                     }
                 }));
 
-        /*Classes.registerClass(new ClassInfo<>(File.class, "schematic")
-                .user("skematics?")
-                .parser(new Parser<File>() {
+        Classes.registerClass(new ClassInfo<>(Schematic.class, "schematic")
+                .user("schematics?")
+                .name("Schematic")
+                .description("A schematic file.")
+                .since("2.0")
+                .parser(new Parser<Schematic>() {
 
                     @Override
-                    public File parse(String s, ParseContext context) {
-                        return new File(s);
-                    }
-
-                    @Override
-                    public String toString(File o, int flags) {
+                    public Schematic parse(final String s, final ParseContext context) {
                         return null;
                     }
 
                     @Override
-                    public String toVariableNameString(File o) {
-                        return o.toString();
-                    }
-
-                    @Override
-                    public String getVariableNamePattern() {
-                        return "\\S+";
-                    }
-                }));*/
-
-        Classes.registerClass(new ClassInfo<>(SchematicData.class, "schematicdata")
-                .user("s(k|ch)ematicdatas?")
-                .parser(new Parser<SchematicData>() {
-
-                    @Override
-                    public SchematicData parse(String s, ParseContext context) {
-                        return null;
-                    }
-
-                    @Override
-                    public boolean canParse(ParseContext context) {
+                    public boolean canParse(final ParseContext context) {
                         return false;
                     }
 
                     @Override
-                    public String toString(SchematicData o, int flags) {
-                        return null;
+                    public String toString(final Schematic o, int flags) {
+                        return o.getFile().getPath();
                     }
 
                     @Override
-                    public String toVariableNameString(SchematicData o) {
-                        return o.toString();
+                    public String toVariableNameString(final Schematic o) {
+                        return "schematic:" + o.getFile().getPath();
                     }
 
                     @Override
                     public String getVariableNamePattern() {
-                        return "\\S+";
+                        return "schematic:<(.+)>";
                     }
                 }));
 
-
         EnumUtils<PasteOptions> pasteOptions = new EnumUtils<>(PasteOptions.class, "pasteoption");
         Classes.registerClass(new ClassInfo<>(PasteOptions.class, "pasteoption")
+                .defaultExpression(new EventValueExpression<>(PasteOptions.class))
                 .user("pasteoptions?")
+                .name("Paste Options")
+                .description("Options to change how you paste a schematic/cuboidregion.")
+                .since("2.0")
                 .parser(new Parser<PasteOptions>() {
 
                     @Override
@@ -122,23 +101,25 @@ public class Types {
 
                     @Override
                     public String toVariableNameString(PasteOptions o) {
-                        return o.name();
+                        return "pasteoptions:" + o.name();
                     }
 
                     @Override
                     public String getVariableNamePattern() {
-                        return "\\S+";
+                        return "pasteoptions:<(.+)>";
                     }
                 }));
 
         EnumUtils<ClipboardFormat> clipboardFormats = new EnumUtils<>(ClipboardFormat.class, "schematicformat");
         Classes.registerClass(new ClassInfo<>(ClipboardFormat.class, "schematicformat")
-                .user("schematicformats?")
                 .defaultExpression(new EventValueExpression<>(ClipboardFormat.class))
+                .user("schematicformats?")
+                .name("Schematic Format")
+                .description("The format schematics are saved in.")
+                .since("2.0")
                 .parser(new Parser<ClipboardFormat>() {
 
                     @Override
-                    @Nullable
                     public ClipboardFormat parse(String s, ParseContext context) {
                         return clipboardFormats.parse(s);
                     }
@@ -150,22 +131,14 @@ public class Types {
 
                     @Override
                     public String toVariableNameString(ClipboardFormat o) {
-                        return o.name();
+                        return "clipboardformat:" + o.name();
                     }
 
                     @Override
                     public String getVariableNamePattern() {
-                        return "\\S+";
+                        return "clipboardformat:<(.+)>";
                     }
 
                 }));
-
-        Converters.registerConverter(String.class, File.class, (Converter<String, File>) s ->
-                new File(s)
-        );
-
-        Converters.registerConverter(File.class, String.class, (Converter<File, String>) s ->
-                s.toString()
-        );
     }
 }

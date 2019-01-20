@@ -49,10 +49,10 @@ public class ExprCuboidRegion extends SimpleExpression<CuboidRegion> {
             return null;
         }
 
-        if (this.location1 instanceof Block && this.location2 instanceof Block) {
+        if (this.location1.getSingle(e) instanceof Block && this.location2.getSingle(e) instanceof Block) {
             location1 = ((Block) this.location1.getSingle(e)).getLocation();
             location2 = ((Block) this.location2.getSingle(e)).getLocation();
-        } else if (this.location1 instanceof Location && this.location2 instanceof Location) {
+        } else if (this.location1.getSingle(e) instanceof Location && this.location2.getSingle(e) instanceof Location) {
             location1 = (Location) this.location1.getSingle(e);
             location2 = (Location) this.location2.getSingle(e);
         } else {

@@ -10,7 +10,7 @@ import ch.njol.skript.lang.SkriptParser;
 import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
 import com.efnilite.skematic.objects.Schematic;
-import com.efnilite.skematic.objects.SchematicCache;
+import com.efnilite.skematic.objects.SchematicLoader;
 import org.bukkit.event.Event;
 
 @Name("Last loaded schematic")
@@ -29,7 +29,7 @@ public class ExprLastLoadedSchematic extends SimpleExpression<Schematic> {
 
     @Override
     protected Schematic[] get(Event e) {
-        return new Schematic[] { SchematicCache.getLastLoaded() };
+        return new Schematic[] { SchematicLoader.getLastLoaded() };
     }
 
     @Override

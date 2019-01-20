@@ -9,6 +9,7 @@ import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
+import com.efnilite.skematic.objects.SchematicLoader;
 import com.efnilite.skematic.objects.PasteOptions;
 import com.efnilite.skematic.objects.Schematic;
 import com.efnilite.skematic.utils.FaweUtils;
@@ -20,7 +21,9 @@ import com.sk89q.worldedit.world.DataException;
 import org.bukkit.Location;
 import org.bukkit.event.Event;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -31,19 +34,19 @@ import java.util.Set;
 @Since("1.0")
 public class EffSchematicPaste extends Effect {
 
-    private Expression<Schematic> schematic;
+    private Expression<?> schematic;
     private Expression<Location> location;
     private Expression<PasteOptions> options;
     private Expression<Number> angle;
 
     static {
-        Skript.registerEffect(EffSchematicPaste.class, "paste [the] s(ch|k)em[atic] %schematics% at %location% [ignoring %-pasteoptions%] [[with] angle %-number%]");
+        Skript.registerEffect(EffSchematicPaste.class, "paste [the] s(ch|k)em[atic] %strings/schematics% at %location% [ignoring %-pasteoptions%] [[with] angle %-number%]");
     }
 
     @Override
     public boolean init(Expression<?>[] expressions, int i, Kleenean kleenean, SkriptParser.ParseResult parseResult) {
 
-        schematic = (Expression<Schematic>) expressions[0];
+        schematic = expressions[0];
         location = (Expression<Location>) expressions[1];
         options = (Expression<PasteOptions>) expressions[2];
         angle = (Expression<Number>) expressions[3];
@@ -54,12 +57,28 @@ public class EffSchematicPaste extends Effect {
     @Override
     @SuppressWarnings({"deprecation", "ConstantConditions"})
     protected void execute(Event e) {
-        Schematic schematic = this.schematic.getSingle(e);
         Location location = this.location.getSingle(e);
         PasteOptions[] options = this.options != null ? this.options.getArray(e) : new PasteOptions[] { PasteOptions.DEFAULT };
         Number angle = this.angle != null ? this.angle.getSingle(e) : null;
 
-        if (schematic == null || location == null || options == null) {
+        if (this.schematic == null || location == null || options == null) {
+            return;
+        }
+
+        Schematic schematic;
+        if (this.schematic.getSingle(e) instanceof String) {
+            String file = (String) this.schematic.getSingle(e);
+            if (SchematicLoader.getSchematics().containsKey(file)) {
+                schematic = SchematicLoader.get(file);
+            } else if (Paths.get(file).toFile().exists()) {
+                schematic = new Schematic(new File(file));
+            } else {
+                Skript.error("Schematic " + file + " doesn't exist!");
+                return;
+            }
+        } else if (this.schematic.getSingle(e) instanceof Schematic) {
+            schematic = (Schematic) this.schematic.getSingle(e);
+        } else {
             return;
         }
 

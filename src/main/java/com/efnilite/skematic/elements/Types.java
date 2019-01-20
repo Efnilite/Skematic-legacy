@@ -43,7 +43,7 @@ public class Types {
 
                     @Override
                     public String getVariableNamePattern() {
-                        return "cuboidregion:<(.+)>";
+                        return "cuboidregion:.+";
                     }
                 }));
 
@@ -76,7 +76,7 @@ public class Types {
 
                     @Override
                     public String getVariableNamePattern() {
-                        return "schematic:<(.+)>";
+                        return "schematic:.+";
                     }
                 }));
 
@@ -106,7 +106,7 @@ public class Types {
 
                     @Override
                     public String getVariableNamePattern() {
-                        return "pasteoptions:<(.+)>";
+                        return "pasteoptions:.+";
                     }
                 }));
 
@@ -136,7 +136,7 @@ public class Types {
 
                     @Override
                     public String getVariableNamePattern() {
-                        return "clipboardformat:<(.+)>";
+                        return "clipboardformat:.+";
                     }
 
                 }));

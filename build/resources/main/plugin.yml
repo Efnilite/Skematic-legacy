@@ -3,5 +3,4 @@ version: 2.0
 author: Efnilite
 main: com.efnilite.skematic.Skematic
 api-version: 1.13
-depend: [Skript, FastAsyncWorldEdit]
 website: https://forums.skunity.com/resources/skematic.671/

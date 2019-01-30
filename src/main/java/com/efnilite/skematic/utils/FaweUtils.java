@@ -10,6 +10,7 @@ import com.sk89q.worldedit.blocks.BaseBlock;
 import com.sk89q.worldedit.function.pattern.BlockPattern;
 import com.sk89q.worldedit.function.pattern.Pattern;
 import com.sk89q.worldedit.function.pattern.RandomPattern;
+import com.sk89q.worldedit.regions.CuboidRegion;
 import com.sk89q.worldedit.world.World;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -82,6 +83,15 @@ public class FaweUtils {
         } catch (IOException e) {
             return null;
         }
+    }
+
+    /**
+     * Gets a Schematic from a cuboid
+     * @param cuboid the cuboid needing to be changed
+     * @return a schematic
+     */
+    public static Schematic toSchematic(CuboidRegion cuboid) {
+        return new Schematic(cuboid);
     }
 
 }

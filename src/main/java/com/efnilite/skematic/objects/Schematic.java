@@ -34,16 +34,30 @@ public class Schematic {
     }
 
     public void paste(World world, Vector vector, Set<PasteOptions> options) {
-        FaweUtils.toSchematic(file).paste(world,
-                vector,
-                false,
-                !options.contains(PasteOptions.AIR),
-                !options.contains(PasteOptions.ENTITIES),
-                null);
+        if (file == null) {
+            CuboidRegion cuboid = new CuboidRegion(clipboard.getRegion().getWorld(), clipboard.getMaximumPoint(), clipboard.getMinimumPoint());
+            FaweUtils.toSchematic(cuboid).paste(world,
+                    vector,
+                    false,
+                    !options.contains(PasteOptions.AIR),
+                    !options.contains(PasteOptions.ENTITIES),
+                    null);
+        } else {
+            FaweUtils.toSchematic(file).paste(world,
+                    vector,
+                    false,
+                    !options.contains(PasteOptions.AIR),
+                    !options.contains(PasteOptions.ENTITIES),
+                    null);
+        }
     }
 
     public void save(File file, ClipboardFormat format) {
-        new Schematic(file).save(file, format);
+        try {
+            FaweUtils.toSchematic(file).save(file, format);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public String getName() {

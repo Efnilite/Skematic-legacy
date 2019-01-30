@@ -35,4 +35,7 @@ public class Skematic extends JavaPlugin {
         return instance;
     }
 
+    public static SkriptAddon getAddon() {
+        return addon;
+    }
 }

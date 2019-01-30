@@ -18,7 +18,6 @@ import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.MaxChangedBlocksException;
 import com.sk89q.worldedit.Vector;
 import com.sk89q.worldedit.world.DataException;
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.event.Event;
 

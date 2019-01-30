@@ -7,4 +7,3 @@ schematicformat:
 pasteoption:
     air: air
     entities: entities, mobs, animals
-    biomes: biomes, biome

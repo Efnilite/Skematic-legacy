@@ -51,7 +51,7 @@ public class Types {
                 .user("schematics?")
                 .name("Schematic")
                 .description("A schematic file.")
-                .since("2.0")
+                .since("2.1")
                 .parser(new Parser<Schematic>() {
 
                     @Override
@@ -85,8 +85,8 @@ public class Types {
                 .defaultExpression(new EventValueExpression<>(PasteOptions.class))
                 .user("pasteoptions?")
                 .name("Paste Options")
-                .description("Options to change how you paste a schematic/cuboidregion.")
-                .since("2.0")
+                .description("Options to change how you paste a schematic/cuboidregion. Current options: air, entities")
+                .since("2.1")
                 .parser(new Parser<PasteOptions>() {
 
                     @Override

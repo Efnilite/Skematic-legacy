@@ -11,8 +11,12 @@ import ch.njol.skript.lang.SkriptParser;
 import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
 import com.efnilite.skematic.objects.Schematic;
+import com.efnilite.skematic.objects.SchematicLoader;
 import com.sk89q.worldedit.Vector;
 import org.bukkit.event.Event;
+
+import java.io.File;
+import java.nio.file.Paths;
 
 @Name("Schematic dimensions")
 @Description("Gets one of the schematic dimensions (width, length or height)")
@@ -21,7 +25,7 @@ import org.bukkit.event.Event;
 public class ExprSchematicArea extends SimpleExpression<Number> {
 
     private int mark;
-    private Expression<Schematic> schematic;
+    private Expression<?> schematic;
 
     static {
         Skript.registerExpression(ExprSchematicArea.class, Number.class, ExpressionType.PROPERTY, "[the] [(skematic|fawe)] (1¦width|2¦height|3¦length|4¦floor[(-| )]size) of [the] s(ch|k)em[atic] %schematics%");
@@ -30,16 +34,27 @@ public class ExprSchematicArea extends SimpleExpression<Number> {
     @Override
     public boolean init(Expression<?>[] expressions, int i, Kleenean kleenean, SkriptParser.ParseResult parseResult) {
 
-        schematic = (Expression<Schematic>) expressions[0];
+        schematic = expressions[0];
 
         return true;
     }
 
     @Override
     protected Number[] get(Event e) {
-        Schematic schematic = this.schematic.getSingle(e);
-
-        if (schematic == null) {
+        Schematic schematic;
+        if (this.schematic.getSingle(e) instanceof String) {
+            String file = (String) this.schematic.getSingle(e);
+            if (SchematicLoader.getSchematics().containsKey(file)) {
+                schematic = SchematicLoader.get(file);
+            } else if (Paths.get(file).toFile().exists()) {
+                schematic = new Schematic(new File(file));
+            } else {
+                Skript.error("Schematic " + file + " doesn't exist!");
+                return null;
+            }
+        } else if (this.schematic.getSingle(e) instanceof Schematic) {
+            schematic = (Schematic) this.schematic.getSingle(e);
+        } else {
             return null;
         }
 

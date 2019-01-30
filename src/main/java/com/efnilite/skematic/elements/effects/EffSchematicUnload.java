@@ -12,8 +12,8 @@ import ch.njol.util.Kleenean;
 import com.efnilite.skematic.objects.SchematicLoader;
 import org.bukkit.event.Event;
 
-@Name("Load schematic")
-@Description("Load a schematic file (and store it in a variable)")
+@Name("Unload schematic")
+@Description("Unload a saved schematic")
 @Examples("unload skematic \"loaded-schematic\"")
 @Since("2.1")
 public class EffSchematicUnload extends AsyncEffect {

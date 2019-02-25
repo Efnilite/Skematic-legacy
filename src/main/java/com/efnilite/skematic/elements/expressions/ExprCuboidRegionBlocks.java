@@ -31,8 +31,8 @@ public class ExprCuboidRegionBlocks extends SimpleExpression<ItemType> {
     private Expression<CuboidRegion> cuboid;
 
     static {
-        Skript.registerExpression(ExprCuboidRegionBlocks.class, ItemType.class, ExpressionType.PROPERTY, "[all] [of] [the] [skematic] blocks in %cuboidregions%",
-                "[all] [of] %cuboidregions%'s [skematic] blocks");
+        Skript.registerExpression(ExprCuboidRegionBlocks.class, ItemType.class, ExpressionType.PROPERTY, "[(all [[of] the]|the)] [skematic] blocks in %cuboidregions%",
+                "[(all [[of] the]|the)] %cuboidregions%'[s] [skematic] blocks");
     }
 
     @Override
@@ -60,7 +60,7 @@ public class ExprCuboidRegionBlocks extends SimpleExpression<ItemType> {
         }
 
         for (Countable<BlockStateHolder> block : blocks) {
-            materials.add(new ItemType(new ItemStack(Material.valueOf(block.getID().getBlockType().getName()))));
+            materials.add(new ItemType(new ItemStack(Material.valueOf(block.getID().getBlockType().getName().replace(" ", "_").toUpperCase()))));
         }
 
         return materials.toArray(new ItemType[0]);

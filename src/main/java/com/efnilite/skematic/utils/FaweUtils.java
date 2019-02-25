@@ -84,14 +84,4 @@ public class FaweUtils {
             return null;
         }
     }
-
-    /**
-     * Gets a Schematic from a cuboid
-     * @param cuboid the cuboid needing to be changed
-     * @return a schematic
-     */
-    public static Schematic toSchematic(CuboidRegion cuboid) {
-        return new Schematic(cuboid);
-    }
-
 }

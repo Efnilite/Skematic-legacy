@@ -4,6 +4,7 @@ public enum PasteOptions {
 
     AIR,
     ENTITIES,
+    BIOMES,
     DEFAULT
 
 }

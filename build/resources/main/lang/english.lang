@@ -1,4 +1,4 @@
-version: 2.0
+version: 2.2
 schematicformat:
     schematic: schematic, mcedit, mce
     structure: structure, nbt
@@ -7,3 +7,4 @@ schematicformat:
 pasteoption:
     air: air
     entities: entities, mobs, animals
+    biomes: biome, biomes

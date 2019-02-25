@@ -1,7 +1,7 @@
 import org.apache.tools.ant.filters.ReplaceTokens
 
 group 'com.efnilite.skematic'
-version '2.1'
+version '2.2'
 
 apply plugin: 'java'
 
@@ -17,9 +17,6 @@ repositories {
     }
     maven {
         url 'https://ci.athion.net/job/FAWE-1.13/ws/mvn/'
-    }
-    maven {
-        url 'https://oss.sonatype.org/content/groups/public/'
     }
 }
 

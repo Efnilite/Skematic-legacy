@@ -1,6 +1,5 @@
 package com.efnilite.skematic.objects;
 
-import com.boydti.fawe.FaweAPI;
 import com.boydti.fawe.object.clipboard.ReadOnlyClipboard;
 import com.efnilite.skematic.utils.FaweUtils;
 import com.sk89q.worldedit.Vector;
@@ -8,6 +7,7 @@ import com.sk89q.worldedit.extent.clipboard.BlockArrayClipboard;
 import com.sk89q.worldedit.extent.clipboard.Clipboard;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormat;
 import com.sk89q.worldedit.regions.CuboidRegion;
+import com.sk89q.worldedit.session.ClipboardHolder;
 import com.sk89q.worldedit.world.World;
 
 import java.io.File;
@@ -21,11 +21,7 @@ public class Schematic {
 
     public Schematic(File file) {
         this.file = file;
-        try {
-            this.clipboard = FaweAPI.load(file).getClipboard();
-        } catch (IOException e) {
-            this.clipboard = null;
-        }
+        this.clipboard = FaweUtils.toSchematic(file).getClipboard();
     }
 
     public Schematic(CuboidRegion cuboid) {
@@ -34,22 +30,13 @@ public class Schematic {
     }
 
     public void paste(World world, Vector vector, Set<PasteOptions> options) {
-        if (file == null) {
-            CuboidRegion cuboid = new CuboidRegion(clipboard.getRegion().getWorld(), clipboard.getMaximumPoint(), clipboard.getMinimumPoint());
-            FaweUtils.toSchematic(cuboid).paste(world,
-                    vector,
-                    false,
-                    !options.contains(PasteOptions.AIR),
-                    !options.contains(PasteOptions.ENTITIES),
-                    null);
-        } else {
-            FaweUtils.toSchematic(file).paste(world,
-                    vector,
-                    false,
-                    !options.contains(PasteOptions.AIR),
-                    !options.contains(PasteOptions.ENTITIES),
-                    null);
-        }
+        new ClipboardHolder(clipboard)
+                .createPaste(world)
+                .to(vector)
+                .ignoreAirBlocks(!options.contains(PasteOptions.AIR))
+                .ignoreEntities(!options.contains(PasteOptions.ENTITIES))
+                .ignoreBiomes(!options.contains(PasteOptions.BIOMES))
+                .build();
     }
 
     public void save(File file, ClipboardFormat format) {

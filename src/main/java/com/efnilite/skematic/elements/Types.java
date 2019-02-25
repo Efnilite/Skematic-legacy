@@ -85,7 +85,7 @@ public class Types {
                 .defaultExpression(new EventValueExpression<>(PasteOptions.class))
                 .user("pasteoptions?")
                 .name("Paste Options")
-                .description("Options to change how you paste a schematic/cuboidregion. Current options: air, entities")
+                .description("Options to change how you paste a schematic/cuboidregion. Current options: air, entities and biomes")
                 .since("2.1")
                 .parser(new Parser<PasteOptions>() {
 

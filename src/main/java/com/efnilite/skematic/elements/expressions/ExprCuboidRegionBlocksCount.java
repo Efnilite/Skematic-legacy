@@ -61,7 +61,7 @@ public class ExprCuboidRegionBlocksCount extends SimpleExpression<Number> {
         List<Countable<BlockStateHolder>> blocks = session.getBlockDistributionWithData(cuboid);
 
         for (Countable<BlockStateHolder> block : blocks) {
-            if (Material.getMaterial(block.getID().getBlockType().getName()) == item.getRandom().getType()) {
+            if (Material.getMaterial(block.getID().getBlockType().getName().replace(" ", "_").toUpperCase()) == item.getRandom().getType()) {
                 return new Number[] { block.getAmount() };
             }
         }

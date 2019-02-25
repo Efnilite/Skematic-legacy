@@ -5,7 +5,6 @@ import ch.njol.skript.doc.Name;
 import ch.njol.skript.doc.Since;
 import ch.njol.skript.expressions.base.SimplePropertyExpression;
 import com.boydti.fawe.FaweAPI;
-import com.sk89q.worldedit.IncompleteRegionException;
 import com.sk89q.worldedit.LocalSession;
 import com.sk89q.worldedit.regions.CuboidRegion;
 import com.sk89q.worldedit.regions.Region;
@@ -23,12 +22,8 @@ public class ExprSelection extends SimplePropertyExpression<Player, CuboidRegion
     @Override
     public CuboidRegion convert(Player p) {
         LocalSession session = FaweAPI.wrapPlayer(p).getSession();
-        try {
-            Region selection = session.getSelection(session.getSelectionWorld());
-            return new CuboidRegion(selection.getWorld(), selection.getMaximumPoint(), selection.getMaximumPoint());
-        } catch (IncompleteRegionException e) {
-            return null;
-        }
+        Region selection = session.getSelection(session.getSelectionWorld());
+        return new CuboidRegion(selection.getWorld(), selection.getMaximumPoint(), selection.getMaximumPoint());
     }
 
     @Override

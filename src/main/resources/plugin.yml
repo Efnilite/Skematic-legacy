@@ -1,6 +1,6 @@
 name: Skematic
 description: The Skript addon for FAWE.
-version: 2.1
+version: 2.2
 author: Efnilite
 main: com.efnilite.skematic.Skematic
 api-version: 1.13

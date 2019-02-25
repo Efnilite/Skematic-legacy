@@ -5,3 +5,5 @@ author: Efnilite
 main: com.efnilite.skematic.Skematic
 api-version: 1.13
 website: https://forums.skunity.com/resources/skematic.671/
+depend: Skript
+softdepend: FastAsyncWorldEdit

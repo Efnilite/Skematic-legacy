@@ -14,9 +14,9 @@ public class Skematic extends JavaPlugin {
     @Override
     public void onEnable() {
 
-        if (getServer().getPluginManager().getPlugin("Skript") == null || getServer().getPluginManager().getPlugin("FastAsyncWorldEdit") == null) {
+        if (getServer().getPluginManager().getPlugin("FastAsyncWorldEdit") == null) {
 
-            getLogger().warning("You need Skript and FastAsyncWorldEdit for Skematic to work! Disabling..");
+            getLogger().severe("You need FastAsyncWorldEdit for Skematic to work! Disabling..");
 
             getServer().getPluginManager().disablePlugin(this);
             return;

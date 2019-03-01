@@ -16,7 +16,7 @@ public class Types {
     static {
         Classes.registerClass(new ClassInfo<>(CuboidRegion.class, "cuboidregion")
                 .user("cuboidregions?")
-                .name("CuboidRegion")
+                .name("Cuboidregion")
                 .description("A virtual region selection.")
                 .since("1.0")
                 .parser(new Parser<CuboidRegion>() {

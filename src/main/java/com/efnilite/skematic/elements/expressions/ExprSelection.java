@@ -2,10 +2,9 @@ package com.efnilite.skematic.elements.expressions;
 
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Name;
+import ch.njol.skript.doc.Since;
+import ch.njol.skript.expressions.base.SimplePropertyExpression;
 import com.boydti.fawe.FaweAPI;
-import com.efnilite.skematic.lang.SkematicPropertyExpression;
-import com.efnilite.skematic.lang.annotations.PropertyExpression;
-import com.efnilite.skematic.lang.annotations.Return;
 import com.sk89q.worldedit.IncompleteRegionException;
 import com.sk89q.worldedit.LocalSession;
 import com.sk89q.worldedit.regions.CuboidRegion;
@@ -14,23 +13,28 @@ import org.bukkit.entity.Player;
 
 @Name("Selection")
 @Description("Gets the selection of a player (region)")
-@Return(CuboidRegion.class)
-@PropertyExpression
-public class ExprSelection extends SkematicPropertyExpression<Player, CuboidRegion> {
+@Since("1.0")
+public class ExprSelection extends SimplePropertyExpression<Player, CuboidRegion> {
 
     static {
         register(ExprSelection.class, CuboidRegion.class, "[(skematic|fawe)] selection[s]", "players");
     }
 
     @Override
-    public CuboidRegion convert(final Player p) {
+    public CuboidRegion convert(Player p) {
         LocalSession session = FaweAPI.wrapPlayer(p).getSession();
         try {
             Region selection = session.getSelection(session.getSelectionWorld());
-            return new CuboidRegion(selection.getWorld(), selection.getMaximumPoint(), selection.getMinimumPoint());
+            return new CuboidRegion(selection.getWorld(), selection.getMaximumPoint(), selection.getMaximumPoint());
         } catch (IncompleteRegionException e) {
+            e.printStackTrace();
             return null;
         }
+    }
+
+    @Override
+    public Class<? extends CuboidRegion> getReturnType() {
+        return CuboidRegion.class;
     }
 
     @Override

@@ -4,31 +4,41 @@ import ch.njol.skript.Skript;
 import ch.njol.skript.classes.Changer;
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Name;
+import ch.njol.skript.doc.Since;
+import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.ExpressionType;
+import ch.njol.skript.lang.SkriptParser;
+import ch.njol.skript.lang.util.SimpleExpression;
+import ch.njol.util.Kleenean;
 import ch.njol.util.coll.CollectionUtils;
 import com.boydti.fawe.example.NMSMappedFaweQueue;
 import com.boydti.fawe.util.SetQueue;
-import com.efnilite.skematic.lang.SkematicExpression;
-import com.efnilite.skematic.lang.annotations.Return;
-import com.efnilite.skematic.lang.annotations.Single;
 import com.efnilite.skematic.utils.FaweUtils;
 import org.bukkit.Location;
-import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
 @Name("Light level")
 @Description("Get the light level of a block.")
-@Return(Number.class)
-@Single
-public class ExprLightLevel extends SkematicExpression<Number> {
+@Since("1.0")
+public class ExprLightLevel extends SimpleExpression<Number> {
+
+    private Expression<Location> location;
 
     static {
         Skript.registerExpression(ExprLightLevel.class, Number.class, ExpressionType.PROPERTY, "[the] [(skematic|fawe)] [block(-| )]light of [the] [block] (at|of) %location%");
     }
 
     @Override
+    public boolean init(Expression<?>[] expressions, int i, Kleenean kleenean, SkriptParser.ParseResult parseResult) {
+
+        location = (Expression<Location>) expressions[0];
+
+        return true;
+    }
+
+    @Override
     protected Number[] get(Event e) {
-        Location location = (Location) expressions[0].getSingle(e);
+        Location location = this.location.getSingle(e);
 
         if (location == null) {
             return null;
@@ -40,7 +50,7 @@ public class ExprLightLevel extends SkematicExpression<Number> {
     @Override
     public Class<?>[] acceptChange(Changer.ChangeMode mode) {
         if (mode == Changer.ChangeMode.SET) {
-            return CollectionUtils.array(Player[].class);
+            return CollectionUtils.array(int[].class);
         }
         return null;
     }
@@ -48,17 +58,29 @@ public class ExprLightLevel extends SkematicExpression<Number> {
     @Override
     public void change(Event e, Object[] delta, Changer.ChangeMode mode) {
         if (mode == Changer.ChangeMode.SET) {
-            Location l = (Location) expressions[0].getSingle(e);
-            if (l == null) {
+            Location location = this.location.getSingle(e);
+
+            if (location == null) {
                 return;
             }
-            NMSMappedFaweQueue n = (NMSMappedFaweQueue) SetQueue.IMP.getNewQueue(FaweUtils.getWorld(l.getWorld().getName()), true, false);
-            n.setBlockLight(l.getBlockX(), l.getBlockY(), l.getBlockZ(), (int) delta[0]);
+
+            NMSMappedFaweQueue queue = (NMSMappedFaweQueue) SetQueue.IMP.getNewQueue(FaweUtils.getWorld(location.getWorld().getName()), true, false);
+            queue.setBlockLight(location.getBlockX(), location.getBlockY(), location.getBlockZ(), (int) delta[0]);
         }
     }
 
     @Override
+    public boolean isSingle() {
+        return true;
+    }
+
+    @Override
+    public Class<? extends Number> getReturnType() {
+        return Number.class;
+    }
+
+    @Override
     public String toString(Event e, boolean debug) {
-        return "block light at " + expressions[0].toString(e, debug);
+        return "block light at " + location.toString(e, debug);
     }
 }

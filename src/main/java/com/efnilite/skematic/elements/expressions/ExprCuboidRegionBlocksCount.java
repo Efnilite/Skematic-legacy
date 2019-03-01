@@ -5,10 +5,12 @@ import ch.njol.skript.aliases.ItemType;
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
+import ch.njol.skript.doc.Since;
+import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.ExpressionType;
-import com.efnilite.skematic.lang.SkematicExpression;
-import com.efnilite.skematic.lang.annotations.Return;
-import com.efnilite.skematic.lang.annotations.Single;
+import ch.njol.skript.lang.SkriptParser;
+import ch.njol.skript.lang.util.SimpleExpression;
+import ch.njol.util.Kleenean;
 import com.efnilite.skematic.utils.FaweUtils;
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.blocks.BaseBlock;
@@ -25,26 +27,36 @@ import java.util.List;
 @Examples({"command /glass:",
             "\ttrigger:",
             "\t\tsend \"%size of glass in player's selection%\""})
-@Return(Number.class)
-@Single
-public class ExprCuboidRegionBlocksCount extends SkematicExpression<Number> {
+@Since("2.0")
+public class ExprCuboidRegionBlocksCount extends SimpleExpression<Number> {
+
+    private Expression<ItemType> block;
+    private Expression<CuboidRegion> cuboid;
 
     static {
-        Skript.registerExpression(ExprCuboidRegionBlocksCount.class, Number.class, ExpressionType.PROPERTY, "[(skematic|fawe)] (size|amount) of %itemtypes% in [region] %cuboidregions%",
+        Skript.registerExpression(ExprCuboidRegionBlocksCount.class, Number.class, ExpressionType.PROPERTY,
+                "[(skematic|fawe)] (size|amount) of %itemtypes% in [region] %cuboidregions%",
                 "%cuboidregions%'[s] [(skematic|fawe)] (size|amount) of %itemtypes%");
     }
 
     @Override
-    @SuppressWarnings("deprecation")
+    public boolean init(Expression<?>[] expressions, int i, Kleenean kleenean, SkriptParser.ParseResult parseResult) {
+
+        block = (Expression<ItemType>) expressions[0];
+        cuboid = (Expression<CuboidRegion>) expressions[1];
+
+        return true;
+    }
+
+    @Override
     protected Number[] get(Event e) {
-        ItemType item = (ItemType) expressions[0].getSingle(e);
-        CuboidRegion cuboid = (CuboidRegion) expressions[1].getSingle(e);
+        ItemType item = this.block.getSingle(e);
+        CuboidRegion cuboid = this.cuboid.getSingle(e);
 
         if (cuboid == null || item == null) {
             return null;
         }
 
-        int count = 0;
         EditSession session = FaweUtils.getEditSession(Bukkit.getServer().getWorld(cuboid.getWorld().getName()));
         List<Countable<BaseBlock>> blocks = session.getBlockDistributionWithData(cuboid);
 
@@ -57,7 +69,17 @@ public class ExprCuboidRegionBlocksCount extends SkematicExpression<Number> {
     }
 
     @Override
+    public boolean isSingle() {
+        return true;
+    }
+
+    @Override
+    public Class<? extends Number> getReturnType() {
+        return Number.class;
+    }
+
+    @Override
     public String toString(Event e, boolean debug) {
-        return "get blocks of " + expressions[0].toString(e, debug) + " in " + expressions[1].toString(e, debug);
+        return "blocks of " + block.toString(e, debug) + " in " + cuboid.toString(e, debug);
     }
 }

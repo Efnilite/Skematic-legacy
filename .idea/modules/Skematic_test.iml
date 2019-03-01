@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.linked.project.id="Skematic:test" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" external.system.module.group="me.efnilite.skematic" external.system.module.type="sourceSet" external.system.module.version="2.0" type="JAVA_MODULE" version="4">
+<module external.linked.project.id="Skematic:test" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" external.system.module.group="me.efnilite.skematic" external.system.module.type="sourceSet" external.system.module.version="2.2" type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
     <output-test url="file://$MODULE_DIR$/../../out/test/classes" />
     <exclude-output />
@@ -10,7 +10,16 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../libs/FastAsyncWorldEdit-bukkit-18.09.16-b7f1ee3-1215-21.5.2_1.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../libs/FAWE.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../libs/Skript.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -21,7 +30,6 @@
     <orderEntry type="library" name="Gradle: com.boydti:fawe-api:latest" level="project" />
     <orderEntry type="library" name="Gradle: com.sk89q.worldedit:worldedit-bukkit:6.1.5" level="project" />
     <orderEntry type="library" name="Gradle: com.sk89q.worldedit:worldedit-core:6.1.4-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Gradle: org.reflections:reflections:0.9.9-RC1" level="project" />
     <orderEntry type="library" name="Gradle: com.google.code.findbugs:findbugs:2.0.3" level="project" />
     <orderEntry type="library" name="Gradle: commons-lang:commons-lang:2.6" level="project" />
     <orderEntry type="library" name="Gradle: com.googlecode.json-simple:json-simple:1.1.1" level="project" />
@@ -38,20 +46,19 @@
     <orderEntry type="library" name="Gradle: com.thoughtworks.paranamer:paranamer:2.6" level="project" />
     <orderEntry type="library" name="Gradle: com.sk89q.lib:jlibnoise:1.0.0" level="project" />
     <orderEntry type="library" name="Gradle: com.sk89q:jchronic:0.2.4a" level="project" />
-    <orderEntry type="library" name="Gradle: org.javassist:javassist:3.16.1-GA" level="project" />
-    <orderEntry type="library" name="Gradle: dom4j:dom4j:1.6.1" level="project" />
     <orderEntry type="library" name="Gradle: junit:junit:4.10" level="project" />
     <orderEntry type="library" name="Gradle: org.eclipse.jdt:org.eclipse.jdt.annotation:2.1.0" level="project" />
     <orderEntry type="library" name="Gradle: net.jcip:jcip-annotations:1.0" level="project" />
     <orderEntry type="library" name="Gradle: com.google.code.findbugs:bcel:2.0.1" level="project" />
     <orderEntry type="library" name="Gradle: com.google.code.findbugs:jFormatString:2.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: dom4j:dom4j:1.6.1" level="project" />
     <orderEntry type="library" name="Gradle: asm:asm-commons:3.3" level="project" />
     <orderEntry type="library" name="Gradle: asm:asm-tree:3.3" level="project" />
     <orderEntry type="library" name="Gradle: asm:asm:3.3" level="project" />
     <orderEntry type="library" name="Gradle: com.apple:AppleJavaExtensions:1.4" level="project" />
     <orderEntry type="library" name="Gradle: jaxen:jaxen:1.1.6" level="project" />
-    <orderEntry type="library" name="Gradle: xml-apis:xml-apis:1.0.b2" level="project" />
     <orderEntry type="library" name="Gradle: org.hamcrest:hamcrest-core:1.1" level="project" />
+    <orderEntry type="library" name="Gradle: xml-apis:xml-apis:1.0.b2" level="project" />
   </component>
   <component name="TestModuleProperties" production-module="Skematic_main" />
 </module>

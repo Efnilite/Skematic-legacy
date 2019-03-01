@@ -4,16 +4,24 @@ import ch.njol.skript.Skript;
 import ch.njol.skript.aliases.ItemType;
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Name;
-import com.efnilite.skematic.lang.SkematicEffect;
+import ch.njol.skript.doc.Since;
+import ch.njol.skript.lang.Effect;
+import ch.njol.skript.lang.Expression;
+import ch.njol.skript.lang.SkriptParser;
+import ch.njol.util.Kleenean;
 import com.efnilite.skematic.utils.FaweUtils;
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.regions.CuboidRegion;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Event;
 
-@Name("Shape - Line")
-@Description("Create a line between 2 locations")
-public class EffCuboidFaces extends SkematicEffect {
+@Name("Fill faces")
+@Description("Fill the faces of a cuboidregion with a pattern")
+@Since("2.1")
+public class EffCuboidFaces extends Effect {
+
+    private Expression<CuboidRegion> cuboid;
+    private Expression<ItemType> blocks;
 
     static {
         Skript.registerEffect(EffCuboidFaces.class, "fill faces of %cuboidregions% with %itemtypes%",
@@ -21,9 +29,18 @@ public class EffCuboidFaces extends SkematicEffect {
     }
 
     @Override
+    public boolean init(Expression<?>[] expressions, int i, Kleenean kleenean, SkriptParser.ParseResult parseResult) {
+
+        cuboid = (Expression<CuboidRegion>) expressions[0];
+        blocks = (Expression<ItemType>) expressions[1];
+
+        return true;
+    }
+
+    @Override
     protected void execute(Event e) {
-        CuboidRegion cuboid = (CuboidRegion) expressions[0].getSingle(e);
-        ItemType[] blocks = (ItemType[]) expressions[1].getAll(e);
+        CuboidRegion cuboid = this.cuboid.getSingle(e);
+        ItemType[] blocks = this.blocks.getArray(e);
 
         if (blocks == null || cuboid == null) {
             return;
@@ -36,6 +53,6 @@ public class EffCuboidFaces extends SkematicEffect {
 
     @Override
     public String toString(Event e, boolean debug) {
-        return "fill faces of " + expressions[0].toString(e, debug) + " with pattern " + expressions[1].toString(e, debug);
+        return "fill faces of " + cuboid.toString(e, debug) + " with pattern " + blocks.toString(e, debug);
     }
 }

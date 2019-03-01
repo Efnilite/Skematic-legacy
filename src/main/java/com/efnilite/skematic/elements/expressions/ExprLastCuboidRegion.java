@@ -4,10 +4,12 @@ import ch.njol.skript.Skript;
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
+import ch.njol.skript.doc.Since;
+import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.ExpressionType;
-import com.efnilite.skematic.lang.SkematicExpression;
-import com.efnilite.skematic.lang.annotations.Return;
-import com.efnilite.skematic.lang.annotations.Single;
+import ch.njol.skript.lang.SkriptParser;
+import ch.njol.skript.lang.util.SimpleExpression;
+import ch.njol.util.Kleenean;
 import com.sk89q.worldedit.regions.CuboidRegion;
 import org.bukkit.event.Event;
 
@@ -15,17 +17,31 @@ import org.bukkit.event.Event;
 @Description("Get the last created region.")
 @Examples({"create a new cuboidregion from {_location} to {_location-2}",
         "set {_region} to the last created region"})
-@Return(CuboidRegion.class)
-@Single
-public class ExprLastCuboidRegion extends SkematicExpression<CuboidRegion> {
+@Since("1.5")
+public class ExprLastCuboidRegion extends SimpleExpression<CuboidRegion> {
 
     static {
         Skript.registerExpression(ExprLastCuboidRegion.class, CuboidRegion.class, ExpressionType.PROPERTY, "[the] last[ly] created [(skematic|fawe)] [(cuboid|we|wordedit)][ ]region");
     }
 
     @Override
+    public boolean init(Expression<?>[] expressions, int i, Kleenean kleenean, SkriptParser.ParseResult parseResult) {
+        return true;
+    }
+
+    @Override
     protected CuboidRegion[] get(Event e) {
         return ExprCuboidRegion.getLastCuboidRegion();
+    }
+
+    @Override
+    public boolean isSingle() {
+        return true;
+    }
+
+    @Override
+    public Class<? extends CuboidRegion> getReturnType() {
+        return CuboidRegion.class;
     }
 
     @Override

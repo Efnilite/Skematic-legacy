@@ -2,29 +2,27 @@ package com.efnilite.skematic.elements.expressions;
 
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Name;
-import com.efnilite.skematic.lang.SkematicPropertyExpression;
-import com.efnilite.skematic.lang.annotations.PropertyExpression;
-import com.efnilite.skematic.lang.annotations.Return;
+import ch.njol.skript.doc.Since;
+import ch.njol.skript.expressions.base.SimplePropertyExpression;
 import com.sk89q.worldedit.regions.CuboidRegion;
 
 @Name("Selection area")
 @Description("Get the region area of a player's selection.")
-@Return(Number.class)
-@PropertyExpression
-public class ExprCuboidRegionArea extends SkematicPropertyExpression<CuboidRegion, Number> {
+@Since("2.0")
+public class ExprCuboidRegionArea extends SimplePropertyExpression<CuboidRegion, Number> {
 
     static {
         register(ExprCuboidRegionArea.class, Number.class, "area[s]", "cuboidregions");
     }
 
     @Override
-    public Number convert(final CuboidRegion r) {
+    public Number convert(CuboidRegion cuboid) {
+        return cuboid.getArea();
+    }
 
-        if (r == null) {
-            return null;
-        }
-
-        return r.getArea();
+    @Override
+    public Class<? extends Number> getReturnType() {
+        return Number.class;
     }
 
     @Override

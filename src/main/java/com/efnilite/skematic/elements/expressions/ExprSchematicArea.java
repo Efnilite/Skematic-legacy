@@ -4,46 +4,63 @@ import ch.njol.skript.Skript;
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
+import ch.njol.skript.doc.Since;
+import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.ExpressionType;
-import com.boydti.fawe.FaweAPI;
-import com.efnilite.skematic.lang.SkematicExpression;
-import com.efnilite.skematic.lang.annotations.Return;
-import com.efnilite.skematic.lang.annotations.Single;
+import ch.njol.skript.lang.SkriptParser;
+import ch.njol.skript.lang.util.SimpleExpression;
+import ch.njol.util.Kleenean;
+import com.efnilite.skematic.objects.Schematic;
+import com.efnilite.skematic.objects.SchematicLoader;
 import com.sk89q.worldedit.Vector;
 import org.bukkit.event.Event;
-import org.eclipse.jdt.annotation.Nullable;
 
 import java.io.File;
-import java.io.IOException;
+import java.nio.file.Paths;
 
 @Name("Schematic dimensions")
 @Description("Gets one of the schematic dimensions (width, length or height)")
-@Examples("set {_width} to the width of the skematic \"plugins/WorldEdit/skematic.schematic\"")
-@Return(Number.class)
-@Single
-public class ExprSchematicArea extends SkematicExpression<Number> {
+@Examples("set {_width} to the width of the skematic \"plugins/Transport/Berm.schematic\"")
+@Since("1.0")
+public class ExprSchematicArea extends SimpleExpression<Number> {
+
+    private int mark;
+    private Expression<?> schematic;
 
     static {
-        Skript.registerExpression(ExprSchematicArea.class, Number.class, ExpressionType.PROPERTY, "[the] [(skematic|fawe)] (1¦width|2¦height|3¦length|4¦floor[(-| )]size) of [the] s(ch|k)em[atic] %string%");
+        Skript.registerExpression(ExprSchematicArea.class, Number.class, ExpressionType.PROPERTY, "[the] [(skematic|fawe)] (1¦width|2¦height|3¦length|4¦floor[(-| )]size) of [the] s(ch|k)em[atic] %schematics%");
     }
 
     @Override
-    @Nullable
+    public boolean init(Expression<?>[] expressions, int i, Kleenean kleenean, SkriptParser.ParseResult parseResult) {
+
+        schematic = expressions[0];
+
+        return true;
+    }
+
+    @Override
     protected Number[] get(Event e) {
-        String s = (String) expressions[0].getSingle(e);
-
-        if (s == null) {
+        Schematic schematic;
+        if (this.schematic.getSingle(e) instanceof String) {
+            String file = (String) this.schematic.getSingle(e);
+            if (SchematicLoader.getSchematics().containsKey(file)) {
+                schematic = SchematicLoader.get(file);
+            } else if (Paths.get(file).toFile().exists()) {
+                schematic = new Schematic(new File(file));
+            } else {
+                Skript.error("Schematic " + file + " doesn't exist!");
+                return null;
+            }
+        } else if (this.schematic.getSingle(e) instanceof Schematic) {
+            schematic = (Schematic) this.schematic.getSingle(e);
+        } else {
             return null;
         }
 
-        Vector size;
-        try {
-            size = FaweAPI.load(new File(s)).getClipboard().getDimensions();
-        } catch (IOException exception) {
-            return null;
-        }
+        Vector size = schematic.getClipboard().getDimensions();
 
-        double t = 0;
+        double t;
         switch (mark) {
             case 1:
                 t = size.getY();
@@ -57,12 +74,25 @@ public class ExprSchematicArea extends SkematicExpression<Number> {
             case 4:
                 t = (size.getZ() * size.getX());
                 break;
+            default:
+                t = 0;
+                break;
         }
         return new Number[] { t };
     }
 
     @Override
+    public boolean isSingle() {
+        return true;
+    }
+
+    @Override
+    public Class<? extends Number> getReturnType() {
+        return Number.class;
+    }
+
+    @Override
     public String toString(Event e, boolean debug) {
-        return "areas of " + expressions[0].toString(e, debug);
+        return "areas of " + schematic.toString(e, debug);
     }
 }

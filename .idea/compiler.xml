@@ -2,6 +2,8 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
+      <module name="com.efnilite.skematic-Skematic_main" target="1.8" />
+      <module name="com.efnilite.skematic-Skematic_test" target="1.8" />
       <module name="Skematic_main" target="1.8" />
       <module name="Skematic_test" target="1.8" />
     </bytecodeTargetLevel>

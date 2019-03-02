@@ -5,6 +5,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/Skematic.iml" filepath="$PROJECT_DIR$/.idea/Skematic.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Skematic_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Skematic_main.iml" group="Skematic" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Skematic_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Skematic_test.iml" group="Skematic" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.efnilite.skematic-Skematic.iml" filepath="$PROJECT_DIR$/.idea/modules/com.efnilite.skematic-Skematic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.efnilite.skematic-Skematic_main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.efnilite.skematic-Skematic_main.iml" group="Skematic" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.efnilite.skematic-Skematic_test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.efnilite.skematic-Skematic_test.iml" group="Skematic" />
     </modules>
   </component>
 </project>

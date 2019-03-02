@@ -2,6 +2,8 @@ package com.efnilite.skematic;
 
 import ch.njol.skript.Skript;
 import ch.njol.skript.SkriptAddon;
+import com.efnilite.skematic.utils.Metrics;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.IOException;
@@ -10,6 +12,7 @@ public class Skematic extends JavaPlugin {
 
     private static Skematic instance;
     private static SkriptAddon addon;
+    private static Metrics metrics;
 
     @Override
     public void onEnable() {
@@ -29,6 +32,11 @@ public class Skematic extends JavaPlugin {
         } catch (IOException exception) {
             exception.printStackTrace();
         }
+
+        getLogger().info("Enabling Metrics..");
+        metrics = new Metrics(this);
+        metrics.addCustomChart(new Metrics.SimplePie("skript_version", () -> Bukkit.getPluginManager().getPlugin("Skript").getDescription().getVersion()));
+        metrics.addCustomChart(new Metrics.SimplePie("fawe_version", () -> Bukkit.getPluginManager().getPlugin("FastAsyncWorldEdit").getDescription().getVersion()));
     }
 
     public static Skematic getInstance() {

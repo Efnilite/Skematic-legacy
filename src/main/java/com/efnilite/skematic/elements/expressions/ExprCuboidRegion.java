@@ -19,8 +19,7 @@ import org.bukkit.event.Event;
 
 @Name("Create region")
 @Description("Create a virtual region (for saving schematics, etc.)")
-@Examples({"create a new cuboidregion from {_location} to {_location-2}",
-            "set {_region} to the last created region"})
+@Examples("set {_cool region} to a new cuboidregion from {_location} to {_location-2}")
 @Since("2.0")
 public class ExprCuboidRegion extends SimpleExpression<CuboidRegion> {
 
@@ -69,11 +68,9 @@ public class ExprCuboidRegion extends SimpleExpression<CuboidRegion> {
             world = location2.getWorld();
         }
 
-        CuboidRegion cuboid =  new CuboidRegion(FaweUtils.getWorld(world.getName()),
+        last = new CuboidRegion(FaweUtils.getWorld(world.getName()),
                 FaweUtils.toVector(location1),
                 FaweUtils.toVector(location2));
-
-        last = cuboid;
         return new CuboidRegion[] { last };
     }
 

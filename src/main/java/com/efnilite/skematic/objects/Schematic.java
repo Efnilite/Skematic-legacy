@@ -1,6 +1,5 @@
 package com.efnilite.skematic.objects;
 
-import ch.njol.skript.Metrics;
 import com.boydti.fawe.object.clipboard.ReadOnlyClipboard;
 import com.efnilite.skematic.utils.FaweUtils;
 import com.sk89q.worldedit.Vector;
@@ -8,13 +7,11 @@ import com.sk89q.worldedit.extent.clipboard.BlockArrayClipboard;
 import com.sk89q.worldedit.extent.clipboard.Clipboard;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormat;
 import com.sk89q.worldedit.regions.CuboidRegion;
-import com.sk89q.worldedit.session.ClipboardHolder;
 import com.sk89q.worldedit.world.World;
 import org.bukkit.Bukkit;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Set;
 
 public class Schematic {
@@ -33,13 +30,7 @@ public class Schematic {
     }
 
     public void paste(World world, Vector vector, Set<PasteOptions> options) {
-        new ClipboardHolder(clipboard, world.getWorldData())
-                .createPaste(clipboard, world.getWorldData())
-                .to(vector)
-                .ignoreAirBlocks(!options.contains(PasteOptions.AIR))
-                .ignoreEntities(!options.contains(PasteOptions.ENTITIES))
-                .ignoreBiomes(!options.contains(PasteOptions.BIOMES))
-                .build();
+        FaweUtils.toSchematic(clipboard).paste(world, vector, !options.contains(PasteOptions.AIR));
     }
 
     public void save(File file, ClipboardFormat format) {

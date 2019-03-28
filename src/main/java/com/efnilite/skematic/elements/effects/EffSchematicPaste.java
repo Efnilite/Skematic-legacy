@@ -9,6 +9,7 @@ import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
+import com.boydti.fawe.FaweAPI;
 import com.efnilite.skematic.objects.PasteOptions;
 import com.efnilite.skematic.objects.Schematic;
 import com.efnilite.skematic.objects.SchematicLoader;

@@ -7,10 +7,10 @@ import com.boydti.fawe.object.schematic.Schematic;
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.Vector;
 import com.sk89q.worldedit.blocks.BaseBlock;
+import com.sk89q.worldedit.extent.clipboard.Clipboard;
 import com.sk89q.worldedit.function.pattern.BlockPattern;
 import com.sk89q.worldedit.function.pattern.Pattern;
 import com.sk89q.worldedit.function.pattern.RandomPattern;
-import com.sk89q.worldedit.regions.CuboidRegion;
 import com.sk89q.worldedit.world.World;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -83,5 +83,14 @@ public class FaweUtils {
         } catch (IOException e) {
             return null;
         }
+    }
+
+    /**
+     * Creates a WE Schematic based of a CuboidRegion
+     * @param clipboard the cuboid to be transformed
+     * @return a schematic
+     */
+    public static Schematic toSchematic(Clipboard clipboard) {
+        return new Schematic(clipboard);
     }
 }

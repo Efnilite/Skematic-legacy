@@ -4,3 +4,5 @@ schematicformat:
     structure: structure, nbt
     png: png, image
     fawe: fawe
+pasteoption:
+    air: air, sky

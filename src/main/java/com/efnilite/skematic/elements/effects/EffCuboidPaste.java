@@ -13,11 +13,13 @@ import com.efnilite.skematic.objects.PasteOptions;
 import com.efnilite.skematic.objects.Schematic;
 import com.efnilite.skematic.utils.FaweUtils;
 import com.sk89q.worldedit.regions.CuboidRegion;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.event.Event;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.function.Consumer;
 
 @Name("Paste cuboidregion")
 @Description("Paste a cuboidregion at a location. This can be the player's selection, etc.")

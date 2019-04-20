@@ -5,7 +5,6 @@ import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Examples;
 import ch.njol.skript.doc.Name;
 import ch.njol.skript.doc.Since;
-import ch.njol.skript.expressions.base.SimplePropertyExpression;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
@@ -13,7 +12,7 @@ import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
 import com.efnilite.skematic.objects.Schematic;
 import com.efnilite.skematic.objects.SchematicLoader;
-import com.sk89q.worldedit.Vector;
+import com.sk89q.worldedit.math.BlockVector3;
 import org.bukkit.event.Event;
 
 import java.io.File;
@@ -23,13 +22,13 @@ import java.nio.file.Paths;
 @Description("Gets the size of a schematic.")
 @Examples("set {_size} to the size of skematic \"plugins/WorldEdit/ZAS.schematic\"")
 @Since("1.0")
-public class ExprSchematicSize extends SimpleExpression<Vector> {
+public class ExprSchematicSize extends SimpleExpression<BlockVector3> {
 
 
     private Expression<?> schematic;
 
     static {
-        Skript.registerExpression(ExprSchematicSize.class, Vector.class, ExpressionType.PROPERTY,
+        Skript.registerExpression(ExprSchematicSize.class, BlockVector3.class, ExpressionType.PROPERTY,
                 "[(skematic|fawe)] s(ch|k)em[atic] size of %schematics/strings%",
                 "%schematics/strings%'[s] [(skematic|fawe)] s(ch|k)em[atic] size");
     }
@@ -43,7 +42,7 @@ public class ExprSchematicSize extends SimpleExpression<Vector> {
     }
 
     @Override
-    protected Vector[] get(Event e) {
+    protected BlockVector3[] get(Event e) {
         Schematic schematic;
         if (this.schematic.getSingle(e) instanceof String) {
             String file = (String) this.schematic.getSingle(e);
@@ -61,7 +60,7 @@ public class ExprSchematicSize extends SimpleExpression<Vector> {
             return null;
         }
 
-        return new Vector[] { schematic.getClipboard().getOrigin() };
+        return new BlockVector3[] { schematic.getClipboard().getOrigin() };
     }
 
     @Override
@@ -70,8 +69,8 @@ public class ExprSchematicSize extends SimpleExpression<Vector> {
     }
 
     @Override
-    public Class<? extends Vector> getReturnType() {
-        return Vector.class;
+    public Class<? extends BlockVector3> getReturnType() {
+        return BlockVector3.class;
     }
 
     @Override

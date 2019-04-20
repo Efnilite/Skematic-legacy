@@ -11,8 +11,8 @@ import ch.njol.skript.lang.SkriptParser;
 import ch.njol.skript.lang.Variable;
 import ch.njol.skript.util.AsyncEffect;
 import ch.njol.util.Kleenean;
-import com.efnilite.skematic.objects.SchematicLoader;
 import com.efnilite.skematic.objects.Schematic;
+import com.efnilite.skematic.objects.SchematicLoader;
 import org.bukkit.event.Event;
 
 import java.io.File;

@@ -12,7 +12,7 @@ import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
 import com.efnilite.skematic.objects.Schematic;
 import com.efnilite.skematic.objects.SchematicLoader;
-import com.sk89q.worldedit.Vector;
+import com.sk89q.worldedit.math.BlockVector3;
 import org.bukkit.event.Event;
 
 import java.io.File;
@@ -58,7 +58,7 @@ public class ExprSchematicArea extends SimpleExpression<Number> {
             return null;
         }
 
-        Vector size = schematic.getClipboard().getDimensions();
+        BlockVector3 size = schematic.getClipboard().getDimensions();
 
         double t;
         switch (mark) {

@@ -15,7 +15,7 @@ import com.efnilite.skematic.utils.FaweUtils;
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.regions.CuboidRegion;
 import com.sk89q.worldedit.util.Countable;
-import com.sk89q.worldedit.world.block.BlockStateHolder;
+import com.sk89q.worldedit.world.block.BlockState;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.event.Event;
@@ -58,9 +58,9 @@ public class ExprCuboidRegionBlocksCount extends SimpleExpression<Number> {
         }
 
         EditSession session = FaweUtils.getEditSession(Bukkit.getServer().getWorld(cuboid.getWorld().getName()));
-        List<Countable<BlockStateHolder>> blocks = session.getBlockDistributionWithData(cuboid);
+        List<Countable<BlockState>> blocks = session.getBlockDistributionWithData(cuboid);
 
-        for (Countable<BlockStateHolder> block : blocks) {
+        for (Countable<BlockState> block : blocks) {
             if (Material.getMaterial(block.getID().getBlockType().getName().replace(" ", "_").toUpperCase()) == item.getRandom().getType()) {
                 return new Number[] { block.getAmount() };
             }

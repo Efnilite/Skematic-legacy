@@ -10,7 +10,7 @@ import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
-import com.sk89q.worldedit.Vector;
+import com.sk89q.worldedit.math.BlockVector3;
 import com.sk89q.worldedit.regions.CuboidRegion;
 import org.bukkit.event.Event;
 
@@ -18,13 +18,13 @@ import org.bukkit.event.Event;
 @Description("Gets the minimal or maximal points in a cuboidregion")
 @Examples("set {_point} to the maximum point of player's selection")
 @Since("1.5")
-public class ExprCuboidRegionPoints extends SimpleExpression<Vector> {
+public class ExprCuboidRegionPoints extends SimpleExpression<BlockVector3> {
 
     private int mark;
     private Expression<CuboidRegion> cuboid;
 
     static {
-        Skript.registerExpression(ExprCuboidRegionPoints.class, Vector.class, ExpressionType.PROPERTY,
+        Skript.registerExpression(ExprCuboidRegionPoints.class, BlockVector3.class, ExpressionType.PROPERTY,
                 "[the] [(skematic|fawe)] (1¦min|2¦max)[imum] (coord[inate]|point)[s] of %cuboidregions%",
                 "%cuboidregions%'[s] [(skematic|fawe)] (1¦min|2¦max)[imum] (coord[inate]|point)[s]");
     }
@@ -38,9 +38,9 @@ public class ExprCuboidRegionPoints extends SimpleExpression<Vector> {
     }
 
     @Override
-    protected Vector[] get(Event e) {
+    protected BlockVector3[] get(Event e) {
         CuboidRegion cuboid = this.cuboid.getSingle(e);
-        Vector vector;
+        BlockVector3 vector;
 
         if (cuboid == null) {
             return null;
@@ -57,7 +57,7 @@ public class ExprCuboidRegionPoints extends SimpleExpression<Vector> {
                 vector = null;
                 break;
         }
-        return new Vector[] { vector };
+        return new BlockVector3[] { vector };
     }
 
     @Override
@@ -66,8 +66,8 @@ public class ExprCuboidRegionPoints extends SimpleExpression<Vector> {
     }
 
     @Override
-    public Class<? extends Vector> getReturnType() {
-        return Vector.class;
+    public Class<? extends BlockVector3> getReturnType() {
+        return BlockVector3.class;
     }
 
     @Override

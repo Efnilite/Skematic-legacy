@@ -1,7 +1,7 @@
 import org.apache.tools.ant.filters.ReplaceTokens
 
 group 'com.efnilite.skematic'
-version '2.2'
+version '2.2b'
 
 apply plugin: 'java'
 
@@ -30,12 +30,12 @@ processResources {
 
 dependencies {
 
-    implementation 'org.spigotmc:spigot-api:1.13-R0.1-SNAPSHOT'
+    implementation 'org.spigotmc:spigot-api:1.13.2-R0.1-SNAPSHOT'
 
     implementation 'com.boydti:fawe-api:latest'
-    compile files("libs/FAWE.jar")
-    compile files("libs/Skript.jar")
-    
+
+    compile files("libs/fawe.jar")
+    compile files("libs/skript.jar")
 }
 
 compileJava.options.encoding = 'UTF-8'

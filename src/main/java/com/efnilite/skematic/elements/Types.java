@@ -8,6 +8,7 @@ import ch.njol.skript.registrations.Classes;
 import ch.njol.skript.util.EnumUtils;
 import com.efnilite.skematic.objects.PasteOptions;
 import com.efnilite.skematic.objects.Schematic;
+import com.sk89q.worldedit.extent.clipboard.io.BuiltInClipboardFormat;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormat;
 import com.sk89q.worldedit.regions.CuboidRegion;
 
@@ -110,28 +111,28 @@ public class Types {
                     }
                 }));
 
-        EnumUtils<ClipboardFormat> clipboardFormats = new EnumUtils<>(ClipboardFormat.class, "schematicformat");
+        EnumUtils<BuiltInClipboardFormat> clipboardFormats = new EnumUtils<>(BuiltInClipboardFormat.class, "schematicformat");
         Classes.registerClass(new ClassInfo<>(ClipboardFormat.class, "schematicformat")
-                .defaultExpression(new EventValueExpression<>(ClipboardFormat.class))
+                .defaultExpression(new EventValueExpression<>(BuiltInClipboardFormat.class))
                 .user("schematicformats?")
                 .name("Schematic Format")
                 .description("The format schematics are saved in.")
                 .since("2.0")
-                .parser(new Parser<ClipboardFormat>() {
+                .parser(new Parser<BuiltInClipboardFormat>() {
 
                     @Override
-                    public ClipboardFormat parse(String s, ParseContext context) {
+                    public BuiltInClipboardFormat parse(String s, ParseContext context) {
                         return clipboardFormats.parse(s);
                     }
 
                     @Override
-                    public String toString(ClipboardFormat o, int flags) {
+                    public String toString(BuiltInClipboardFormat o, int flags) {
                         return clipboardFormats.toString(o, flags);
                     }
 
                     @Override
-                    public String toVariableNameString(ClipboardFormat o) {
-                        return "clipboardformat:" + o.name();
+                    public String toVariableNameString(BuiltInClipboardFormat o) {
+                        return "clipboardformat:" + o.getName();
                     }
 
                     @Override

@@ -10,7 +10,7 @@ import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
 import com.efnilite.skematic.objects.Schematic;
-import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormat;
+import com.sk89q.worldedit.extent.clipboard.io.BuiltInClipboardFormat;
 import com.sk89q.worldedit.regions.CuboidRegion;
 import org.bukkit.event.Event;
 
@@ -24,7 +24,7 @@ public class EffSchematicSave extends Effect {
 
     private Expression<CuboidRegion> cuboid;
     private Expression<String> file;
-    private Expression<ClipboardFormat> format;
+    private Expression<BuiltInClipboardFormat> format;
 
     static {
         Skript.registerEffect(EffSchematicSave.class, "save [[the] s(ch|k)ematic] %cuboidregions% to [[the] file] %string% [with %-schematicformat% format]");
@@ -35,17 +35,16 @@ public class EffSchematicSave extends Effect {
 
         cuboid = (Expression<CuboidRegion>) expressions[0];
         file = (Expression<String>) expressions[1];
-        format = (Expression<ClipboardFormat>) expressions[2];
+        format = (Expression<BuiltInClipboardFormat>) expressions[2];
 
         return true;
     }
 
     @Override
-    @SuppressWarnings("deprecation")
     protected void execute(Event e) {
         CuboidRegion cuboid = this.cuboid.getSingle(e);
         String schematic = this.file.getSingle(e);
-        ClipboardFormat format = this.format != null ? this.format.getSingle(e) : ClipboardFormat.SCHEMATIC;
+        BuiltInClipboardFormat format = this.format != null ? this.format.getSingle(e) : BuiltInClipboardFormat.SPONGE_SCHEMATIC;
 
         if (cuboid == null || schematic == null || format == null) {
             return;

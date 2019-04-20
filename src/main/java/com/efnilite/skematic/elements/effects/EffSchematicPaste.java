@@ -16,7 +16,7 @@ import com.efnilite.skematic.utils.FaweUtils;
 import com.sk89q.worldedit.CuboidClipboard;
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.MaxChangedBlocksException;
-import com.sk89q.worldedit.Vector;
+import com.sk89q.worldedit.math.BlockVector3;
 import com.sk89q.worldedit.world.DataException;
 import org.bukkit.Location;
 import org.bukkit.event.Event;
@@ -84,7 +84,7 @@ public class EffSchematicPaste extends Effect {
 
         Set<PasteOptions> optionsSet = new HashSet<>(Arrays.asList(options));
 
-        Vector vector = FaweUtils.toVector(location);
+        BlockVector3 vector = FaweUtils.toVector(location);
         if (angle != null) {
 
             EditSession session = FaweUtils.getEditSession(location.getWorld());

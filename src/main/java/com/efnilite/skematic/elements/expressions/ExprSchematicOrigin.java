@@ -12,7 +12,7 @@ import ch.njol.skript.lang.util.SimpleExpression;
 import ch.njol.util.Kleenean;
 import com.efnilite.skematic.objects.Schematic;
 import com.efnilite.skematic.objects.SchematicLoader;
-import com.sk89q.worldedit.Vector;
+import com.sk89q.worldedit.math.BlockVector3;
 import org.bukkit.event.Event;
 
 import java.io.File;
@@ -22,12 +22,12 @@ import java.nio.file.Paths;
 @Description("Returns the origin location of a schematic (where it was copied and saved)")
 @Examples("set {_origin} to the origin of \"plugins/WorldEdit/schematics/Windows.schematic\"")
 @Since("1.0")
-public class ExprSchematicOrigin extends SimpleExpression<Vector> {
+public class ExprSchematicOrigin extends SimpleExpression<BlockVector3> {
 
     private Expression<?> schematic;
 
     static {
-        Skript.registerExpression(ExprSchematicOrigin.class, Vector.class, ExpressionType.PROPERTY,
+        Skript.registerExpression(ExprSchematicOrigin.class, BlockVector3.class, ExpressionType.PROPERTY,
                 "[(skematic|fawe)] [s(ch|k)em[atic]] origin (location|area) of %schematics/strings%",
                 "%schematics/strings%'[s] [(skematic|fawe)] [s(ch|k)em[atic]] origin (location|area)");
     }
@@ -41,7 +41,7 @@ public class ExprSchematicOrigin extends SimpleExpression<Vector> {
     }
 
     @Override
-    protected Vector[] get(Event e) {
+    protected BlockVector3[] get(Event e) {
         Schematic schematic;
         if (this.schematic.getSingle(e) instanceof String) {
             String file = (String) this.schematic.getSingle(e);
@@ -59,7 +59,7 @@ public class ExprSchematicOrigin extends SimpleExpression<Vector> {
             return null;
         }
 
-        return new Vector[] { schematic.getClipboard().getOrigin() };
+        return new BlockVector3[] { schematic.getClipboard().getOrigin() };
     }
 
     @Override
@@ -68,8 +68,8 @@ public class ExprSchematicOrigin extends SimpleExpression<Vector> {
     }
 
     @Override
-    public Class<? extends Vector> getReturnType() {
-        return Vector.class;
+    public Class<? extends BlockVector3> getReturnType() {
+        return BlockVector3.class;
     }
 
     @Override

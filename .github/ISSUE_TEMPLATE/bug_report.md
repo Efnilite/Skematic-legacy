@@ -32,7 +32,7 @@ If applicable, add screenshots to help explain your problem.
 
 **Versions**
 Bukkit/Spigot version: do `/ver`
-TowerDefence version: do `/ver towerdefence`
+Skematic version: do `/ver skematic`
 
 **Additional context**
 Add any other context about the problem here.
